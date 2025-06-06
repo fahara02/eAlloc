@@ -22,8 +22,8 @@
     <member refid="classdsa_1_1e_alloc_1ab191339864ad951a9b4174ed766ad024" kind="variable"><name>pool_sizes</name></member>
     <member refid="classdsa_1_1e_alloc_1a814a2f70aa21ae4ecdb1caf09a368cbe" kind="variable"><name>pool_count</name></member>
     <member refid="classdsa_1_1e_alloc_1a5db3dffebe3e135f6629a128177ffa9e" kind="variable"><name>initialised</name></member>
-    <member refid="classdsa_1_1e_alloc_1a514b6c98171a7dbc454aaf5356bf77c0" kind="variable"><name>lock_</name></member>
-    <member refid="classdsa_1_1e_alloc_1a793a960f120adb4c49aa602e9730071e" kind="function"><name>setLock</name></member>
+    <member refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" kind="variable"><name>elock_</name></member>
+    <member refid="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830" kind="function"><name>setELock</name></member>
     <member refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" kind="function"><name>eAlloc</name></member>
     <member refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" kind="function"><name>malloc</name></member>
     <member refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kind="function"><name>free</name></member>
@@ -43,23 +43,23 @@
     <member refid="classdsa_1_1e_alloc_1a8dbde398ec79c50e4bec8cb34c237760" kind="function"><name>integrity_walker</name></member>
     <member refid="classdsa_1_1e_alloc_1a799fb29ed4b5e3d4ab9a69cef933576a" kind="function"><name>walk_pool</name></member>
   </compound>
-  <compound refid="classglock_1_1_i_lockable" kind="class"><name>glock::ILockable</name>
-    <member refid="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4" kind="function"><name>lock</name></member>
-    <member refid="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359" kind="function"><name>unlock</name></member>
-    <member refid="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d" kind="function"><name>~ILockable</name></member>
+  <compound refid="classelock_1_1_i_lockable" kind="class"><name>elock::ILockable</name>
+    <member refid="classelock_1_1_i_lockable_1ad5e7a659fdac8df571e98e372f089c6d" kind="function"><name>lock</name></member>
+    <member refid="classelock_1_1_i_lockable_1a09cc35580ed21c05817b8d0d03de4226" kind="function"><name>unlock</name></member>
+    <member refid="classelock_1_1_i_lockable_1a9e6875cae039a99f7820f2a12fee7ef7" kind="function"><name>~ILockable</name></member>
   </compound>
   <compound refid="structdsa_1_1e_alloc_1_1_integrity_result" kind="struct"><name>dsa::eAlloc::IntegrityResult</name>
     <member refid="structdsa_1_1e_alloc_1_1_integrity_result_1a3ed875c17b3a7888028d1b68c448cfa7" kind="variable"><name>prev_status</name></member>
     <member refid="structdsa_1_1e_alloc_1_1_integrity_result_1a189458b4e661e866fc5993a44c6b4936" kind="variable"><name>status</name></member>
   </compound>
-  <compound refid="classglock_1_1_lock_guard" kind="class"><name>glock::LockGuard</name>
-    <member refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" kind="variable"><name>lock_</name></member>
-    <member refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" kind="variable"><name>acquired_</name></member>
-    <member refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kind="function"><name>LockGuard</name></member>
-    <member refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" kind="function"><name>~LockGuard</name></member>
-    <member refid="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" kind="function"><name>acquired</name></member>
-    <member refid="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0" kind="function"><name>LockGuard</name></member>
-    <member refid="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217" kind="function"><name>operator=</name></member>
+  <compound refid="classelock_1_1_lock_guard" kind="class"><name>elock::LockGuard</name>
+    <member refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" kind="variable"><name>lock_</name></member>
+    <member refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" kind="variable"><name>acquired_</name></member>
+    <member refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kind="function"><name>LockGuard</name></member>
+    <member refid="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" kind="function"><name>~LockGuard</name></member>
+    <member refid="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" kind="function"><name>acquired</name></member>
+    <member refid="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8" kind="function"><name>LockGuard</name></member>
+    <member refid="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca" kind="function"><name>operator=</name></member>
   </compound>
   <compound refid="class_l_o_g_1_1_logger" kind="class"><name>LOG::Logger</name>
     <member refid="class_l_o_g_1_1_logger_1a66fa94eef5664a1216f603a1793b09ca" kind="typedef"><name>LogCallback</name></member>
@@ -124,7 +124,7 @@
     <member refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" kind="function"><name>destroy</name></member>
     <member refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" kind="function"><name>operator==</name></member>
     <member refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" kind="function"><name>operator!=</name></member>
-    <member refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" kind="function"><name>setLock</name></member>
+    <member refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" kind="function"><name>setLock</name></member>
   </compound>
   <compound refid="structdsa_1_1e_alloc_1_1_storage_report" kind="struct"><name>dsa::eAlloc::StorageReport</name>
     <member refid="structdsa_1_1e_alloc_1_1_storage_report_1aafeefd79a7a5bee5ab538e9bb9feb539" kind="variable"><name>totalFreeSpace</name></member>
@@ -212,7 +212,7 @@
   </compound>
   <compound refid="namespacedsa" kind="namespace"><name>dsa</name>
   </compound>
-  <compound refid="namespaceglock" kind="namespace"><name>glock</name>
+  <compound refid="namespaceelock" kind="namespace"><name>elock</name>
   </compound>
   <compound refid="namespace_l_o_g" kind="namespace"><name>LOG</name>
     <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043" kind="enum"><name>Level</name></member>

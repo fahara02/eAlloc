@@ -72,7 +72,7 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc7ControlE"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc11BlockHeaderE"><code class="docutils literal notranslate"><span class="pre">BlockHeader</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6WalkerE"><code class="docutils literal notranslate"><span class="pre">Walker</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc7setLockEPN5glock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE"><code class="docutils literal notranslate"><span class="pre">setELock()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6eAllocEPv6size_t"><code class="docutils literal notranslate"><span class="pre">eAlloc()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6mallocE6size_t"><code class="docutils literal notranslate"><span class="pre">malloc()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc4freeEPv"><code class="docutils literal notranslate"><span class="pre">free()</span></code></a></li>
@@ -97,13 +97,13 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc10pool_sizesE"><code class="docutils literal notranslate"><span class="pre">pool_sizes</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc10pool_countE"><code class="docutils literal notranslate"><span class="pre">pool_count</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc11initialisedE"><code class="docutils literal notranslate"><span class="pre">initialised</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6elock_E"><code class="docutils literal notranslate"><span class="pre">elock_</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#_CPPv4N5glock9ILockableE"><code class="docutils literal notranslate"><span class="pre">glock::ILockable</span></code></a><ul>
-<li><a class="reference internal" href="#_CPPv4N5glock9ILockable4lockE8uint32_t"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9ILockable6unlockEv"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9ILockableD0Ev"><code class="docutils literal notranslate"><span class="pre">~ILockable()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">elock::ILockable</span></code></a><ul>
+<li><a class="reference internal" href="#_CPPv4N5elock9ILockable4lockE8uint32_t"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9ILockable6unlockEv"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9ILockableD0Ev"><code class="docutils literal notranslate"><span class="pre">~ILockable()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc15IntegrityResultE"><code class="docutils literal notranslate"><span class="pre">dsa::eAlloc::IntegrityResult</span></code></a><ul>
@@ -111,14 +111,14 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc15IntegrityResult6statusE"><code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuardE"><code class="docutils literal notranslate"><span class="pre">glock::LockGuard</span></code></a><ul>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuard9LockGuardER9ILockable8uint32_t"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuardD0Ev"><code class="docutils literal notranslate"><span class="pre">~LockGuard()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4NK5glock9LockGuard8acquiredEv"><code class="docutils literal notranslate"><span class="pre">acquired()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuard9LockGuardERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuardaSERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuard5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N5glock9LockGuard9acquired_E"><code class="docutils literal notranslate"><span class="pre">acquired_</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuardE"><code class="docutils literal notranslate"><span class="pre">elock::LockGuard</span></code></a><ul>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuard9LockGuardER9ILockable8uint32_t"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuardD0Ev"><code class="docutils literal notranslate"><span class="pre">~LockGuard()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK5elock9LockGuard8acquiredEv"><code class="docutils literal notranslate"><span class="pre">acquired()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuard9LockGuardERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuardaSERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuard5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N5elock9LockGuard9acquired_E"><code class="docutils literal notranslate"><span class="pre">acquired_</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#_CPPv4N3LOG6LoggerE"><code class="docutils literal notranslate"><span class="pre">LOG::Logger</span></code></a><ul>
@@ -185,7 +185,7 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa14StackAllocator7destroyE7pointer"><code class="docutils literal notranslate"><span class="pre">destroy()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3dsa14StackAllocatoreqERK14StackAllocator"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3dsa14StackAllocatorneERK14StackAllocator"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3dsa14StackAllocator7setLockEPN5glock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3dsa14StackAllocator7setLockEPN5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa14StackAllocator10memoryPoolE"><code class="docutils literal notranslate"><span class="pre">memoryPool</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa14StackAllocator9allocatorE"><code class="docutils literal notranslate"><span class="pre">allocator</span></code></a></li>
 </ul>
@@ -276,7 +276,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#_CPPv43dsa"><code class="docutils literal notranslate"><span class="pre">dsa</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv45glock"><code class="docutils literal notranslate"><span class="pre">glock</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv45elock"><code class="docutils literal notranslate"><span class="pre">elock</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv43LOG"><code class="docutils literal notranslate"><span class="pre">LOG</span></code></a><ul>
 <li><a class="reference internal" href="#_CPPv4N3LOG5LevelE"><code class="docutils literal notranslate"><span class="pre">Level</span></code></a><ul>
 <li><a class="reference internal" href="#_CPPv4N3LOG5Level5DEBUGE"><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></a></li>
@@ -370,13 +370,13 @@ TLSF (Two-Level Segregate Fit) is a general-purpose dynamic memory allocator des
 - Suitable for both MCU and host</p>
 <p>Other Features:
 - StackAllocator for STL compatibility
-- Platform-adaptive RAII lock guards (glock::ILockable, glock::LockGuard)
+- Platform-adaptive RAII elock guards (elock::IELockable, elock::ELockGuard)
 - Minimal STL bloat (only on host)
 - GoogleTest support for unit tests</p>
 </section>
 <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
-<p>Get started with eAlloc in just a few lines. The API is the same for embedded MCUs and PC/host builds—just use the right lock adapter for your platform.</p>
+<p>Get started with eAlloc in just a few lines. The API is the same for embedded MCUs and PC/host builds—just use the right elock adapter for your platform.</p>
 <section id="platform-support">
 <h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading"></a></h2>
 <ul class="simple">
@@ -385,19 +385,19 @@ TLSF (Two-Level Segregate Fit) is a general-purpose dynamic memory allocator des
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For thread safety, always set a lock via <code class="docutils literal notranslate"><span class="pre">alloc.setLock(&amp;mutex)</span></code>.
-Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex</span></code> for host/PC, or the appropriate adapter for your platform.</p>
+<p>For thread safety, always set a elock via <code class="docutils literal notranslate"><span class="pre">alloc.setELock(&amp;mutex)</span></code>.
+Use <code class="docutils literal notranslate"><span class="pre">elock::StdMutex</span></code> for host/PC, or the appropriate adapter for your platform.</p>
 </div>
 </section>
 <section id="mcu-embedded-freertos">
 <h2>MCU/Embedded (FreeRTOS)<a class="headerlink" href="#mcu-embedded-freertos" title="Link to this heading"></a></h2>
 <p>A minimal, thread-safe allocator for FreeRTOS:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;eAlloc.hpp&gt;</span>
-<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalLock.hpp&gt;</span>
+<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalELock.hpp&gt;</span>
 <span class="linenos">3</span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pool</span><span class="p">[</span><span class="mi">4096</span><span class="p">];</span>
-<span class="linenos">4</span><span class="n">glock</span><span class="o">::</span><span class="n">FreeRTOSMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">xSemaphoreCreateMutex</span><span class="p">());</span>
+<span class="linenos">4</span><span class="n">elock</span><span class="o">::</span><span class="n">FreeRTOSMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">xSemaphoreCreateMutex</span><span class="p">());</span>
 <span class="linenos">5</span><span class="n">dsa</span><span class="o">::</span><span class="n">eAlloc</span><span class="w"> </span><span class="nf">alloc</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pool</span><span class="p">));</span>
-<span class="linenos">6</span><span class="n">alloc</span><span class="p">.</span><span class="n">setLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+<span class="linenos">6</span><span class="n">alloc</span><span class="p">.</span><span class="n">setELock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
 <span class="linenos">7</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">malloc</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
 <span class="linenos">8</span><span class="n">alloc</span><span class="p">.</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </pre></div>
@@ -407,14 +407,14 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 <h2>MCU/Embedded (ESP-IDF)<a class="headerlink" href="#mcu-embedded-esp-idf" title="Link to this heading"></a></h2>
 <p>A minimal, thread-safe allocator for ESP-IDF (ESP32/ESP8266):</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;eAlloc.hpp&gt;</span>
-<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalLock.hpp&gt;</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalELock.hpp&gt;</span>
 <span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;freertos/FreeRTOS.h&gt;</span>
 <span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;freertos/semphr.h&gt;</span>
 <span class="linenos"> 5</span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pool</span><span class="p">[</span><span class="mi">4096</span><span class="p">];</span>
 <span class="linenos"> 6</span><span class="n">SemaphoreHandle_t</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xSemaphoreCreateMutex</span><span class="p">();</span>
-<span class="linenos"> 7</span><span class="n">glock</span><span class="o">::</span><span class="n">FreeRTOSMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">sem</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="n">elock</span><span class="o">::</span><span class="n">FreeRTOSMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">sem</span><span class="p">);</span>
 <span class="linenos"> 8</span><span class="n">dsa</span><span class="o">::</span><span class="n">eAlloc</span><span class="w"> </span><span class="nf">alloc</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pool</span><span class="p">));</span>
-<span class="linenos"> 9</span><span class="n">alloc</span><span class="p">.</span><span class="n">setLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="n">alloc</span><span class="p">.</span><span class="n">setELock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
 <span class="linenos">10</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">malloc</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
 <span class="linenos">11</span><span class="n">alloc</span><span class="p">.</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </pre></div>
@@ -424,12 +424,12 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 <h2>PC/Host (std::timed_mutex)<a class="headerlink" href="#pc-host-std-timed-mutex" title="Link to this heading"></a></h2>
 <p>A minimal, thread-safe allocator for desktop/host:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;eAlloc.hpp&gt;</span>
-<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalLock.hpp&gt;</span>
+<span class="linenos">2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;globalELock.hpp&gt;</span>
 <span class="linenos">3</span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pool</span><span class="p">[</span><span class="mi">4096</span><span class="p">];</span>
 <span class="linenos">4</span><span class="n">std</span><span class="o">::</span><span class="n">timed_mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
-<span class="linenos">5</span><span class="n">glock</span><span class="o">::</span><span class="n">StdMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
+<span class="linenos">5</span><span class="n">elock</span><span class="o">::</span><span class="n">StdMutex</span><span class="w"> </span><span class="nf">mutex</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span>
 <span class="linenos">6</span><span class="n">dsa</span><span class="o">::</span><span class="n">eAlloc</span><span class="w"> </span><span class="nf">alloc</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pool</span><span class="p">));</span>
-<span class="linenos">7</span><span class="n">alloc</span><span class="p">.</span><span class="n">setLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
+<span class="linenos">7</span><span class="n">alloc</span><span class="p">.</span><span class="n">setELock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">);</span>
 <span class="linenos">8</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">malloc</span><span class="p">(</span><span class="mi">128</span><span class="p">);</span>
 <span class="linenos">9</span><span class="n">alloc</span><span class="p">.</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 </pre></div>
@@ -452,7 +452,7 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 <section id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
 <p class="rubric">Main Classes</p>
-<p class="rubric">Locking Interfaces</p>
+<p class="rubric">ELocking Interfaces</p>
 <p class="rubric">Functions</p>
 <p class="rubric">Full API Index</p>
 <dl class="cpp struct">
@@ -547,8 +547,8 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc7setLockEPN5glock9ILockableE">
-<span id="_CPPv3N3dsa6eAlloc7setLockEPN5glock9ILockableE"></span><span id="_CPPv2N3dsa6eAlloc7setLockEPN5glock9ILockableE"></span><span id="dsa::eAlloc::setLock__glock::ILockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a793a960f120adb4c49aa602e9730071e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45glock" title="glock"><span class="n"><span class="pre">glock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5glock9ILockableE" title="glock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc7setLockEPN5glock9ILockableE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE">
+<span id="_CPPv3N3dsa6eAlloc8setELockEPN5elock10IELockableE"></span><span id="_CPPv2N3dsa6eAlloc8setELockEPN5elock10IELockableE"></span><span id="dsa::eAlloc::setELock__elock::IELockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setELock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IELockable</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -860,35 +860,35 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 </dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc5lock_E">
-<span id="_CPPv3N3dsa6eAlloc5lock_E"></span><span id="_CPPv2N3dsa6eAlloc5lock_E"></span><span id="dsa::eAlloc::lock___glock::ILockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a514b6c98171a7dbc454aaf5356bf77c0"></span><a class="reference internal" href="#_CPPv45glock" title="glock"><span class="n"><span class="pre">glock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5glock9ILockableE" title="glock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">lock_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc5lock_E" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc6elock_E">
+<span id="_CPPv3N3dsa6eAlloc6elock_E"></span><span id="_CPPv2N3dsa6eAlloc6elock_E"></span><span id="dsa::eAlloc::elock___elock::IELockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a"></span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IELockable</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">elock_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc6elock_E" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
 </dd></dl>
 
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9ILockableE">
-<span id="_CPPv3N5glock9ILockableE"></span><span id="_CPPv2N5glock9ILockableE"></span><span id="glock::ILockable"></span><span class="target" id="classglock_1_1_i_lockable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILockable</span></span></span><a class="headerlink" href="#_CPPv4N5glock9ILockableE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9ILockableE">
+<span id="_CPPv3N5elock9ILockableE"></span><span id="_CPPv2N5elock9ILockableE"></span><span id="elock::ILockable"></span><span class="target" id="classelock_1_1_i_lockable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILockable</span></span></span><a class="headerlink" href="#_CPPv4N5elock9ILockableE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;<a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>&gt;</em></div>
 <p>Abstract lockable interface for platform-agnostic mutexes. </p>
-<p>All platform adapters must implement <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">ILockable</span></a>. </p>
+<p>All platform adapters must implement <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">ILockable</span></a>. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9ILockable4lockE8uint32_t">
-<span id="_CPPv3N5glock9ILockable4lockE8uint32_t"></span><span id="_CPPv2N5glock9ILockable4lockE8uint32_t"></span><span id="glock::ILockable::lock__uint32_t"></span><span class="target" id="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0xFFFFFFFF</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N5glock9ILockable4lockE8uint32_t" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9ILockable4lockE8uint32_t">
+<span id="_CPPv3N5elock9ILockable4lockE8uint32_t"></span><span id="_CPPv2N5elock9ILockable4lockE8uint32_t"></span><span id="elock::ILockable::lock__uint32_t"></span><span class="target" id="classelock_1_1_i_lockable_1ad5e7a659fdac8df571e98e372f089c6d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0xFFFFFFFF</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N5elock9ILockable4lockE8uint32_t" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9ILockable6unlockEv">
-<span id="_CPPv3N5glock9ILockable6unlockEv"></span><span id="_CPPv2N5glock9ILockable6unlockEv"></span><span id="glock::ILockable::unlock"></span><span class="target" id="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unlock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N5glock9ILockable6unlockEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9ILockable6unlockEv">
+<span id="_CPPv3N5elock9ILockable6unlockEv"></span><span id="_CPPv2N5elock9ILockable6unlockEv"></span><span id="elock::ILockable::unlock"></span><span class="target" id="classelock_1_1_i_lockable_1a09cc35580ed21c05817b8d0d03de4226"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unlock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N5elock9ILockable6unlockEv" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9ILockableD0Ev">
-<span id="_CPPv3N5glock9ILockableD0Ev"></span><span id="_CPPv2N5glock9ILockableD0Ev"></span><span id="glock::ILockable::~ILockable"></span><span class="target" id="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ILockable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5glock9ILockableD0Ev" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9ILockableD0Ev">
+<span id="_CPPv3N5elock9ILockableD0Ev"></span><span id="_CPPv2N5elock9ILockableD0Ev"></span><span id="elock::ILockable::~ILockable"></span><span class="target" id="classelock_1_1_i_lockable_1a9e6875cae039a99f7820f2a12fee7ef7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ILockable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5elock9ILockableD0Ev" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -916,48 +916,48 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 </dd></dl>
 
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuardE">
-<span id="_CPPv3N5glock9LockGuardE"></span><span id="_CPPv2N5glock9LockGuardE"></span><span id="glock::LockGuard"></span><span class="target" id="classglock_1_1_lock_guard"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><a class="headerlink" href="#_CPPv4N5glock9LockGuardE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuardE">
+<span id="_CPPv3N5elock9LockGuardE"></span><span id="_CPPv2N5elock9LockGuardE"></span><span id="elock::LockGuard"></span><span class="target" id="classelock_1_1_lock_guard"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuardE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;<a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>&gt;</em></div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuard9LockGuardER9ILockable8uint32_t">
-<span id="_CPPv3N5glock9LockGuard9LockGuardER9ILockable8uint32_t"></span><span id="_CPPv2N5glock9LockGuard9LockGuardER9ILockable8uint32_t"></span><span id="glock::LockGuard::LockGuard__ILockableR.uint32_t"></span><span class="target" id="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N5glock9ILockableE" title="glock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lock</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0xFFFFFFFF</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5glock9LockGuard9LockGuardER9ILockable8uint32_t" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuard9LockGuardER9ILockable8uint32_t">
+<span id="_CPPv3N5elock9LockGuard9LockGuardER9ILockable8uint32_t"></span><span id="_CPPv2N5elock9LockGuard9LockGuardER9ILockable8uint32_t"></span><span id="elock::LockGuard::LockGuard__ILockableR.uint32_t"></span><span class="target" id="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N5elock9ILockableE" title="elock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">lock</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timeout_ms</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0xFFFFFFFF</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5elock9LockGuard9LockGuardER9ILockable8uint32_t" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuardD0Ev">
-<span id="_CPPv3N5glock9LockGuardD0Ev"></span><span id="_CPPv2N5glock9LockGuardD0Ev"></span><span id="glock::LockGuard::~LockGuard"></span><span class="target" id="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~LockGuard</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5glock9LockGuardD0Ev" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuardD0Ev">
+<span id="_CPPv3N5elock9LockGuardD0Ev"></span><span id="_CPPv2N5elock9LockGuardD0Ev"></span><span id="elock::LockGuard::~LockGuard"></span><span class="target" id="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~LockGuard</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5elock9LockGuardD0Ev" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK5glock9LockGuard8acquiredEv">
-<span id="_CPPv3NK5glock9LockGuard8acquiredEv"></span><span id="_CPPv2NK5glock9LockGuard8acquiredEv"></span><span id="glock::LockGuard::acquiredC"></span><span class="target" id="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acquired</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5glock9LockGuard8acquiredEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK5elock9LockGuard8acquiredEv">
+<span id="_CPPv3NK5elock9LockGuard8acquiredEv"></span><span id="_CPPv2NK5elock9LockGuard8acquiredEv"></span><span id="elock::LockGuard::acquiredC"></span><span class="target" id="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acquired</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK5elock9LockGuard8acquiredEv" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuard9LockGuardERK9LockGuard">
-<span id="_CPPv3N5glock9LockGuard9LockGuardERK9LockGuard"></span><span id="_CPPv2N5glock9LockGuard9LockGuardERK9LockGuard"></span><span id="glock::LockGuard::LockGuard__LockGuardCR"></span><span class="target" id="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0"></span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5glock9LockGuard9LockGuardERK9LockGuard" title="glock::LockGuard::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N5glock9LockGuard9LockGuardERK9LockGuard" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuard9LockGuardERK9LockGuard">
+<span id="_CPPv3N5elock9LockGuard9LockGuardERK9LockGuard"></span><span id="_CPPv2N5elock9LockGuard9LockGuardERK9LockGuard"></span><span id="elock::LockGuard::LockGuard__LockGuardCR"></span><span class="target" id="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8"></span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5elock9LockGuard9LockGuardERK9LockGuard" title="elock::LockGuard::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuard9LockGuardERK9LockGuard" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuardaSERK9LockGuard">
-<span id="_CPPv3N5glock9LockGuardaSERK9LockGuard"></span><span id="_CPPv2N5glock9LockGuardaSERK9LockGuard"></span><span id="glock::LockGuard::assign-operator__LockGuardCR"></span><span class="target" id="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217"></span><a class="reference internal" href="#_CPPv4N5glock9LockGuardE" title="glock::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5glock9LockGuardE" title="glock::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N5glock9LockGuardaSERK9LockGuard" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuardaSERK9LockGuard">
+<span id="_CPPv3N5elock9LockGuardaSERK9LockGuard"></span><span id="_CPPv2N5elock9LockGuardaSERK9LockGuard"></span><span id="elock::LockGuard::assign-operator__LockGuardCR"></span><span class="target" id="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca"></span><a class="reference internal" href="#_CPPv4N5elock9LockGuardE" title="elock::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N5elock9LockGuardE" title="elock::LockGuard"><span class="n"><span class="pre">LockGuard</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuardaSERK9LockGuard" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuard5lock_E">
-<span id="_CPPv3N5glock9LockGuard5lock_E"></span><span id="_CPPv2N5glock9LockGuard5lock_E"></span><span id="glock::LockGuard::lock___ILockableR"></span><span class="target" id="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3"></span><a class="reference internal" href="#_CPPv4N5glock9ILockableE" title="glock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">lock_</span></span></span><a class="headerlink" href="#_CPPv4N5glock9LockGuard5lock_E" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuard5lock_E">
+<span id="_CPPv3N5elock9LockGuard5lock_E"></span><span id="_CPPv2N5elock9LockGuard5lock_E"></span><span id="elock::LockGuard::lock___ILockableR"></span><span class="target" id="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044"></span><a class="reference internal" href="#_CPPv4N5elock9ILockableE" title="elock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">lock_</span></span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuard5lock_E" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N5glock9LockGuard9acquired_E">
-<span id="_CPPv3N5glock9LockGuard9acquired_E"></span><span id="_CPPv2N5glock9LockGuard9acquired_E"></span><span id="glock::LockGuard::acquired___b"></span><span class="target" id="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acquired_</span></span></span><a class="headerlink" href="#_CPPv4N5glock9LockGuard9acquired_E" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuard9acquired_E">
+<span id="_CPPv3N5elock9LockGuard9acquired_E"></span><span id="_CPPv2N5elock9LockGuard9acquired_E"></span><span id="elock::LockGuard::acquired___b"></span><span class="target" id="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acquired_</span></span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuard9acquired_E" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -1216,7 +1216,7 @@ Use <code class="docutils literal notranslate"><span class="pre">glock::StdMutex
 Usage: <a class="reference internal" href="#classdsa_1_1_stack_allocator"><span class="std std-ref">dsa::StackAllocator&lt;int, 1024&gt;</span></a> alloc; std::vector&lt;int, dsa::StackAllocator&lt;int, 1024&gt;&gt; v(alloc);</p>
 <p>Thread Safety:<ul class="simple">
 <li><p>Not thread-safe by default.</p></li>
-<li><p>To enable, call <a class="reference internal" href="#classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579"><span class="std std-ref">setLock()</span></a> with a <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">glock::ILockable</span></a>* mutex adapter.</p></li>
+<li><p>To enable, call <a class="reference internal" href="#classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f"><span class="std std-ref">setLock()</span></a> with a <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">elock::ILockable</span></a>* mutex adapter.</p></li>
 <li><p>No STL bloat for MCU: lock is optional and not used unless set. </p></li>
 </ul>
 </p>
@@ -1377,14 +1377,14 @@ Usage: <a class="reference internal" href="#classdsa_1_1_stack_allocator"><span 
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3dsa14StackAllocator7setLockEPN5glock9ILockableE">
-<span id="_CPPv3N3dsa14StackAllocator7setLockEPN5glock9ILockableE"></span><span id="_CPPv2N3dsa14StackAllocator7setLockEPN5glock9ILockableE"></span><span id="dsa::StackAllocator::setLock__glock::ILockableP"></span><span class="target" id="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45glock" title="glock"><span class="n"><span class="pre">glock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5glock9ILockableE" title="glock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa14StackAllocator7setLockEPN5glock9ILockableE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dsa14StackAllocator7setLockEPN5elock9ILockableE">
+<span id="_CPPv3N3dsa14StackAllocator7setLockEPN5elock9ILockableE"></span><span id="_CPPv2N3dsa14StackAllocator7setLockEPN5elock9ILockableE"></span><span id="dsa::StackAllocator::setLock__elock::ILockableP"></span><span class="target" id="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5elock9ILockableE" title="elock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa14StackAllocator7setLockEPN5elock9ILockableE" title="Link to this definition"></a><br /></dt>
 <dd><p>Sets a lock for thread safety (optional, MCU/host agnostic). </p>
 <p>
-If not set, the allocator is not thread-safe. For host builds, use glock::StdMutex. For embedded, use the appropriate platform adapter. Locking is delegated to <a class="reference internal" href="#classdsa_1_1e_alloc"><span class="std std-ref">eAlloc</span></a>. </p>
+If not set, the allocator is not thread-safe. For host builds, use elock::StdMutex. For embedded, use the appropriate platform adapter. Locking is delegated to <a class="reference internal" href="#classdsa_1_1e_alloc"><span class="std std-ref">eAlloc</span></a>. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lock</strong> – Pointer to a <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">glock::ILockable</span></a> mutex adapter.</p>
+<dd class="field-odd"><p><strong>lock</strong> – Pointer to a <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">elock::ILockable</span></a> mutex adapter.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1847,8 +1847,8 @@ If not set, the allocator is not thread-safe. For host builds, use glock::StdMut
 <dd></dd></dl>
 
 <dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv45glock">
-<span id="_CPPv35glock"></span><span id="_CPPv25glock"></span><span id="glock"></span><span class="target" id="namespaceglock"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">glock</span></span></span><a class="headerlink" href="#_CPPv45glock" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv45elock">
+<span id="_CPPv35elock"></span><span id="_CPPv25elock"></span><span id="elock"></span><span class="target" id="namespaceelock"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">elock</span></span></span><a class="headerlink" href="#_CPPv45elock" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp type">
@@ -2043,18 +2043,18 @@ If not set, the allocator is not thread-safe. For host builds, use glock::StdMut
 <div class="docutils container">
 <em>#include “<a class="reference internal" href="#tlsf_8hpp"><span class="std std-ref">tlsf.hpp</span></a>”</em></div>
 <div class="docutils container">
-<em>#include “<a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>”</em></div>
+<em>#include “globalELock.hpp”</em></div>
 <p>TLSF-based MCU/host-agnostic memory allocator with multi-pool support. </p>
-<p>Provides efficient, deterministic allocation and deallocation with minimal fragmentation. Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via glock.</p>
+<p>Provides efficient, deterministic allocation and deallocation with minimal fragmentation. Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via elock.</p>
 <p>Usage:<ul class="simple">
 <li><p>Use <a class="reference internal" href="#classdsa_1_1e_alloc"><span class="std std-ref">dsa::eAlloc</span></a> for all heap management (malloc/free, STL, or custom allocators).</p></li>
-<li><p>For thread safety, call setLock() with a <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">glock::ILockable</span></a>* mutex adapter.</p></li>
+<li><p>For thread safety, call setELock() with a elock::IELockable* mutex adapter.</p></li>
 <li><p>Add or remove pools as needed for flexible memory regions.</p></li>
 </ul>
 </p>
 <p>Thread Safety:<ul class="simple">
-<li><p>Not thread-safe by default. To enable, set a lock (see <a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>).</p></li>
-<li><p>Only one lock per allocator instance is recommended. </p></li>
+<li><p>Not thread-safe by default. To enable, set a elock (see globalELock.hpp).</p></li>
+<li><p>Only one elock per allocator instance is recommended. </p></li>
 </ul>
 </p>
 </dd></dl>
@@ -2067,9 +2067,9 @@ If not set, the allocator is not thread-safe. For host builds, use glock::StdMut
 <p>Universal RAII lock guard and platform lock adapter system for eAlloc. </p>
 <p>Provides MCU-agnostic, minimal-overhead locking for critical sections and memory allocators. Selects the appropriate mutex adapter for each platform via CMake and preprocessor macros.</p>
 <p>Usage:<ul class="simple">
-<li><p>Use <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">glock::ILockable</span></a> as the abstract mutex interface.</p></li>
-<li><p>Use <a class="reference internal" href="#classglock_1_1_lock_guard"><span class="std std-ref">glock::LockGuard</span></a> for RAII critical sections.</p></li>
-<li><p>Use the correct adapter (e.g. glock::FreeRTOSMutex, glock::StdMutex) for your platform.</p></li>
+<li><p>Use <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">elock::ILockable</span></a> as the abstract mutex interface.</p></li>
+<li><p>Use <a class="reference internal" href="#classelock_1_1_lock_guard"><span class="std std-ref">elock::LockGuard</span></a> for RAII critical sections.</p></li>
+<li><p>Use the correct adapter (e.g. elock::FreeRTOSMutex, elock::StdMutex) for your platform.</p></li>
 <li><p>Platform is selected by CMake option and macro (EALLOC_PC_HOST, FREERTOS, etc).</p></li>
 </ul>
 </p>
@@ -2116,7 +2116,7 @@ If not set, the allocator is not thread-safe. For host builds, use glock::StdMut
 <div class="docutils container">
 <em>#include &lt;stdexcept&gt;</em></div>
 <p>MCU/host-agnostic C++ allocator using a stack-allocated memory pool and TLSF. </p>
-<p>This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via <a class="reference internal" href="#classglock_1_1_i_lockable"><span class="std std-ref">glock::ILockable</span></a>. It is intended for use with STL containers or custom allocation needs where a fixed-size stack buffer is desired. </p>
+<p>This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">elock::ILockable</span></a>. It is intended for use with STL containers or custom allocation needs where a fixed-size stack buffer is desired. </p>
 </dd></dl>
 
 <dl>

@@ -35,9 +35,9 @@
         <link refid="_stack_allocator_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -52,12 +52,6 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>globalLock.hpp</label>
-        <link refid="global_lock_8hpp"/>
-        <childnode refid="21" relation="include">
         </childnode>
       </node>
       <node id="14">
@@ -93,7 +87,7 @@
       <node id="6">
         <label>cstdarg</label>
       </node>
-      <node id="22">
+      <node id="21">
         <label>cstddef</label>
       </node>
       <node id="13">
@@ -111,17 +105,17 @@
       <node id="9">
         <label>functional</label>
       </node>
+      <node id="20">
+        <label>globalELock.hpp</label>
+      </node>
       <node id="19">
         <label>memory</label>
       </node>
       <node id="10">
         <label>stdarg.h</label>
       </node>
-      <node id="23">
+      <node id="22">
         <label>stdexcept</label>
-      </node>
-      <node id="21">
-        <label>stdint.h</label>
       </node>
       <node id="11">
         <label>string</label>
@@ -137,7 +131,7 @@
 <para>MCU/host-agnostic C++ allocator using a stack-allocated memory pool and TLSF. </para>
     </briefdescription>
     <detaileddescription>
-<para>This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>. It is intended for use with STL containers or custom allocation needs where a fixed-size stack buffer is desired. </para>
+<para>This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via <ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref>. It is intended for use with STL containers or custom allocation needs where a fixed-size stack buffer is desired. </para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
@@ -195,7 +189,7 @@
 <codeline lineno="114"><highlight class="normal"></highlight></codeline>
 <codeline lineno="120" refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other);<sp/>}</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129" refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" kindref="member">setLock</ref>(<ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.setLock(lock);<sp/>}</highlight></codeline>
+<codeline lineno="129" refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" kindref="member">setLock</ref>(<ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.setLock(lock);<sp/>}</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="132" refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>[PoolSize];<sp/></highlight></codeline>

@@ -3,21 +3,21 @@
  * @brief TLSF-based MCU/host-agnostic memory allocator with multi-pool support.
  *
  * Provides efficient, deterministic allocation and deallocation with minimal fragmentation.
- * Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via glock.
+ * Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via elock.
  *
  * Usage:
  *   - Use dsa::eAlloc for all heap management (malloc/free, STL, or custom allocators).
- *   - For thread safety, call setLock() with a glock::ILockable* mutex adapter.
+ *   - For thread safety, call setELock() with a elock::IELockable* mutex adapter.
  *   - Add or remove pools as needed for flexible memory regions.
  *
  * Thread Safety:
- *   - Not thread-safe by default. To enable, set a lock (see globalLock.hpp).
- *   - Only one lock per allocator instance is recommended.
+ *   - Not thread-safe by default. To enable, set a elock (see globalELock.hpp).
+ *   - Only one elock per allocator instance is recommended.
  */
 #pragma once
 #include "Logger.hpp"
 #include "tlsf.hpp"
-#include "globalLock.hpp"
+#include "globalELock.hpp"
 
 namespace dsa
 {
@@ -34,7 +34,7 @@ class eAlloc
    public:
     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
 
-    void setLock(glock::ILockable* lock) { lock_ = lock; }
+    void setELock(elock::IELockable* lock) { elock_ = lock; }
 
     /**
      * @brief Constructs an eAlloc instance with an initial memory pool.
@@ -233,7 +233,7 @@ class eAlloc
     size_t pool_sizes[MAX_POOL];  ///< store all pool sizes
     size_t pool_count = 0;        ///< Number of active pools.
     bool initialised = false;     ///< Flag indicating if the allocator is initialized.
-    glock::ILockable* lock_ = nullptr;
+    elock::IELockable* elock_ = nullptr;
     /**
      * @brief Walks through the blocks in a pool with a specified walker function.
      * @param pool Pointer to the pool to walk.

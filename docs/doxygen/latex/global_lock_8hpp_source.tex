@@ -20,28 +20,28 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <chrono>}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00037}\mbox{\hyperlink{namespaceglock}{00037}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceglock}{glock}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00037}\mbox{\hyperlink{namespaceelock}{00037}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceelock}{elock}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00038}00038\ \textcolor{comment}{//\ Do\ NOT\ use\ 'using\ namespace\ std;'\ anywhere\ in\ this\ file.\ All\ std\ types\ must\ be\ referenced\ as\ std::.}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00045}\mbox{\hyperlink{classglock_1_1_i_lockable}{00045}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00045}\mbox{\hyperlink{classelock_1_1_i_lockable}{00045}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00046}00046\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00047}\mbox{\hyperlink{classglock_1_1_i_lockable_a24c2e0a5b14ed3a86cbea4324bc51ab4}{00047}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classglock_1_1_i_lockable_a24c2e0a5b14ed3a86cbea4324bc51ab4}{lock}}(uint32\_t\ timeout\_ms\ =\ 0xFFFFFFFF)\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00048}\mbox{\hyperlink{classglock_1_1_i_lockable_afe48eaef35d7a232f18a4c3a8d5fe359}{00048}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classglock_1_1_i_lockable_afe48eaef35d7a232f18a4c3a8d5fe359}{unlock}}()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00049}\mbox{\hyperlink{classglock_1_1_i_lockable_a9631e2662e2b220b97aac58c27b5b08d}{00049}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classglock_1_1_i_lockable_a9631e2662e2b220b97aac58c27b5b08d}{\string~ILockable}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00047}\mbox{\hyperlink{classelock_1_1_i_lockable_ad5e7a659fdac8df571e98e372f089c6d}{00047}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classelock_1_1_i_lockable_ad5e7a659fdac8df571e98e372f089c6d}{lock}}(uint32\_t\ timeout\_ms\ =\ 0xFFFFFFFF)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00048}\mbox{\hyperlink{classelock_1_1_i_lockable_a09cc35580ed21c05817b8d0d03de4226}{00048}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classelock_1_1_i_lockable_a09cc35580ed21c05817b8d0d03de4226}{unlock}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00049}\mbox{\hyperlink{classelock_1_1_i_lockable_a9e6875cae039a99f7820f2a12fee7ef7}{00049}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classelock_1_1_i_lockable_a9e6875cae039a99f7820f2a12fee7ef7}{\string~ILockable}}()\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00050}00050\ \};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00051}00051\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00052}00052\ \textcolor{comment}{//\ Universal\ RAII\ lock\ guard}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00053}\mbox{\hyperlink{classglock_1_1_lock_guard}{00053}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{LockGuard}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00053}\mbox{\hyperlink{classelock_1_1_lock_guard}{00053}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{LockGuard}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00054}00054\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00055}\mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{00055}}\ \ \ \ \ \mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{LockGuard}}(\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\&\ lock,\ uint32\_t\ timeout\_ms\ =\ 0xFFFFFFFF)}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\_}}(lock),\ \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}}(lock.lock(timeout\_ms))\ \{\}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00057}\mbox{\hyperlink{classglock_1_1_lock_guard_a82a72961e6dd7baca8667b4c94a7811f}{00057}}\ \ \ \ \ \mbox{\hyperlink{classglock_1_1_lock_guard_a82a72961e6dd7baca8667b4c94a7811f}{\string~LockGuard}}()\ \{\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}})\ \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\_}}.unlock();\ \}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00058}\mbox{\hyperlink{classglock_1_1_lock_guard_ac2ea70f877d2288826a1b94963445635}{00058}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classglock_1_1_lock_guard_ac2ea70f877d2288826a1b94963445635}{acquired}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}};\ \}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00059}\mbox{\hyperlink{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0}{00059}}\ \ \ \ \ \mbox{\hyperlink{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0}{LockGuard}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{LockGuard}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00060}\mbox{\hyperlink{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217}{00060}}\ \ \ \ \ \mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{LockGuard}}\&\ \mbox{\hyperlink{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{LockGuard}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00055}\mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{00055}}\ \ \ \ \ \mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{LockGuard}}(\mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\&\ lock,\ uint32\_t\ timeout\_ms\ =\ 0xFFFFFFFF)}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classelock_1_1_lock_guard_a472ae8166cd1fb102519721195f14044}{lock\_}}(lock),\ \mbox{\hyperlink{classelock_1_1_lock_guard_a156037843b070163ae81f254bce32b81}{acquired\_}}(lock.lock(timeout\_ms))\ \{\}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00057}\mbox{\hyperlink{classelock_1_1_lock_guard_ae2e4bdc421adeb77e4c4a7f1399250bf}{00057}}\ \ \ \ \ \mbox{\hyperlink{classelock_1_1_lock_guard_ae2e4bdc421adeb77e4c4a7f1399250bf}{\string~LockGuard}}()\ \{\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classelock_1_1_lock_guard_a156037843b070163ae81f254bce32b81}{acquired\_}})\ \mbox{\hyperlink{classelock_1_1_lock_guard_a472ae8166cd1fb102519721195f14044}{lock\_}}.unlock();\ \}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00058}\mbox{\hyperlink{classelock_1_1_lock_guard_ae263dabf7533cf813161ea42ea065c77}{00058}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classelock_1_1_lock_guard_ae263dabf7533cf813161ea42ea065c77}{acquired}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classelock_1_1_lock_guard_a156037843b070163ae81f254bce32b81}{acquired\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00059}\mbox{\hyperlink{classelock_1_1_lock_guard_af9fcde875965bdc439396a074c0217b8}{00059}}\ \ \ \ \ \mbox{\hyperlink{classelock_1_1_lock_guard_af9fcde875965bdc439396a074c0217b8}{LockGuard}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{LockGuard}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00060}\mbox{\hyperlink{classelock_1_1_lock_guard_ad963b05624fcc754ddae382faade9bca}{00060}}\ \ \ \ \ \mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{LockGuard}}\&\ \mbox{\hyperlink{classelock_1_1_lock_guard_ad963b05624fcc754ddae382faade9bca}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classelock_1_1_lock_guard_a0b11368064442a10b7aaee01aef8b319}{LockGuard}}\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00061}00061\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00062}\mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{00062}}\ \ \ \ \ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\&\ \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\_}};}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00063}\mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{00063}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}};}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00062}\mbox{\hyperlink{classelock_1_1_lock_guard_a472ae8166cd1fb102519721195f14044}{00062}}\ \ \ \ \ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\&\ \mbox{\hyperlink{classelock_1_1_lock_guard_a472ae8166cd1fb102519721195f14044}{lock\_}};}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00063}\mbox{\hyperlink{classelock_1_1_lock_guard_a156037843b070163ae81f254bce32b81}{00063}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classelock_1_1_lock_guard_a156037843b070163ae81f254bce32b81}{acquired\_}};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00064}00064\ \};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00065}00065\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00066}00066\ \textcolor{comment}{//\ -\/-\/-\/\ Platform\ Adapters\ -\/-\/-\/}}
@@ -50,7 +50,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00069}00069\ \textcolor{comment}{//\ FreeRTOS/ESP-\/IDF/Arduino/PlatformIO}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00070}00070\ \textcolor{preprocessor}{\#\ \ include\ "{}freertos/FreeRTOS.h"{}}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00071}00071\ \textcolor{preprocessor}{\#\ \ include\ "{}freertos/semphr.h"{}}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00072}00072\ \textcolor{keyword}{class\ }FreeRTOSMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00072}00072\ \textcolor{keyword}{class\ }FreeRTOSMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00073}00073\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00074}00074\ \ \ \ \ FreeRTOSMutex(SemaphoreHandle\_t\ sem)\ :\ sem\_(sem)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{}
@@ -65,7 +65,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00084}00084\ \textcolor{comment}{//\ POSIX\ pthreads\ (Linux,\ Mac,\ Unix)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00085}00085\ \textcolor{preprocessor}{\#\ \ include\ <pthread.h>}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00086}00086\ \textcolor{preprocessor}{\#\ \ include\ <time.h>}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00087}00087\ \textcolor{keyword}{class\ }PThreadMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00087}00087\ \textcolor{keyword}{class\ }PThreadMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00088}00088\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00089}00089\ \ \ \ \ PThreadMutex(pthread\_mutex\_t*\ mtx)\ :\ mtx\_(mtx)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{}
@@ -87,7 +87,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00106}00106\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00107}00107\ \textcolor{preprocessor}{\#elif\ defined(STM32\_CMSIS\_RTOS)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00108}00108\ \textcolor{preprocessor}{\#\ \ include\ "{}cmsis\_os.h"{}}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00109}00109\ \textcolor{keyword}{class\ }CMSISMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00109}00109\ \textcolor{keyword}{class\ }CMSISMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00110}00110\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00111}00111\ \ \ \ \ CMSISMutex(osMutexId\ \textcolor{keywordtype}{id})\ :\ id\_(id)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ osMutexWait(id\_,\ timeout\_ms)\ ==\ osOK;\ \}}
@@ -98,7 +98,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00117}00117\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00118}00118\ \textcolor{preprocessor}{\#elif\ defined(STM32\_CMSIS\_RTOS2)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00119}00119\ \textcolor{preprocessor}{\#\ \ include\ "{}cmsis\_os2.h"{}}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00120}00120\ \textcolor{keyword}{class\ }CMSIS2Mutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00120}00120\ \textcolor{keyword}{class\ }CMSIS2Mutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00121}00121\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00122}00122\ \ \ \ \ CMSIS2Mutex(osMutexId\_t\ \textcolor{keywordtype}{id})\ :\ id\_(id)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ osMutexAcquire(id\_,\ timeout\_ms)\ ==\ osOK;\ \}}
@@ -109,7 +109,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00128}00128\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00129}00129\ \textcolor{preprocessor}{\#elif\ defined(ZEPHYR)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00130}00130\ \textcolor{preprocessor}{\#\ \ include\ <zephyr/kernel.h>}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00131}00131\ \textcolor{keyword}{class\ }ZephyrMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00131}00131\ \textcolor{keyword}{class\ }ZephyrMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00132}00132\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00133}00133\ \ \ \ \ ZephyrMutex(\textcolor{keyword}{struct}\ k\_mutex*\ mtx)\ :\ mtx\_(mtx)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ k\_mutex\_lock(mtx\_,\ K\_MSEC(timeout\_ms))\ ==\ 0;\ \}}
@@ -120,7 +120,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00139}00139\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00140}00140\ \textcolor{preprocessor}{\#elif\ defined(THREADX)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00141}00141\ \textcolor{preprocessor}{\#\ \ include\ "{}tx\_api.h"{}}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00142}00142\ \textcolor{keyword}{class\ }ThreadXMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00142}00142\ \textcolor{keyword}{class\ }ThreadXMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00143}00143\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00144}00144\ \ \ \ \ ThreadXMutex(TX\_MUTEX*\ mtx)\ :\ mtx\_(mtx)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00145}00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{}
@@ -134,7 +134,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00153}00153\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00154}00154\ \textcolor{preprocessor}{\#elif\ defined(MBED\_OS)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00155}00155\ \textcolor{preprocessor}{\#\ \ include\ "{}mbed.h"{}}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00156}00156\ \textcolor{keyword}{class\ }MbedMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00156}00156\ \textcolor{keyword}{class\ }MbedMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00157}00157\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00158}00158\ \ \ \ \ MbedMutex(rtos::Mutex\&\ mtx)\ :\ mtx\_(mtx)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ mtx\_.trylock\_for(timeout\_ms);\ \}}
@@ -144,7 +144,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00163}00163\ \};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00164}00164\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00165}00165\ \textcolor{preprocessor}{\#elif\ defined(BAREMETAL)}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00166}00166\ \textcolor{keyword}{class\ }DummyMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00166}00166\ \textcolor{keyword}{class\ }DummyMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00167}00167\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00168}00168\ \ \ \ \ DummyMutex()\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t)\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
@@ -153,7 +153,7 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00172}00172\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00173}00173\ \textcolor{preprocessor}{\#elif\ defined(EALLOC\_PC\_HOST)}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00174}00174\ \textcolor{comment}{//\ Host/PC\ -\/\ C++11\ minimal\ STL}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00175}00175\ \textcolor{keyword}{class\ }StdMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\ \{}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00175}00175\ \textcolor{keyword}{class\ }StdMutex\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classelock_1_1_i_lockable}{ILockable}}\ \{}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00176}00176\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00177}00177\ \ \ \ \ StdMutex(std::timed\_mutex\&\ mtx)\ :\ mtx\_(mtx)\ \{\}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock(uint32\_t\ timeout\_ms)\textcolor{keyword}{\ override\ }\{}
@@ -165,9 +165,9 @@
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00184}00184\ \};}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00185}00185\ }
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00186}00186\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00187}00187\ \textcolor{preprocessor}{\#error\ "{}No\ valid\ platform\ adapter\ selected\ for\ glock::ILockable.\ Define\ a\ supported\ platform\ macro\ (e.g.\ EALLOC\_PC\_HOST\ for\ host\ builds,\ FREERTOS,\ BAREMETAL,\ etc.)"{}}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00187}00187\ \textcolor{preprocessor}{\#error\ "{}No\ valid\ platform\ adapter\ selected\ for\ elock::ILockable.\ Define\ a\ supported\ platform\ macro\ (e.g.\ EALLOC\_PC\_HOST\ for\ host\ builds,\ FREERTOS,\ BAREMETAL,\ etc.)"{}}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00188}00188\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ Platform\ Adapters}}
 \DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00189}00189\ }
-\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00190}00190\ \}\ \textcolor{comment}{//\ namespace\ glock}}
+\DoxyCodeLine{\Hypertarget{global_lock_8hpp_source_l00190}00190\ \}\ \textcolor{comment}{//\ namespace\ elock}}
 
 \end{DoxyCode}

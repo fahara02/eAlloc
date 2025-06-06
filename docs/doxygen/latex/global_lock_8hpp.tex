@@ -8,19 +8,17 @@ Universal RAII lock guard and platform lock adapter system for e\+Alloc.
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 Include dependency graph for global\+Lock.\+hpp\+:
 % FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}}
+class \mbox{\hyperlink{classelock_1_1_i_lockable}{elock\+::\+ILockable}}
 \begin{DoxyCompactList}\small\item\em Abstract lockable interface for platform-\/agnostic mutexes. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classglock_1_1_lock_guard}{glock\+::\+Lock\+Guard}}
+class \mbox{\hyperlink{classelock_1_1_lock_guard}{elock\+::\+Lock\+Guard}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespaceglock}{glock}}
+namespace \mbox{\hyperlink{namespaceelock}{elock}}
 \end{DoxyCompactItemize}
 
 
@@ -31,9 +29,9 @@ Provides MCU-\/agnostic, minimal-\/overhead locking for critical sections and me
 
 Usage\+:
 \begin{DoxyItemize}
-\item Use \doxylink{classglock_1_1_i_lockable}{glock\+::\+ILockable} as the abstract mutex interface.
-\item Use \doxylink{classglock_1_1_lock_guard}{glock\+::\+Lock\+Guard} for RAII critical sections.
-\item Use the correct adapter (e.\+g. glock\+::\+Free\+RTOSMutex, glock\+::\+Std\+Mutex) for your platform.
+\item Use \doxylink{classelock_1_1_i_lockable}{elock\+::\+ILockable} as the abstract mutex interface.
+\item Use \doxylink{classelock_1_1_lock_guard}{elock\+::\+Lock\+Guard} for RAII critical sections.
+\item Use the correct adapter (e.\+g. elock\+::\+Free\+RTOSMutex, elock\+::\+Std\+Mutex) for your platform.
 \item Platform is selected by CMake option and macro (EALLOC\+\_\+\+PC\+\_\+\+HOST, FREERTOS, etc).
 \end{DoxyItemize}
 

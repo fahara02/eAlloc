@@ -18,14 +18,14 @@ struct TestObject
     #include "freertos/semphr.h"
 static StaticSemaphore_t test_sem_buffer;
 static SemaphoreHandle_t test_sem = nullptr;
-static glock::FreeRTOSMutex test_mutex(&test_sem);
+static elock::FreeRTOSMutex test_mutex(&test_sem);
 #elif defined(POSIX)
     #include <pthread.h>
 static pthread_mutex_t test_mutex_native = PTHREAD_MUTEX_INITIALIZER;
-static glock::PThreadMutex test_mutex(&test_mutex_native);
+static elock::PThreadMutex test_mutex(&test_mutex_native);
 #else
 static std::timed_mutex test_raw_mutex;
-static glock::StdMutex test_mutex(test_raw_mutex);
+static elock::StdMutex test_mutex(test_raw_mutex);
 #endif
 
 class eAllocTest : public ::testing::Test

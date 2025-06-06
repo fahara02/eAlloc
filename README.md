@@ -12,7 +12,7 @@
 - **Multiple Pools**: Supports multiple independent memory pools.
 - **Minimal STL Bloat**: Only essential STL features are used on the host; no unnecessary dependencies for embedded targets.
 - **StackAllocator**: STL-compatible allocator for fixed-size, stack-based containers.
-- **Thread Safety**: Optional RAII lock guard for malloc/free and critical sections via `glock::ILockable`.
+- **Thread Safety**: Optional RAII elock guard for malloc/free and critical sections via `elock::ILockable`.
 - **Unit-Tested**: GoogleTest suite provided.
 
 ---
@@ -35,11 +35,11 @@ Learn more: [TLSF Official Site](http://www.gii.upv.es/tlsf/)
 ### Embedded (FreeRTOS Example)
 ```cpp
 #include <eAlloc.hpp>
-#include <globalLock.hpp>
+#include <globalELock.hpp>
 static char pool[4096];
-glock::FreeRTOSMutex mutex(xSemaphoreCreateMutex());
+elock::FreeRTOSMutex mutex(xSemaphoreCreateMutex());
 dsa::eAlloc alloc(pool, sizeof(pool));
-alloc.setLock(&mutex);
+alloc.setELock(&mutex);
 void* p = alloc.malloc(128);
 alloc.free(p);
 ```
@@ -47,12 +47,12 @@ alloc.free(p);
 ### Desktop/Host Example
 ```cpp
 #include <eAlloc.hpp>
-#include <globalLock.hpp>
+#include <globalELock.hpp>
 static char pool[4096];
 std::timed_mutex mtx;
-glock::StdMutex mutex(mtx);
+elock::StdMutex mutex(mtx);
 dsa::eAlloc alloc(pool, sizeof(pool));
-alloc.setLock(&mutex);
+alloc.setELock(&mutex);
 void* p = alloc.malloc(128);
 alloc.free(p);
 ```
@@ -76,7 +76,7 @@ vec.push_back(42);
 ---
 
 ## Thread Safety
-For thread safety, always set a lock via `alloc.setLock(&mutex)`. Use `glock::StdMutex` for host/PC, or the appropriate adapter for your platform.
+For thread safety, always set a elock via `alloc.setELock(&mutex)`. Use `elock::StdMutex` for host/PC, or the appropriate adapter for your platform.
 
 ---
 

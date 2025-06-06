@@ -1,0 +1,67 @@
+\doxysection{elock\+::ILockable Class Reference}
+\hypertarget{classelock_1_1_i_lockable}{}\label{classelock_1_1_i_lockable}\index{elock::ILockable@{elock::ILockable}}
+
+
+Abstract lockable interface for platform-\/agnostic mutexes.  
+
+
+
+
+{\ttfamily \#include $<$global\+Lock.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classelock_1_1_i_lockable_ad5e7a659fdac8df571e98e372f089c6d}{lock}} (uint32\+\_\+t timeout\+\_\+ms=0x\+FFFFFFFF)=0
+\item 
+virtual void \mbox{\hyperlink{classelock_1_1_i_lockable_a09cc35580ed21c05817b8d0d03de4226}{unlock}} ()=0
+\item 
+virtual \mbox{\hyperlink{classelock_1_1_i_lockable_a9e6875cae039a99f7820f2a12fee7ef7}{\texorpdfstring{$\sim$}{\string~}\+ILockable}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract lockable interface for platform-\/agnostic mutexes. 
+
+All platform adapters must implement \doxylink{classelock_1_1_i_lockable}{ILockable}. 
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classelock_1_1_i_lockable_a9e6875cae039a99f7820f2a12fee7ef7}\index{elock::ILockable@{elock::ILockable}!````~ILockable@{\texorpdfstring{$\sim$}{\string~}ILockable}}
+\index{````~ILockable@{\texorpdfstring{$\sim$}{\string~}ILockable}!elock::ILockable@{elock::ILockable}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ILockable()}{\string~ILockable()}}
+{\footnotesize\ttfamily \label{classelock_1_1_i_lockable_a9e6875cae039a99f7820f2a12fee7ef7} 
+virtual elock\+::\+ILockable\+::\texorpdfstring{$\sim$}{\string~}\+ILockable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classelock_1_1_i_lockable_ad5e7a659fdac8df571e98e372f089c6d}\index{elock::ILockable@{elock::ILockable}!lock@{lock}}
+\index{lock@{lock}!elock::ILockable@{elock::ILockable}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily \label{classelock_1_1_i_lockable_ad5e7a659fdac8df571e98e372f089c6d} 
+virtual bool elock\+::\+ILockable\+::lock (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{timeout\+\_\+ms}{ = {\ttfamily 0xFFFFFFFF}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classelock_1_1_i_lockable_a09cc35580ed21c05817b8d0d03de4226}\index{elock::ILockable@{elock::ILockable}!unlock@{unlock}}
+\index{unlock@{unlock}!elock::ILockable@{elock::ILockable}}
+\doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily \label{classelock_1_1_i_lockable_a09cc35580ed21c05817b8d0d03de4226} 
+virtual void elock\+::\+ILockable\+::unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{global_lock_8hpp}{global\+Lock.\+hpp}}\end{DoxyCompactItemize}

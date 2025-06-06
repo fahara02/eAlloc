@@ -56,7 +56,7 @@ bool \mbox{\hyperlink{classdsa_1_1_stack_allocator_a679488c3a2948feece4efcd8f759
 \begin{DoxyCompactList}\small\item\em Equality operator\+: compares based on memory pool identity. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classdsa_1_1_stack_allocator_a7f597c8101a4b5b016ab3cb91ce9d484}{operator!=}} (const \mbox{\hyperlink{classdsa_1_1_stack_allocator}{Stack\+Allocator}} \&other) const
 \begin{DoxyCompactList}\small\item\em Inequality operator. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classdsa_1_1_stack_allocator_abf5b9cd9ea637250a038a89acda63579}{set\+Lock}} (\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}lock)
+void \mbox{\hyperlink{classdsa_1_1_stack_allocator_a14665adf09333a2bc2edbcdd98f42b3f}{set\+Lock}} (\mbox{\hyperlink{classelock_1_1_i_lockable}{elock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}lock)
 \begin{DoxyCompactList}\small\item\em Sets a lock for thread safety (optional, MCU/host agnostic). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -84,7 +84,7 @@ Usage\+: \doxylink{classdsa_1_1_stack_allocator}{dsa\+::\+Stack\+Allocator$<$int
 Thread Safety\+:
 \begin{DoxyItemize}
 \item Not thread-\/safe by default.
-\item To enable, call \doxylink{classdsa_1_1_stack_allocator_abf5b9cd9ea637250a038a89acda63579}{set\+Lock()} with a \doxylink{classglock_1_1_i_lockable}{glock\+::\+ILockable}\texorpdfstring{$\ast$}{*} mutex adapter.
+\item To enable, call \doxylink{classdsa_1_1_stack_allocator_a14665adf09333a2bc2edbcdd98f42b3f}{set\+Lock()} with a \doxylink{classelock_1_1_i_lockable}{elock\+::\+ILockable}\texorpdfstring{$\ast$}{*} mutex adapter.
 \item No STL bloat for MCU\+: lock is optional and not used unless set. 
 \end{DoxyItemize}
 
@@ -427,12 +427,12 @@ Definition at line \mbox{\hyperlink{_stack_allocator_8hpp_source_l00113}{113}} o
 \DoxyCodeLine{00113\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_stack_allocator_a14e7b35e7e03104602533f9390aec88a}{memoryPool}}\ ==\ \mbox{\hyperlink{classdsa_1_1_stack_allocator}{other}}.\mbox{\hyperlink{classdsa_1_1_stack_allocator_a14e7b35e7e03104602533f9390aec88a}{memoryPool}};\ \}}
 
 \end{DoxyCode}
-\Hypertarget{classdsa_1_1_stack_allocator_abf5b9cd9ea637250a038a89acda63579}\index{dsa::StackAllocator$<$ T, PoolSize $>$@{dsa::StackAllocator$<$ T, PoolSize $>$}!setLock@{setLock}}
+\Hypertarget{classdsa_1_1_stack_allocator_a14665adf09333a2bc2edbcdd98f42b3f}\index{dsa::StackAllocator$<$ T, PoolSize $>$@{dsa::StackAllocator$<$ T, PoolSize $>$}!setLock@{setLock}}
 \index{setLock@{setLock}!dsa::StackAllocator$<$ T, PoolSize $>$@{dsa::StackAllocator$<$ T, PoolSize $>$}}
 \doxysubsubsection{\texorpdfstring{setLock()}{setLock()}}
-{\footnotesize\ttfamily \label{classdsa_1_1_stack_allocator_abf5b9cd9ea637250a038a89acda63579} 
+{\footnotesize\ttfamily \label{classdsa_1_1_stack_allocator_a14665adf09333a2bc2edbcdd98f42b3f} 
 template$<$typename T, size\+\_\+t Pool\+Size$>$ \\
-void \mbox{\hyperlink{classdsa_1_1_stack_allocator}{dsa\+::\+Stack\+Allocator}}$<$ T, Pool\+Size $>$\+::set\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}}]{lock}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{classdsa_1_1_stack_allocator}{dsa\+::\+Stack\+Allocator}}$<$ T, Pool\+Size $>$\+::set\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classelock_1_1_i_lockable}{elock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}}]{lock}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -440,10 +440,10 @@ Sets a lock for thread safety (optional, MCU/host agnostic).
 
 
 \begin{DoxyParams}{Parameters}
-{\em lock} & Pointer to a \doxylink{classglock_1_1_i_lockable}{glock\+::\+ILockable} mutex adapter.\\
+{\em lock} & Pointer to a \doxylink{classelock_1_1_i_lockable}{elock\+::\+ILockable} mutex adapter.\\
 \hline
 \end{DoxyParams}
-If not set, the allocator is not thread-\/safe. For host builds, use glock\+::\+Std\+Mutex. For embedded, use the appropriate platform adapter. Locking is delegated to \doxylink{classdsa_1_1e_alloc}{e\+Alloc}. 
+If not set, the allocator is not thread-\/safe. For host builds, use elock\+::\+Std\+Mutex. For embedded, use the appropriate platform adapter. Locking is delegated to \doxylink{classdsa_1_1e_alloc}{e\+Alloc}. 
 
 Definition at line \mbox{\hyperlink{_stack_allocator_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{_stack_allocator_8hpp_source}{Stack\+Allocator.\+hpp}}.
 

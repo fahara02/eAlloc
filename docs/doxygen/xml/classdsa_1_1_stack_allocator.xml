@@ -416,14 +416,14 @@
         </inbodydescription>
         <location file="src/StackAllocator.hpp" line="120" column="10" bodyfile="src/StackAllocator.hpp" bodystart="120" bodyend="120"/>
       </memberdef>
-      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void dsa::StackAllocator&lt; T, PoolSize &gt;::setLock</definition>
-        <argsstring>(glock::ILockable *lock)</argsstring>
+        <argsstring>(elock::ILockable *lock)</argsstring>
         <name>setLock</name>
         <qualifiedname>dsa::StackAllocator::setLock</qualifiedname>
         <param>
-          <type><ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref> *</type>
+          <type><ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref> *</type>
           <declname>lock</declname>
         </param>
         <briefdescription>
@@ -435,11 +435,11 @@
 <parametername>lock</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Pointer to a <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref> mutex adapter.</para>
+<para>Pointer to a <ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref> mutex adapter.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-If not set, the allocator is not thread-safe. For host builds, use glock::StdMutex. For embedded, use the appropriate platform adapter. Locking is delegated to <ref refid="classdsa_1_1e_alloc" kindref="compound">eAlloc</ref>. </para>
+If not set, the allocator is not thread-safe. For host builds, use elock::StdMutex. For embedded, use the appropriate platform adapter. Locking is delegated to <ref refid="classdsa_1_1e_alloc" kindref="compound">eAlloc</ref>. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -470,7 +470,7 @@ If not set, the allocator is not thread-safe. For host builds, use glock::StdMut
 Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAllocator&lt;int, 1024&gt;</ref> alloc; std::vector&lt;int, dsa::StackAllocator&lt;int, 1024&gt;&gt; v(alloc);</para>
 <para>Thread Safety:<itemizedlist>
 <listitem><para>Not thread-safe by default.</para>
-</listitem><listitem><para>To enable, call <ref refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" kindref="member">setLock()</ref> with a <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>* mutex adapter.</para>
+</listitem><listitem><para>To enable, call <ref refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" kindref="member">setLock()</ref> with a <ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref>* mutex adapter.</para>
 </listitem><listitem><para>No STL bloat for MCU: lock is optional and not used unless set. </para>
 </listitem></itemizedlist>
 </para>
@@ -492,13 +492,6 @@ Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAl
         <childnode refid="3" relation="usage">
           <edgelabel>control</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
-          <edgelabel>lock_</edgelabel>
-        </childnode>
-      </node>
-      <node id="4">
-        <label>glock::ILockable</label>
-        <link refid="classglock_1_1_i_lockable"/>
       </node>
     </collaborationgraph>
     <location file="src/StackAllocator.hpp" line="33" column="1" bodyfile="src/StackAllocator.hpp" bodystart="34" bodyend="134"/>
@@ -516,7 +509,7 @@ Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAl
       <member refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>operator==</name></member>
       <member refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>pointer</name></member>
       <member refid="classdsa_1_1_stack_allocator_1a7cfbbd4c5842d61d360ba6077a3c3f55" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>reference</name></member>
-      <member refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>setLock</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>setLock</name></member>
       <member refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>size_type</name></member>
       <member refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>StackAllocator</name></member>
       <member refid="classdsa_1_1_stack_allocator_1ad4cad2d660493a84da6e0cbc70ca9d7c" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>StackAllocator</name></member>

@@ -9,6 +9,4 @@ digraph "dsa::StackAllocator&lt; T, PoolSize &gt;"
   Node2 [id="Node000002",label="dsa::eAlloc",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html",tooltip="A memory allocator class based on the Two-Level Segregated Fit (TLSF) algorithm."];
   Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" control",fontcolor="grey" ];
   Node3 [id="Node000003",label="dsa::TLSF\< 5 \>::Control",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
-  Node4 -> Node2 [id="edge3_Node000002_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" lock_",fontcolor="grey" ];
-  Node4 [id="Node000004",label="glock::ILockable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classglock_1_1_i_lockable.html",tooltip="Abstract lockable interface for platform-agnostic mutexes."];
 }

@@ -42,7 +42,7 @@ TEST(StackAllocatorTest, OutOfMemoryThrows) {
 TEST(StackAllocatorTest, ThreadSafeLock) {
     dsa::StackAllocator<int, 128> alloc;
     std::timed_mutex raw_mtx;
-    glock::StdMutex mtx(raw_mtx);
+    elock::StdMutex mtx(raw_mtx);
     alloc.setLock(&mtx);
     int* p = alloc.allocate(1);
     *p = 123;

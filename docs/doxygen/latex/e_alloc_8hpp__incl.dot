@@ -42,7 +42,5 @@ digraph "src/eAlloc.hpp"
   Node13 -> Node18 [id="edge19_Node000013_Node000018",color="steelblue1",style="solid",tooltip=" "];
   Node18 [id="Node000018",label="memory",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node1 -> Node19 [id="edge20_Node000001_Node000019",color="steelblue1",style="solid",tooltip=" "];
-  Node19 [id="Node000019",label="globalLock.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$global_lock_8hpp.html",tooltip="Universal RAII lock guard and platform lock adapter system for eAlloc."];
-  Node19 -> Node20 [id="edge21_Node000019_Node000020",color="steelblue1",style="solid",tooltip=" "];
-  Node20 [id="Node000020",label="stdint.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node19 [id="Node000019",label="globalELock.hpp",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }

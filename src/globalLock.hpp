@@ -6,9 +6,9 @@
  * Selects the appropriate mutex adapter for each platform via CMake and preprocessor macros.
  *
  * Usage:
- *   - Use glock::ILockable as the abstract mutex interface.
- *   - Use glock::LockGuard for RAII critical sections.
- *   - Use the correct adapter (e.g. glock::FreeRTOSMutex, glock::StdMutex) for your platform.
+ *   - Use elock::ILockable as the abstract mutex interface.
+ *   - Use elock::LockGuard for RAII critical sections.
+ *   - Use the correct adapter (e.g. elock::FreeRTOSMutex, elock::StdMutex) for your platform.
  *   - Platform is selected by CMake option and macro (EALLOC_PC_HOST, FREERTOS, etc).
  *
  * Thread Safety:
@@ -34,7 +34,7 @@
 #include <chrono>
 #endif
 
-namespace glock {
+namespace elock {
 // Do NOT use 'using namespace std;' anywhere in this file. All std types must be referenced as std::.
 
 /**
@@ -184,7 +184,7 @@ private:
 };
 
 #else
-#error "No valid platform adapter selected for glock::ILockable. Define a supported platform macro (e.g. EALLOC_PC_HOST for host builds, FREERTOS, BAREMETAL, etc.)"
+#error "No valid platform adapter selected for elock::ILockable. Define a supported platform macro (e.g. EALLOC_PC_HOST for host builds, FREERTOS, BAREMETAL, etc.)"
 #endif // Platform Adapters
 
-} // namespace glock
+} // namespace elock

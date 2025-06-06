@@ -34,7 +34,7 @@ using \mbox{\hyperlink{classdsa_1_1e_alloc_a50adb94983befce215dcff2aecfab2f4}{Wa
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classdsa_1_1e_alloc_a793a960f120adb4c49aa602e9730071e}{set\+Lock}} (\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}lock)
+void \mbox{\hyperlink{classdsa_1_1e_alloc_a0763696d9c6e5c93459ae6eeea137830}{set\+ELock}} (elock\+::\+IELockable \texorpdfstring{$\ast$}{*}lock)
 \item 
 \mbox{\hyperlink{classdsa_1_1e_alloc_aca9cba9a8b6174888e0774a6e9e92a36}{e\+Alloc}} (void \texorpdfstring{$\ast$}{*}mem, size\+\_\+t bytes)
 \begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classdsa_1_1e_alloc}{e\+Alloc} instance with an initial memory pool. \end{DoxyCompactList}\item 
@@ -96,7 +96,7 @@ size\+\_\+t \mbox{\hyperlink{classdsa_1_1e_alloc_a814a2f70aa21ae4ecdb1caf09a368c
 \begin{DoxyCompactList}\small\item\em Number of active pools. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classdsa_1_1e_alloc_a5db3dffebe3e135f6629a128177ffa9e}{initialised}} = false
 \begin{DoxyCompactList}\small\item\em Flag indicating if the allocator is initialized. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\+\_\+}} = nullptr
+elock\+::\+IELockable \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\+\_\+}} = nullptr
 \end{DoxyCompactItemize}
 
 
@@ -239,7 +239,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00023}{23}} of file \mb
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00024\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a814a2f70aa21ae4ecdb1caf09a368cbe}{pool\_count}}\ >=\ \mbox{\hyperlink{classdsa_1_1e_alloc_a00bb3a88d7fd0f8148deb3a0786a9d64}{MAX\_POOL}})}
 \DoxyCodeLine{00027\ \ \ \ \ \{}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_l_o_g_a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5}{LOG::ERROR}}(\textcolor{stringliteral}{"{}E\_ALLOC"{}},\ \textcolor{stringliteral}{"{}Maximum\ number\ of\ pools\ (\%d)\ reached.\(\backslash\)n"{}},\ \mbox{\hyperlink{classdsa_1_1e_alloc_a00bb3a88d7fd0f8148deb3a0786a9d64}{MAX\_POOL}});}
@@ -296,7 +296,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00023}{23}} of file \mb
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00217}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+down()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00191}{dsa\+::\+TLSF$<$ 5 $>$\+::link\+\_\+next()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00538}{dsa\+::\+TLSF$<$ 5 $>$\+::max\+\_\+block\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00035}{MAX\+\_\+\+POOL}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00232}{memory\+\_\+pools}}, \mbox{\hyperlink{tlsf_8hpp_source_l00537}{dsa\+::\+TLSF$<$ 5 $>$\+::min\+\_\+block\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00234}{pool\+\_\+count}}, \mbox{\hyperlink{tlsf_8hpp_source_l00539}{dsa\+::\+TLSF$<$ 5 $>$\+::pool\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00233}{pool\+\_\+sizes}}, \mbox{\hyperlink{tlsf_8hpp_source_l00119}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00123}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+prev\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00124}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+prev\+\_\+used()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00103}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00121}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+used()}}, and \mbox{\hyperlink{_logger_8hpp_source_l00020}{LOG\+::\+SUCCESS}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00217}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+down()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00191}{dsa\+::\+TLSF$<$ 5 $>$\+::link\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00538}{dsa\+::\+TLSF$<$ 5 $>$\+::max\+\_\+block\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00035}{MAX\+\_\+\+POOL}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00232}{memory\+\_\+pools}}, \mbox{\hyperlink{tlsf_8hpp_source_l00537}{dsa\+::\+TLSF$<$ 5 $>$\+::min\+\_\+block\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00234}{pool\+\_\+count}}, \mbox{\hyperlink{tlsf_8hpp_source_l00539}{dsa\+::\+TLSF$<$ 5 $>$\+::pool\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00233}{pool\+\_\+sizes}}, \mbox{\hyperlink{tlsf_8hpp_source_l00119}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00123}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+prev\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00124}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+prev\+\_\+used()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00103}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00121}{dsa\+::\+TLSF$<$ 5 $>$\+::set\+\_\+used()}}, and \mbox{\hyperlink{_logger_8hpp_source_l00020}{LOG\+::\+SUCCESS}}.
 
 
 
@@ -447,7 +447,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00275}{275}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00276\ \{}
-\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_size;}
 \DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{if}(num\ >\ 0\ \&\&\ size\ >\ SIZE\_MAX\ /\ num)}
 \DoxyCodeLine{00280\ \ \ \ \ \{}
@@ -466,7 +466,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00275}{275}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, and \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}.
+References \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, and \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}.
 
 Here is the call graph for this function\+:
 % FIG 6
@@ -597,7 +597,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{147}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00148\ \{}
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{if}(ptr)}
 \DoxyCodeLine{00151\ \ \ \ \ \{}
 \DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}{tlsf::from\_ptr\_nc}}(ptr);}
@@ -616,7 +616,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{147}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00151}{dsa\+::\+TLSF$<$ 5 $>$\+::from\+\_\+ptr\+\_\+nc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00197}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}.
+References \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00151}{dsa\+::\+TLSF$<$ 5 $>$\+::from\+\_\+ptr\+\_\+nc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00197}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}.
 
 
 
@@ -765,7 +765,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{139}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00140\ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ adjust\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06b784dc5df9063ca8acd2c1b1e4d7fe}{tlsf::adjust\_request\_size}}(size,\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa368212269f0ea11be46c699c43cc548}{tlsf::align\_size}}());}
 \DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afacb1adf4c48b2d06cafaa71b9f884d9}{tlsf::locate\_free}}(\&\mbox{\hyperlink{classdsa_1_1e_alloc_acede9859339f8409d85c7a14cd71f6f2}{control}},\ adjust);}
 \DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9a2d2201883d300bf1568e53c09297c4}{tlsf::prepare\_used}}(\&\mbox{\hyperlink{classdsa_1_1e_alloc_acede9859339f8409d85c7a14cd71f6f2}{control}},\ block,\ adjust);}
@@ -774,7 +774,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{139}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00233}{dsa\+::\+TLSF$<$ 5 $>$\+::adjust\+\_\+request\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00444}{dsa\+::\+TLSF$<$ 5 $>$\+::prepare\+\_\+used()}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00233}{dsa\+::\+TLSF$<$ 5 $>$\+::adjust\+\_\+request\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00444}{dsa\+::\+TLSF$<$ 5 $>$\+::prepare\+\_\+used()}}.
 
 
 
@@ -897,7 +897,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00231}{231}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00232\ \{}
-\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{void}*\ p\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{if}(ptr\ \&\&\ size\ ==\ 0)}
 \DoxyCodeLine{00236\ \ \ \ \ \{}
@@ -942,7 +942,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00231}{231}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00233}{dsa\+::\+TLSF$<$ 5 $>$\+::adjust\+\_\+request\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{tlsf_8hpp_source_l00023}{dsa\+\_\+assert}}, \mbox{\hyperlink{tlsf_8hpp_source_l00011}{dsa\+\_\+min}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00151}{dsa\+::\+TLSF$<$ 5 $>$\+::from\+\_\+ptr\+\_\+nc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00205}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+used()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00233}{dsa\+::\+TLSF$<$ 5 $>$\+::adjust\+\_\+request\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00536}{dsa\+::\+TLSF$<$ 5 $>$\+::align\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{tlsf_8hpp_source_l00023}{dsa\+\_\+assert}}, \mbox{\hyperlink{tlsf_8hpp_source_l00011}{dsa\+\_\+min}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00151}{dsa\+::\+TLSF$<$ 5 $>$\+::from\+\_\+ptr\+\_\+nc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00205}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+used()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
 
 Here is the call graph for this function\+:
 % FIG 18
@@ -971,7 +971,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00079}{79}} of file \mb
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00080\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdsa_1_1e_alloc_a814a2f70aa21ae4ecdb1caf09a368cbe}{pool\_count}};\ ++i)}
 \DoxyCodeLine{00083\ \ \ \ \ \{}
 \DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a029fe4dad4712ad2f5137c5ec15c9449}{memory\_pools}}[i]\ ==\ pool)}
@@ -1005,7 +1005,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00079}{79}} of file \mb
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{_logger_8hpp_source_l00019}{LOG\+::\+INFO}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00117}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+last()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00248}{dsa\+::\+TLSF$<$ 5 $>$\+::mapping\+\_\+insert()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00232}{memory\+\_\+pools}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00234}{pool\+\_\+count}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00233}{pool\+\_\+sizes}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00298}{dsa\+::\+TLSF$<$ 5 $>$\+::remove\+\_\+free\+\_\+block()}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{_logger_8hpp_source_l00022}{LOG\+::\+ERROR}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{_logger_8hpp_source_l00019}{LOG\+::\+INFO}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00117}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+last()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00248}{dsa\+::\+TLSF$<$ 5 $>$\+::mapping\+\_\+insert()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00232}{memory\+\_\+pools}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00234}{pool\+\_\+count}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00233}{pool\+\_\+sizes}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00298}{dsa\+::\+TLSF$<$ 5 $>$\+::remove\+\_\+free\+\_\+block()}}.
 
 Here is the call graph for this function\+:
 % FIG 19
@@ -1029,7 +1029,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{293}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00294\ \{}
-\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{structdsa_1_1e_alloc_1_1_storage_report}{StorageReport}}\ \mbox{\hyperlink{classdsa_1_1e_alloc_aabc4d2a1849719c8c1a136262ef7f681}{report}}\{\};}
 \DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ fl\ =\ 0;\ fl\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{tlsf::cabinets}}();\ ++fl)}
 \DoxyCodeLine{00298\ \ \ \ \ \{}
@@ -1064,7 +1064,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{293}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00532}{dsa\+::\+TLSF$<$ 5 $>$\+::cabinets()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{report()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00533}{dsa\+::\+TLSF$<$ 5 $>$\+::shelves()}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00532}{dsa\+::\+TLSF$<$ 5 $>$\+::cabinets()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{control}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{report()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00533}{dsa\+::\+TLSF$<$ 5 $>$\+::shelves()}}.
 
 
 
@@ -1074,11 +1074,11 @@ Here is the call graph for this function\+:
 % FIG 20
 Here is the caller graph for this function\+:
 % FIG 21
-\Hypertarget{classdsa_1_1e_alloc_a793a960f120adb4c49aa602e9730071e}\index{dsa::eAlloc@{dsa::eAlloc}!setLock@{setLock}}
-\index{setLock@{setLock}!dsa::eAlloc@{dsa::eAlloc}}
-\doxysubsubsection{\texorpdfstring{setLock()}{setLock()}}
-{\footnotesize\ttfamily \label{classdsa_1_1e_alloc_a793a960f120adb4c49aa602e9730071e} 
-void dsa\+::e\+Alloc\+::set\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}} \texorpdfstring{$\ast$}{*}}]{lock}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{classdsa_1_1e_alloc_a0763696d9c6e5c93459ae6eeea137830}\index{dsa::eAlloc@{dsa::eAlloc}!setELock@{setELock}}
+\index{setELock@{setELock}!dsa::eAlloc@{dsa::eAlloc}}
+\doxysubsubsection{\texorpdfstring{setELock()}{setELock()}}
+{\footnotesize\ttfamily \label{classdsa_1_1e_alloc_a0763696d9c6e5c93459ae6eeea137830} 
+void dsa\+::e\+Alloc\+::set\+ELock (\begin{DoxyParamCaption}\item[{elock\+::\+IELockable \texorpdfstring{$\ast$}{*}}]{lock}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -1086,12 +1086,12 @@ Definition at line \mbox{\hyperlink{e_alloc_8hpp_source_l00037}{37}} of file \mb
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00037\ \{\ \mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}}\ =\ lock;\ \}}
+\DoxyCodeLine{00037\ \{\ \mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}}\ =\ lock;\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}.
+References \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}.
 
 \Hypertarget{classdsa_1_1e_alloc_a799fb29ed4b5e3d4ab9a69cef933576a}\index{dsa::eAlloc@{dsa::eAlloc}!walk\_pool@{walk\_pool}}
 \index{walk\_pool@{walk\_pool}!dsa::eAlloc@{dsa::eAlloc}}
@@ -1119,7 +1119,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00165}{165}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00166\ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}})\ glock::LockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}{lock\_}});}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
 \DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a50adb94983befce215dcff2aecfab2f4}{Walker}}\ pool\_walker\ =\ walker\ ?\ walker\ :\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af06d06e73cb9a3a3a4c48e2016ab5dc4}{tlsf::default\_walker}};}
 \DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}{tlsf::offset\_to\_block\_nc}}(pool,\ -\/\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1e7328266ccc90058b455aea1ba93746}{tlsf::alloc\_overhead}}()));}
 \DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{while}(block\ \&\&\ !\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{tlsf::is\_last}}(block))}
@@ -1132,7 +1132,7 @@ Definition at line \mbox{\hyperlink{e_alloc_8cpp_source_l00165}{165}} of file \m
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00473}{dsa\+::\+TLSF$<$ 5 $>$\+::default\+\_\+walker()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00117}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+last()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{lock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00141}{dsa\+::\+TLSF$<$ 5 $>$\+::to\+\_\+ptr\+\_\+nc()}}.
+References \mbox{\hyperlink{tlsf_8hpp_source_l00540}{dsa\+::\+TLSF$<$ 5 $>$\+::alloc\+\_\+overhead()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00473}{dsa\+::\+TLSF$<$ 5 $>$\+::default\+\_\+walker()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{elock\+\_\+}}, \mbox{\hyperlink{tlsf_8hpp_source_l00098}{dsa\+::\+TLSF$<$ 5 $>$\+::get\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00108}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00117}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+last()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00162}{dsa\+::\+TLSF$<$ 5 $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00141}{dsa\+::\+TLSF$<$ 5 $>$\+::to\+\_\+ptr\+\_\+nc()}}.
 
 
 
@@ -1163,6 +1163,20 @@ Definition at line \mbox{\hyperlink{e_alloc_8hpp_source_l00231}{231}} of file \m
 
 Referenced by \mbox{\hyperlink{e_alloc_8cpp_source_l00023}{add\+\_\+pool()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00121}{check()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00012}{e\+Alloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{free()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00177}{memalign()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00231}{realloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00079}{remove\+\_\+pool()}}, and \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{report()}}.
 
+\Hypertarget{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}\index{dsa::eAlloc@{dsa::eAlloc}!elock\_@{elock\_}}
+\index{elock\_@{elock\_}!dsa::eAlloc@{dsa::eAlloc}}
+\doxysubsubsection{\texorpdfstring{elock\_}{elock\_}}
+{\footnotesize\ttfamily \label{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a} 
+elock\+::\+IELockable\texorpdfstring{$\ast$}{*} dsa\+::e\+Alloc\+::elock\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{e_alloc_8hpp_source}{e\+Alloc.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{e_alloc_8cpp_source_l00023}{add\+\_\+pool()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00275}{calloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{free()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00231}{realloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00079}{remove\+\_\+pool()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{report()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00037}{set\+ELock()}}, and \mbox{\hyperlink{e_alloc_8cpp_source_l00165}{walk\+\_\+pool()}}.
+
 \Hypertarget{classdsa_1_1e_alloc_a5db3dffebe3e135f6629a128177ffa9e}\index{dsa::eAlloc@{dsa::eAlloc}!initialised@{initialised}}
 \index{initialised@{initialised}!dsa::eAlloc@{dsa::eAlloc}}
 \doxysubsubsection{\texorpdfstring{initialised}{initialised}}
@@ -1180,20 +1194,6 @@ Definition at line \mbox{\hyperlink{e_alloc_8hpp_source_l00235}{235}} of file \m
 
 
 Referenced by \mbox{\hyperlink{e_alloc_8cpp_source_l00012}{e\+Alloc()}}.
-
-\Hypertarget{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0}\index{dsa::eAlloc@{dsa::eAlloc}!lock\_@{lock\_}}
-\index{lock\_@{lock\_}!dsa::eAlloc@{dsa::eAlloc}}
-\doxysubsubsection{\texorpdfstring{lock\_}{lock\_}}
-{\footnotesize\ttfamily \label{classdsa_1_1e_alloc_a514b6c98171a7dbc454aaf5356bf77c0} 
-\mbox{\hyperlink{classglock_1_1_i_lockable}{glock\+::\+ILockable}}\texorpdfstring{$\ast$}{*} dsa\+::e\+Alloc\+::lock\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Definition at line \mbox{\hyperlink{e_alloc_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{e_alloc_8hpp_source}{e\+Alloc.\+hpp}}.
-
-
-
-Referenced by \mbox{\hyperlink{e_alloc_8cpp_source_l00023}{add\+\_\+pool()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00275}{calloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00147}{free()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00139}{malloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00231}{realloc()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00079}{remove\+\_\+pool()}}, \mbox{\hyperlink{e_alloc_8cpp_source_l00293}{report()}}, \mbox{\hyperlink{e_alloc_8hpp_source_l00037}{set\+Lock()}}, and \mbox{\hyperlink{e_alloc_8cpp_source_l00165}{walk\+\_\+pool()}}.
 
 \Hypertarget{classdsa_1_1e_alloc_a00bb3a88d7fd0f8148deb3a0786a9d64}\index{dsa::eAlloc@{dsa::eAlloc}!MAX\_POOL@{MAX\_POOL}}
 \index{MAX\_POOL@{MAX\_POOL}!dsa::eAlloc@{dsa::eAlloc}}

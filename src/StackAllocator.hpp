@@ -3,7 +3,7 @@
  * @brief MCU/host-agnostic C++ allocator using a stack-allocated memory pool and TLSF.
  *
  * This allocator is suitable for embedded and host builds, provides minimal STL usage,
- * and supports optional thread safety via glock::ILockable. It is intended for use with
+ * and supports optional thread safety via elock::ILockable. It is intended for use with
  * STL containers or custom allocation needs where a fixed-size stack buffer is desired.
  */
 #pragma once
@@ -26,7 +26,7 @@ namespace dsa
  *
  * Thread Safety:
  *   - Not thread-safe by default.
- *   - To enable, call setLock() with a glock::ILockable* mutex adapter.
+ *   - To enable, call setLock() with a elock::ILockable* mutex adapter.
  *   - No STL bloat for MCU: lock is optional and not used unless set.
  */
 template <typename T, size_t PoolSize>
@@ -121,12 +121,12 @@ class StackAllocator
 
     /**
      * @brief Sets a lock for thread safety (optional, MCU/host agnostic).
-     * @param lock Pointer to a glock::ILockable mutex adapter.
+     * @param lock Pointer to a elock::ILockable mutex adapter.
      *
-     * If not set, the allocator is not thread-safe. For host builds, use glock::StdMutex.
+     * If not set, the allocator is not thread-safe. For host builds, use elock::StdMutex.
      * For embedded, use the appropriate platform adapter. Locking is delegated to eAlloc.
      */
-    void setLock(glock::ILockable* lock) { allocator.setLock(lock); }
+    void setLock(elock::ILockable* lock) { allocator.setLock(lock); }
 
    private:
     char memoryPool[PoolSize]; ///< Stack-allocated memory pool

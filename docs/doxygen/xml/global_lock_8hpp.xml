@@ -3,7 +3,6 @@
   <compounddef id="global_lock_8hpp" kind="file" language="C++">
     <compoundname>globalLock.hpp</compoundname>
     <includes local="no">stdint.h</includes>
-    <includedby refid="e_alloc_8hpp" local="yes">src/eAlloc.hpp</includedby>
     <incdepgraph>
       <node id="1">
         <label>src/globalLock.hpp</label>
@@ -15,42 +14,18 @@
         <label>stdint.h</label>
       </node>
     </incdepgraph>
-    <invincdepgraph>
-      <node id="3">
-        <label>src/StackAllocator.hpp</label>
-        <link refid="_stack_allocator_8hpp"/>
-      </node>
-      <node id="4">
-        <label>src/eAlloc.cpp</label>
-        <link refid="e_alloc_8cpp"/>
-      </node>
-      <node id="2">
-        <label>src/eAlloc.hpp</label>
-        <link refid="e_alloc_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>src/globalLock.hpp</label>
-        <link refid="global_lock_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-    </invincdepgraph>
-    <innerclass refid="classglock_1_1_i_lockable" prot="public">glock::ILockable</innerclass>
-    <innerclass refid="classglock_1_1_lock_guard" prot="public">glock::LockGuard</innerclass>
-    <innernamespace refid="namespaceglock">glock</innernamespace>
+    <innerclass refid="classelock_1_1_i_lockable" prot="public">elock::ILockable</innerclass>
+    <innerclass refid="classelock_1_1_lock_guard" prot="public">elock::LockGuard</innerclass>
+    <innernamespace refid="namespaceelock">elock</innernamespace>
     <briefdescription>
 <para>Universal RAII lock guard and platform lock adapter system for eAlloc. </para>
     </briefdescription>
     <detaileddescription>
 <para>Provides MCU-agnostic, minimal-overhead locking for critical sections and memory allocators. Selects the appropriate mutex adapter for each platform via CMake and preprocessor macros.</para>
 <para>Usage:<itemizedlist>
-<listitem><para>Use <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref> as the abstract mutex interface.</para>
-</listitem><listitem><para>Use <ref refid="classglock_1_1_lock_guard" kindref="compound">glock::LockGuard</ref> for RAII critical sections.</para>
-</listitem><listitem><para>Use the correct adapter (e.g. glock::FreeRTOSMutex, glock::StdMutex) for your platform.</para>
+<listitem><para>Use <ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref> as the abstract mutex interface.</para>
+</listitem><listitem><para>Use <ref refid="classelock_1_1_lock_guard" kindref="compound">elock::LockGuard</ref> for RAII critical sections.</para>
+</listitem><listitem><para>Use the correct adapter (e.g. elock::FreeRTOSMutex, elock::StdMutex) for your platform.</para>
 </listitem><listitem><para>Platform is selected by CMake option and macro (EALLOC_PC_HOST, FREERTOS, etc).</para>
 </listitem></itemizedlist>
 </para>
@@ -80,28 +55,28 @@
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="namespaceglock" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceglock" kindref="compound">glock</ref><sp/>{</highlight></codeline>
+<codeline lineno="37" refid="namespaceelock" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceelock" kindref="compound">elock</ref><sp/>{</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Do<sp/>NOT<sp/>use<sp/>&apos;using<sp/>namespace<sp/>std;&apos;<sp/>anywhere<sp/>in<sp/>this<sp/>file.<sp/>All<sp/>std<sp/>types<sp/>must<sp/>be<sp/>referenced<sp/>as<sp/>std::.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="classglock_1_1_i_lockable" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="45" refid="classelock_1_1_i_lockable" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="47" refid="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4" kindref="member">lock</ref>(uint32_t<sp/>timeout_ms<sp/>=<sp/>0xFFFFFFFF)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="48" refid="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359" kindref="member">unlock</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="49" refid="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d" kindref="member">~ILockable</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="47" refid="classelock_1_1_i_lockable_1ad5e7a659fdac8df571e98e372f089c6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable_1ad5e7a659fdac8df571e98e372f089c6d" kindref="member">lock</ref>(uint32_t<sp/>timeout_ms<sp/>=<sp/>0xFFFFFFFF)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="48" refid="classelock_1_1_i_lockable_1a09cc35580ed21c05817b8d0d03de4226" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable_1a09cc35580ed21c05817b8d0d03de4226" kindref="member">unlock</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49" refid="classelock_1_1_i_lockable_1a9e6875cae039a99f7820f2a12fee7ef7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable_1a9e6875cae039a99f7820f2a12fee7ef7" kindref="member">~ILockable</ref>()<sp/>{}</highlight></codeline>
 <codeline lineno="50"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Universal<sp/>RAII<sp/>lock<sp/>guard</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="classglock_1_1_lock_guard" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kindref="member">LockGuard</ref><sp/>{</highlight></codeline>
+<codeline lineno="53" refid="classelock_1_1_lock_guard" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kindref="member">LockGuard</ref><sp/>{</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="55" refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kindref="member">LockGuard</ref>(<ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref>&amp;<sp/>lock,<sp/>uint32_t<sp/>timeout_ms<sp/>=<sp/>0xFFFFFFFF)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" kindref="member">lock_</ref>(lock),<sp/><ref refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" kindref="member">acquired_</ref>(lock.lock(timeout_ms))<sp/>{}</highlight></codeline>
-<codeline lineno="57" refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" kindref="member">~LockGuard</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" kindref="member">acquired_</ref>)<sp/><ref refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" kindref="member">lock_</ref>.unlock();<sp/>}</highlight></codeline>
-<codeline lineno="58" refid="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" kindref="member">acquired</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" kindref="member">acquired_</ref>;<sp/>}</highlight></codeline>
-<codeline lineno="59" refid="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0" kindref="member">LockGuard</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kindref="member">LockGuard</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="60" refid="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kindref="member">LockGuard</ref>&amp;<sp/><ref refid="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" kindref="member">LockGuard</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55" refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kindref="member">LockGuard</ref>(<ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref>&amp;<sp/>lock,<sp/>uint32_t<sp/>timeout_ms<sp/>=<sp/>0xFFFFFFFF)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" kindref="member">lock_</ref>(lock),<sp/><ref refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" kindref="member">acquired_</ref>(lock.lock(timeout_ms))<sp/>{}</highlight></codeline>
+<codeline lineno="57" refid="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" kindref="member">~LockGuard</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" kindref="member">acquired_</ref>)<sp/><ref refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" kindref="member">lock_</ref>.unlock();<sp/>}</highlight></codeline>
+<codeline lineno="58" refid="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" kindref="member">acquired</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" kindref="member">acquired_</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="59" refid="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8" kindref="member">LockGuard</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kindref="member">LockGuard</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60" refid="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kindref="member">LockGuard</ref>&amp;<sp/><ref refid="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" kindref="member">LockGuard</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="62" refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref>&amp;<sp/><ref refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" kindref="member">lock_</ref>;</highlight></codeline>
-<codeline lineno="63" refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" kindref="member">acquired_</ref>;</highlight></codeline>
+<codeline lineno="62" refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref>&amp;<sp/><ref refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" kindref="member">lock_</ref>;</highlight></codeline>
+<codeline lineno="63" refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" kindref="member">acquired_</ref>;</highlight></codeline>
 <codeline lineno="64"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//<sp/>---<sp/>Platform<sp/>Adapters<sp/>---</highlight><highlight class="normal"></highlight></codeline>
@@ -110,7 +85,7 @@
 <codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/>FreeRTOS/ESP-IDF/Arduino/PlatformIO</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;freertos/semphr.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FreeRTOSMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FreeRTOSMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>FreeRTOSMutex(SemaphoreHandle_t<sp/>sem)<sp/>:<sp/>sem_(sem)<sp/>{}</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -125,7 +100,7 @@
 <codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/>POSIX<sp/>pthreads<sp/>(Linux,<sp/>Mac,<sp/>Unix)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&lt;pthread.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">PThreadMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">PThreadMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>PThreadMutex(pthread_mutex_t*<sp/>mtx)<sp/>:<sp/>mtx_(mtx)<sp/>{}</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -147,7 +122,7 @@
 <codeline lineno="106"><highlight class="normal"></highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(STM32_CMSIS_RTOS)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;cmsis_os.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMSISMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMSISMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>CMSISMutex(osMutexId<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>:<sp/>id_(id)<sp/>{}</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>osMutexWait(id_,<sp/>timeout_ms)<sp/>==<sp/>osOK;<sp/>}</highlight></codeline>
@@ -158,7 +133,7 @@
 <codeline lineno="117"><highlight class="normal"></highlight></codeline>
 <codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(STM32_CMSIS_RTOS2)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;cmsis_os2.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMSIS2Mutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMSIS2Mutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>CMSIS2Mutex(osMutexId_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>:<sp/>id_(id)<sp/>{}</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>osMutexAcquire(id_,<sp/>timeout_ms)<sp/>==<sp/>osOK;<sp/>}</highlight></codeline>
@@ -169,7 +144,7 @@
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ZEPHYR)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&lt;zephyr/kernel.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ZephyrMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ZephyrMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>ZephyrMutex(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>k_mutex*<sp/>mtx)<sp/>:<sp/>mtx_(mtx)<sp/>{}</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>k_mutex_lock(mtx_,<sp/>K_MSEC(timeout_ms))<sp/>==<sp/>0;<sp/>}</highlight></codeline>
@@ -180,7 +155,7 @@
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
 <codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(THREADX)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;tx_api.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ThreadXMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ThreadXMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>ThreadXMutex(TX_MUTEX*<sp/>mtx)<sp/>:<sp/>mtx_(mtx)<sp/>{}</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -194,7 +169,7 @@
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
 <codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(MBED_OS)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;mbed.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MbedMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MbedMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>MbedMutex(rtos::Mutex&amp;<sp/>mtx)<sp/>:<sp/>mtx_(mtx)<sp/>{}</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mtx_.trylock_for(timeout_ms);<sp/>}</highlight></codeline>
@@ -204,7 +179,7 @@
 <codeline lineno="163"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="164"><highlight class="normal"></highlight></codeline>
 <codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(BAREMETAL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">DummyMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">DummyMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>DummyMutex()<sp/>{}</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
@@ -213,7 +188,7 @@
 <codeline lineno="172"><highlight class="normal"></highlight></codeline>
 <codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(EALLOC_PC_HOST)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Host/PC<sp/>-<sp/>C++11<sp/>minimal<sp/>STL</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">StdMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">StdMutex<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref><sp/>{</highlight></codeline>
 <codeline lineno="176"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>StdMutex(std::timed_mutex&amp;<sp/>mtx)<sp/>:<sp/>mtx_(mtx)<sp/>{}</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lock(uint32_t<sp/>timeout_ms)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -225,10 +200,10 @@
 <codeline lineno="184"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight></codeline>
 <codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>&quot;No<sp/>valid<sp/>platform<sp/>adapter<sp/>selected<sp/>for<sp/>glock::ILockable.<sp/>Define<sp/>a<sp/>supported<sp/>platform<sp/>macro<sp/>(e.g.<sp/>EALLOC_PC_HOST<sp/>for<sp/>host<sp/>builds,<sp/>FREERTOS,<sp/>BAREMETAL,<sp/>etc.)&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>&quot;No<sp/>valid<sp/>platform<sp/>adapter<sp/>selected<sp/>for<sp/>elock::ILockable.<sp/>Define<sp/>a<sp/>supported<sp/>platform<sp/>macro<sp/>(e.g.<sp/>EALLOC_PC_HOST<sp/>for<sp/>host<sp/>builds,<sp/>FREERTOS,<sp/>BAREMETAL,<sp/>etc.)&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>Platform<sp/>Adapters</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>glock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>elock</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/globalLock.hpp"/>
   </compounddef>

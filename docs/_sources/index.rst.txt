@@ -31,14 +31,14 @@ For more details, see the official TLSF website: http://www.gii.upv.es/tlsf/
 
 Other Features:
 - StackAllocator for STL compatibility
-- Platform-adaptive RAII lock guards (glock::ILockable, glock::LockGuard)
+- Platform-adaptive RAII elock guards (elock::IELockable, elock::ELockGuard)
 - Minimal STL bloat (only on host)
 - GoogleTest support for unit tests
 
 Quickstart
 ==========
 
-Get started with eAlloc in just a few lines. The API is the same for embedded MCUs and PC/host builds—just use the right lock adapter for your platform.
+Get started with eAlloc in just a few lines. The API is the same for embedded MCUs and PC/host builds—just use the right elock adapter for your platform.
 
 Platform Support
 ---------------
@@ -46,8 +46,8 @@ Platform Support
 - **Host/PC**: Linux, Windows, macOS (uses std::timed_mutex)
 
 .. tip::
-   For thread safety, always set a lock via ``alloc.setLock(&mutex)``.
-   Use ``glock::StdMutex`` for host/PC, or the appropriate adapter for your platform.
+   For thread safety, always set a elock via ``alloc.setELock(&mutex)``.
+   Use ``elock::StdMutex`` for host/PC, or the appropriate adapter for your platform.
 
 MCU/Embedded (FreeRTOS)
 -----------------------
@@ -57,11 +57,11 @@ A minimal, thread-safe allocator for FreeRTOS:
    :linenos:
 
    #include <eAlloc.hpp>
-   #include <globalLock.hpp>
+   #include <globalELock.hpp>
    static char pool[4096];
-   glock::FreeRTOSMutex mutex(xSemaphoreCreateMutex());
+   elock::FreeRTOSMutex mutex(xSemaphoreCreateMutex());
    dsa::eAlloc alloc(pool, sizeof(pool));
-   alloc.setLock(&mutex);
+   alloc.setELock(&mutex);
    void* p = alloc.malloc(128);
    alloc.free(p);
 
@@ -73,14 +73,14 @@ A minimal, thread-safe allocator for ESP-IDF (ESP32/ESP8266):
    :linenos:
 
    #include <eAlloc.hpp>
-   #include <globalLock.hpp>
+   #include <globalELock.hpp>
    #include <freertos/FreeRTOS.h>
    #include <freertos/semphr.h>
    static char pool[4096];
    SemaphoreHandle_t sem = xSemaphoreCreateMutex();
-   glock::FreeRTOSMutex mutex(sem);
+   elock::FreeRTOSMutex mutex(sem);
    dsa::eAlloc alloc(pool, sizeof(pool));
-   alloc.setLock(&mutex);
+   alloc.setELock(&mutex);
    void* p = alloc.malloc(256);
    alloc.free(p);
 
@@ -92,12 +92,12 @@ A minimal, thread-safe allocator for desktop/host:
    :linenos:
 
    #include <eAlloc.hpp>
-   #include <globalLock.hpp>
+   #include <globalELock.hpp>
    static char pool[4096];
    std::timed_mutex mtx;
-   glock::StdMutex mutex(mtx);
+   elock::StdMutex mutex(mtx);
    dsa::eAlloc alloc(pool, sizeof(pool));
-   alloc.setLock(&mutex);
+   alloc.setELock(&mutex);
    void* p = alloc.malloc(128);
    alloc.free(p);
 
@@ -122,7 +122,7 @@ API Reference
 
 .. rubric:: Main Classes
 
-.. rubric:: Locking Interfaces
+.. rubric:: ELocking Interfaces
 
 .. rubric:: Functions
 
