@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="group__bitmanip" kind="group">
+    <compoundname>bitmanip</compoundname>
+    <title>Bit Manipulation Intrinsics</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int ffs</definition>
+        <argsstring>(unsigned int word)</argsstring>
+        <name>ffs</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>Find the first set bit in a word. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position of the first set bit (1-based index) in the given word. If the word is zero, returns -1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>word</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input word to scan. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The position of the first set bit, or -1 if the word is zero. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/builtins.h" line="146" column="13" bodyfile="src/builtins.h" bodystart="146" bodyend="148" declfile="src/builtins.h" declline="31" declcolumn="13"/>
+        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
+        <references refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" compoundref="builtins_8h" startline="116" endline="143">fls_generic</references>
+        <referencedby refid="classdsa_1_1_t_l_s_f_1ad2d8098eda4e9b2e07ea2d6e86a89262" compoundref="tlsf_8hpp" startline="276" endline="297">dsa::TLSF&lt; 5 &gt;::search_suitable_block</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int fls</definition>
+        <argsstring>(unsigned int word)</argsstring>
+        <name>fls</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>Find the last set bit in a word. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position of the last set bit (1-based index) in the given word. If the word is zero, returns -1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>word</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input word to scan. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The position of the last set bit, or -1 if the word is zero. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/builtins.h" line="150" column="13" bodyfile="src/builtins.h" bodystart="150" bodyend="150" declfile="src/builtins.h" declline="42" declcolumn="13"/>
+        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
+        <references refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" compoundref="builtins_8h" startline="116" endline="143">fls_generic</references>
+        <referencedby refid="classdsa_1_1_t_l_s_f_1a7aaa27582e40b9eabb7d4c03c5facb04" compoundref="tlsf_8hpp" startline="248" endline="265">dsa::TLSF&lt; 5 &gt;::mapping_insert</referencedby>
+        <referencedby refid="classdsa_1_1_t_l_s_f_1aa795026851710838eac2340ab77c9a3f" compoundref="tlsf_8hpp" startline="267" endline="275">dsa::TLSF&lt; 5 &gt;::mapping_search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int fls_generic</definition>
+        <argsstring>(unsigned int word)</argsstring>
+        <name>fls_generic</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/builtins.h" line="116" column="13" bodyfile="src/builtins.h" bodystart="116" bodyend="143"/>
+        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
+        <referencedby refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" compoundref="builtins_8h" startline="146" endline="148">ffs</referencedby>
+        <referencedby refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" compoundref="builtins_8h" startline="150" endline="150">fls</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="namespace_l_o_g" kind="namespace" language="C++">
+    <compoundname>LOG</compoundname>
+    <innerclass refid="class_l_o_g_1_1_logger" prot="public">LOG::Logger</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Level</name>
+        <qualifiedname>LOG::Level</qualifiedname>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043adc30ec20708ef7b0f641ef78b7880a15" prot="public">
+          <name>DEBUG</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a033bd94b1168d7e4f0d644c3c95e35bf" prot="public">
+          <name>TEST</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3" prot="public">
+          <name>INFO</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043ad0749aaba8b833466dfcbb0428e4f89c" prot="public">
+          <name>SUCCESS</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a059e9861e0400dfbe05c98a841f3f96b" prot="public">
+          <name>WARNING</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" prot="public">
+          <name>ERROR</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="16" column="1" bodyfile="src/Logger.hpp" bodystart="16" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_l_o_g_1a20f1e0ea2f5953b20c28b2b238f8c5d6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LOG::LOG_BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>LOG_BUFFER_SIZE</name>
+        <qualifiedname>LOG::LOG_BUFFER_SIZE</qualifiedname>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="15" column="27" bodyfile="src/Logger.hpp" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_l_o_g_1_1_logger_1a04c97325afbcf928407010c4fb464f0b" compoundref="_logger_8hpp" startline="204" endline="212">LOG::Logger::handleBinaryFormat</referencedby>
+        <referencedby refid="class_l_o_g_1_1_logger_1a40e44f60acd6450806a71dc5c8759bf8" compoundref="_logger_8hpp" startline="99" endline="127">LOG::Logger::logInternal</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_l_o_g_1acd0072a098872064e882d347d1e30d9a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::DEBUG</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>DEBUG</name>
+        <qualifiedname>LOG::DEBUG</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="238" column="20" bodyfile="src/Logger.hpp" bodystart="238" bodyend="244"/>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043adc30ec20708ef7b0f641ef78b7880a15" compoundref="_logger_8hpp" startline="17">DEBUG</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+        <referencedby refid="class_l_o_g_1_1_logger_1a4abba1293f8af80ad709f36348f117cf" compoundref="_logger_8hpp" startline="73" endline="89">LOG::Logger::Logger</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1acca4968543615b1b2d77ebac8fe74993" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::DEBUG</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>DEBUG</name>
+        <qualifiedname>LOG::DEBUG</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="245" column="20" bodyfile="src/Logger.hpp" bodystart="245" bodyend="251"/>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043adc30ec20708ef7b0f641ef78b7880a15" compoundref="_logger_8hpp" startline="17">DEBUG</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a26e0f6934ba0223295910736aec08de5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::LOG_TEST</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>LOG_TEST</name>
+        <qualifiedname>LOG::LOG_TEST</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="252" column="20" bodyfile="src/Logger.hpp" bodystart="252" bodyend="258"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a033bd94b1168d7e4f0d644c3c95e35bf" compoundref="_logger_8hpp" startline="18">TEST</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a53938bb96516a83429c842284cefa6aa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::LOG_TEST</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>LOG_TEST</name>
+        <qualifiedname>LOG::LOG_TEST</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="259" column="20" bodyfile="src/Logger.hpp" bodystart="259" bodyend="265"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a033bd94b1168d7e4f0d644c3c95e35bf" compoundref="_logger_8hpp" startline="18">TEST</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a6cfde2e40cb91d10e175b3f42d3b2214" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::INFO</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>INFO</name>
+        <qualifiedname>LOG::INFO</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="266" column="20" bodyfile="src/Logger.hpp" bodystart="266" bodyend="272"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3" compoundref="_logger_8hpp" startline="19">INFO</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a7739e398da33ae660653dd66478095bd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::INFO</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>INFO</name>
+        <qualifiedname>LOG::INFO</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="273" column="20" bodyfile="src/Logger.hpp" bodystart="273" bodyend="279"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3" compoundref="_logger_8hpp" startline="19">INFO</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1af765327ccca9fa0237950bf1b7deec48" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::SUCCESS</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>SUCCESS</name>
+        <qualifiedname>LOG::SUCCESS</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="280" column="20" bodyfile="src/Logger.hpp" bodystart="280" bodyend="286"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043ad0749aaba8b833466dfcbb0428e4f89c" compoundref="_logger_8hpp" startline="20">SUCCESS</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a64d34a15b936414d5a979de4e0ab4c0c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::SUCCESS</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>SUCCESS</name>
+        <qualifiedname>LOG::SUCCESS</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="287" column="20" bodyfile="src/Logger.hpp" bodystart="287" bodyend="293"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043ad0749aaba8b833466dfcbb0428e4f89c" compoundref="_logger_8hpp" startline="20">SUCCESS</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a81ab26058729e014fefed7ca63a94ce0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::WARNING</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>WARNING</name>
+        <qualifiedname>LOG::WARNING</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="294" column="20" bodyfile="src/Logger.hpp" bodystart="294" bodyend="300"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a059e9861e0400dfbe05c98a841f3f96b" compoundref="_logger_8hpp" startline="21">WARNING</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1afffb00cbecc05c1b0120b9151463a4e9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::WARNING</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>WARNING</name>
+        <qualifiedname>LOG::WARNING</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="301" column="20" bodyfile="src/Logger.hpp" bodystart="301" bodyend="307"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a059e9861e0400dfbe05c98a841f3f96b" compoundref="_logger_8hpp" startline="21">WARNING</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a7607c756b43837627f99d36ef7cae158" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::ERROR</definition>
+        <argsstring>(const char *tag, const char *format,...)</argsstring>
+        <name>ERROR</name>
+        <qualifiedname>LOG::ERROR</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="308" column="20" bodyfile="src/Logger.hpp" bodystart="308" bodyend="314"/>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">ERROR</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1aa855cfb2252b131f3943e5d28159aaad" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::ERROR</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>ERROR</name>
+        <qualifiedname>LOG::ERROR</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="315" column="20" bodyfile="src/Logger.hpp" bodystart="315" bodyend="321"/>
+        <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">ERROR</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" compoundref="_logger_8hpp" startline="37" endline="44">LOG::Logger::vlog</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a967dd6d62dde58bb5cc0bcf4b155ce71" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::ENABLE</definition>
+        <argsstring>()</argsstring>
+        <name>ENABLE</name>
+        <qualifiedname>LOG::ENABLE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="322" column="20" bodyfile="src/Logger.hpp" bodystart="322" bodyend="322"/>
+        <references refid="class_l_o_g_1_1_logger_1a41a95b5e1e7b4c6de0cb0c8baeae7344" compoundref="_logger_8hpp" startline="35" endline="35">LOG::Logger::enable</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <referencedby refid="namespace_l_o_g_1a2367c9d0ae19ba363f09b8bde85b4eb2" compoundref="_logger_8hpp" startline="323" endline="327">ENABLE</referencedby>
+        <referencedby refid="namespace_l_o_g_1a0c9a7fe020ae17df56a5cd09509f58c3" compoundref="_logger_8hpp" startline="332" endline="336">ENABLE_TIMESTAMPS</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a2367c9d0ae19ba363f09b8bde85b4eb2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::ENABLE</definition>
+        <argsstring>(Level level)</argsstring>
+        <name>ENABLE</name>
+        <qualifiedname>LOG::ENABLE</qualifiedname>
+        <param>
+          <type><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043" kindref="member">Level</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="323" column="20" bodyfile="src/Logger.hpp" bodystart="323" bodyend="327"/>
+        <references refid="namespace_l_o_g_1a967dd6d62dde58bb5cc0bcf4b155ce71" compoundref="_logger_8hpp" startline="322" endline="322">ENABLE</references>
+        <references refid="class_l_o_g_1_1_logger_1a7f0f597abcedd4595028a380fba3e70c" compoundref="_logger_8hpp" startline="53" endline="53">LOG::Logger::enableLevel</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1afd19d5f46e5cc24eba14f5698ba61979" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::DISABLE</definition>
+        <argsstring>()</argsstring>
+        <name>DISABLE</name>
+        <qualifiedname>LOG::DISABLE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="328" column="20" bodyfile="src/Logger.hpp" bodystart="328" bodyend="328"/>
+        <references refid="class_l_o_g_1_1_logger_1ae8aebeb02c165c851c6b3647a35890e0" compoundref="_logger_8hpp" startline="36" endline="36">LOG::Logger::disable</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a9c8041ed47c5c6124e6ab9ba2a606136" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::DISABLE</definition>
+        <argsstring>(Level level)</argsstring>
+        <name>DISABLE</name>
+        <qualifiedname>LOG::DISABLE</qualifiedname>
+        <param>
+          <type><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043" kindref="member">Level</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="329" column="20" bodyfile="src/Logger.hpp" bodystart="329" bodyend="329"/>
+        <references refid="class_l_o_g_1_1_logger_1a4a179c03b181bad314d4dccbba6b2c13" compoundref="_logger_8hpp" startline="54" endline="54">LOG::Logger::disableLevel</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a45368f04d2851ced6a50cfe31d6b4ab6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::BLOCK_TAG</definition>
+        <argsstring>(const char *tag)</argsstring>
+        <name>BLOCK_TAG</name>
+        <qualifiedname>LOG::BLOCK_TAG</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="330" column="20" bodyfile="src/Logger.hpp" bodystart="330" bodyend="330"/>
+        <references refid="class_l_o_g_1_1_logger_1ab3972d001cfda06b2d3f541fb0e5db45" compoundref="_logger_8hpp" startline="59" endline="59">LOG::Logger::blockTag</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1abe6d0eaaff4fbea93b02ed1e02d80297" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::UNBLOCK_TAG</definition>
+        <argsstring>(const char *tag)</argsstring>
+        <name>UNBLOCK_TAG</name>
+        <qualifiedname>LOG::UNBLOCK_TAG</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="331" column="20" bodyfile="src/Logger.hpp" bodystart="331" bodyend="331"/>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+        <references refid="class_l_o_g_1_1_logger_1a09e8017b40ede3d9bf8c0be52f5420b1" compoundref="_logger_8hpp" startline="60" endline="60">LOG::Logger::unblockTag</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a0c9a7fe020ae17df56a5cd09509f58c3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::ENABLE_TIMESTAMPS</definition>
+        <argsstring>()</argsstring>
+        <name>ENABLE_TIMESTAMPS</name>
+        <qualifiedname>LOG::ENABLE_TIMESTAMPS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="332" column="20" bodyfile="src/Logger.hpp" bodystart="332" bodyend="336"/>
+        <references refid="namespace_l_o_g_1a967dd6d62dde58bb5cc0bcf4b155ce71" compoundref="_logger_8hpp" startline="322" endline="322">ENABLE</references>
+        <references refid="class_l_o_g_1_1_logger_1acdb1319a3d218b7ae2cdc30bba67e843" compoundref="_logger_8hpp" startline="62" endline="62">LOG::Logger::enableTimestamps</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_l_o_g_1a9bb02e1972964f296fc4817a03352b6c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void LOG::DISABLE_TIMESTAMPS</definition>
+        <argsstring>()</argsstring>
+        <name>DISABLE_TIMESTAMPS</name>
+        <qualifiedname>LOG::DISABLE_TIMESTAMPS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logger.hpp" line="337" column="20" bodyfile="src/Logger.hpp" bodystart="337" bodyend="337"/>
+        <references refid="class_l_o_g_1_1_logger_1a0a83875a11650c3fc2015248b6ae638a" compoundref="_logger_8hpp" startline="63" endline="63">LOG::Logger::disableTimestamps</references>
+        <references refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" compoundref="_logger_8hpp" startline="30" endline="34">LOG::Logger::getInstance</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Logger.hpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>

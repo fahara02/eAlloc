@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="namespacedsa" kind="namespace" language="C++">
+    <compoundname>dsa</compoundname>
+    <innerclass refid="classdsa_1_1e_alloc" prot="public">dsa::eAlloc</innerclass>
+    <innerclass refid="classdsa_1_1_stack_allocator" prot="public">dsa::StackAllocator</innerclass>
+    <innerclass refid="classdsa_1_1_t_l_s_f" prot="public">dsa::TLSF</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/eAlloc.cpp" line="9" column="1"/>
+  </compounddef>
+</doxygen>

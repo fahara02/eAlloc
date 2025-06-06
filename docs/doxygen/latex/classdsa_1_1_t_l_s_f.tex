@@ -1,0 +1,1864 @@
+\doxysection{dsa\+::TLSF\texorpdfstring{$<$}{<} SLI \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdsa_1_1_t_l_s_f}{}\label{classdsa_1_1_t_l_s_f}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+
+
+{\ttfamily \#include $<$tlsf.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}}
+\item 
+struct \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}}
+\item 
+struct \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_second_level}{Second\+Level}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef ptrdiff\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a87a00ee083c05e19c43adac02c5d2c26}{tlsfptr\+\_\+t}}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac2e907fdaba5c8fc4c9185a632d8efe6}{tlsf\+\_\+walker}}) (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, int used, void \texorpdfstring{$\ast$}{*}user)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\+\_\+size}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4}{set\+\_\+size}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\+\_\+free}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}{is\+\_\+prev\+\_\+free}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{is\+\_\+last}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a5b817e5a0872cac294950e321bdf75ea}{set\+\_\+free}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a72f2bfdf752ce60b3af7301ea029bffb}{set\+\_\+used}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733}{set\+\_\+prev\+\_\+free}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4fd943d469f8d3be81ba66e109f8340f}{set\+\_\+prev\+\_\+used}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a44438455c9817fbdaed949d5f0b21b8b}{set\+\_\+size\+\_\+and\+\_\+flags}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, bool free\+\_\+flag, bool last\+\_\+flag)
+\item 
+static const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\+\_\+ptr}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02}{to\+\_\+ptr\+\_\+nc}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0d8439adae15c9e8c26088702bcd3561}{from\+\_\+ptr}} (const void \texorpdfstring{$\ast$}{*}ptr)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}{from\+\_\+ptr\+\_\+nc}} (void \texorpdfstring{$\ast$}{*}ptr)
+\item 
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aed92fd15dfab650b5f73f49b3ec02069}{offset\+\_\+to\+\_\+block}} (const void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}{offset\+\_\+to\+\_\+block\+\_\+nc}} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad8b1895322339e22c5206069f2bb5300}{next\+\_\+const}} (const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}{link\+\_\+next}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a32b002299d6d511cfd4db6d6793d2a28}{mark\+\_\+as\+\_\+free}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a835dfcb50f18445e12725900519e3d12}{mark\+\_\+as\+\_\+used}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afa49f068970ffe8c065baf6b112c7c32}{align\+\_\+up}} (size\+\_\+t x, size\+\_\+t align)
+\item 
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_adbb8bb2285eca7f84e3529b4207215d1}{align\+\_\+down}} (size\+\_\+t x, size\+\_\+t align)
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c1da7e5d6c2006a19c5692c8813fdd1}{align\+\_\+ptr}} (const void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t align)
+\item 
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06b784dc5df9063ca8acd2c1b1e4d7fe}{adjust\+\_\+request\+\_\+size}} (size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, size\+\_\+t align)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}{mapping\+\_\+insert}} (size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, int \texorpdfstring{$\ast$}{*}fli, int \texorpdfstring{$\ast$}{*}sli)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa795026851710838eac2340ab77c9a3f}{mapping\+\_\+search}} (size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, int \texorpdfstring{$\ast$}{*}fli, int \texorpdfstring{$\ast$}{*}sli)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad2d8098eda4e9b2e07ea2d6e86a89262}{search\+\_\+suitable\+\_\+block}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, int \texorpdfstring{$\ast$}{*}fli, int \texorpdfstring{$\ast$}{*}sli)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a57e28078474fdc0853060430d5454920}{remove\+\_\+free\+\_\+block}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, int fl, int sl)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a07deb05a505f94dfbd6eb637a151008a}{insert\+\_\+free\+\_\+block}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, int fl, int sl)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0618f620681909344d8bcef6844a02c8}{remove}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7}{insert}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f}{can\+\_\+split}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202}{split}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1d0e453b3030deeb7f4e5537a4bdcaa1}{absorb}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}}, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af2641f51b9b064d86a22c330d5c1bd84}{merge\+\_\+prev}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7b5ac458179b4ccc499b03d2cb10c10d}{merge\+\_\+next}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a52605b6620223a08ca21559d318c91d0}{trim\+\_\+free}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7d4b158b6ac8cdff4023397b9ab3ced2}{trim\+\_\+used}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a3caa818d20ad9f4c114c28b79b2d6904}{trim\+\_\+free\+\_\+leading}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afacb1adf4c48b2d06cafaa71b9f884d9}{locate\+\_\+free}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9a2d2201883d300bf1568e53c09297c4}{prepare\+\_\+used}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control, \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}block, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab0d208e1982ce713b1ef6fd7a6cb2336}{initialise\+\_\+control}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control)
+\item 
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af06d06e73cb9a3a3a4c48e2016ab5dc4}{default\+\_\+walker}} (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, int used, void \texorpdfstring{$\ast$}{*}user)
+\item 
+static int \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aaed5056de4768b8781b5c29d0ce257c6}{check}} (\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}control)
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab40635b4daeb1e0327e1760e31511a80}{shelves}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a94184fce9ea53ceedd787ceb6d328c74}{total\+\_\+shelves}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa368212269f0ea11be46c699c43cc548}{align\+\_\+size}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a89ba8da1eed88f7ce1540d3b8dbfb10b}{min\+\_\+block\+\_\+size}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8c4a779e143cd73fe56782c936795dd6}{max\+\_\+block\+\_\+size}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a5d88bfb8ba87a80e7f69cf7e02a40244}{pool\+\_\+overhead}} ()
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1e7328266ccc90058b455aea1ba93746}{alloc\+\_\+overhead}} ()
+\item 
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aee18af47433b4624c23364b9a0e6ad6d}{block\+\_\+size}} (void \texorpdfstring{$\ast$}{*}ptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef char \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a5c41d39610f61b576a64cb4e02dd565c}{static\+\_\+assert\+\_\+\+\_\+\+LINE\+\_\+\+\_\+}}\mbox{[}(sizeof(unsigned int) \texorpdfstring{$\ast$}{*}CHAR\+\_\+\+BIT $>$=\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\+\_\+\+COUNT}}) ? 1 \+:-\/1\mbox{]}
+\item 
+typedef char \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4dd5874169334b079e6886a53c795589}{static\+\_\+assert\+\_\+\+\_\+\+LINE\+\_\+\+\_\+}}\mbox{[}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\+\_\+\+ALIGNMENT}}==\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\+\_\+\+BLOCK\+\_\+\+SIZE}}/\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\+\_\+\+COUNT}}) ? 1 \+:-\/1\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\+\_\+\+INDEX\+\_\+\+LOG2}} = SLI
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}{ALIGN\+\_\+\+SIZE\+\_\+\+LOG2}} = 2
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\+\_\+\+ALIGNMENT}} = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}{ALIGN\+\_\+\+SIZE\+\_\+\+LOG2}})
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}{FL\+\_\+\+INDEX\+\_\+\+MAX}} = 31
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\+\_\+\+COUNT}} = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\+\_\+\+INDEX\+\_\+\+LOG2}})
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\+\_\+\+INDEX\+\_\+\+SHIFT}} = (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\+\_\+\+INDEX\+\_\+\+LOG2}} + \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}{ALIGN\+\_\+\+SIZE\+\_\+\+LOG2}})
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}{FL\+\_\+\+INDEX\+\_\+\+COUNT}} = (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}{FL\+\_\+\+INDEX\+\_\+\+MAX}} -\/ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\+\_\+\+INDEX\+\_\+\+SHIFT}} + 1)
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\+\_\+\+BLOCK\+\_\+\+SIZE}} = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\+\_\+\+INDEX\+\_\+\+SHIFT}})
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9e9ae52d67bb0faf1920c4c4b8376adc}{ALIGN\+\_\+\+SIZE}} = \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\+\_\+\+ALIGNMENT}}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\+\_\+bit}} = 1 $<$$<$ 0
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\+\_\+free\+\_\+bit}} = 1 $<$$<$ 1
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}{flag\+\_\+mask}} = \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\+\_\+free\+\_\+bit}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\+\_\+bit}}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\+\_\+header\+\_\+overhead}} = sizeof(size\+\_\+t)
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}{block\+\_\+start\+\_\+offset}}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464}{block\+\_\+size\+\_\+min}} = sizeof(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}}) -\/ sizeof(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}}\texorpdfstring{$\ast$}{*})
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a53417c63ebdd45bcc2f4955856929444}{block\+\_\+size\+\_\+max}} = static\+\_\+cast$<$size\+\_\+t$>$(1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}{FL\+\_\+\+INDEX\+\_\+\+MAX}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t SLI = 5$>$\newline
+class dsa\+::\+TLSF$<$ SLI $>$}
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classdsa_1_1_t_l_s_f_a4dd5874169334b079e6886a53c795589}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!static\_assert\_\_LINE\_\_@{static\_assert\_\_LINE\_\_}}
+\index{static\_assert\_\_LINE\_\_@{static\_assert\_\_LINE\_\_}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{static\_assert\_\_LINE\_\_}{static\_assert\_\_LINE\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a4dd5874169334b079e6886a53c795589} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+typedef char \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::static\+\_\+assert\+\_\+\+\_\+\+LINE\+\_\+\+\_\+\mbox{[}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\+\_\+\+ALIGNMENT}}==\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\+\_\+\+BLOCK\+\_\+\+SIZE}}/\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\+\_\+\+COUNT}}) ? 1 \+:-\/1\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a5c41d39610f61b576a64cb4e02dd565c}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!static\_assert\_\_LINE\_\_@{static\_assert\_\_LINE\_\_}}
+\index{static\_assert\_\_LINE\_\_@{static\_assert\_\_LINE\_\_}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{static\_assert\_\_LINE\_\_}{static\_assert\_\_LINE\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a5c41d39610f61b576a64cb4e02dd565c} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+typedef char \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::static\+\_\+assert\+\_\+\+\_\+\+LINE\+\_\+\+\_\+\mbox{[}(sizeof(unsigned int) \texorpdfstring{$\ast$}{*}CHAR\+\_\+\+BIT $>$=\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\+\_\+\+COUNT}}) ? 1 \+:-\/1\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ac2e907fdaba5c8fc4c9185a632d8efe6}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!tlsf\_walker@{tlsf\_walker}}
+\index{tlsf\_walker@{tlsf\_walker}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{tlsf\_walker}{tlsf\_walker}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ac2e907fdaba5c8fc4c9185a632d8efe6} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::tlsf\+\_\+walker) (void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}, int used, void \texorpdfstring{$\ast$}{*}user)}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a87a00ee083c05e19c43adac02c5d2c26}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!tlsfptr\_t@{tlsfptr\_t}}
+\index{tlsfptr\_t@{tlsfptr\_t}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{tlsfptr\_t}{tlsfptr\_t}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a87a00ee083c05e19c43adac02c5d2c26} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+typedef ptrdiff\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::tlsfptr\+\_\+t}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdsa_1_1_t_l_s_f_a1d0e453b3030deeb7f4e5537a4bdcaa1}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!absorb@{absorb}}
+\index{absorb@{absorb}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{absorb()}{absorb()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a1d0e453b3030deeb7f4e5537a4bdcaa1} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::absorb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{prev}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00363}{363}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00364\ \ \ \ \ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{is\_last}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}}));}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4}{set\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}})\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}{link\_next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}});}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}};}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{classdsa_1_1_t_l_s_f_a06b784dc5df9063ca8acd2c1b1e4d7fe}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!adjust\_request\_size@{adjust\_request\_size}}
+\index{adjust\_request\_size@{adjust\_request\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{adjust\_request\_size()}{adjust\_request\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a06b784dc5df9063ca8acd2c1b1e4d7fe} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::adjust\+\_\+request\+\_\+size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{size\+\_\+t}]{align}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00233}{233}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00234\ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{adjust}}\ =\ 0;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{aligned}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afa49f068970ffe8c065baf6b112c7c32}{align\_up}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}});}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{aligned}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a53417c63ebdd45bcc2f4955856929444}{block\_size\_max}})\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{adjust}}\ =\ \mbox{\hyperlink{tlsf_8hpp_aaa692ecf5394ea6be5a779d4b90352e9}{dsa\_max}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{aligned}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464}{block\_size\_min}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{adjust}};}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_adbb8bb2285eca7f84e3529b4207215d1}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!align\_down@{align\_down}}
+\index{align\_down@{align\_down}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{align\_down()}{align\_down()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_adbb8bb2285eca7f84e3529b4207215d1} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::align\+\_\+down (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x}{, }\item[{size\+\_\+t}]{align}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00217}{217}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218\ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(0\ ==\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ \&\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1))\ \&\&\ \textcolor{stringliteral}{"{}must\ align\ to\ a\ power\ of\ two"{}});}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{x}}\ -\/\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{x}}\ \&\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1));}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a7c1da7e5d6c2006a19c5692c8813fdd1}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!align\_ptr@{align\_ptr}}
+\index{align\_ptr@{align\_ptr}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{align\_ptr()}{align\_ptr()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7c1da7e5d6c2006a19c5692c8813fdd1} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::align\+\_\+ptr (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{size\+\_\+t}]{align}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00223}{223}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a87a00ee083c05e19c43adac02c5d2c26}{tlsfptr\_t}}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{aligned}}\ =\ (\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a87a00ee083c05e19c43adac02c5d2c26}{tlsfptr\_t}}\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})\ +\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1))\ \&\ \string~(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(0\ ==\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ \&\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1))\ \&\&\ \textcolor{stringliteral}{"{}must\ align\ to\ a\ power\ of\ two"{}});}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{aligned}});}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00317}{dsa\+::\+TLSF$<$ 5 $>$\+::insert\+\_\+free\+\_\+block()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{classdsa_1_1_t_l_s_f_aa368212269f0ea11be46c699c43cc548}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!align\_size@{align\_size}}
+\index{align\_size@{align\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{align\_size()}{align\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aa368212269f0ea11be46c699c43cc548} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::align\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00536}{536}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00536\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\_ALIGNMENT}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_afa49f068970ffe8c065baf6b112c7c32}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!align\_up@{align\_up}}
+\index{align\_up@{align\_up}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{align\_up()}{align\_up()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_afa49f068970ffe8c065baf6b112c7c32} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::align\+\_\+up (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x}{, }\item[{size\+\_\+t}]{align}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(0\ ==\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ \&\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1))\ \&\&\ \textcolor{stringliteral}{"{}must\ align\ to\ a\ power\ of\ two"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{x}}\ +\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1))\ \&\ \string~(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{align}}\ -\/\ 1);}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00233}{dsa\+::\+TLSF$<$ 5 $>$\+::adjust\+\_\+request\+\_\+size()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{classdsa_1_1_t_l_s_f_a1e7328266ccc90058b455aea1ba93746}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!alloc\_overhead@{alloc\_overhead}}
+\index{alloc\_overhead@{alloc\_overhead}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{alloc\_overhead()}{alloc\_overhead()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a1e7328266ccc90058b455aea1ba93746} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::alloc\+\_\+overhead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00540}{540}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00540\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_aee18af47433b4624c23364b9a0e6ad6d}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!block\_size@{block\_size}}
+\index{block\_size@{block\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{block\_size()}{block\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aee18af47433b4624c23364b9a0e6ad6d} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::block\+\_\+size (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00541}{541}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00542\ \ \ \ \ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ =\ 0;}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}{from\_ptr\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}});}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}};}
+\DoxyCodeLine{00550\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!cabinets@{cabinets}}
+\index{cabinets@{cabinets}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{cabinets()}{cabinets()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::cabinets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00532}{532}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00532\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}{FL\_INDEX\_COUNT}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!can\_split@{can\_split}}
+\index{can\_split@{can\_split}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{can\_split()}{can\_split()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::can\+\_\+split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348\ \ \ \ \ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ >=\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}})\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}};}
+\DoxyCodeLine{00350\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00416}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free\+\_\+leading()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{classdsa_1_1_t_l_s_f_aaed5056de4768b8781b5c29d0ce257c6}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!check@{check}}
+\index{check@{check}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aaed5056de4768b8781b5c29d0ce257c6} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static int \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00480}{480}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00481\ \ \ \ \ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}};}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{status}}\ =\ 0;}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ that\ the\ free\ lists\ and\ bitmaps\ are\ accurate.\ */}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}\ =\ 0;\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}();\ ++\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}})}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}\ =\ 0;\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab40635b4daeb1e0327e1760e31511a80}{shelves}}();\ ++\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}})}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl\_map}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>fl\_bitmap\ \&\ (1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}});}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_list}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}].sl\_bitmap;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_list}}\ \&\ (1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}});}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}];}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ that\ first-\/\ and\ second-\/level\ lists\ agree.\ */}}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl\_map}})}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}}\ \&\&\ \textcolor{stringliteral}{"{}second-\/level\ map\ must\ be\ null"{}});}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}})}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ ==\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null\ \&\&\ \textcolor{stringliteral}{"{}block\ list\ must\ be\ null"{}});}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ that\ there\ is\ at\ least\ one\ free\ block.\ */}}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_list}}\ \&\&\ \textcolor{stringliteral}{"{}no\ free\ blocks\ in\ second-\/level\ map"{}});}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ !=\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null\ \&\&\ \textcolor{stringliteral}{"{}block\ should\ not\ be\ null"{}});}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ !=\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null)}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}};}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}block\ should\ be\ free"{}});}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}{is\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}blocks\ should\ have\ coalesced"{}});}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad8b1895322339e22c5206069f2bb5300}{next\_const}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}))\ \&\&\ \textcolor{stringliteral}{"{}blocks\ should\ have\ coalesced"{}});}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}{is\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad8b1895322339e22c5206069f2bb5300}{next\_const}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}))\ \&\&\ \textcolor{stringliteral}{"{}block\ should\ be\ free"{}});}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ >=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a89ba8da1eed88f7ce1540d3b8dbfb10b}{min\_block\_size}}()\ \&\&\ \textcolor{stringliteral}{"{}block\ not\ minimum\ size"{}});}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}{mapping\_insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}});}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a7f176a9edf6585122465fae7a0a49fef}{dsa\_insist}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}}\ ==\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}\ \&\&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}}\ ==\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}\ \&\&\ \textcolor{stringliteral}{"{}block\ size\ indexed\ in\ wrong\ list"{}});}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>next\_free;}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{status}};}
+\DoxyCodeLine{00529\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_af06d06e73cb9a3a3a4c48e2016ab5dc4}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!default\_walker@{default\_walker}}
+\index{default\_walker@{default\_walker}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{default\_walker()}{default\_walker()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_af06d06e73cb9a3a3a4c48e2016ab5dc4} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::default\+\_\+walker (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{size\+\_\+t}]{size}{, }\item[{int}]{used}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00474\ \ \ \ \ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{void}})\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{user}};}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_l_o_g_a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3}{LOG::INFO}}(\textcolor{stringliteral}{"{}\(\backslash\)t\%p\ \%s\ size:\ \%x\ (\%p)\(\backslash\)n"{}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{used}}\ ?\ \textcolor{stringliteral}{"{}used"{}}\ :\ \textcolor{stringliteral}{"{}free"{}},\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}},}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}{from\_ptr\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}}));}
+\DoxyCodeLine{00478\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a0d8439adae15c9e8c26088702bcd3561}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!from\_ptr@{from\_ptr}}
+\index{from\_ptr@{from\_ptr}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{from\_ptr()}{from\_ptr()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a0d8439adae15c9e8c26088702bcd3561} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::from\+\_\+ptr (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}{block\_start\_offset}});}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!from\_ptr\_nc@{from\_ptr\_nc}}
+\index{from\_ptr\_nc@{from\_ptr\_nc}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{from\_ptr\_nc()}{from\_ptr\_nc()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::from\+\_\+ptr\+\_\+nc (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}{block\_start\_offset}});}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00541}{dsa\+::\+TLSF$<$ 5 $>$\+::block\+\_\+size()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00473}{dsa\+::\+TLSF$<$ 5 $>$\+::default\+\_\+walker()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::get\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00098}{98}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}{\string~flag\_mask}};}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00363}{dsa\+::\+TLSF$<$ 5 $>$\+::absorb()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00541}{dsa\+::\+TLSF$<$ 5 $>$\+::block\+\_\+size()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00347}{dsa\+::\+TLSF$<$ 5 $>$\+::can\+\_\+split()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00117}{dsa\+::\+TLSF$<$ 5 $>$\+::is\+\_\+last()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00182}{dsa\+::\+TLSF$<$ 5 $>$\+::next\+\_\+const()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00333}{dsa\+::\+TLSF$<$ 5 $>$\+::remove()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{classdsa_1_1_t_l_s_f_ab0d208e1982ce713b1ef6fd7a6cb2336}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!initialise\_control@{initialise\_control}}
+\index{initialise\_control@{initialise\_control}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{initialise\_control()}{initialise\_control()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ab0d208e1982ce713b1ef6fd7a6cb2336} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::initialise\+\_\+control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00456}{456}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00457\ \ \ \ \ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}};}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null.next\_free\ =\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null.prev\_free\ =\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null;}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>fl\_bitmap\ =\ 0;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}\ =\ 0;\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}{FL\_INDEX\_COUNT}};\ ++\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}})}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}].sl\_bitmap\ =\ 0;}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}\ =\ 0;\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\_COUNT}};\ ++\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}})}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{i}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{j}}]\ =\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null;}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00472\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!insert@{insert}}
+\index{insert@{insert}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00341}{341}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00342\ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}};}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}{mapping\_insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a07deb05a505f94dfbd6eb637a151008a}{insert\_free\_block}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00416}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free\+\_\+leading()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{classdsa_1_1_t_l_s_f_a07deb05a505f94dfbd6eb637a151008a}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!insert\_free\_block@{insert\_free\_block}}
+\index{insert\_free\_block@{insert\_free\_block}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{insert\_free\_block()}{insert\_free\_block()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a07deb05a505f94dfbd6eb637a151008a} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::insert\+\_\+free\+\_\+block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{int}]{fl}{, }\item[{int}]{sl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00317}{317}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00318\ \ \ \ \ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{current}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}];}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{current}}\ \&\&\ \textcolor{stringliteral}{"{}free\ list\ cannot\ have\ a\ null\ entry"{}});}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ \&\&\ \textcolor{stringliteral}{"{}cannot\ insert\ a\ null\ entry\ into\ the\ free\ list"{}});}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>next\_free\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{current}};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>prev\_free\ =\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{current}})\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{current}}-\/>prev\_free\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ ==\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c1da7e5d6c2006a19c5692c8813fdd1}{align\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9e9ae52d67bb0faf1920c4c4b8376adc}{ALIGN\_SIZE}})}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}block\ not\ aligned\ properly"{}});}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}]\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>fl\_bitmap\ |=\ (1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].sl\_bitmap\ |=\ (1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\Hypertarget{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!is\_free@{is\_free}}
+\index{is\_free@{is\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{is\_free()}{is\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::is\+\_\+free (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00108}{108}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\_bit}};}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!is\_last@{is\_last}}
+\index{is\_last@{is\_last}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{is\_last()}{is\_last()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::is\+\_\+last (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ ==\ 0;\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00363}{dsa\+::\+TLSF$<$ 5 $>$\+::absorb()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00182}{dsa\+::\+TLSF$<$ 5 $>$\+::next\+\_\+const()}}.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!is\_prev\_free@{is\_prev\_free}}
+\index{is\_prev\_free@{is\_prev\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{is\_prev\_free()}{is\_prev\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static bool \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::is\+\_\+prev\+\_\+free (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00112}{112}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\_free\_bit}};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00168}{dsa\+::\+TLSF$<$ 5 $>$\+::prev()}}.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!link\_next@{link\_next}}
+\index{link\_next@{link\_next}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{link\_next()}{link\_next()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::link\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00191}{191}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00192\ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}-\/>prev\_phys\_block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}};}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00363}{dsa\+::\+TLSF$<$ 5 $>$\+::absorb()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00197}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00416}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free\+\_\+leading()}}.
+
+Here is the caller graph for this function\+:
+% FIG 12
+\Hypertarget{classdsa_1_1_t_l_s_f_afacb1adf4c48b2d06cafaa71b9f884d9}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!locate\_free@{locate\_free}}
+\index{locate\_free@{locate\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{locate\_free()}{locate\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_afacb1adf4c48b2d06cafaa71b9f884d9} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::locate\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00428}{428}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00429\ \ \ \ \ \{}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ =\ 0,\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}\ =\ 0;}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ 0;}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa795026851710838eac2340ab77c9a3f}{mapping\_search}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}{FL\_INDEX\_COUNT}})\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad2d8098eda4e9b2e07ea2d6e86a89262}{search\_suitable\_block}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ >=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a57e28078474fdc0853060430d5454920}{remove\_free\_block}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00443\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!mapping\_insert@{mapping\_insert}}
+\index{mapping\_insert@{mapping\_insert}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{mapping\_insert()}{mapping\_insert()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::mapping\+\_\+insert (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{fli}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{sli}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00248}{248}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}};}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\_BLOCK\_SIZE}})}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ =\ 0;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})\ /\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\_BLOCK\_SIZE}}\ /\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\_COUNT}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ =\ \mbox{\hyperlink{group__bitmanip_ga5b197bab96b83defaaacb5c7fa2abbc6}{fls}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}\ =\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ >>\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\_INDEX\_LOG2}}))\ \string^\ (1\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\_INDEX\_LOG2}}));}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ -\/=\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\_INDEX\_SHIFT}}\ -\/\ 1);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}};}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00341}{dsa\+::\+TLSF$<$ 5 $>$\+::insert()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00267}{dsa\+::\+TLSF$<$ 5 $>$\+::mapping\+\_\+search()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00333}{dsa\+::\+TLSF$<$ 5 $>$\+::remove()}}.
+
+Here is the caller graph for this function\+:
+% FIG 13
+\Hypertarget{classdsa_1_1_t_l_s_f_aa795026851710838eac2340ab77c9a3f}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!mapping\_search@{mapping\_search}}
+\index{mapping\_search@{mapping\_search}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{mapping\_search()}{mapping\_search()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aa795026851710838eac2340ab77c9a3f} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::mapping\+\_\+search (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{fli}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{sli}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00267}{267}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00268\ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ >=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}{SMALL\_BLOCK\_SIZE}})}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{round}}\ =\ (1\ <<\ (\mbox{\hyperlink{group__bitmanip_ga5b197bab96b83defaaacb5c7fa2abbc6}{fls}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}})\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\_INDEX\_LOG2}}))\ -\/\ 1;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ +=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{round}};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}{mapping\_insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}});}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}.
+
+Here is the caller graph for this function\+:
+% FIG 14
+\Hypertarget{classdsa_1_1_t_l_s_f_a32b002299d6d511cfd4db6d6793d2a28}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!mark\_as\_free@{mark\_as\_free}}
+\index{mark\_as\_free@{mark\_as\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{mark\_as\_free()}{mark\_as\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a32b002299d6d511cfd4db6d6793d2a28} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::mark\+\_\+as\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Link\ the\ block\ to\ the\ next\ block,\ first.\ */}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}{link\_next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733}{set\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}});}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a5b817e5a0872cac294950e321bdf75ea}{set\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 15
+\Hypertarget{classdsa_1_1_t_l_s_f_a835dfcb50f18445e12725900519e3d12}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!mark\_as\_used@{mark\_as\_used}}
+\index{mark\_as\_used@{mark\_as\_used}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{mark\_as\_used()}{mark\_as\_used()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a835dfcb50f18445e12725900519e3d12} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::mark\+\_\+as\+\_\+used (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00205}{205}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00206\ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4fd943d469f8d3be81ba66e109f8340f}{set\_prev\_used}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a72f2bfdf752ce60b3af7301ea029bffb}{set\_used}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00444}{dsa\+::\+TLSF$<$ 5 $>$\+::prepare\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 16
+\Hypertarget{classdsa_1_1_t_l_s_f_a8c4a779e143cd73fe56782c936795dd6}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!max\_block\_size@{max\_block\_size}}
+\index{max\_block\_size@{max\_block\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{max\_block\_size()}{max\_block\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a8c4a779e143cd73fe56782c936795dd6} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::max\+\_\+block\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00538}{538}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00538\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a53417c63ebdd45bcc2f4955856929444}{block\_size\_max}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a7b5ac458179b4ccc499b03d2cb10c10d}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!merge\_next@{merge\_next}}
+\index{merge\_next@{merge\_next}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{merge\_next()}{merge\_next()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7b5ac458179b4ccc499b03d2cb10c10d} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::merge\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00382}{382}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00383\ \ \ \ \ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ \&\&\ \textcolor{stringliteral}{"{}next\ physical\ block\ can't\ be\ null"{}});}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}))}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{is\_last}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}previous\ block\ can't\ be\ last"{}});}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0618f620681909344d8bcef6844a02c8}{remove}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}});}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1d0e453b3030deeb7f4e5537a4bdcaa1}{absorb}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}});}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00393\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 17
+\Hypertarget{classdsa_1_1_t_l_s_f_af2641f51b9b064d86a22c330d5c1bd84}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!merge\_prev@{merge\_prev}}
+\index{merge\_prev@{merge\_prev}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{merge\_prev()}{merge\_prev()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_af2641f51b9b064d86a22c330d5c1bd84} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::merge\+\_\+prev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00370}{370}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00371\ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}{is\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}))}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}}\ \&\&\ \textcolor{stringliteral}{"{}prev\ physical\ block\ can't\ be\ null"{}});}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}})\ \&\&\ \textcolor{stringliteral}{"{}prev\ block\ is\ not\ free\ though\ marked\ as\ such"{}});}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0618f620681909344d8bcef6844a02c8}{remove}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}});}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1d0e453b3030deeb7f4e5537a4bdcaa1}{absorb}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00381\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a89ba8da1eed88f7ce1540d3b8dbfb10b}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!min\_block\_size@{min\_block\_size}}
+\index{min\_block\_size@{min\_block\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{min\_block\_size()}{min\_block\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a89ba8da1eed88f7ce1540d3b8dbfb10b} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::min\+\_\+block\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00537}{537}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00537\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464}{block\_size\_min}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}.
+
+Here is the caller graph for this function\+:
+% FIG 18
+\Hypertarget{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!next@{next}}
+\index{next@{next}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00175}{175}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ =}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}{offset\_to\_block\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02}{to\_ptr\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{is\_last}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}));}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}};}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00191}{dsa\+::\+TLSF$<$ 5 $>$\+::link\+\_\+next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00205}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+used()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}.
+
+Here is the caller graph for this function\+:
+% FIG 19
+\Hypertarget{classdsa_1_1_t_l_s_f_ad8b1895322339e22c5206069f2bb5300}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!next\_const@{next\_const}}
+\index{next\_const@{next\_const}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{next\_const()}{next\_const()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ad8b1895322339e22c5206069f2bb5300} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::next\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}}\ =}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aed92fd15dfab650b5f73f49b3ec02069}{offset\_to\_block}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{is\_last}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}));}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{n}};}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}.
+
+Here is the caller graph for this function\+:
+% FIG 20
+\Hypertarget{classdsa_1_1_t_l_s_f_aed92fd15dfab650b5f73f49b3ec02069}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!offset\_to\_block@{offset\_to\_block}}
+\index{offset\_to\_block@{offset\_to\_block}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{offset\_to\_block()}{offset\_to\_block()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aed92fd15dfab650b5f73f49b3ec02069} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::offset\+\_\+to\+\_\+block (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00158}{158}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00182}{dsa\+::\+TLSF$<$ 5 $>$\+::next\+\_\+const()}}.
+
+Here is the caller graph for this function\+:
+% FIG 21
+\Hypertarget{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!offset\_to\_block\_nc@{offset\_to\_block\_nc}}
+\index{offset\_to\_block\_nc@{offset\_to\_block\_nc}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{offset\_to\_block\_nc()}{offset\_to\_block\_nc()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::offset\+\_\+to\+\_\+block\+\_\+nc (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00162}{162}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{ptr}})\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 22
+\Hypertarget{classdsa_1_1_t_l_s_f_a5d88bfb8ba87a80e7f69cf7e02a40244}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!pool\_overhead@{pool\_overhead}}
+\index{pool\_overhead@{pool\_overhead}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{pool\_overhead()}{pool\_overhead()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a5d88bfb8ba87a80e7f69cf7e02a40244} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::pool\+\_\+overhead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00539}{539}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00539\ \{\ \textcolor{keywordflow}{return}\ 2\ *\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a9a2d2201883d300bf1568e53c09297c4}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!prepare\_used@{prepare\_used}}
+\index{prepare\_used@{prepare\_used}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{prepare\_used()}{prepare\_used()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a9a2d2201883d300bf1568e53c09297c4} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::prepare\+\_\+used (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00444}{444}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00445\ \ \ \ \ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ \&\&\ \textcolor{stringliteral}{"{}size\ must\ be\ non-\/zero"{}});}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a52605b6620223a08ca21559d318c91d0}{trim\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a835dfcb50f18445e12725900519e3d12}{mark\_as\_used}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02}{to\_ptr\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{p}};}
+\DoxyCodeLine{00455\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!prev@{prev}}
+\index{prev@{prev}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{prev()}{prev()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::prev (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00168}{168}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac45a129e8e6228e0360fbc191652e9a6}{is\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}previous\ block\ must\ be\ free"{}});}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>prev\_phys\_block;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}.
+
+Here is the caller graph for this function\+:
+% FIG 23
+\Hypertarget{classdsa_1_1_t_l_s_f_a0618f620681909344d8bcef6844a02c8}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!remove@{remove}}
+\index{remove@{remove}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a0618f620681909344d8bcef6844a02c8} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00333}{333}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}};}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7aaa27582e40b9eabb7d4c03c5facb04}{mapping\_insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a57e28078474fdc0853060430d5454920}{remove\_free\_block}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00382}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+next()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00370}{dsa\+::\+TLSF$<$ 5 $>$\+::merge\+\_\+prev()}}.
+
+Here is the caller graph for this function\+:
+% FIG 24
+\Hypertarget{classdsa_1_1_t_l_s_f_a57e28078474fdc0853060430d5454920}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!remove\_free\_block@{remove\_free\_block}}
+\index{remove\_free\_block@{remove\_free\_block}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_free\_block()}{remove\_free\_block()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a57e28078474fdc0853060430d5454920} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::remove\+\_\+free\+\_\+block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{int}]{fl}{, }\item[{int}]{sl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00298}{298}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00299\ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>prev\_free;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>next\_free;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}})\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}-\/>prev\_free\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}};}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}})\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a916561111ba5eefbd3fb72dba5232bfc}{prev}}-\/>next\_free\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}};}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}]\ ==\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}]\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}};}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a95fb2325991390b7e21889d5f212e231}{next}}\ ==\ \&\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>block\_null)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].sl\_bitmap\ \&=\ \string~(1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].sl\_bitmap)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>fl\_bitmap\ \&=\ \string~(1U\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}});}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00333}{dsa\+::\+TLSF$<$ 5 $>$\+::remove()}}.
+
+Here is the caller graph for this function\+:
+% FIG 25
+\Hypertarget{classdsa_1_1_t_l_s_f_ad2d8098eda4e9b2e07ea2d6e86a89262}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!search\_suitable\_block@{search\_suitable\_block}}
+\index{search\_suitable\_block@{search\_suitable\_block}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{search\_suitable\_block()}{search\_suitable\_block()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ad2d8098eda4e9b2e07ea2d6e86a89262} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::search\+\_\+suitable\+\_\+block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{fli}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{sli}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00276}{276}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00277\ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ =\ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}};}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}\ =\ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].sl\_bitmap\ \&\ (\string~0\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{U}}\ <<\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}});}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}})}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ block\ exists.\ Search\ in\ the\ next\ largest\ first-\/level\ list.\ */}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl\_map}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>fl\_bitmap\ \&\ (\string~0\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{U}}\ <<\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ +\ 1));}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl\_map}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}\ =\ \mbox{\hyperlink{group__bitmanip_ga3e006b854f7c810a241a6ad9931a5a4c}{ffs}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl\_map}});}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fli}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].sl\_bitmap;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}}\ \&\&\ \textcolor{stringliteral}{"{}internal\ error\ -\/\ second\ level\ bitmap\ is\ null"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}\ =\ \mbox{\hyperlink{group__bitmanip_ga3e006b854f7c810a241a6ad9931a5a4c}{ffs}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl\_map}});}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sli}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ the\ first\ block\ in\ the\ free\ list.\ */}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}}-\/>\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{cabinets}}[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{fl}}].shelves[\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{sl}}];}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00428}{dsa\+::\+TLSF$<$ 5 $>$\+::locate\+\_\+free()}}.
+
+Here is the caller graph for this function\+:
+% FIG 26
+\Hypertarget{classdsa_1_1_t_l_s_f_a5b817e5a0872cac294950e321bdf75ea}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_free@{set\_free}}
+\index{set\_free@{set\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_free()}{set\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a5b817e5a0872cac294950e321bdf75ea} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00119}{119}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \{\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ |=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\_bit}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00197}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+free()}}.
+
+Here is the caller graph for this function\+:
+% FIG 27
+\Hypertarget{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_prev\_free@{set\_prev\_free}}
+\index{set\_prev\_free@{set\_prev\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_prev\_free()}{set\_prev\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+prev\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00123}{123}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \{\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ |=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\_free\_bit}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00197}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00416}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free\+\_\+leading()}}.
+
+Here is the caller graph for this function\+:
+% FIG 28
+\Hypertarget{classdsa_1_1_t_l_s_f_a4fd943d469f8d3be81ba66e109f8340f}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_prev\_used@{set\_prev\_used}}
+\index{set\_prev\_used@{set\_prev\_used}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_prev\_used()}{set\_prev\_used()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a4fd943d469f8d3be81ba66e109f8340f} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+prev\+\_\+used (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{\string~prev\_free\_bit}};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00205}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+used()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 29
+\Hypertarget{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_size@{set\_size}}
+\index{set\_size@{set\_size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_size()}{set\_size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ =\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}{\string~flag\_mask}})\ |\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}{flag\_mask}});}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00363}{dsa\+::\+TLSF$<$ 5 $>$\+::absorb()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 30
+\Hypertarget{classdsa_1_1_t_l_s_f_a44438455c9817fbdaed949d5f0b21b8b}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_size\_and\_flags@{set\_size\_and\_flags}}
+\index{set\_size\_and\_flags@{set\_size\_and\_flags}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_size\_and\_flags()}{set\_size\_and\_flags()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a44438455c9817fbdaed949d5f0b21b8b} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+size\+\_\+and\+\_\+flags (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{, }\item[{bool}]{free\+\_\+flag}{, }\item[{bool}]{last\+\_\+flag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{flags}}\ =\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{free\_flag}}\ ?\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\_bit}}\ :\ 0)\ |\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{last\_flag}}\ ?\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\_free\_bit}}\ :\ 0);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ =\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ \&\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}{\string~flag\_mask}})\ |\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{flags}};}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a72f2bfdf752ce60b3af7301ea029bffb}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!set\_used@{set\_used}}
+\index{set\_used@{set\_used}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{set\_used()}{set\_used()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a72f2bfdf752ce60b3af7301ea029bffb} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::set\+\_\+used (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00121\ \{\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}-\/>size\_and\_flags\ \&=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{\string~free\_bit}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00205}{dsa\+::\+TLSF$<$ 5 $>$\+::mark\+\_\+as\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 31
+\Hypertarget{classdsa_1_1_t_l_s_f_ab40635b4daeb1e0327e1760e31511a80}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!shelves@{shelves}}
+\index{shelves@{shelves}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{shelves()}{shelves()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ab40635b4daeb1e0327e1760e31511a80} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::shelves (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00533}{533}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00533\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\_COUNT}};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00480}{dsa\+::\+TLSF$<$ 5 $>$\+::check()}}.
+
+Here is the caller graph for this function\+:
+% FIG 32
+\Hypertarget{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!size@{size}}
+\index{size@{size}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00535}{535}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00535\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!split@{split}}
+\index{split@{split}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00351}{351}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}{offset\_to\_block\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02}{to\_ptr\_nc}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}}),\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remain\_size}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ -\/\ (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}})\ ==\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c1da7e5d6c2006a19c5692c8813fdd1}{align\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}{to\_ptr}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}}),\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\_ALIGNMENT}})}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}remaining\ block\ not\ aligned\ properly"{}});}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4}{set\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remain\_size}});}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa3b06851f567dc4366f71faf793d278c}{get\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}})\ >=\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464}{block\_size\_min}}\ \&\&\ \textcolor{stringliteral}{"{}block\ split\ with\ invalid\ size"{}});}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af56ea62a64a94a3620be635004a433b4}{set\_size}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a32b002299d6d511cfd4db6d6793d2a28}{mark\_as\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}});}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining}};}
+\DoxyCodeLine{00362\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00394}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00416}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+free\+\_\+leading()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00405}{dsa\+::\+TLSF$<$ 5 $>$\+::trim\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 33
+\Hypertarget{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!to\_ptr@{to\_ptr}}
+\index{to\_ptr@{to\_ptr}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{to\_ptr()}{to\_ptr()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ad3c09c50acbdbcd39ce1ef322b589392} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::to\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}{block\_start\_offset}});}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00317}{dsa\+::\+TLSF$<$ 5 $>$\+::insert\+\_\+free\+\_\+block()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00182}{dsa\+::\+TLSF$<$ 5 $>$\+::next\+\_\+const()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 34
+\Hypertarget{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!to\_ptr\_nc@{to\_ptr\_nc}}
+\index{to\_ptr\_nc@{to\_ptr\_nc}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{to\_ptr\_nc()}{to\_ptr\_nc()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a695ec978573cffb0ab2b9d9e28068e02} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::to\+\_\+ptr\+\_\+nc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}{block\_start\_offset}});}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00175}{dsa\+::\+TLSF$<$ 5 $>$\+::next()}}, \mbox{\hyperlink{tlsf_8hpp_source_l00444}{dsa\+::\+TLSF$<$ 5 $>$\+::prepare\+\_\+used()}}, and \mbox{\hyperlink{tlsf_8hpp_source_l00351}{dsa\+::\+TLSF$<$ 5 $>$\+::split()}}.
+
+Here is the caller graph for this function\+:
+% FIG 35
+\Hypertarget{classdsa_1_1_t_l_s_f_a94184fce9ea53ceedd787ceb6d328c74}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!total\_shelves@{total\_shelves}}
+\index{total\_shelves@{total\_shelves}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{total\_shelves()}{total\_shelves()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a94184fce9ea53ceedd787ceb6d328c74} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::total\+\_\+shelves (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00534}{534}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00534\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}{SLI\_COUNT}}\ *\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}{FL\_INDEX\_COUNT}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a52605b6620223a08ca21559d318c91d0}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!trim\_free@{trim\_free}}
+\index{trim\_free@{trim\_free}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{trim\_free()}{trim\_free()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a52605b6620223a08ca21559d318c91d0} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::trim\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00394}{394}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00395\ \ \ \ \ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}block\ must\ be\ free"{}});}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f}{can\_split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}))}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202}{split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}{link\_next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733}{set\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7}{insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00404\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{tlsf_8hpp_source_l00444}{dsa\+::\+TLSF$<$ 5 $>$\+::prepare\+\_\+used()}}.
+
+Here is the caller graph for this function\+:
+% FIG 36
+\Hypertarget{classdsa_1_1_t_l_s_f_a3caa818d20ad9f4c114c28b79b2d6904}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!trim\_free\_leading@{trim\_free\_leading}}
+\index{trim\_free\_leading@{trim\_free\_leading}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{trim\_free\_leading()}{trim\_free\_leading()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a3caa818d20ad9f4c114c28b79b2d6904} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::trim\+\_\+free\+\_\+leading (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00416}{416}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00417\ \ \ \ \ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}};}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f}{can\_split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}))}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202}{split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}\ -\/\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}});}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8fa3eb30d8636dfb48c02ca7860ec733}{set\_prev\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab7f459a80a15779948a5b3436caa0fb2}{link\_next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7}{insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}});}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}};}
+\DoxyCodeLine{00427\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classdsa_1_1_t_l_s_f_a7d4b158b6ac8cdff4023397b9ab3ced2}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!trim\_used@{trim\_used}}
+\index{trim\_used@{trim\_used}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{trim\_used()}{trim\_used()}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7d4b158b6ac8cdff4023397b9ab3ced2} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+static void \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::trim\+\_\+used (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_control}{Control}} \texorpdfstring{$\ast$}{*}}]{control}{, }\item[{\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}} \texorpdfstring{$\ast$}{*}}]{block}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00405}{405}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00406\ \ \ \ \ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tlsf_8hpp_a8dc2e3a9039658cafb6f76ce960c5512}{dsa\_assert}}(!\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1c60aa4b3b12526b95628d9dba0c95be}{is\_free}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}})\ \&\&\ \textcolor{stringliteral}{"{}block\ must\ be\ free"{}});}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a271e026d5fb745b208a474b99c51c99f}{can\_split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}}))}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}}*\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a75ecbddac7f300f34d8c255d6de22202}{split}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{block}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9618212c00b858005a7e7c4d3891d992}{size}});}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a4fd943d469f8d3be81ba66e109f8340f}{set\_prev\_used}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}}\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7b5ac458179b4ccc499b03d2cb10c10d}{merge\_next}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7}{insert}}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f}{control}},\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{remaining\_block}});}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdsa_1_1_t_l_s_f_a9e9ae52d67bb0faf1920c4c4b8376adc}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!ALIGN\_SIZE@{ALIGN\_SIZE}}
+\index{ALIGN\_SIZE@{ALIGN\_SIZE}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{ALIGN\_SIZE}{ALIGN\_SIZE}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a9e9ae52d67bb0faf1920c4c4b8376adc} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+ALIGN\+\_\+\+SIZE = \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}{BLOCK\+\_\+\+ALIGNMENT}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!ALIGN\_SIZE\_LOG2@{ALIGN\_SIZE\_LOG2}}
+\index{ALIGN\_SIZE\_LOG2@{ALIGN\_SIZE\_LOG2}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{ALIGN\_SIZE\_LOG2}{ALIGN\_SIZE\_LOG2}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+ALIGN\+\_\+\+SIZE\+\_\+\+LOG2 = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!BLOCK\_ALIGNMENT@{BLOCK\_ALIGNMENT}}
+\index{BLOCK\_ALIGNMENT@{BLOCK\_ALIGNMENT}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_ALIGNMENT}{BLOCK\_ALIGNMENT}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a882d30dfb67c91f27dffe235be08421b} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+BLOCK\+\_\+\+ALIGNMENT = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}{ALIGN\+\_\+\+SIZE\+\_\+\+LOG2}})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!block\_header\_overhead@{block\_header\_overhead}}
+\index{block\_header\_overhead@{block\_header\_overhead}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{block\_header\_overhead}{block\_header\_overhead}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::block\+\_\+header\+\_\+overhead = sizeof(size\+\_\+t)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a53417c63ebdd45bcc2f4955856929444}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!block\_size\_max@{block\_size\_max}}
+\index{block\_size\_max@{block\_size\_max}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{block\_size\_max}{block\_size\_max}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a53417c63ebdd45bcc2f4955856929444} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::block\+\_\+size\+\_\+max = static\+\_\+cast$<$size\+\_\+t$>$(1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}{FL\+\_\+\+INDEX\+\_\+\+MAX}})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!block\_size\_min@{block\_size\_min}}
+\index{block\_size\_min@{block\_size\_min}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{block\_size\_min}{block\_size\_min}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ac4268e5c889fdf4b4781cf7d7e113464} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::block\+\_\+size\+\_\+min = sizeof(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}}) -\/ sizeof(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{Block\+Header}}\texorpdfstring{$\ast$}{*})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!block\_start\_offset@{block\_start\_offset}}
+\index{block\_start\_offset@{block\_start\_offset}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{block\_start\_offset}{block\_start\_offset}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ad0a3c2a58f2ac0c556c0e826b310f0e7} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::block\+\_\+start\+\_\+offset\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ offsetof(\mbox{\hyperlink{structdsa_1_1_t_l_s_f_1_1_block_header}{BlockHeader}},\ size\_and\_flags)\ +\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06de927aa2f1743e93856f9429881a03}{block\_header\_overhead}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!FL\_INDEX\_COUNT@{FL\_INDEX\_COUNT}}
+\index{FL\_INDEX\_COUNT@{FL\_INDEX\_COUNT}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{FL\_INDEX\_COUNT}{FL\_INDEX\_COUNT}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a4a3f725786424821919caeda3fc46c31} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+FL\+\_\+\+INDEX\+\_\+\+COUNT = (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}{FL\+\_\+\+INDEX\+\_\+\+MAX}} -\/ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\+\_\+\+INDEX\+\_\+\+SHIFT}} + 1)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!FL\_INDEX\_MAX@{FL\_INDEX\_MAX}}
+\index{FL\_INDEX\_MAX@{FL\_INDEX\_MAX}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{FL\_INDEX\_MAX}{FL\_INDEX\_MAX}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aca7f46fa2019c78935d41e6b70576285} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+FL\+\_\+\+INDEX\+\_\+\+MAX = 31\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!FL\_INDEX\_SHIFT@{FL\_INDEX\_SHIFT}}
+\index{FL\_INDEX\_SHIFT@{FL\_INDEX\_SHIFT}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{FL\_INDEX\_SHIFT}{FL\_INDEX\_SHIFT}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+FL\+\_\+\+INDEX\+\_\+\+SHIFT = (\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\+\_\+\+INDEX\+\_\+\+LOG2}} + \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab129613ed2f692569608a6e438c60d43}{ALIGN\+\_\+\+SIZE\+\_\+\+LOG2}})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!flag\_mask@{flag\_mask}}
+\index{flag\_mask@{flag\_mask}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{flag\_mask}{flag\_mask}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ae5fb2e3596c3c6e5b158f1ea583b57ad} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::flag\+\_\+mask = \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}{prev\+\_\+free\+\_\+bit}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}{free\+\_\+bit}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!free\_bit@{free\_bit}}
+\index{free\_bit@{free\_bit}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{free\_bit}{free\_bit}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a03169d6bc1a82126fb21b79025546622} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::free\+\_\+bit = 1 $<$$<$ 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!prev\_free\_bit@{prev\_free\_bit}}
+\index{prev\_free\_bit@{prev\_free\_bit}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{prev\_free\_bit}{prev\_free\_bit}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_aa8384db13c8af386f1d045f57c4ab2a2} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::prev\+\_\+free\+\_\+bit = 1 $<$$<$ 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!SL\_INDEX\_LOG2@{SL\_INDEX\_LOG2}}
+\index{SL\_INDEX\_LOG2@{SL\_INDEX\_LOG2}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{SL\_INDEX\_LOG2}{SL\_INDEX\_LOG2}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+SL\+\_\+\+INDEX\+\_\+\+LOG2 = SLI\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!SLI\_COUNT@{SLI\_COUNT}}
+\index{SLI\_COUNT@{SLI\_COUNT}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{SLI\_COUNT}{SLI\_COUNT}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_a7c40f02bc93658db4abe068103a35db5} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+SLI\+\_\+\+COUNT = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a7f65c711cb6725696970774320d73895}{SL\+\_\+\+INDEX\+\_\+\+LOG2}})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+\Hypertarget{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd}\index{dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}!SMALL\_BLOCK\_SIZE@{SMALL\_BLOCK\_SIZE}}
+\index{SMALL\_BLOCK\_SIZE@{SMALL\_BLOCK\_SIZE}!dsa::TLSF$<$ SLI $>$@{dsa::TLSF$<$ SLI $>$}}
+\doxysubsubsection{\texorpdfstring{SMALL\_BLOCK\_SIZE}{SMALL\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \label{classdsa_1_1_t_l_s_f_ac3ccc1c32d236a03bb2f0382b59557fd} 
+template$<$size\+\_\+t SLI = 5$>$ \\
+size\+\_\+t \mbox{\hyperlink{classdsa_1_1_t_l_s_f}{dsa\+::\+TLSF}}$<$ SLI $>$\+::\+SMALL\+\_\+\+BLOCK\+\_\+\+SIZE = (1 $<$$<$ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a8d8e01ead196273867c2b41e8927ca76}{FL\+\_\+\+INDEX\+\_\+\+SHIFT}})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{tlsf_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{tlsf_8hpp_source}{tlsf.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{tlsf_8hpp}{tlsf.\+hpp}}\end{DoxyCompactItemize}

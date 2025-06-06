@@ -1,0 +1,50 @@
+\doxysection{src/e\+Alloc.hpp File Reference}
+\hypertarget{e_alloc_8hpp}{}\label{e_alloc_8hpp}\index{src/eAlloc.hpp@{src/eAlloc.hpp}}
+
+
+TLSF-\/based MCU/host-\/agnostic memory allocator with multi-\/pool support.  
+
+
+{\ttfamily \#include "{}Logger.\+hpp"{}}\newline
+{\ttfamily \#include "{}tlsf.\+hpp"{}}\newline
+{\ttfamily \#include "{}global\+Lock.\+hpp"{}}\newline
+Include dependency graph for e\+Alloc.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdsa_1_1e_alloc}{dsa\+::e\+Alloc}}
+\begin{DoxyCompactList}\small\item\em A memory allocator class based on the Two-\/\+Level Segregated Fit (\doxylink{classdsa_1_1_t_l_s_f}{TLSF}) algorithm. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdsa_1_1e_alloc_1_1_integrity_result}{dsa\+::e\+Alloc\+::\+Integrity\+Result}}
+\begin{DoxyCompactList}\small\item\em Structure to hold integrity check results. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdsa_1_1e_alloc_1_1_storage_report}{dsa\+::e\+Alloc\+::\+Storage\+Report}}
+\begin{DoxyCompactList}\small\item\em Structure to report storage usage statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedsa}{dsa}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TLSF-\/based MCU/host-\/agnostic memory allocator with multi-\/pool support. 
+
+Provides efficient, deterministic allocation and deallocation with minimal fragmentation. Supports multiple memory pools, alignment, reallocation, and MCU/host-\/agnostic locking via glock.
+
+Usage\+:
+\begin{DoxyItemize}
+\item Use \doxylink{classdsa_1_1e_alloc}{dsa\+::e\+Alloc} for all heap management (malloc/free, STL, or custom allocators).
+\item For thread safety, call set\+Lock() with a \doxylink{classglock_1_1_i_lockable}{glock\+::\+ILockable}\texorpdfstring{$\ast$}{*} mutex adapter.
+\item Add or remove pools as needed for flexible memory regions.
+\end{DoxyItemize}
+
+Thread Safety\+:
+\begin{DoxyItemize}
+\item Not thread-\/safe by default. To enable, set a lock (see \doxylink{global_lock_8hpp}{global\+Lock.\+hpp}).
+\item Only one lock per allocator instance is recommended. 
+\end{DoxyItemize}
+
+Definition in file \mbox{\hyperlink{e_alloc_8hpp_source}{e\+Alloc.\+hpp}}.
+

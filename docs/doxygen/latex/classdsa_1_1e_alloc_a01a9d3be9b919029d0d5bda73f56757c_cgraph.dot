@@ -1,0 +1,39 @@
+digraph "dsa::eAlloc::calloc"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="dsa::eAlloc::calloc",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Allocates memory for an array and initializes it to zero."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="dsa::eAlloc::malloc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a5faaeb302c059421ca82cfc7db8e9879",tooltip="Allocates a block of memory of the specified size."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="dsa::TLSF\< 5 \>::adjust\l_request_size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a06b784dc5df9063ca8acd2c1b1e4d7fe",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="dsa::TLSF::align_up",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#afa49f068970ffe8c065baf6b112c7c32",tooltip=" "];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="dsa::TLSF\< 5 \>::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a9618212c00b858005a7e7c4d3891d992",tooltip=" "];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="dsa::TLSF\< 5 \>::align_size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aa368212269f0ea11be46c699c43cc548",tooltip=" "];
+  Node2 -> Node7 [id="edge6_Node000002_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="dsa::TLSF\< 5 \>::locate_free",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#afacb1adf4c48b2d06cafaa71b9f884d9",tooltip=" "];
+  Node7 -> Node8 [id="edge7_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="dsa::TLSF::get_size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aa3b06851f567dc4366f71faf793d278c",tooltip=" "];
+  Node7 -> Node9 [id="edge8_Node000007_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="dsa::TLSF::mapping\l_search",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aa795026851710838eac2340ab77c9a3f",tooltip=" "];
+  Node7 -> Node10 [id="edge9_Node000007_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="dsa::TLSF::remove_free\l_block",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a57e28078474fdc0853060430d5454920",tooltip=" "];
+  Node7 -> Node11 [id="edge10_Node000007_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="dsa::TLSF::search_suitable\l_block",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#ad2d8098eda4e9b2e07ea2d6e86a89262",tooltip=" "];
+  Node7 -> Node5 [id="edge11_Node000007_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node12 [id="edge12_Node000002_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="dsa::TLSF\< 5 \>::prepare_used",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a9a2d2201883d300bf1568e53c09297c4",tooltip=" "];
+  Node12 -> Node13 [id="edge13_Node000012_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="dsa::TLSF::mark_as_used",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a835dfcb50f18445e12725900519e3d12",tooltip=" "];
+  Node12 -> Node5 [id="edge14_Node000012_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node12 -> Node14 [id="edge15_Node000012_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="dsa::TLSF::to_ptr_nc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a695ec978573cffb0ab2b9d9e28068e02",tooltip=" "];
+  Node12 -> Node15 [id="edge16_Node000012_Node000015",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="dsa::TLSF::trim_free",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a52605b6620223a08ca21559d318c91d0",tooltip=" "];
+}

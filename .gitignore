@@ -1,6 +1,8 @@
 .pio
 cache
 logs
+build
+.pem
 managed_components
 CMakeFiles
 .vscode

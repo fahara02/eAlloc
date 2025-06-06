@@ -1,0 +1,33 @@
+digraph "dsa::TLSF::mapping_insert"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="dsa::TLSF::mapping\l_insert",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="dsa::TLSF\< 5 \>::check",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aaed5056de4768b8781b5c29d0ce257c6",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="dsa::eAlloc::check",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#ad1f088a6a6ac5997e224ad0062c70523",tooltip="Checks the overall integrity of the allocator."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="dsa::TLSF\< 5 \>::insert",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7",tooltip=" "];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="dsa::eAlloc::add_pool",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a430864385c853363d2c44678d00e0f95",tooltip="Adds a new memory pool to the allocator."];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="dsa::eAlloc::eAlloc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#aca9cba9a8b6174888e0774a6e9e92a36",tooltip="Constructs an eAlloc instance with an initial memory pool."];
+  Node4 -> Node7 [id="edge6_Node000004_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="dsa::eAlloc::free",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a6cf6ea0950ef6c2c4d496a92c4786282",tooltip="Frees a previously allocated memory block."];
+  Node7 -> Node8 [id="edge7_Node000007_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="dsa::eAlloc::allocate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a3cbe14b74b41cd912af2c4c2b277196b",tooltip="Allocates memory for an object and constructs it with arguments."];
+  Node7 -> Node9 [id="edge8_Node000007_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="dsa::eAlloc::allocate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a1c4355fbb45c0c0876a97a1bb2515f68",tooltip="Allocates memory for an object and constructs it by copying."];
+  Node7 -> Node10 [id="edge9_Node000007_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="dsa::eAlloc::deallocate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a142ecbc514fb8d9618fee741dece6efc",tooltip="Deallocates an object and destroys it."];
+  Node7 -> Node11 [id="edge10_Node000007_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="dsa::eAlloc::realloc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a56c8d1f3e2368a15361968596b335eeb",tooltip="Reallocates a memory block to a new size."];
+  Node1 -> Node12 [id="edge11_Node000001_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="dsa::TLSF\< 5 \>::mapping\l_search",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aa795026851710838eac2340ab77c9a3f",tooltip=" "];
+  Node1 -> Node13 [id="edge12_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="dsa::TLSF\< 5 \>::remove",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a0618f620681909344d8bcef6844a02c8",tooltip=" "];
+}

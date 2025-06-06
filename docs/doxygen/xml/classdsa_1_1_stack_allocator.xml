@@ -1,0 +1,526 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classdsa_1_1_stack_allocator" kind="class" language="C++" prot="public">
+    <compoundname>dsa::StackAllocator</compoundname>
+    <includes refid="_stack_allocator_8hpp" local="no">StackAllocator.hpp</includes>
+    <innerclass refid="structdsa_1_1_stack_allocator_1_1rebind" prot="public">dsa::StackAllocator::rebind</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>PoolSize</declname>
+        <defname>PoolSize</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="user-defined">
+      <header>Standard C++ allocator typedefs</header>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a722c3db89180b87bb026c2bb707eaf58" prot="public" static="no">
+        <type>T</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>dsa::StackAllocator::value_type</qualifiedname>
+        <briefdescription>
+<para>Value type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="38" column="5" bodyfile="src/StackAllocator.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" prot="public" static="no">
+        <type>T *</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::pointer =  T*</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <qualifiedname>dsa::StackAllocator::pointer</qualifiedname>
+        <briefdescription>
+<para>Pointer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="39" column="5" bodyfile="src/StackAllocator.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1abe1ea1a33539df9b77d2fc492fb2579a" prot="public" static="no">
+        <type>const T *</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::const_pointer =  const T*</definition>
+        <argsstring></argsstring>
+        <name>const_pointer</name>
+        <qualifiedname>dsa::StackAllocator::const_pointer</qualifiedname>
+        <briefdescription>
+<para>Const pointer type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="40" column="5" bodyfile="src/StackAllocator.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a7cfbbd4c5842d61d360ba6077a3c3f55" prot="public" static="no">
+        <type>T &amp;</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::reference =  T&amp;</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <qualifiedname>dsa::StackAllocator::reference</qualifiedname>
+        <briefdescription>
+<para>Reference type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="41" column="5" bodyfile="src/StackAllocator.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" prot="public" static="no">
+        <type>const T &amp;</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::const_reference =  const T&amp;</definition>
+        <argsstring></argsstring>
+        <name>const_reference</name>
+        <qualifiedname>dsa::StackAllocator::const_reference</qualifiedname>
+        <briefdescription>
+<para>Const reference type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="42" column="5" bodyfile="src/StackAllocator.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" prot="public" static="no">
+        <type>size_t</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::size_type =  size_t</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <qualifiedname>dsa::StackAllocator::size_type</qualifiedname>
+        <briefdescription>
+<para>Size type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="43" column="5" bodyfile="src/StackAllocator.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classdsa_1_1_stack_allocator_1a3fd2ced1844ada5c0f356f6206feee5b" prot="public" static="no">
+        <type>ptrdiff_t</type>
+        <definition>using dsa::StackAllocator&lt; T, PoolSize &gt;::difference_type =  ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <qualifiedname>dsa::StackAllocator::difference_type</qualifiedname>
+        <briefdescription>
+<para>Difference type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="44" column="5" bodyfile="src/StackAllocator.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char dsa::StackAllocator&lt; T, PoolSize &gt;::memoryPool[PoolSize]</definition>
+        <argsstring>[PoolSize]</argsstring>
+        <name>memoryPool</name>
+        <qualifiedname>dsa::StackAllocator::memoryPool</qualifiedname>
+        <briefdescription>
+<para>Stack-allocated memory pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="132" column="10" bodyfile="src/StackAllocator.hpp" bodystart="132" bodyend="-1"/>
+        <referencedby refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" compoundref="_stack_allocator_8hpp" startline="113" endline="113">dsa::StackAllocator&lt; U, PoolSize &gt;::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" prot="private" static="no" mutable="no">
+        <type><ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref></type>
+        <definition>dsa::eAlloc dsa::StackAllocator&lt; T, PoolSize &gt;::allocator</definition>
+        <argsstring></argsstring>
+        <name>allocator</name>
+        <qualifiedname>dsa::StackAllocator::allocator</qualifiedname>
+        <briefdescription>
+<para>Internal <ref refid="classdsa_1_1_t_l_s_f" kindref="compound">TLSF</ref> allocator managing the pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="133" column="17" bodyfile="src/StackAllocator.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dsa::StackAllocator&lt; T, PoolSize &gt;::StackAllocator</definition>
+        <argsstring>()</argsstring>
+        <name>StackAllocator</name>
+        <qualifiedname>dsa::StackAllocator::StackAllocator</qualifiedname>
+        <briefdescription>
+<para>Constructor initializes the stack allocator with a fixed-size buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="61" column="5" bodyfile="src/StackAllocator.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1ad4cad2d660493a84da6e0cbc70ca9d7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>dsa::StackAllocator&lt; T, PoolSize &gt;::StackAllocator</definition>
+        <argsstring>(const StackAllocator&lt; U, PoolSize &gt; &amp;)</argsstring>
+        <name>StackAllocator</name>
+        <qualifiedname>dsa::StackAllocator::StackAllocator</qualifiedname>
+        <param>
+          <type>const <ref refid="classdsa_1_1_stack_allocator" kindref="compound">StackAllocator</ref>&lt; U, PoolSize &gt; &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy constructor for allocator propagation (required by STL). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>U</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Other type for rebind. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="68" column="5" bodyfile="src/StackAllocator.hpp" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1ad6065ffca156daa8261fe82a0d3c6c2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></type>
+        <definition>pointer dsa::StackAllocator&lt; T, PoolSize &gt;::allocate</definition>
+        <argsstring>(size_type n)</argsstring>
+        <name>allocate</name>
+        <qualifiedname>dsa::StackAllocator::allocate</qualifiedname>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Allocates uninitialized storage for n objects of type T. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of objects to allocate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated storage. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if allocation fails. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="78" column="13" bodyfile="src/StackAllocator.hpp" bodystart="78" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsa::StackAllocator&lt; T, PoolSize &gt;::deallocate</definition>
+        <argsstring>(pointer p, size_type)</argsstring>
+        <name>deallocate</name>
+        <qualifiedname>dsa::StackAllocator::deallocate</qualifiedname>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref></type>
+        </param>
+        <briefdescription>
+<para>Deallocates storage for n objects of type T. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the memory to deallocate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of objects (unused, for interface compliance). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="93" column="10" bodyfile="src/StackAllocator.hpp" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsa::StackAllocator&lt; T, PoolSize &gt;::construct</definition>
+        <argsstring>(pointer p, const_reference val)</argsstring>
+        <name>construct</name>
+        <qualifiedname>dsa::StackAllocator::construct</qualifiedname>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" kindref="member">const_reference</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an object of type T at the given memory location. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to copy-construct. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="100" column="10" bodyfile="src/StackAllocator.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsa::StackAllocator&lt; T, PoolSize &gt;::destroy</definition>
+        <argsstring>(pointer p)</argsstring>
+        <name>destroy</name>
+        <qualifiedname>dsa::StackAllocator::destroy</qualifiedname>
+        <param>
+          <type><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Destroys an object of type T at the given memory location. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="106" column="10" bodyfile="src/StackAllocator.hpp" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dsa::StackAllocator&lt; T, PoolSize &gt;::operator==</definition>
+        <argsstring>(const StackAllocator &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>dsa::StackAllocator::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classdsa_1_1_stack_allocator" kindref="compound">StackAllocator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Equality operator: compares based on memory pool identity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another <ref refid="classdsa_1_1_stack_allocator" kindref="compound">StackAllocator</ref> instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if using the same memory pool. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="113" column="10" bodyfile="src/StackAllocator.hpp" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dsa::StackAllocator&lt; T, PoolSize &gt;::operator!=</definition>
+        <argsstring>(const StackAllocator &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>dsa::StackAllocator::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classdsa_1_1_stack_allocator" kindref="compound">StackAllocator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Inequality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another <ref refid="classdsa_1_1_stack_allocator" kindref="compound">StackAllocator</ref> instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if not using the same memory pool. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="120" column="10" bodyfile="src/StackAllocator.hpp" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsa::StackAllocator&lt; T, PoolSize &gt;::setLock</definition>
+        <argsstring>(glock::ILockable *lock)</argsstring>
+        <name>setLock</name>
+        <qualifiedname>dsa::StackAllocator::setLock</qualifiedname>
+        <param>
+          <type><ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref> *</type>
+          <declname>lock</declname>
+        </param>
+        <briefdescription>
+<para>Sets a lock for thread safety (optional, MCU/host agnostic). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref> mutex adapter.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+If not set, the allocator is not thread-safe. For host builds, use glock::StdMutex. For embedded, use the appropriate platform adapter. Locking is delegated to <ref refid="classdsa_1_1e_alloc" kindref="compound">eAlloc</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/StackAllocator.hpp" line="129" column="10" bodyfile="src/StackAllocator.hpp" bodystart="129" bodyend="129"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Standard C++ allocator interface using a stack-allocated buffer and <ref refid="classdsa_1_1_t_l_s_f" kindref="compound">TLSF</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of object to allocate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PoolSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the internal stack buffer in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAllocator&lt;int, 1024&gt;</ref> alloc; std::vector&lt;int, dsa::StackAllocator&lt;int, 1024&gt;&gt; v(alloc);</para>
+<para>Thread Safety:<itemizedlist>
+<listitem><para>Not thread-safe by default.</para>
+</listitem><listitem><para>To enable, call <ref refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" kindref="member">setLock()</ref> with a <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>* mutex adapter.</para>
+</listitem><listitem><para>No STL bloat for MCU: lock is optional and not used unless set. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dsa::StackAllocator&lt; T, PoolSize &gt;</label>
+        <link refid="classdsa_1_1_stack_allocator"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dsa::TLSF&lt; 5 &gt;::Control</label>
+      </node>
+      <node id="2">
+        <label>dsa::eAlloc</label>
+        <link refid="classdsa_1_1e_alloc"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>control</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>lock_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>glock::ILockable</label>
+        <link refid="classglock_1_1_i_lockable"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/StackAllocator.hpp" line="33" column="1" bodyfile="src/StackAllocator.hpp" bodystart="34" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classdsa_1_1_stack_allocator_1ad6065ffca156daa8261fe82a0d3c6c2d" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>allocate</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" prot="private" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>allocator</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1abe1ea1a33539df9b77d2fc492fb2579a" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>const_pointer</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>const_reference</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>construct</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>deallocate</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>destroy</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a3fd2ced1844ada5c0f356f6206feee5b" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>difference_type</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" prot="private" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>memoryPool</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>operator!=</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>operator==</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>pointer</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a7cfbbd4c5842d61d360ba6077a3c3f55" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>reference</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>setLock</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>size_type</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>StackAllocator</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1ad4cad2d660493a84da6e0cbc70ca9d7c" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>StackAllocator</name></member>
+      <member refid="classdsa_1_1_stack_allocator_1a722c3db89180b87bb026c2bb707eaf58" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

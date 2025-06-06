@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="builtins_8h" kind="file" language="C++">
+    <compoundname>builtins.h</compoundname>
+    <includedby refid="tlsf_8hpp" local="yes">src/tlsf.hpp</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>src/StackAllocator.hpp</label>
+        <link refid="_stack_allocator_8hpp"/>
+      </node>
+      <node id="1">
+        <label>src/builtins.h</label>
+        <link refid="builtins_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/eAlloc.cpp</label>
+        <link refid="e_alloc_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/eAlloc.hpp</label>
+        <link refid="e_alloc_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/tlsf.hpp</label>
+        <link refid="tlsf_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" prot="public" static="no">
+        <name>dsa_decl</name>
+        <initializer>static</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/builtins.h" line="14" column="11" bodyfile="src/builtins.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" compoundref="builtins_8h" startline="146" endline="148">ffs</referencedby>
+        <referencedby refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" compoundref="builtins_8h" startline="150" endline="150">fls</referencedby>
+        <referencedby refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" compoundref="builtins_8h" startline="116" endline="143">fls_generic</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <member refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kind="function"><name>ffs</name></member>
+      <member refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kind="function"><name>fls</name></member>
+      <member refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kind="function"><name>fls_generic</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Portable bit manipulation intrinsics (ffs/fls) with architecture-specific optimizations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides fast find-first-set (ffs) and find-last-set (fls) implementations for GCC, MSVC, ARM, and generic fallback.</para>
+<para><itemizedlist>
+<listitem><para>Use dsa_decl <ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs(unsigned int)</ref> and <ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls(unsigned int)</ref> for portable, inlined bit scanning.</para>
+</listitem><listitem><para>Selects the best implementation for the detected compiler/architecture. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>dsa_decl<sp/>inline</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>dsa_decl<sp/>static</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">**<sp/>gcc<sp/>3.4<sp/>and<sp/>above<sp/>have<sp/>builtin<sp/>support,<sp/>specialized<sp/>for<sp/>architecture.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">**<sp/>Some<sp/>compilers<sp/>masquerade<sp/>as<sp/>gcc;<sp/>patchlevel<sp/>test<sp/>filters<sp/>them<sp/>out.</highlight></codeline>
+<codeline lineno="47"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__GNUC__)<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__GNUC__<sp/>&gt;<sp/>3<sp/>||<sp/>(__GNUC__<sp/>==<sp/>3<sp/>&amp;&amp;<sp/>__GNUC_MINOR__<sp/>&gt;=<sp/>4))<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>defined(__GNUC_PATCHLEVEL__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>__builtin_ffs(word)<sp/>-<sp/>1;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>word<sp/>?<sp/>32<sp/>-<sp/>__builtin_clz(word)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>(_MSC_VER<sp/>&gt;=<sp/>1400)<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(defined(_M_IX86)<sp/>||<sp/>defined(_M_X64))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Microsoft<sp/>Visual<sp/>C++<sp/>support<sp/>on<sp/>x86/X64<sp/>architectures.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;intrin.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>intrinsic(_BitScanReverse)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>intrinsic(_BitScanForward)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_BitScanReverse(&amp;index,<sp/>word)<sp/>?<sp/>index<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_BitScanForward(&amp;index,<sp/>word)<sp/>?<sp/>index<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>defined(_M_PPC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Microsoft<sp/>Visual<sp/>C++<sp/>support<sp/>on<sp/>PowerPC<sp/>architectures.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ppcintrinsics.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>32<sp/>-<sp/>_CountLeadingZeros(word);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reverse<sp/>=<sp/>word<sp/>&amp;<sp/>(~word<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>32<sp/>-<sp/>_CountLeadingZeros(reverse);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__ARMCC_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>RealView<sp/>Compilation<sp/>Tools<sp/>for<sp/>ARM<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reverse<sp/>=<sp/>word<sp/>&amp;<sp/>(~word<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>32<sp/>-<sp/>__clz(reverse);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>word<sp/>?<sp/>32<sp/>-<sp/>__clz(word)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Fall<sp/>back<sp/>to<sp/>generic<sp/>implementation.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" refkind="member"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kindref="member">fls_generic</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit<sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!word)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>1;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(word<sp/>&amp;<sp/>0xffff0000))<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>&lt;&lt;=<sp/>16;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>16;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(word<sp/>&amp;<sp/>0xff000000))<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>&lt;&lt;=<sp/>8;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>8;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(word<sp/>&amp;<sp/>0xf0000000))<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>&lt;&lt;=<sp/>4;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>4;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(word<sp/>&amp;<sp/>0xc0000000))<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>&lt;&lt;=<sp/>2;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>2;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(word<sp/>&amp;<sp/>0x80000000))<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>&lt;&lt;=<sp/>1;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>-=<sp/>1;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bit;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Implement<sp/>ffs<sp/>in<sp/>terms<sp/>of<sp/>fls.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" refkind="member"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kindref="member">ffs</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kindref="member">fls_generic</ref>(word<sp/>&amp;<sp/>(~word<sp/>+<sp/>1))<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" refkind="member"><highlight class="normal"><ref refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kindref="member">dsa_decl</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kindref="member">fls</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>word)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kindref="member">fls_generic</ref>(word)<sp/>-<sp/>1;<sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>dsa_decl</highlight></codeline>
+    </programlisting>
+    <location file="src/builtins.h"/>
+  </compounddef>
+</doxygen>

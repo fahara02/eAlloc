@@ -1,0 +1,166 @@
+\doxysection{glock\+::Lock\+Guard Class Reference}
+\hypertarget{classglock_1_1_lock_guard}{}\label{classglock_1_1_lock_guard}\index{glock::LockGuard@{glock::LockGuard}}
+
+
+{\ttfamily \#include $<$global\+Lock.\+hpp$>$}
+
+
+
+Collaboration diagram for glock\+::Lock\+Guard\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}{Lock\+Guard}} (\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}} \&lock, uint32\+\_\+t timeout\+\_\+ms=0x\+FFFFFFFF)
+\item 
+\mbox{\hyperlink{classglock_1_1_lock_guard_a82a72961e6dd7baca8667b4c94a7811f}{\texorpdfstring{$\sim$}{\string~}\+Lock\+Guard}} ()
+\item 
+bool \mbox{\hyperlink{classglock_1_1_lock_guard_ac2ea70f877d2288826a1b94963445635}{acquired}} () const
+\item 
+\mbox{\hyperlink{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0}{Lock\+Guard}} (const \mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \&)=delete
+\item 
+\mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \& \mbox{\hyperlink{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217}{operator=}} (const \mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}} \& \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835}\index{glock::LockGuard@{glock::LockGuard}!LockGuard@{LockGuard}}
+\index{LockGuard@{LockGuard}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{LockGuard()}{LockGuard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_aa44a60cd18d037b9e6272329de0e9835} 
+glock\+::\+Lock\+Guard\+::\+Lock\+Guard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}} \&}]{lock}{, }\item[{uint32\+\_\+t}]{timeout\+\_\+ms}{ = {\ttfamily 0xFFFFFFFF}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\_}}(lock),\ \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}}(lock.lock(timeout\_ms))\ \{\}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{global_lock_8hpp_source_l00063}{acquired\+\_\+}}, and \mbox{\hyperlink{global_lock_8hpp_source_l00062}{lock\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0}{Lock\+Guard()}}, and \mbox{\hyperlink{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217}{operator=()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{classglock_1_1_lock_guard_a82a72961e6dd7baca8667b4c94a7811f}\index{glock::LockGuard@{glock::LockGuard}!````~LockGuard@{\texorpdfstring{$\sim$}{\string~}LockGuard}}
+\index{````~LockGuard@{\texorpdfstring{$\sim$}{\string~}LockGuard}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LockGuard()}{\string~LockGuard()}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_a82a72961e6dd7baca8667b4c94a7811f} 
+glock\+::\+Lock\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Lock\+Guard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}})\ \mbox{\hyperlink{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}{lock\_}}.unlock();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{global_lock_8hpp_source_l00063}{acquired\+\_\+}}, and \mbox{\hyperlink{global_lock_8hpp_source_l00062}{lock\+\_\+}}.
+
+\Hypertarget{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0}\index{glock::LockGuard@{glock::LockGuard}!LockGuard@{LockGuard}}
+\index{LockGuard@{LockGuard}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{LockGuard()}{LockGuard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_a3b3f7b8fbe50c7c1713d0f1c142b48a0} 
+glock\+::\+Lock\+Guard\+::\+Lock\+Guard (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{global_lock_8hpp_source_l00055}{Lock\+Guard()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classglock_1_1_lock_guard_ac2ea70f877d2288826a1b94963445635}\index{glock::LockGuard@{glock::LockGuard}!acquired@{acquired}}
+\index{acquired@{acquired}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{acquired()}{acquired()}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_ac2ea70f877d2288826a1b94963445635} 
+bool glock\+::\+Lock\+Guard\+::acquired (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}{acquired\_}};\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{global_lock_8hpp_source_l00063}{acquired\+\_\+}}.
+
+\Hypertarget{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217}\index{glock::LockGuard@{glock::LockGuard}!operator=@{operator=}}
+\index{operator=@{operator=}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_a3fc77b38975d8c7462d5e6b47940a217} 
+\mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \& glock\+::\+Lock\+Guard\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classglock_1_1_lock_guard}{Lock\+Guard}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{global_lock_8hpp_source_l00055}{Lock\+Guard()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2}\index{glock::LockGuard@{glock::LockGuard}!acquired\_@{acquired\_}}
+\index{acquired\_@{acquired\_}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{acquired\_}{acquired\_}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_a2f8339878c0c9a13691b367f68126ed2} 
+bool glock\+::\+Lock\+Guard\+::acquired\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{global_lock_8hpp_source_l00058}{acquired()}}, \mbox{\hyperlink{global_lock_8hpp_source_l00055}{Lock\+Guard()}}, and \mbox{\hyperlink{global_lock_8hpp_source_l00057}{\texorpdfstring{$\sim$}{\string~}\+Lock\+Guard()}}.
+
+\Hypertarget{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3}\index{glock::LockGuard@{glock::LockGuard}!lock\_@{lock\_}}
+\index{lock\_@{lock\_}!glock::LockGuard@{glock::LockGuard}}
+\doxysubsubsection{\texorpdfstring{lock\_}{lock\_}}
+{\footnotesize\ttfamily \label{classglock_1_1_lock_guard_a299430e86872dd973d7b03f9d0d6c8a3} 
+\mbox{\hyperlink{classglock_1_1_i_lockable}{ILockable}}\& glock\+::\+Lock\+Guard\+::lock\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_lock_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{global_lock_8hpp_source}{global\+Lock.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{global_lock_8hpp_source_l00055}{Lock\+Guard()}}, and \mbox{\hyperlink{global_lock_8hpp_source_l00057}{\texorpdfstring{$\sim$}{\string~}\+Lock\+Guard()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{global_lock_8hpp}{global\+Lock.\+hpp}}\end{DoxyCompactItemize}

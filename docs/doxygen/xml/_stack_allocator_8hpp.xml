@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="_stack_allocator_8hpp" kind="file" language="C++">
+    <compoundname>StackAllocator.hpp</compoundname>
+    <includes refid="e_alloc_8hpp" local="yes">eAlloc.hpp</includes>
+    <includes local="no">cstddef</includes>
+    <includes local="no">stdexcept</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>Logger.hpp</label>
+        <link refid="_logger_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/StackAllocator.hpp</label>
+        <link refid="_stack_allocator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>builtins.h</label>
+        <link refid="builtins_8h"/>
+      </node>
+      <node id="2">
+        <label>eAlloc.hpp</label>
+        <link refid="e_alloc_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>globalLock.hpp</label>
+        <link refid="global_lock_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>tlsf.hpp</label>
+        <link refid="tlsf_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>array</label>
+      </node>
+      <node id="16">
+        <label>assert.h</label>
+      </node>
+      <node id="5">
+        <label>bitset</label>
+      </node>
+      <node id="17">
+        <label>climits</label>
+      </node>
+      <node id="6">
+        <label>cstdarg</label>
+      </node>
+      <node id="22">
+        <label>cstddef</label>
+      </node>
+      <node id="13">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>cstdio</label>
+      </node>
+      <node id="18">
+        <label>cstdlib</label>
+      </node>
+      <node id="8">
+        <label>cstring</label>
+      </node>
+      <node id="9">
+        <label>functional</label>
+      </node>
+      <node id="19">
+        <label>memory</label>
+      </node>
+      <node id="10">
+        <label>stdarg.h</label>
+      </node>
+      <node id="23">
+        <label>stdexcept</label>
+      </node>
+      <node id="21">
+        <label>stdint.h</label>
+      </node>
+      <node id="11">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>unordered_set</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classdsa_1_1_stack_allocator" prot="public">dsa::StackAllocator</innerclass>
+    <innerclass refid="structdsa_1_1_stack_allocator_1_1rebind" prot="public">dsa::StackAllocator::rebind</innerclass>
+    <innernamespace refid="namespacedsa">dsa</innernamespace>
+    <briefdescription>
+<para>MCU/host-agnostic C++ allocator using a stack-allocated memory pool and TLSF. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>. It is intended for use with STL containers or custom allocation needs where a fixed-size stack buffer is desired. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="e_alloc_8hpp" kindref="compound">eAlloc.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacedsa" kindref="compound">dsa</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PoolSize&gt;</highlight></codeline>
+<codeline lineno="33" refid="classdsa_1_1_stack_allocator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="38" refid="classdsa_1_1_stack_allocator_1a722c3db89180b87bb026c2bb707eaf58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a722c3db89180b87bb026c2bb707eaf58" kindref="member">value_type</ref><sp/>=<sp/>T;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>=<sp/>T*;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="classdsa_1_1_stack_allocator_1abe1ea1a33539df9b77d2fc492fb2579a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1abe1ea1a33539df9b77d2fc492fb2579a" kindref="member">const_pointer</ref><sp/>=<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T*;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="classdsa_1_1_stack_allocator_1a7cfbbd4c5842d61d360ba6077a3c3f55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a7cfbbd4c5842d61d360ba6077a3c3f55" kindref="member">reference</ref><sp/>=<sp/>T&amp;;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" kindref="member">const_reference</ref><sp/>=<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;;<sp/></highlight></codeline>
+<codeline lineno="43" refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref><sp/>=<sp/>size_t;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="classdsa_1_1_stack_allocator_1a3fd2ced1844ada5c0f356f6206feee5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a3fd2ced1844ada5c0f356f6206feee5b" kindref="member">difference_type</ref><sp/>=<sp/>ptrdiff_t;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="52" refid="structdsa_1_1_stack_allocator_1_1rebind" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdsa_1_1_stack_allocator_1_1rebind" kindref="compound">rebind</ref></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54" refid="structdsa_1_1_stack_allocator_1_1rebind_1a45ff37482273d5930d3c1b12e35e2625" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="structdsa_1_1_stack_allocator_1_1rebind_1a45ff37482273d5930d3c1b12e35e2625" kindref="member">other</ref><sp/>=<sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator&lt;U, PoolSize&gt;</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>()<sp/>:<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>(<ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>,<sp/>PoolSize)<sp/>{}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="68" refid="classdsa_1_1_stack_allocator_1ad4cad2d660493a84da6e0cbc70ca9d7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1_stack_allocator_1ad4cad2d660493a84da6e0cbc70ca9d7c" kindref="member">StackAllocator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator&lt;U, PoolSize&gt;</ref>&amp;)<sp/>:<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>(<ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>,<sp/>PoolSize)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classdsa_1_1_stack_allocator_1ad6065ffca156daa8261fe82a0d3c6c2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/><ref refid="classdsa_1_1_stack_allocator_1ad6065ffca156daa8261fe82a0d3c6c2d" kindref="member">allocate</ref>(<ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref><sp/>n)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr<sp/>=<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.malloc(n<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(T));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!ptr)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::bad_alloc();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ptr);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" kindref="member">deallocate</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref><sp/></highlight><highlight class="comment">/*n*/</highlight><highlight class="normal">)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.free(p);<sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" kindref="member">construct</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" kindref="member">const_reference</ref><sp/>val)<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(p)<sp/>T(val);<sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" kindref="member">destroy</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p)<sp/>{<sp/>p-&gt;~T();<sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref><sp/>==<sp/>other.<ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other);<sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1abf5b9cd9ea637250a038a89acda63579" kindref="member">setLock</ref>(<ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.setLock(lock);<sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="132" refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>[PoolSize];<sp/></highlight></codeline>
+<codeline lineno="133" refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref><sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>dsa</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/StackAllocator.hpp"/>
+  </compounddef>
+</doxygen>

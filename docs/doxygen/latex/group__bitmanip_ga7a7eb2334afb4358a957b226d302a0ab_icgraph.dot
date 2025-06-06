@@ -1,0 +1,21 @@
+digraph "fls_generic"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="fls_generic",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ffs",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$group__bitmanip.html#ga3e006b854f7c810a241a6ad9931a5a4c",tooltip="Find the first set bit in a word."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="dsa::TLSF\< 5 \>::search\l_suitable_block",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#ad2d8098eda4e9b2e07ea2d6e86a89262",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="fls",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$group__bitmanip.html#ga5b197bab96b83defaaacb5c7fa2abbc6",tooltip="Find the last set bit in a word."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="dsa::TLSF\< 5 \>::mapping\l_insert",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#a7aaa27582e40b9eabb7d4c03c5facb04",tooltip=" "];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="dsa::eAlloc::remove_pool",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#a8d029b14252fb77d1c2d5311b483abda",tooltip="Removes a memory pool from the allocator."];
+  Node4 -> Node7 [id="edge6_Node000004_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="dsa::TLSF\< 5 \>::mapping\l_search",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aa795026851710838eac2340ab77c9a3f",tooltip=" "];
+}

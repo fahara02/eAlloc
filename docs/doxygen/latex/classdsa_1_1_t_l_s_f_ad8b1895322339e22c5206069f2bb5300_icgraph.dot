@@ -1,0 +1,13 @@
+digraph "dsa::TLSF::next_const"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="dsa::TLSF::next_const",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="dsa::TLSF\< 5 \>::check",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1_t_l_s_f.html#aaed5056de4768b8781b5c29d0ce257c6",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="dsa::eAlloc::check",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classdsa_1_1e_alloc.html#ad1f088a6a6ac5997e224ad0062c70523",tooltip="Checks the overall integrity of the allocator."];
+}

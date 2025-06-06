@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="structdsa_1_1_t_l_s_f_1_1_block_header" kind="struct" language="C++" prot="public">
+    <compoundname>dsa::TLSF::BlockHeader</compoundname>
+    <includes refid="tlsf_8hpp" local="no">tlsf.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_block_header_1afb39e91dde308d138bf208f65b685305" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structdsa_1_1_t_l_s_f_1_1_block_header" kindref="compound">BlockHeader</ref> *</type>
+        <definition>struct BlockHeader* dsa::TLSF&lt; SLI &gt;::BlockHeader::prev_phys_block</definition>
+        <argsstring></argsstring>
+        <name>prev_phys_block</name>
+        <qualifiedname>dsa::TLSF::BlockHeader::prev_phys_block</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tlsf.hpp" line="43" column="27" bodyfile="src/tlsf.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_block_header_1abd9449bf27337a7b9d827a90df76931b" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t dsa::TLSF&lt; SLI &gt;::BlockHeader::size_and_flags</definition>
+        <argsstring></argsstring>
+        <name>size_and_flags</name>
+        <qualifiedname>dsa::TLSF::BlockHeader::size_and_flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tlsf.hpp" line="45" column="16" bodyfile="src/tlsf.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_block_header_1a2dcfcdd67bf901017439498a0748c28d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structdsa_1_1_t_l_s_f_1_1_block_header" kindref="compound">BlockHeader</ref> *</type>
+        <definition>struct BlockHeader* dsa::TLSF&lt; SLI &gt;::BlockHeader::next_free</definition>
+        <argsstring></argsstring>
+        <name>next_free</name>
+        <qualifiedname>dsa::TLSF::BlockHeader::next_free</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tlsf.hpp" line="47" column="27" bodyfile="src/tlsf.hpp" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classdsa_1_1_t_l_s_f_1ab0d208e1982ce713b1ef6fd7a6cb2336" compoundref="tlsf_8hpp" startline="456" endline="472">dsa::TLSF&lt; 5 &gt;::initialise_control</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_block_header_1a2070c4b1649c9332093f4c4b034c5e15" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structdsa_1_1_t_l_s_f_1_1_block_header" kindref="compound">BlockHeader</ref> *</type>
+        <definition>struct BlockHeader* dsa::TLSF&lt; SLI &gt;::BlockHeader::prev_free</definition>
+        <argsstring></argsstring>
+        <name>prev_free</name>
+        <qualifiedname>dsa::TLSF::BlockHeader::prev_free</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tlsf.hpp" line="48" column="27" bodyfile="src/tlsf.hpp" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classdsa_1_1_t_l_s_f_1ab0d208e1982ce713b1ef6fd7a6cb2336" compoundref="tlsf_8hpp" startline="456" endline="472">dsa::TLSF&lt; 5 &gt;::initialise_control</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>dsa::TLSF&lt; SLI &gt;::BlockHeader</label>
+        <link refid="structdsa_1_1_t_l_s_f_1_1_block_header"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next_free</edgelabel>
+          <edgelabel>prev_free</edgelabel>
+          <edgelabel>prev_phys_block</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>dsa::TLSF&lt; SLI &gt;::BlockHeader</label>
+        <link refid="structdsa_1_1_t_l_s_f_1_1_block_header"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next_free</edgelabel>
+          <edgelabel>prev_free</edgelabel>
+          <edgelabel>prev_phys_block</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/tlsf.hpp" line="40" column="5" bodyfile="src/tlsf.hpp" bodystart="41" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structdsa_1_1_t_l_s_f_1_1_block_header_1a2dcfcdd67bf901017439498a0748c28d" prot="public" virt="non-virtual"><scope>dsa::TLSF::BlockHeader</scope><name>next_free</name></member>
+      <member refid="structdsa_1_1_t_l_s_f_1_1_block_header_1a2070c4b1649c9332093f4c4b034c5e15" prot="public" virt="non-virtual"><scope>dsa::TLSF::BlockHeader</scope><name>prev_free</name></member>
+      <member refid="structdsa_1_1_t_l_s_f_1_1_block_header_1afb39e91dde308d138bf208f65b685305" prot="public" virt="non-virtual"><scope>dsa::TLSF::BlockHeader</scope><name>prev_phys_block</name></member>
+      <member refid="structdsa_1_1_t_l_s_f_1_1_block_header_1abd9449bf27337a7b9d827a90df76931b" prot="public" virt="non-virtual"><scope>dsa::TLSF::BlockHeader</scope><name>size_and_flags</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="e_alloc_8hpp" kind="file" language="C++">
+    <compoundname>eAlloc.hpp</compoundname>
+    <includes refid="_logger_8hpp" local="yes">Logger.hpp</includes>
+    <includes refid="tlsf_8hpp" local="yes">tlsf.hpp</includes>
+    <includes refid="global_lock_8hpp" local="yes">globalLock.hpp</includes>
+    <includedby refid="_stack_allocator_8hpp" local="yes">src/StackAllocator.hpp</includedby>
+    <includedby refid="e_alloc_8cpp" local="yes">src/eAlloc.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Logger.hpp</label>
+        <link refid="_logger_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>builtins.h</label>
+        <link refid="builtins_8h"/>
+      </node>
+      <node id="1">
+        <label>src/eAlloc.hpp</label>
+        <link refid="e_alloc_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>globalLock.hpp</label>
+        <link refid="global_lock_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>tlsf.hpp</label>
+        <link refid="tlsf_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>array</label>
+      </node>
+      <node id="15">
+        <label>assert.h</label>
+      </node>
+      <node id="4">
+        <label>bitset</label>
+      </node>
+      <node id="16">
+        <label>climits</label>
+      </node>
+      <node id="5">
+        <label>cstdarg</label>
+      </node>
+      <node id="12">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>cstdio</label>
+      </node>
+      <node id="17">
+        <label>cstdlib</label>
+      </node>
+      <node id="7">
+        <label>cstring</label>
+      </node>
+      <node id="8">
+        <label>functional</label>
+      </node>
+      <node id="18">
+        <label>memory</label>
+      </node>
+      <node id="9">
+        <label>stdarg.h</label>
+      </node>
+      <node id="20">
+        <label>stdint.h</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="11">
+        <label>unordered_set</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/StackAllocator.hpp</label>
+        <link refid="_stack_allocator_8hpp"/>
+      </node>
+      <node id="3">
+        <label>src/eAlloc.cpp</label>
+        <link refid="e_alloc_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/eAlloc.hpp</label>
+        <link refid="e_alloc_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classdsa_1_1e_alloc" prot="public">dsa::eAlloc</innerclass>
+    <innerclass refid="structdsa_1_1e_alloc_1_1_integrity_result" prot="public">dsa::eAlloc::IntegrityResult</innerclass>
+    <innerclass refid="structdsa_1_1e_alloc_1_1_storage_report" prot="public">dsa::eAlloc::StorageReport</innerclass>
+    <innernamespace refid="namespacedsa">dsa</innernamespace>
+    <briefdescription>
+<para>TLSF-based MCU/host-agnostic memory allocator with multi-pool support. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides efficient, deterministic allocation and deallocation with minimal fragmentation. Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via glock.</para>
+<para>Usage:<itemizedlist>
+<listitem><para>Use <ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref> for all heap management (malloc/free, STL, or custom allocators).</para>
+</listitem><listitem><para>For thread safety, call setLock() with a <ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>* mutex adapter.</para>
+</listitem><listitem><para>Add or remove pools as needed for flexible memory regions.</para>
+</listitem></itemizedlist>
+</para>
+<para>Thread Safety:<itemizedlist>
+<listitem><para>Not thread-safe by default. To enable, set a lock (see <ref refid="global_lock_8hpp" kindref="compound">globalLock.hpp</ref>).</para>
+</listitem><listitem><para>Only one lock per allocator instance is recommended. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_logger_8hpp" kindref="compound">Logger.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tlsf_8hpp" kindref="compound">tlsf.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="global_lock_8hpp" kindref="compound">globalLock.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacedsa" kindref="compound">dsa</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classdsa_1_1e_alloc" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" kindref="member">eAlloc</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35" refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" kindref="member">MAX_POOL</ref><sp/>=<sp/>5;<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classdsa_1_1e_alloc_1a793a960f120adb4c49aa602e9730071e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a793a960f120adb4c49aa602e9730071e" kindref="member">setLock</ref>(<ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1e_alloc_1a514b6c98171a7dbc454aaf5356bf77c0" kindref="member">lock_</ref><sp/>=<sp/>lock;<sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" kindref="member">eAlloc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>mem,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytes);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structdsa_1_1e_alloc_1_1_integrity_result" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdsa_1_1e_alloc_1_1_integrity_result" kindref="compound">IntegrityResult</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49" refid="structdsa_1_1e_alloc_1_1_integrity_result_1a3ed875c17b3a7888028d1b68c448cfa7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_integrity_result_1a3ed875c17b3a7888028d1b68c448cfa7" kindref="member">prev_status</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structdsa_1_1e_alloc_1_1_integrity_result_1a189458b4e661e866fc5993a44c6b4936" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_integrity_result_1a189458b4e661e866fc5993a44c6b4936" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classdsa_1_1e_alloc_1ae788e9d3eb03abbd532ef5ce3477edab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1e_alloc_1ae788e9d3eb03abbd532ef5ce3477edab" kindref="member">tlsf</ref><sp/>=<sp/><ref refid="classdsa_1_1_t_l_s_f" kindref="compound">dsa::TLSF&lt;5&gt;</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="classdsa_1_1e_alloc_1acbf770d2d9ab8ceb8df2a935a82eea10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1e_alloc_1acbf770d2d9ab8ceb8df2a935a82eea10" kindref="member">Control</ref><sp/>=<sp/>tlsf::Control;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55" refid="classdsa_1_1e_alloc_1a3dabd178fc159716de6dd7c041eb17b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1e_alloc_1a3dabd178fc159716de6dd7c041eb17b0" kindref="member">BlockHeader</ref><sp/>=<sp/>tlsf::BlockHeader;<sp/></highlight></codeline>
+<codeline lineno="56" refid="classdsa_1_1e_alloc_1a50adb94983befce215dcff2aecfab2f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classdsa_1_1e_alloc_1a50adb94983befce215dcff2aecfab2f4" kindref="member">Walker</ref><sp/>=<sp/><ref refid="classdsa_1_1_t_l_s_f_1ac2e907fdaba5c8fc4c9185a632d8efe6" kindref="member">tlsf::tlsf_walker</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structdsa_1_1e_alloc_1_1_storage_report" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdsa_1_1e_alloc_1_1_storage_report" kindref="compound">StorageReport</ref></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61" refid="structdsa_1_1e_alloc_1_1_storage_report_1aafeefd79a7a5bee5ab538e9bb9feb539" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_storage_report_1aafeefd79a7a5bee5ab538e9bb9feb539" kindref="member">totalFreeSpace</ref><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="structdsa_1_1e_alloc_1_1_storage_report_1a6f5d727121d4711576e5b36ff38c337c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_storage_report_1a6f5d727121d4711576e5b36ff38c337c" kindref="member">largestFreeRegion</ref><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63" refid="structdsa_1_1e_alloc_1_1_storage_report_1aad2065fb616b756e0cd63ece53b70085" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_storage_report_1aad2065fb616b756e0cd63ece53b70085" kindref="member">freeBlockCount</ref><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64" refid="structdsa_1_1e_alloc_1_1_storage_report_1aac10fcf726b114c1b865a8f5937408da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structdsa_1_1e_alloc_1_1_storage_report_1aac10fcf726b114c1b865a8f5937408da" kindref="member">fragmentationFactor</ref><sp/>=<sp/>0.0;<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" kindref="member">malloc</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kindref="member">free</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1ad55296e9a38ece48f061fd23b8fb1738" kindref="member">memalign</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>align,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a56c8d1f3e2368a15361968596b335eeb" kindref="member">realloc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a01a9d3be9b919029d0d5bda73f56757c" kindref="member">calloc</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="112" refid="classdsa_1_1e_alloc_1a1c4355fbb45c0c0876a97a1bb2515f68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>T*<sp/><ref refid="classdsa_1_1e_alloc_1a1c4355fbb45c0c0876a97a1bb2515f68" kindref="member">allocate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>obj)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>memory<sp/>=<sp/><ref refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" kindref="member">malloc</ref>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(T));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!memory)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" kindref="member">LOG::ERROR</ref>(</highlight><highlight class="stringliteral">&quot;E_ALLOC&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Memory<sp/>allocation<sp/>failed<sp/>for<sp/>object.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(memory)<sp/>T(obj);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(...)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kindref="member">free</ref>(memory);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" kindref="member">LOG::ERROR</ref>(</highlight><highlight class="stringliteral">&quot;E_ALLOC&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Object<sp/>construction<sp/>failed.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="140" refid="classdsa_1_1e_alloc_1a3cbe14b74b41cd912af2c4c2b277196b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>T*<sp/><ref refid="classdsa_1_1e_alloc_1a3cbe14b74b41cd912af2c4c2b277196b" kindref="member">allocate</ref>(Args&amp;&amp;...<sp/>args)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>memory<sp/>=<sp/><ref refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" kindref="member">malloc</ref>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(T));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!memory)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" kindref="member">LOG::ERROR</ref>(</highlight><highlight class="stringliteral">&quot;E_ALLOC&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Memory<sp/>allocation<sp/>failed<sp/>for<sp/>object.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(memory)<sp/>T(std::forward&lt;Args&gt;(args)...);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(...)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kindref="member">free</ref>(memory);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" kindref="member">LOG::ERROR</ref>(</highlight><highlight class="stringliteral">&quot;E_ALLOC&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Object<sp/>construction<sp/>failed.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="166" refid="classdsa_1_1e_alloc_1a142ecbc514fb8d9618fee741dece6efc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a142ecbc514fb8d9618fee741dece6efc" kindref="member">deallocate</ref>(T*<sp/>obj)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!obj)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>obj-&gt;~T();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kindref="member">free</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(obj));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a430864385c853363d2c44678d00e0f95" kindref="member">add_pool</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>mem,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytes);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a8d029b14252fb77d1c2d5311b483abda" kindref="member">remove_pool</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pool);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a90897aee2f774c0dd1d4267465394cb5" kindref="member">check_pool</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pool);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a024bc4fbaab369234c4569a36c15b300" kindref="member">get_pool</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pool);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1ad1f088a6a6ac5997e224ad0062c70523" kindref="member">check</ref>();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a8dbde398ec79c50e4bec8cb34c237760" kindref="member">integrity_walker</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>used,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>StorageReport<sp/><ref refid="classdsa_1_1e_alloc_1aabc4d2a1849719c8c1a136262ef7f681" kindref="member">report</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" kindref="member">logStorageReport</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="231" refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc_1acbf770d2d9ab8ceb8df2a935a82eea10" kindref="member">Control</ref><sp/><ref refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" kindref="member">control</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="232" refid="classdsa_1_1e_alloc_1a029fe4dad4712ad2f5137c5ec15c9449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="classdsa_1_1e_alloc_1a029fe4dad4712ad2f5137c5ec15c9449" kindref="member">memory_pools</ref>[<ref refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" kindref="member">MAX_POOL</ref>];<sp/></highlight></codeline>
+<codeline lineno="233" refid="classdsa_1_1e_alloc_1ab191339864ad951a9b4174ed766ad024" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1ab191339864ad951a9b4174ed766ad024" kindref="member">pool_sizes</ref>[<ref refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" kindref="member">MAX_POOL</ref>];<sp/><sp/></highlight></codeline>
+<codeline lineno="234" refid="classdsa_1_1e_alloc_1a814a2f70aa21ae4ecdb1caf09a368cbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a814a2f70aa21ae4ecdb1caf09a368cbe" kindref="member">pool_count</ref><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="235" refid="classdsa_1_1e_alloc_1a5db3dffebe3e135f6629a128177ffa9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a5db3dffebe3e135f6629a128177ffa9e" kindref="member">initialised</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="236" refid="classdsa_1_1e_alloc_1a514b6c98171a7dbc454aaf5356bf77c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classglock_1_1_i_lockable" kindref="compound">glock::ILockable</ref>*<sp/><ref refid="classdsa_1_1e_alloc_1a514b6c98171a7dbc454aaf5356bf77c0" kindref="member">lock_</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1e_alloc_1a799fb29ed4b5e3d4ab9a69cef933576a" kindref="member">walk_pool</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pool,<sp/><ref refid="classdsa_1_1e_alloc_1a50adb94983befce215dcff2aecfab2f4" kindref="member">Walker</ref><sp/>walker,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>dsa</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/eAlloc.hpp"/>
+  </compounddef>
+</doxygen>

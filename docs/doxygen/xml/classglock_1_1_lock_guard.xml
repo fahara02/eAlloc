@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classglock_1_1_lock_guard" kind="class" language="C++" prot="public">
+    <compoundname>glock::LockGuard</compoundname>
+    <includes refid="global_lock_8hpp" local="no">globalLock.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" prot="private" static="no" mutable="no">
+        <type><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref> &amp;</type>
+        <definition>ILockable&amp; glock::LockGuard::lock_</definition>
+        <argsstring></argsstring>
+        <name>lock_</name>
+        <qualifiedname>glock::LockGuard::lock_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="62" column="15" bodyfile="src/globalLock.hpp" bodystart="62" bodyend="-1"/>
+        <referencedby refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" compoundref="global_lock_8hpp" startline="55" endline="56">LockGuard</referencedby>
+        <referencedby refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" compoundref="global_lock_8hpp" startline="57" endline="57">~LockGuard</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool glock::LockGuard::acquired_</definition>
+        <argsstring></argsstring>
+        <name>acquired_</name>
+        <qualifiedname>glock::LockGuard::acquired_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="63" column="10" bodyfile="src/globalLock.hpp" bodystart="63" bodyend="-1"/>
+        <referencedby refid="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" compoundref="global_lock_8hpp" startline="58" endline="58">acquired</referencedby>
+        <referencedby refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" compoundref="global_lock_8hpp" startline="55" endline="56">LockGuard</referencedby>
+        <referencedby refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" compoundref="global_lock_8hpp" startline="57" endline="57">~LockGuard</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>glock::LockGuard::LockGuard</definition>
+        <argsstring>(ILockable &amp;lock, uint32_t timeout_ms=0xFFFFFFFF)</argsstring>
+        <name>LockGuard</name>
+        <qualifiedname>glock::LockGuard::LockGuard</qualifiedname>
+        <param>
+          <type><ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref> &amp;</type>
+          <declname>lock</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>timeout_ms</declname>
+          <defval>0xFFFFFFFF</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="55" column="5" bodyfile="src/globalLock.hpp" bodystart="55" bodyend="56"/>
+        <references refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" compoundref="global_lock_8hpp" startline="63">acquired_</references>
+        <references refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" compoundref="global_lock_8hpp" startline="62">lock_</references>
+        <referencedby refid="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0">LockGuard</referencedby>
+        <referencedby refid="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>glock::LockGuard::~LockGuard</definition>
+        <argsstring>()</argsstring>
+        <name>~LockGuard</name>
+        <qualifiedname>glock::LockGuard::~LockGuard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="57" column="5" bodyfile="src/globalLock.hpp" bodystart="57" bodyend="57"/>
+        <references refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" compoundref="global_lock_8hpp" startline="63">acquired_</references>
+        <references refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" compoundref="global_lock_8hpp" startline="62">lock_</references>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool glock::LockGuard::acquired</definition>
+        <argsstring>() const</argsstring>
+        <name>acquired</name>
+        <qualifiedname>glock::LockGuard::acquired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="58" column="10" bodyfile="src/globalLock.hpp" bodystart="58" bodyend="58"/>
+        <references refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" compoundref="global_lock_8hpp" startline="63">acquired_</references>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>glock::LockGuard::LockGuard</definition>
+        <argsstring>(const LockGuard &amp;)=delete</argsstring>
+        <name>LockGuard</name>
+        <qualifiedname>glock::LockGuard::LockGuard</qualifiedname>
+        <param>
+          <type>const <ref refid="classglock_1_1_lock_guard" kindref="compound">LockGuard</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="59" column="5"/>
+        <references refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" compoundref="global_lock_8hpp" startline="55" endline="56">LockGuard</references>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classglock_1_1_lock_guard" kindref="compound">LockGuard</ref> &amp;</type>
+        <definition>LockGuard &amp; glock::LockGuard::operator=</definition>
+        <argsstring>(const LockGuard &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>glock::LockGuard::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classglock_1_1_lock_guard" kindref="compound">LockGuard</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="60" column="15"/>
+        <references refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" compoundref="global_lock_8hpp" startline="55" endline="56">LockGuard</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>glock::ILockable</label>
+        <link refid="classglock_1_1_i_lockable"/>
+      </node>
+      <node id="1">
+        <label>glock::LockGuard</label>
+        <link refid="classglock_1_1_lock_guard"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>lock_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/globalLock.hpp" line="53" column="1" bodyfile="src/globalLock.hpp" bodystart="53" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classglock_1_1_lock_guard_1ac2ea70f877d2288826a1b94963445635" prot="public" virt="non-virtual"><scope>glock::LockGuard</scope><name>acquired</name></member>
+      <member refid="classglock_1_1_lock_guard_1a2f8339878c0c9a13691b367f68126ed2" prot="private" virt="non-virtual"><scope>glock::LockGuard</scope><name>acquired_</name></member>
+      <member refid="classglock_1_1_lock_guard_1a299430e86872dd973d7b03f9d0d6c8a3" prot="private" virt="non-virtual"><scope>glock::LockGuard</scope><name>lock_</name></member>
+      <member refid="classglock_1_1_lock_guard_1aa44a60cd18d037b9e6272329de0e9835" prot="public" virt="non-virtual"><scope>glock::LockGuard</scope><name>LockGuard</name></member>
+      <member refid="classglock_1_1_lock_guard_1a3b3f7b8fbe50c7c1713d0f1c142b48a0" prot="public" virt="non-virtual"><scope>glock::LockGuard</scope><name>LockGuard</name></member>
+      <member refid="classglock_1_1_lock_guard_1a3fc77b38975d8c7462d5e6b47940a217" prot="public" virt="non-virtual"><scope>glock::LockGuard</scope><name>operator=</name></member>
+      <member refid="classglock_1_1_lock_guard_1a82a72961e6dd7baca8667b4c94a7811f" prot="public" virt="non-virtual"><scope>glock::LockGuard</scope><name>~LockGuard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

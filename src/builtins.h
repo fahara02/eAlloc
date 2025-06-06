@@ -1,9 +1,45 @@
+/**
+ * @file builtins.h
+ * @brief Portable bit manipulation intrinsics (ffs/fls) with architecture-specific optimizations.
+ *
+ * Provides fast find-first-set (ffs) and find-last-set (fls) implementations for GCC, MSVC, ARM, and generic fallback.
+ *
+ * - Use dsa_decl ffs(unsigned int) and fls(unsigned int) for portable, inlined bit scanning.
+ * - Selects the best implementation for the detected compiler/architecture.
+ */
 #pragma once
 #if defined(__cplusplus)
 #define dsa_decl inline
 #else
 #define dsa_decl static
 #endif
+
+/**
+ * @defgroup bitmanip Bit Manipulation Intrinsics
+ * @{
+ */
+
+/**
+ * @brief Find the first set bit in a word.
+ *
+ * Returns the position of the first set bit (1-based index) in the given word.
+ * If the word is zero, returns -1.
+ *
+ * @param word The input word to scan.
+ * @return The position of the first set bit, or -1 if the word is zero.
+ */
+dsa_decl int ffs(unsigned int word);
+
+/**
+ * @brief Find the last set bit in a word.
+ *
+ * Returns the position of the last set bit (1-based index) in the given word.
+ * If the word is zero, returns -1.
+ *
+ * @param word The input word to scan.
+ * @return The position of the last set bit, or -1 if the word is zero.
+ */
+dsa_decl int fls(unsigned int word);
 
 /*
 ** gcc 3.4 and above have builtin support, specialized for architecture.
@@ -13,6 +49,11 @@
     (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4)) &&                \
     defined(__GNUC_PATCHLEVEL__)
 
+/**
+ * @brief GCC-specific implementation of ffs.
+ *
+ * Uses the __builtin_ffs intrinsic for GCC 3.4 and above.
+ */
 dsa_decl int ffs(unsigned int word) { return __builtin_ffs(word) - 1; }
 
 dsa_decl int fls(unsigned int word) {

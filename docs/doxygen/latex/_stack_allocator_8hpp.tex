@@ -1,0 +1,33 @@
+\doxysection{src/\+Stack\+Allocator.hpp File Reference}
+\hypertarget{_stack_allocator_8hpp}{}\label{_stack_allocator_8hpp}\index{src/StackAllocator.hpp@{src/StackAllocator.hpp}}
+
+
+MCU/host-\/agnostic C++ allocator using a stack-\/allocated memory pool and TLSF.  
+
+
+{\ttfamily \#include "{}e\+Alloc.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for Stack\+Allocator.\+hpp\+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdsa_1_1_stack_allocator}{dsa\+::\+Stack\+Allocator$<$ T, Pool\+Size $>$}}
+\begin{DoxyCompactList}\small\item\em Standard C++ allocator interface using a stack-\/allocated buffer and \doxylink{classdsa_1_1_t_l_s_f}{TLSF}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structdsa_1_1_stack_allocator_1_1rebind}{dsa\+::\+Stack\+Allocator$<$ T, Pool\+Size $>$\+::rebind$<$ U $>$}}
+\begin{DoxyCompactList}\small\item\em Rebind template for allocator compatibility with different types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedsa}{dsa}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MCU/host-\/agnostic C++ allocator using a stack-\/allocated memory pool and TLSF. 
+
+This allocator is suitable for embedded and host builds, provides minimal STL usage, and supports optional thread safety via \doxylink{classglock_1_1_i_lockable}{glock\+::\+ILockable}. It is intended for use with STL containers or custom allocation needs where a fixed-\/size stack buffer is desired. 
+
+Definition in file \mbox{\hyperlink{_stack_allocator_8hpp_source}{Stack\+Allocator.\+hpp}}.
+

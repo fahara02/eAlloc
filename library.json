@@ -1,0 +1,35 @@
+{
+  "name": "eAlloc",
+  "version": "1.0.0",
+  "description": "MCU/host-agnostic C++17 real-time memory allocator using TLSF for embedded and desktop systems.",
+  "keywords": [
+    "allocator",
+    "tlsf",
+    "memory",
+    "embedded",
+    "realtime",
+    "c++17",
+    "platformio",
+    "arduino"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fahara02/eAlloc"
+  },
+  "authors": [
+    {
+      "name": "fahara02",
+      "url": "https://github.com/fahara02"
+    }
+  ],
+  "frameworks": ["arduino", "platformio"],
+  "platforms": ["atmelavr", "espressif32", "espressif8266", "ststm32", "native"],
+  "license": "BSD-3-Clause",
+  "build": {
+    "srcFilter": [
+      "+<*>",
+      "-<test>",
+      "-<docs>"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="classglock_1_1_i_lockable" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>glock::ILockable</compoundname>
+    <includes refid="global_lock_8hpp" local="no">globalLock.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool glock::ILockable::lock</definition>
+        <argsstring>(uint32_t timeout_ms=0xFFFFFFFF)=0</argsstring>
+        <name>lock</name>
+        <qualifiedname>glock::ILockable::lock</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>timeout_ms</declname>
+          <defval>0xFFFFFFFF</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="47" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void glock::ILockable::unlock</definition>
+        <argsstring>()=0</argsstring>
+        <name>unlock</name>
+        <qualifiedname>glock::ILockable::unlock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="48" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual glock::ILockable::~ILockable</definition>
+        <argsstring>()</argsstring>
+        <name>~ILockable</name>
+        <qualifiedname>glock::ILockable::~ILockable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globalLock.hpp" line="49" column="13" bodyfile="src/globalLock.hpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Abstract lockable interface for platform-agnostic mutexes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>All platform adapters must implement <ref refid="classglock_1_1_i_lockable" kindref="compound">ILockable</ref>. </para>
+    </detaileddescription>
+    <location file="src/globalLock.hpp" line="45" column="1" bodyfile="src/globalLock.hpp" bodystart="45" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classglock_1_1_i_lockable_1a24c2e0a5b14ed3a86cbea4324bc51ab4" prot="public" virt="pure-virtual"><scope>glock::ILockable</scope><name>lock</name></member>
+      <member refid="classglock_1_1_i_lockable_1afe48eaef35d7a232f18a4c3a8d5fe359" prot="public" virt="pure-virtual"><scope>glock::ILockable</scope><name>unlock</name></member>
+      <member refid="classglock_1_1_i_lockable_1a9631e2662e2b220b97aac58c27b5b08d" prot="public" virt="virtual"><scope>glock::ILockable</scope><name>~ILockable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
