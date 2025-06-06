@@ -22,7 +22,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOXYGEN_CONFIG = os.path.join(PROJECT_ROOT, "Doxyfile")
 SPHINX_DIR = os.path.join(PROJECT_ROOT, "docs", "sphinx")
 DOXYGEN_XML_DIR = os.path.join(PROJECT_ROOT, "docs", "doxygen", "xml")
-HTML_DIR = os.path.join(PROJECT_ROOT, "docs", "html")
+HTML_DIR = os.path.join(PROJECT_ROOT, "docs")
 SRC_DIR = os.path.join(PROJECT_ROOT, "src")
 
 # 1. Write a minimal Doxyfile if not present
