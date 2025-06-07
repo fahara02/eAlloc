@@ -34,6 +34,30 @@
 #include <chrono>
 #endif
 
+#if defined(FREERTOS) || defined(ESP_PLATFORM) || defined(ARDUINO)
+// FreeRTOS/ESP-IDF/Arduino/PlatformIO
+#  include "freertos/FreeRTOS.h"
+#  include "freertos/semphr.h"
+#endif
+#if defined(POSIX)
+#  include <pthread.h>
+#  include <time.h>
+#endif
+#if defined(STM32_CMSIS_RTOS)
+#  include "cmsis_os.h"
+#endif
+#if defined(STM32_CMSIS_RTOS2)
+#  include "cmsis_os2.h"
+#endif
+#if defined(ZEPHYR)
+#  include <zephyr/kernel.h>
+#endif
+#if defined(THREADX)
+#  include "tx_api.h"
+#endif
+#if defined(MBED_OS)
+#  include "mbed.h"
+#endif
 namespace elock {
 // Do NOT use 'using namespace std;' anywhere in this file. All std types must be referenced as std::.
 
