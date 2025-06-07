@@ -21,7 +21,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00022}00022\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00023}\mbox{\hyperlink{classdsa_1_1e_alloc_a430864385c853363d2c44678d00e0f95}{00023}}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classdsa_1_1e_alloc_a430864385c853363d2c44678d00e0f95}{eAlloc::add\_pool}}(\textcolor{keywordtype}{void}*\ mem,\ \textcolor{keywordtype}{size\_t}\ bytes)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00024}00024\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a814a2f70aa21ae4ecdb1caf09a368cbe}{pool\_count}}\ >=\ \mbox{\hyperlink{classdsa_1_1e_alloc_a00bb3a88d7fd0f8148deb3a0786a9d64}{MAX\_POOL}})}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00027}00027\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_l_o_g_a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5}{LOG::ERROR}}(\textcolor{stringliteral}{"{}E\_ALLOC"{}},\ \textcolor{stringliteral}{"{}Maximum\ number\ of\ pools\ (\%d)\ reached.\(\backslash\)n"{}},\ \mbox{\hyperlink{classdsa_1_1e_alloc_a00bb3a88d7fd0f8148deb3a0786a9d64}{MAX\_POOL}});}
@@ -77,7 +77,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00078}00078\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00079}\mbox{\hyperlink{classdsa_1_1e_alloc_a8d029b14252fb77d1c2d5311b483abda}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdsa_1_1e_alloc_a8d029b14252fb77d1c2d5311b483abda}{eAlloc::remove\_pool}}(\textcolor{keywordtype}{void}*\ pool)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00080}00080\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classdsa_1_1e_alloc_a814a2f70aa21ae4ecdb1caf09a368cbe}{pool\_count}};\ ++i)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00083}00083\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a029fe4dad4712ad2f5137c5ec15c9449}{memory\_pools}}[i]\ ==\ pool)}
@@ -137,7 +137,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00138}00138\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00139}\mbox{\hyperlink{classdsa_1_1e_alloc_a5faaeb302c059421ca82cfc7db8e9879}{00139}}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classdsa_1_1e_alloc_a5faaeb302c059421ca82cfc7db8e9879}{eAlloc::malloc}}(\textcolor{keywordtype}{size\_t}\ size)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00140}00140\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ adjust\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a06b784dc5df9063ca8acd2c1b1e4d7fe}{tlsf::adjust\_request\_size}}(size,\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_aa368212269f0ea11be46c699c43cc548}{tlsf::align\_size}}());}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00143}00143\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afacb1adf4c48b2d06cafaa71b9f884d9}{tlsf::locate\_free}}(\&\mbox{\hyperlink{classdsa_1_1e_alloc_acede9859339f8409d85c7a14cd71f6f2}{control}},\ adjust);}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_a9a2d2201883d300bf1568e53c09297c4}{tlsf::prepare\_used}}(\&\mbox{\hyperlink{classdsa_1_1e_alloc_acede9859339f8409d85c7a14cd71f6f2}{control}},\ block,\ adjust);}
@@ -145,7 +145,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00146}00146\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00147}\mbox{\hyperlink{classdsa_1_1e_alloc_a6cf6ea0950ef6c2c4d496a92c4786282}{00147}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdsa_1_1e_alloc_a6cf6ea0950ef6c2c4d496a92c4786282}{eAlloc::free}}(\textcolor{keywordtype}{void}*\ ptr)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00148}00148\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{if}(ptr)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00151}00151\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_afd2921b2dac73664c9bdadff7abd6eb6}{tlsf::from\_ptr\_nc}}(ptr);}
@@ -163,7 +163,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00164}00164\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00165}\mbox{\hyperlink{classdsa_1_1e_alloc_a799fb29ed4b5e3d4ab9a69cef933576a}{00165}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdsa_1_1e_alloc_a799fb29ed4b5e3d4ab9a69cef933576a}{eAlloc::walk\_pool}}(\textcolor{keywordtype}{void}*\ pool,\ \mbox{\hyperlink{classdsa_1_1e_alloc_a50adb94983befce215dcff2aecfab2f4}{Walker}}\ walker,\ \textcolor{keywordtype}{void}*\ user)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00166}00166\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a50adb94983befce215dcff2aecfab2f4}{Walker}}\ pool\_walker\ =\ walker\ ?\ walker\ :\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_af06d06e73cb9a3a3a4c48e2016ab5dc4}{tlsf::default\_walker}};}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{classdsa_1_1e_alloc_a3dabd178fc159716de6dd7c041eb17b0}{BlockHeader}}*\ block\ =\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_abc81913bafee4d307d838896319a0ca1}{tlsf::offset\_to\_block\_nc}}(pool,\ -\/\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classdsa_1_1_t_l_s_f_a1e7328266ccc90058b455aea1ba93746}{tlsf::alloc\_overhead}}()));}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{while}(block\ \&\&\ !\mbox{\hyperlink{classdsa_1_1_t_l_s_f_adcbc2cc8ec2a8e348b2f7c12fb74c013}{tlsf::is\_last}}(block))}
@@ -229,7 +229,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00230}00230\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00231}\mbox{\hyperlink{classdsa_1_1e_alloc_a56c8d1f3e2368a15361968596b335eeb}{00231}}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classdsa_1_1e_alloc_a56c8d1f3e2368a15361968596b335eeb}{eAlloc::realloc}}(\textcolor{keywordtype}{void}*\ ptr,\ \textcolor{keywordtype}{size\_t}\ size)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00232}00232\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00234}00234\ \ \ \ \ \textcolor{keywordtype}{void}*\ p\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{if}(ptr\ \&\&\ size\ ==\ 0)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00236}00236\ \ \ \ \ \{}
@@ -273,7 +273,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00274}00274\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00275}\mbox{\hyperlink{classdsa_1_1e_alloc_a01a9d3be9b919029d0d5bda73f56757c}{00275}}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classdsa_1_1e_alloc_a01a9d3be9b919029d0d5bda73f56757c}{eAlloc::calloc}}(\textcolor{keywordtype}{size\_t}\ num,\ \textcolor{keywordtype}{size\_t}\ size)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00276}00276\ \{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_size;}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keywordflow}{if}(num\ >\ 0\ \&\&\ size\ >\ SIZE\_MAX\ /\ num)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00280}00280\ \ \ \ \ \{}
@@ -291,7 +291,7 @@
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00292}00292\ }
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00293}\mbox{\hyperlink{classdsa_1_1e_alloc_aabc4d2a1849719c8c1a136262ef7f681}{00293}}\ \mbox{\hyperlink{structdsa_1_1e_alloc_1_1_storage_report}{eAlloc::StorageReport}}\ \mbox{\hyperlink{classdsa_1_1e_alloc_aabc4d2a1849719c8c1a136262ef7f681}{eAlloc::report}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00294}00294\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00295}00295\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}})\ elock::ELockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_a69c9c5fe21b83dd7f8ae293395d1f21a}{elock\_}});}
+\DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00295}00295\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}})\ elock::setLockGuard\ guard(*\mbox{\hyperlink{classdsa_1_1e_alloc_aa237d516ee699b332e8fb5985bb7e643}{lock\_}});}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00296}00296\ \ \ \ \ \mbox{\hyperlink{structdsa_1_1e_alloc_1_1_storage_report}{StorageReport}}\ \mbox{\hyperlink{classdsa_1_1e_alloc_aabc4d2a1849719c8c1a136262ef7f681}{report}}\{\};}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00297}00297\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ fl\ =\ 0;\ fl\ <\ \mbox{\hyperlink{classdsa_1_1_t_l_s_f_ab1504ff0e4c8fc95be7a591016c1bcdb}{tlsf::cabinets}}();\ ++fl)}
 \DoxyCodeLine{\Hypertarget{e_alloc_8cpp_source_l00298}00298\ \ \ \ \ \{}

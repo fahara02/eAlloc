@@ -72,7 +72,7 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc7ControlE"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc11BlockHeaderE"><code class="docutils literal notranslate"><span class="pre">BlockHeader</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6WalkerE"><code class="docutils literal notranslate"><span class="pre">Walker</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE"><code class="docutils literal notranslate"><span class="pre">setELock()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc7setLockEPN5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6eAllocEPv6size_t"><code class="docutils literal notranslate"><span class="pre">eAlloc()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6mallocE6size_t"><code class="docutils literal notranslate"><span class="pre">malloc()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc4freeEPv"><code class="docutils literal notranslate"><span class="pre">free()</span></code></a></li>
@@ -97,7 +97,7 @@
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc10pool_sizesE"><code class="docutils literal notranslate"><span class="pre">pool_sizes</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc10pool_countE"><code class="docutils literal notranslate"><span class="pre">pool_count</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc11initialisedE"><code class="docutils literal notranslate"><span class="pre">initialised</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc6elock_E"><code class="docutils literal notranslate"><span class="pre">elock_</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3dsa6eAlloc5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#_CPPv4N5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">elock::ILockable</span></code></a><ul>
@@ -547,8 +547,8 @@ Use <code class="docutils literal notranslate"><span class="pre">elock::StdMutex
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE">
-<span id="_CPPv3N3dsa6eAlloc8setELockEPN5elock10IELockableE"></span><span id="_CPPv2N3dsa6eAlloc8setELockEPN5elock10IELockableE"></span><span id="dsa::eAlloc::setELock__elock::IELockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setELock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IELockable</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc8setELockEPN5elock10IELockableE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc7setLockEPN5elock9ILockableE">
+<span id="_CPPv3N3dsa6eAlloc7setLockEPN5elock9ILockableE"></span><span id="_CPPv2N3dsa6eAlloc7setLockEPN5elock9ILockableE"></span><span id="dsa::eAlloc::setLock__elock::ILockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a97fb67f4bb3ca8802b00f51935f954b7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLock</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5elock9ILockableE" title="elock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lock</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc7setLockEPN5elock9ILockableE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -860,8 +860,8 @@ Use <code class="docutils literal notranslate"><span class="pre">elock::StdMutex
 </dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc6elock_E">
-<span id="_CPPv3N3dsa6eAlloc6elock_E"></span><span id="_CPPv2N3dsa6eAlloc6elock_E"></span><span id="dsa::eAlloc::elock___elock::IELockableP"></span><span class="target" id="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a"></span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IELockable</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">elock_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc6elock_E" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dsa6eAlloc5lock_E">
+<span id="_CPPv3N3dsa6eAlloc5lock_E"></span><span id="_CPPv2N3dsa6eAlloc5lock_E"></span><span id="dsa::eAlloc::lock___elock::ILockableP"></span><span class="target" id="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643"></span><a class="reference internal" href="#_CPPv45elock" title="elock"><span class="n"><span class="pre">elock</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N5elock9ILockableE" title="elock::ILockable"><span class="n"><span class="pre">ILockable</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">lock_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><a class="headerlink" href="#_CPPv4N3dsa6eAlloc5lock_E" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -871,7 +871,7 @@ Use <code class="docutils literal notranslate"><span class="pre">elock::StdMutex
 <dt class="sig sig-object cpp" id="_CPPv4N5elock9ILockableE">
 <span id="_CPPv3N5elock9ILockableE"></span><span id="_CPPv2N5elock9ILockableE"></span><span id="elock::ILockable"></span><span class="target" id="classelock_1_1_i_lockable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILockable</span></span></span><a class="headerlink" href="#_CPPv4N5elock9ILockableE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
-<em>#include &lt;<a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>&gt;</em></div>
+<em>#include &lt;<a class="reference internal" href="#global_e_lock_8hpp"><span class="std std-ref">globalELock.hpp</span></a>&gt;</em></div>
 <p>Abstract lockable interface for platform-agnostic mutexes. </p>
 <p>All platform adapters must implement <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">ILockable</span></a>. </p>
 <div class="breathe-sectiondef docutils container">
@@ -919,7 +919,7 @@ Use <code class="docutils literal notranslate"><span class="pre">elock::StdMutex
 <dt class="sig sig-object cpp" id="_CPPv4N5elock9LockGuardE">
 <span id="_CPPv3N5elock9LockGuardE"></span><span id="_CPPv2N5elock9LockGuardE"></span><span id="elock::LockGuard"></span><span class="target" id="classelock_1_1_lock_guard"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LockGuard</span></span></span><a class="headerlink" href="#_CPPv4N5elock9LockGuardE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
-<em>#include &lt;<a class="reference internal" href="#global_lock_8hpp"><span class="std std-ref">globalLock.hpp</span></a>&gt;</em></div>
+<em>#include &lt;<a class="reference internal" href="#global_e_lock_8hpp"><span class="std std-ref">globalELock.hpp</span></a>&gt;</em></div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -2043,17 +2043,17 @@ If not set, the allocator is not thread-safe. For host builds, use elock::StdMut
 <div class="docutils container">
 <em>#include “<a class="reference internal" href="#tlsf_8hpp"><span class="std std-ref">tlsf.hpp</span></a>”</em></div>
 <div class="docutils container">
-<em>#include “globalELock.hpp”</em></div>
+<em>#include “<a class="reference internal" href="#global_e_lock_8hpp"><span class="std std-ref">globalELock.hpp</span></a>”</em></div>
 <p>TLSF-based MCU/host-agnostic memory allocator with multi-pool support. </p>
 <p>Provides efficient, deterministic allocation and deallocation with minimal fragmentation. Supports multiple memory pools, alignment, reallocation, and MCU/host-agnostic locking via elock.</p>
 <p>Usage:<ul class="simple">
 <li><p>Use <a class="reference internal" href="#classdsa_1_1e_alloc"><span class="std std-ref">dsa::eAlloc</span></a> for all heap management (malloc/free, STL, or custom allocators).</p></li>
-<li><p>For thread safety, call setELock() with a elock::IELockable* mutex adapter.</p></li>
+<li><p>For thread safety, call setLock() with a <a class="reference internal" href="#classelock_1_1_i_lockable"><span class="std std-ref">elock::ILockable</span></a>* mutex adapter.</p></li>
 <li><p>Add or remove pools as needed for flexible memory regions.</p></li>
 </ul>
 </p>
 <p>Thread Safety:<ul class="simple">
-<li><p>Not thread-safe by default. To enable, set a elock (see globalELock.hpp).</p></li>
+<li><p>Not thread-safe by default. To enable, set a elock (see <a class="reference internal" href="#global_e_lock_8hpp"><span class="std std-ref">globalELock.hpp</span></a>).</p></li>
 <li><p>Only one elock per allocator instance is recommended. </p></li>
 </ul>
 </p>
@@ -2061,7 +2061,7 @@ If not set, the allocator is not thread-safe. For host builds, use elock::StdMut
 
 <dl>
 <dt class="sig sig-object cpp">
-<span class="target" id="global_lock_8hpp"></span><em><span class="pre">file</span></em> <span class="sig-name descname"><span class="pre">globalLock.hpp</span></span></dt>
+<span class="target" id="global_e_lock_8hpp"></span><em><span class="pre">file</span></em> <span class="sig-name descname"><span class="pre">globalELock.hpp</span></span></dt>
 <dd><div class="docutils container">
 <em>#include &lt;stdint.h&gt;</em></div>
 <p>Universal RAII lock guard and platform lock adapter system for eAlloc. </p>

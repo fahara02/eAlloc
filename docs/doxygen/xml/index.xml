@@ -22,8 +22,8 @@
     <member refid="classdsa_1_1e_alloc_1ab191339864ad951a9b4174ed766ad024" kind="variable"><name>pool_sizes</name></member>
     <member refid="classdsa_1_1e_alloc_1a814a2f70aa21ae4ecdb1caf09a368cbe" kind="variable"><name>pool_count</name></member>
     <member refid="classdsa_1_1e_alloc_1a5db3dffebe3e135f6629a128177ffa9e" kind="variable"><name>initialised</name></member>
-    <member refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" kind="variable"><name>elock_</name></member>
-    <member refid="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830" kind="function"><name>setELock</name></member>
+    <member refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" kind="variable"><name>lock_</name></member>
+    <member refid="classdsa_1_1e_alloc_1a97fb67f4bb3ca8802b00f51935f954b7" kind="function"><name>setLock</name></member>
     <member refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" kind="function"><name>eAlloc</name></member>
     <member refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" kind="function"><name>malloc</name></member>
     <member refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" kind="function"><name>free</name></member>
@@ -254,7 +254,7 @@
   </compound>
   <compound refid="e_alloc_8hpp" kind="file"><name>eAlloc.hpp</name>
   </compound>
-  <compound refid="global_lock_8hpp" kind="file"><name>globalLock.hpp</name>
+  <compound refid="global_e_lock_8hpp" kind="file"><name>globalELock.hpp</name>
   </compound>
   <compound refid="_logger_8hpp" kind="file"><name>Logger.hpp</name>
   </compound>

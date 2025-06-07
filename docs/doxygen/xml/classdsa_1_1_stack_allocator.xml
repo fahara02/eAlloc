@@ -492,6 +492,13 @@ Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAl
         <childnode refid="3" relation="usage">
           <edgelabel>control</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>lock_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>elock::ILockable</label>
+        <link refid="classelock_1_1_i_lockable"/>
       </node>
     </collaborationgraph>
     <location file="src/StackAllocator.hpp" line="33" column="1" bodyfile="src/StackAllocator.hpp" bodystart="34" bodyend="134"/>

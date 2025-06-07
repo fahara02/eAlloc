@@ -7,7 +7,7 @@
  *
  * Usage:
  *   - Use dsa::eAlloc for all heap management (malloc/free, STL, or custom allocators).
- *   - For thread safety, call setELock() with a elock::IELockable* mutex adapter.
+ *   - For thread safety, call setLock() with a elock::ILockable* mutex adapter.
  *   - Add or remove pools as needed for flexible memory regions.
  *
  * Thread Safety:
@@ -34,7 +34,7 @@ class eAlloc
    public:
     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
 
-    void setELock(elock::IELockable* lock) { elock_ = lock; }
+    void setLock(elock::ILockable* lock) { lock_ = lock; }
 
     /**
      * @brief Constructs an eAlloc instance with an initial memory pool.
@@ -233,7 +233,7 @@ class eAlloc
     size_t pool_sizes[MAX_POOL];  ///< store all pool sizes
     size_t pool_count = 0;        ///< Number of active pools.
     bool initialised = false;     ///< Flag indicating if the allocator is initialized.
-    elock::IELockable* elock_ = nullptr;
+    elock::ILockable* lock_ = nullptr;
     /**
      * @brief Walks through the blocks in a pool with a specified walker function.
      * @param pool Pointer to the pool to walk.

@@ -36,13 +36,13 @@ Provides efficient, deterministic allocation and deallocation with minimal fragm
 Usage\+:
 \begin{DoxyItemize}
 \item Use \doxylink{classdsa_1_1e_alloc}{dsa\+::e\+Alloc} for all heap management (malloc/free, STL, or custom allocators).
-\item For thread safety, call set\+ELock() with a elock\+::\+IELockable\texorpdfstring{$\ast$}{*} mutex adapter.
+\item For thread safety, call set\+Lock() with a \doxylink{classelock_1_1_i_lockable}{elock\+::\+ILockable}\texorpdfstring{$\ast$}{*} mutex adapter.
 \item Add or remove pools as needed for flexible memory regions.
 \end{DoxyItemize}
 
 Thread Safety\+:
 \begin{DoxyItemize}
-\item Not thread-\/safe by default. To enable, set a elock (see global\+ELock.\+hpp).
+\item Not thread-\/safe by default. To enable, set a elock (see \doxylink{global_e_lock_8hpp}{global\+ELock.\+hpp}).
 \item Only one elock per allocator instance is recommended. 
 \end{DoxyItemize}
 

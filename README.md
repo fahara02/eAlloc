@@ -39,7 +39,7 @@ Learn more: [TLSF Official Site](http://www.gii.upv.es/tlsf/)
 static char pool[4096];
 elock::FreeRTOSMutex mutex(xSemaphoreCreateMutex());
 dsa::eAlloc alloc(pool, sizeof(pool));
-alloc.setELock(&mutex);
+alloc.setLock(&mutex);
 void* p = alloc.malloc(128);
 alloc.free(p);
 ```
@@ -52,7 +52,7 @@ static char pool[4096];
 std::timed_mutex mtx;
 elock::StdMutex mutex(mtx);
 dsa::eAlloc alloc(pool, sizeof(pool));
-alloc.setELock(&mutex);
+alloc.setLock(&mutex);
 void* p = alloc.malloc(128);
 alloc.free(p);
 ```
@@ -76,7 +76,7 @@ vec.push_back(42);
 ---
 
 ## Thread Safety
-For thread safety, always set a elock via `alloc.setELock(&mutex)`. Use `elock::StdMutex` for host/PC, or the appropriate adapter for your platform.
+For thread safety, always set a elock via `alloc.setLock(&mutex)`. Use `elock::StdMutex` for host/PC, or the appropriate adapter for your platform.
 
 ---
 

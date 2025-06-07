@@ -5,7 +5,7 @@
     <innerfile refid="builtins_8h">builtins.h</innerfile>
     <innerfile refid="e_alloc_8cpp">eAlloc.cpp</innerfile>
     <innerfile refid="e_alloc_8hpp">eAlloc.hpp</innerfile>
-    <innerfile refid="global_lock_8hpp">globalLock.hpp</innerfile>
+    <innerfile refid="global_e_lock_8hpp">globalELock.hpp</innerfile>
     <innerfile refid="_logger_8hpp">Logger.hpp</innerfile>
     <innerfile refid="_stack_allocator_8hpp">StackAllocator.hpp</innerfile>
     <innerfile refid="tlsf_8hpp">tlsf.hpp</innerfile>

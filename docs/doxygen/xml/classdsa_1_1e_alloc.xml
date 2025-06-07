@@ -180,12 +180,12 @@
         <location file="src/eAlloc.hpp" line="235" column="10" bodyfile="src/eAlloc.hpp" bodystart="235" bodyend="-1"/>
         <referencedby refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" compoundref="e_alloc_8cpp" startline="12" endline="21">eAlloc</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" prot="private" static="no" mutable="no">
-        <type>elock::IELockable *</type>
-        <definition>elock::IELockable* dsa::eAlloc::elock_</definition>
+      <memberdef kind="variable" id="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" prot="private" static="no" mutable="no">
+        <type><ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref> *</type>
+        <definition>elock::ILockable* dsa::eAlloc::lock_</definition>
         <argsstring></argsstring>
-        <name>elock_</name>
-        <qualifiedname>dsa::eAlloc::elock_</qualifiedname>
+        <name>lock_</name>
+        <qualifiedname>dsa::eAlloc::lock_</qualifiedname>
         <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/eAlloc.hpp" line="236" column="23" bodyfile="src/eAlloc.hpp" bodystart="236" bodyend="-1"/>
+        <location file="src/eAlloc.hpp" line="236" column="22" bodyfile="src/eAlloc.hpp" bodystart="236" bodyend="-1"/>
         <referencedby refid="classdsa_1_1e_alloc_1a430864385c853363d2c44678d00e0f95" compoundref="e_alloc_8cpp" startline="23" endline="77">add_pool</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1a01a9d3be9b919029d0d5bda73f56757c" compoundref="e_alloc_8cpp" startline="275" endline="291">calloc</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" compoundref="e_alloc_8cpp" startline="147" endline="163">free</referencedby>
@@ -201,19 +201,19 @@
         <referencedby refid="classdsa_1_1e_alloc_1a56c8d1f3e2368a15361968596b335eeb" compoundref="e_alloc_8cpp" startline="231" endline="273">realloc</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1a8d029b14252fb77d1c2d5311b483abda" compoundref="e_alloc_8cpp" startline="79" endline="110">remove_pool</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1aabc4d2a1849719c8c1a136262ef7f681" compoundref="e_alloc_8cpp" startline="293" endline="325">report</referencedby>
-        <referencedby refid="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830" compoundref="e_alloc_8hpp" startline="37" endline="37">setELock</referencedby>
+        <referencedby refid="classdsa_1_1e_alloc_1a97fb67f4bb3ca8802b00f51935f954b7" compoundref="e_alloc_8hpp" startline="37" endline="37">setLock</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1a799fb29ed4b5e3d4ab9a69cef933576a" compoundref="e_alloc_8cpp" startline="165" endline="175">walk_pool</referencedby>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classdsa_1_1e_alloc_1a97fb67f4bb3ca8802b00f51935f954b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
-        <definition>void dsa::eAlloc::setELock</definition>
-        <argsstring>(elock::IELockable *lock)</argsstring>
-        <name>setELock</name>
-        <qualifiedname>dsa::eAlloc::setELock</qualifiedname>
+        <definition>void dsa::eAlloc::setLock</definition>
+        <argsstring>(elock::ILockable *lock)</argsstring>
+        <name>setLock</name>
+        <qualifiedname>dsa::eAlloc::setLock</qualifiedname>
         <param>
-          <type>elock::IELockable *</type>
+          <type><ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref> *</type>
           <declname>lock</declname>
         </param>
         <briefdescription>
@@ -223,7 +223,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/eAlloc.hpp" line="37" column="10" bodyfile="src/eAlloc.hpp" bodystart="37" bodyend="37"/>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -304,8 +304,8 @@
         <references refid="classdsa_1_1_t_l_s_f_1a06b784dc5df9063ca8acd2c1b1e4d7fe" compoundref="tlsf_8hpp" startline="233" endline="242">dsa::TLSF&lt; 5 &gt;::adjust_request_size</references>
         <references refid="classdsa_1_1_t_l_s_f_1aa368212269f0ea11be46c699c43cc548" compoundref="tlsf_8hpp" startline="536" endline="536">dsa::TLSF&lt; 5 &gt;::align_size</references>
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1afacb1adf4c48b2d06cafaa71b9f884d9" compoundref="tlsf_8hpp" startline="428" endline="443">dsa::TLSF&lt; 5 &gt;::locate_free</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1a9a2d2201883d300bf1568e53c09297c4" compoundref="tlsf_8hpp" startline="444" endline="455">dsa::TLSF&lt; 5 &gt;::prepare_used</references>
         <referencedby refid="classdsa_1_1e_alloc_1a3cbe14b74b41cd912af2c4c2b277196b" compoundref="e_alloc_8hpp" startline="140" endline="158">allocate</referencedby>
         <referencedby refid="classdsa_1_1e_alloc_1a1c4355fbb45c0c0876a97a1bb2515f68" compoundref="e_alloc_8hpp" startline="112" endline="130">allocate</referencedby>
@@ -341,11 +341,11 @@
         </inbodydescription>
         <location file="src/eAlloc.hpp" line="78" column="10" bodyfile="src/eAlloc.cpp" bodystart="147" bodyend="163"/>
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">LOG::ERROR</references>
         <references refid="classdsa_1_1_t_l_s_f_1afd2921b2dac73664c9bdadff7abd6eb6" compoundref="tlsf_8hpp" startline="151" endline="155">dsa::TLSF&lt; 5 &gt;::from_ptr_nc</references>
         <references refid="classdsa_1_1_t_l_s_f_1a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7" compoundref="tlsf_8hpp" startline="341" endline="346">dsa::TLSF&lt; 5 &gt;::insert</references>
         <references refid="classdsa_1_1_t_l_s_f_1a1c60aa4b3b12526b95628d9dba0c95be" compoundref="tlsf_8hpp" startline="108" endline="111">dsa::TLSF&lt; 5 &gt;::is_free</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1a32b002299d6d511cfd4db6d6793d2a28" compoundref="tlsf_8hpp" startline="197" endline="203">dsa::TLSF&lt; 5 &gt;::mark_as_free</references>
         <references refid="classdsa_1_1_t_l_s_f_1a7b5ac458179b4ccc499b03d2cb10c10d" compoundref="tlsf_8hpp" startline="382" endline="393">dsa::TLSF&lt; 5 &gt;::merge_next</references>
         <references refid="classdsa_1_1_t_l_s_f_1af2641f51b9b064d86a22c330d5c1bd84" compoundref="tlsf_8hpp" startline="370" endline="381">dsa::TLSF&lt; 5 &gt;::merge_prev</references>
@@ -457,11 +457,11 @@
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
         <references refid="tlsf_8hpp_1a8dc2e3a9039658cafb6f76ce960c5512" compoundref="tlsf_8hpp" startline="23">dsa_assert</references>
         <references refid="tlsf_8hpp_1a70745a619451430b9686efcb4982df49" compoundref="tlsf_8hpp" startline="11">dsa_min</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" compoundref="e_alloc_8cpp" startline="147" endline="163">free</references>
         <references refid="classdsa_1_1_t_l_s_f_1afd2921b2dac73664c9bdadff7abd6eb6" compoundref="tlsf_8hpp" startline="151" endline="155">dsa::TLSF&lt; 5 &gt;::from_ptr_nc</references>
         <references refid="classdsa_1_1_t_l_s_f_1aa3b06851f567dc4366f71faf793d278c" compoundref="tlsf_8hpp" startline="98" endline="101">dsa::TLSF&lt; 5 &gt;::get_size</references>
         <references refid="classdsa_1_1_t_l_s_f_1a1c60aa4b3b12526b95628d9dba0c95be" compoundref="tlsf_8hpp" startline="108" endline="111">dsa::TLSF&lt; 5 &gt;::is_free</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" compoundref="e_alloc_8cpp" startline="139" endline="145">malloc</references>
         <references refid="classdsa_1_1_t_l_s_f_1a835dfcb50f18445e12725900519e3d12" compoundref="tlsf_8hpp" startline="205" endline="210">dsa::TLSF&lt; 5 &gt;::mark_as_used</references>
         <references refid="classdsa_1_1_t_l_s_f_1a7b5ac458179b4ccc499b03d2cb10c10d" compoundref="tlsf_8hpp" startline="382" endline="393">dsa::TLSF&lt; 5 &gt;::merge_next</references>
@@ -510,8 +510,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/eAlloc.hpp" line="103" column="10" bodyfile="src/eAlloc.cpp" bodystart="275" bodyend="291"/>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">LOG::ERROR</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" compoundref="e_alloc_8cpp" startline="139" endline="145">malloc</references>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1e_alloc_1a1c4355fbb45c0c0876a97a1bb2515f68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -713,10 +713,10 @@
         <references refid="classdsa_1_1_t_l_s_f_1aa368212269f0ea11be46c699c43cc548" compoundref="tlsf_8hpp" startline="536" endline="536">dsa::TLSF&lt; 5 &gt;::align_size</references>
         <references refid="classdsa_1_1_t_l_s_f_1a1e7328266ccc90058b455aea1ba93746" compoundref="tlsf_8hpp" startline="540" endline="540">dsa::TLSF&lt; 5 &gt;::alloc_overhead</references>
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">LOG::ERROR</references>
         <references refid="classdsa_1_1_t_l_s_f_1a0dc5ae2b42c39b8ebafbb0cd4d5ac5a7" compoundref="tlsf_8hpp" startline="341" endline="346">dsa::TLSF&lt; 5 &gt;::insert</references>
         <references refid="classdsa_1_1_t_l_s_f_1ab7f459a80a15779948a5b3436caa0fb2" compoundref="tlsf_8hpp" startline="191" endline="196">dsa::TLSF&lt; 5 &gt;::link_next</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1a8c4a779e143cd73fe56782c936795dd6" compoundref="tlsf_8hpp" startline="538" endline="538">dsa::TLSF&lt; 5 &gt;::max_block_size</references>
         <references refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" compoundref="e_alloc_8hpp" startline="35">MAX_POOL</references>
         <references refid="classdsa_1_1e_alloc_1a029fe4dad4712ad2f5137c5ec15c9449" compoundref="e_alloc_8hpp" startline="232">memory_pools</references>
@@ -765,12 +765,12 @@
         <location file="src/eAlloc.hpp" line="188" column="10" bodyfile="src/eAlloc.cpp" bodystart="79" bodyend="110"/>
         <references refid="classdsa_1_1_t_l_s_f_1a1e7328266ccc90058b455aea1ba93746" compoundref="tlsf_8hpp" startline="540" endline="540">dsa::TLSF&lt; 5 &gt;::alloc_overhead</references>
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" compoundref="_logger_8hpp" startline="22">LOG::ERROR</references>
         <references refid="classdsa_1_1_t_l_s_f_1aa3b06851f567dc4366f71faf793d278c" compoundref="tlsf_8hpp" startline="98" endline="101">dsa::TLSF&lt; 5 &gt;::get_size</references>
         <references refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3" compoundref="_logger_8hpp" startline="19">LOG::INFO</references>
         <references refid="classdsa_1_1_t_l_s_f_1a1c60aa4b3b12526b95628d9dba0c95be" compoundref="tlsf_8hpp" startline="108" endline="111">dsa::TLSF&lt; 5 &gt;::is_free</references>
         <references refid="classdsa_1_1_t_l_s_f_1adcbc2cc8ec2a8e348b2f7c12fb74c013" compoundref="tlsf_8hpp" startline="117" endline="117">dsa::TLSF&lt; 5 &gt;::is_last</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1a7aaa27582e40b9eabb7d4c03c5facb04" compoundref="tlsf_8hpp" startline="248" endline="265">dsa::TLSF&lt; 5 &gt;::mapping_insert</references>
         <references refid="classdsa_1_1e_alloc_1a029fe4dad4712ad2f5137c5ec15c9449" compoundref="e_alloc_8hpp" startline="232">memory_pools</references>
         <references refid="classdsa_1_1_t_l_s_f_1a95fb2325991390b7e21889d5f212e231" compoundref="tlsf_8hpp" startline="175" endline="181">dsa::TLSF&lt; 5 &gt;::next</references>
@@ -883,8 +883,8 @@
         <location file="src/eAlloc.hpp" line="223" column="19" bodyfile="src/eAlloc.cpp" bodystart="293" bodyend="325"/>
         <references refid="classdsa_1_1_t_l_s_f_1ab1504ff0e4c8fc95be7a591016c1bcdb" compoundref="tlsf_8hpp" startline="532" endline="532">dsa::TLSF&lt; 5 &gt;::cabinets</references>
         <references refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" compoundref="e_alloc_8hpp" startline="231">control</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1aa3b06851f567dc4366f71faf793d278c" compoundref="tlsf_8hpp" startline="98" endline="101">dsa::TLSF&lt; 5 &gt;::get_size</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1e_alloc_1aabc4d2a1849719c8c1a136262ef7f681" compoundref="e_alloc_8cpp" startline="293" endline="325">report</references>
         <references refid="classdsa_1_1_t_l_s_f_1ab40635b4daeb1e0327e1760e31511a80" compoundref="tlsf_8hpp" startline="533" endline="533">dsa::TLSF&lt; 5 &gt;::shelves</references>
         <referencedby refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" compoundref="e_alloc_8cpp" startline="327" endline="335">logStorageReport</referencedby>
@@ -1042,10 +1042,10 @@
         <location file="src/eAlloc.hpp" line="243" column="10" bodyfile="src/eAlloc.cpp" bodystart="165" bodyend="175"/>
         <references refid="classdsa_1_1_t_l_s_f_1a1e7328266ccc90058b455aea1ba93746" compoundref="tlsf_8hpp" startline="540" endline="540">dsa::TLSF&lt; 5 &gt;::alloc_overhead</references>
         <references refid="classdsa_1_1_t_l_s_f_1af06d06e73cb9a3a3a4c48e2016ab5dc4" compoundref="tlsf_8hpp" startline="473" endline="478">dsa::TLSF&lt; 5 &gt;::default_walker</references>
-        <references refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" compoundref="e_alloc_8hpp" startline="236">elock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1aa3b06851f567dc4366f71faf793d278c" compoundref="tlsf_8hpp" startline="98" endline="101">dsa::TLSF&lt; 5 &gt;::get_size</references>
         <references refid="classdsa_1_1_t_l_s_f_1a1c60aa4b3b12526b95628d9dba0c95be" compoundref="tlsf_8hpp" startline="108" endline="111">dsa::TLSF&lt; 5 &gt;::is_free</references>
         <references refid="classdsa_1_1_t_l_s_f_1adcbc2cc8ec2a8e348b2f7c12fb74c013" compoundref="tlsf_8hpp" startline="117" endline="117">dsa::TLSF&lt; 5 &gt;::is_last</references>
+        <references refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" compoundref="e_alloc_8hpp" startline="236">lock_</references>
         <references refid="classdsa_1_1_t_l_s_f_1a95fb2325991390b7e21889d5f212e231" compoundref="tlsf_8hpp" startline="175" endline="181">dsa::TLSF&lt; 5 &gt;::next</references>
         <references refid="classdsa_1_1_t_l_s_f_1abc81913bafee4d307d838896319a0ca1" compoundref="tlsf_8hpp" startline="162" endline="165">dsa::TLSF&lt; 5 &gt;::offset_to_block_nc</references>
         <references refid="classdsa_1_1_t_l_s_f_1a695ec978573cffb0ab2b9d9e28068e02" compoundref="tlsf_8hpp" startline="141" endline="145">dsa::TLSF&lt; 5 &gt;::to_ptr_nc</references>
@@ -1068,6 +1068,13 @@
         <childnode refid="2" relation="usage">
           <edgelabel>control</edgelabel>
         </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>lock_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>elock::ILockable</label>
+        <link refid="classelock_1_1_i_lockable"/>
       </node>
     </collaborationgraph>
     <location file="src/eAlloc.hpp" line="32" column="1" bodyfile="src/eAlloc.hpp" bodystart="33" bodyend="244"/>
@@ -1083,11 +1090,11 @@
       <member refid="classdsa_1_1e_alloc_1acede9859339f8409d85c7a14cd71f6f2" prot="private" virt="non-virtual"><scope>dsa::eAlloc</scope><name>control</name></member>
       <member refid="classdsa_1_1e_alloc_1a142ecbc514fb8d9618fee741dece6efc" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>deallocate</name></member>
       <member refid="classdsa_1_1e_alloc_1aca9cba9a8b6174888e0774a6e9e92a36" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>eAlloc</name></member>
-      <member refid="classdsa_1_1e_alloc_1a69c9c5fe21b83dd7f8ae293395d1f21a" prot="private" virt="non-virtual"><scope>dsa::eAlloc</scope><name>elock_</name></member>
       <member refid="classdsa_1_1e_alloc_1a6cf6ea0950ef6c2c4d496a92c4786282" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>free</name></member>
       <member refid="classdsa_1_1e_alloc_1a024bc4fbaab369234c4569a36c15b300" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>get_pool</name></member>
       <member refid="classdsa_1_1e_alloc_1a5db3dffebe3e135f6629a128177ffa9e" prot="private" virt="non-virtual"><scope>dsa::eAlloc</scope><name>initialised</name></member>
       <member refid="classdsa_1_1e_alloc_1a8dbde398ec79c50e4bec8cb34c237760" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>integrity_walker</name></member>
+      <member refid="classdsa_1_1e_alloc_1aa237d516ee699b332e8fb5985bb7e643" prot="private" virt="non-virtual"><scope>dsa::eAlloc</scope><name>lock_</name></member>
       <member refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>logStorageReport</name></member>
       <member refid="classdsa_1_1e_alloc_1a5faaeb302c059421ca82cfc7db8e9879" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>malloc</name></member>
       <member refid="classdsa_1_1e_alloc_1a00bb3a88d7fd0f8148deb3a0786a9d64" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>MAX_POOL</name></member>
@@ -1098,7 +1105,7 @@
       <member refid="classdsa_1_1e_alloc_1a56c8d1f3e2368a15361968596b335eeb" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>realloc</name></member>
       <member refid="classdsa_1_1e_alloc_1a8d029b14252fb77d1c2d5311b483abda" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>remove_pool</name></member>
       <member refid="classdsa_1_1e_alloc_1aabc4d2a1849719c8c1a136262ef7f681" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>report</name></member>
-      <member refid="classdsa_1_1e_alloc_1a0763696d9c6e5c93459ae6eeea137830" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>setELock</name></member>
+      <member refid="classdsa_1_1e_alloc_1a97fb67f4bb3ca8802b00f51935f954b7" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>setLock</name></member>
       <member refid="classdsa_1_1e_alloc_1ae788e9d3eb03abbd532ef5ce3477edab" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>tlsf</name></member>
       <member refid="classdsa_1_1e_alloc_1a799fb29ed4b5e3d4ab9a69cef933576a" prot="private" virt="non-virtual"><scope>dsa::eAlloc</scope><name>walk_pool</name></member>
       <member refid="classdsa_1_1e_alloc_1a50adb94983befce215dcff2aecfab2f4" prot="public" virt="non-virtual"><scope>dsa::eAlloc</scope><name>Walker</name></member>
