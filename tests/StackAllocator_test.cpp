@@ -1,6 +1,12 @@
 #include "gtest/gtest.h"
 #include "StackAllocator.hpp"
 #include <vector>
+#include "logSetup.hpp"
+
+struct LoggerEnvironment : ::testing::Environment {
+    void SetUp() override { setup_logger(); }
+};
+::testing::Environment* const logger_env = ::testing::AddGlobalTestEnvironment(new LoggerEnvironment());
 
 struct StackTestObj
 {
