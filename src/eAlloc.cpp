@@ -22,7 +22,7 @@ eAlloc::eAlloc(void* mem, size_t bytes)
 
 void* eAlloc::add_pool(void* mem, size_t bytes)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     if(pool_count >= MAX_POOL)
     {
         LOG::ERROR("E_ALLOC", "Maximum number of pools (%d) reached.\n", MAX_POOL);
@@ -78,7 +78,7 @@ void* eAlloc::add_pool(void* mem, size_t bytes)
 
 void eAlloc::remove_pool(void* pool)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     for(size_t i = 0; i < pool_count; ++i)
     {
         if(memory_pools[i] == pool)
@@ -138,7 +138,7 @@ void eAlloc::integrity_walker(void* ptr, size_t size, int used, void* user)
 
 void* eAlloc::malloc(size_t size)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     const size_t adjust = tlsf::adjust_request_size(size, tlsf::align_size());
     BlockHeader* block = tlsf::locate_free(&control, adjust);
     return tlsf::prepare_used(&control, block, adjust);
@@ -146,7 +146,7 @@ void* eAlloc::malloc(size_t size)
 
 void eAlloc::free(void* ptr)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     if(ptr)
     {
         BlockHeader* block = tlsf::from_ptr_nc(ptr);
@@ -164,7 +164,7 @@ void eAlloc::free(void* ptr)
 
 void eAlloc::walk_pool(void* pool, Walker walker, void* user)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     Walker pool_walker = walker ? walker : tlsf::default_walker;
     BlockHeader* block = tlsf::offset_to_block_nc(pool, -static_cast<int>(tlsf::alloc_overhead()));
     while(block && !tlsf::is_last(block))
@@ -230,7 +230,7 @@ void* eAlloc::memalign(size_t align, size_t size)
 
 void* eAlloc::realloc(void* ptr, size_t size)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     void* p = nullptr;
     if(ptr && size == 0)
     {
@@ -274,7 +274,7 @@ void* eAlloc::realloc(void* ptr, size_t size)
 
 void* eAlloc::calloc(size_t num, size_t size)
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     size_t total_size;
     if(num > 0 && size > SIZE_MAX / num)
     {
@@ -292,7 +292,7 @@ void* eAlloc::calloc(size_t num, size_t size)
 
 eAlloc::StorageReport eAlloc::report() const
 {
-    if(lock_) elock::setLockGuard guard(*lock_);
+    if(lock_) elock::LockGuard guard(*lock_);
     StorageReport report{};
     for(size_t fl = 0; fl < tlsf::cabinets(); ++fl)
     {
