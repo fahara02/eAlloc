@@ -31,5 +31,11 @@
       "-<test>",
       "-<docs>"
     ]
-  }
+  },
+  "dependencies": [
+    {
+      "name": "Logger",
+      "owner": "fahara02"
+    }
+  ]
 }
