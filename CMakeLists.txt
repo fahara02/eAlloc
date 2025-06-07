@@ -16,6 +16,14 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+# Logger dependency
+FetchContent_Declare(
+  Logger
+  GIT_REPOSITORY https://github.com/fahara02/Logger.git
+  GIT_TAG main
+)
+FetchContent_MakeAvailable(Logger)
+
 # === Platform Adapter Selection ===
 option(EALLOC_USE_PC_HOST "Use PC/host STL mutex adapter" ON)
 option(EALLOC_USE_FREERTOS "Use FreeRTOS mutex adapter" OFF)
@@ -62,7 +70,9 @@ add_library(eAlloc STATIC ${app_sources})
 target_compile_definitions(eAlloc PUBLIC ${EALLOC_PLATFORM_DEF})
 target_include_directories(eAlloc PUBLIC
     ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_BINARY_DIR}/_deps/logger-src/src
 )
+# Only link Logger if building for ESP-IDF; for host/PC, it's header-only.
 
 # Only build tests if this is the main project
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -73,6 +83,7 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     target_link_libraries(eAlloc_test gtest_main eAlloc)
     target_include_directories(eAlloc_test PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+        ${CMAKE_BINARY_DIR}/_deps/logger-src/src
     )
     target_compile_definitions(eAlloc_test PRIVATE ${EALLOC_PLATFORM_DEF})
     # GoogleTest CTest integration

@@ -1,5 +1,11 @@
 #include "gtest/gtest.h"
 #include "eAlloc.hpp"
+#include "logSetup.hpp"
+
+struct LoggerEnvironment : ::testing::Environment {
+    void SetUp() override { setup_logger(); }
+};
+::testing::Environment* const logger_env = ::testing::AddGlobalTestEnvironment(new LoggerEnvironment());
 
 // NOTE: Do not define ESP_PLATFORM here!
 // For ESP32/FreeRTOS: let the build system define ESP_PLATFORM/ESP32.
