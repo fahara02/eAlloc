@@ -17,12 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/tlsf.hpp" line="83" column="18" bodyfile="src/tlsf.hpp" bodystart="83" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1aaed5056de4768b8781b5c29d0ce257c6" compoundref="tlsf_8hpp" startline="480" endline="529">dsa::TLSF&lt; 5 &gt;::check</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1ab0d208e1982ce713b1ef6fd7a6cb2336" compoundref="tlsf_8hpp" startline="456" endline="472">dsa::TLSF&lt; 5 &gt;::initialise_control</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1a07deb05a505f94dfbd6eb637a151008a" compoundref="tlsf_8hpp" startline="317" endline="331">dsa::TLSF&lt; 5 &gt;::insert_free_block</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1a57e28078474fdc0853060430d5454920" compoundref="tlsf_8hpp" startline="298" endline="316">dsa::TLSF&lt; 5 &gt;::remove_free_block</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1ad2d8098eda4e9b2e07ea2d6e86a89262" compoundref="tlsf_8hpp" startline="276" endline="297">dsa::TLSF&lt; 5 &gt;::search_suitable_block</referencedby>
+        <location file="src/tlsf.hpp" line="100" column="18" bodyfile="src/tlsf.hpp" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_second_level_1ae019c45b34868a3fbf108c7e4ce7c6cc" prot="public" static="no" mutable="no">
         <type><ref refid="structdsa_1_1_t_l_s_f_1_1_block_header" kindref="compound">BlockHeader</ref> *</type>
@@ -37,17 +32,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/tlsf.hpp" line="84" column="21" bodyfile="src/tlsf.hpp" bodystart="84" bodyend="84"/>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1aaed5056de4768b8781b5c29d0ce257c6" compoundref="tlsf_8hpp" startline="480" endline="529">dsa::TLSF&lt; 5 &gt;::check</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1ab0d208e1982ce713b1ef6fd7a6cb2336" compoundref="tlsf_8hpp" startline="456" endline="472">dsa::TLSF&lt; 5 &gt;::initialise_control</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1a07deb05a505f94dfbd6eb637a151008a" compoundref="tlsf_8hpp" startline="317" endline="331">dsa::TLSF&lt; 5 &gt;::insert_free_block</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1a57e28078474fdc0853060430d5454920" compoundref="tlsf_8hpp" startline="298" endline="316">dsa::TLSF&lt; 5 &gt;::remove_free_block</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1ad2d8098eda4e9b2e07ea2d6e86a89262" compoundref="tlsf_8hpp" startline="276" endline="297">dsa::TLSF&lt; 5 &gt;::search_suitable_block</referencedby>
+        <location file="src/tlsf.hpp" line="101" column="21" bodyfile="src/tlsf.hpp" bodystart="101" bodyend="101"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>Second-level structure for the <ref refid="classdsa_1_1_t_l_s_f" kindref="compound">TLSF</ref> allocator. </para>
     </briefdescription>
     <detaileddescription>
+<para>This structure represents the second-level index in the Two-Level Segregated Fit allocator. It maintains a bitmap (sl_bitmap) that indicates which shelves (free lists) have available blocks, and an array of pointers (shelves) to the free block lists for blocks of specific size ranges. </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -67,7 +59,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/tlsf.hpp" line="81" column="5" bodyfile="src/tlsf.hpp" bodystart="82" bodyend="85"/>
+    <location file="src/tlsf.hpp" line="98" column="5" bodyfile="src/tlsf.hpp" bodystart="99" bodyend="102"/>
     <listofallmembers>
       <member refid="structdsa_1_1_t_l_s_f_1_1_second_level_1ae019c45b34868a3fbf108c7e4ce7c6cc" prot="public" virt="non-virtual"><scope>dsa::TLSF::SecondLevel</scope><name>shelves</name></member>
       <member refid="structdsa_1_1_t_l_s_f_1_1_second_level_1ad418d5abf380ff62c43baacddc1fe4fd" prot="public" virt="non-virtual"><scope>dsa::TLSF::SecondLevel</scope><name>sl_bitmap</name></member>

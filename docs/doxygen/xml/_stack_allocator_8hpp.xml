@@ -6,11 +6,39 @@
     <includes local="no">cstddef</includes>
     <includes local="no">stdexcept</includes>
     <incdepgraph>
-      <node id="3">
-        <label>Logger.hpp</label>
-        <link refid="_logger_8hpp"/>
+      <node id="1">
+        <label>src/StackAllocator.hpp</label>
+        <link refid="_stack_allocator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>builtins.h</label>
+        <link refid="builtins_8h"/>
+      </node>
+      <node id="2">
+        <label>eAlloc.hpp</label>
+        <link refid="e_alloc_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>globalELock.hpp</label>
+        <link refid="global_e_lock_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tlsf.hpp</label>
+        <link refid="tlsf_8hpp"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
@@ -25,109 +53,36 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
       </node>
-      <node id="1">
-        <label>src/StackAllocator.hpp</label>
-        <link refid="_stack_allocator_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>builtins.h</label>
-        <link refid="builtins_8h"/>
-      </node>
-      <node id="2">
-        <label>eAlloc.hpp</label>
-        <link refid="e_alloc_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>globalELock.hpp</label>
-        <link refid="global_e_lock_8hpp"/>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>tlsf.hpp</label>
-        <link refid="tlsf_8hpp"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>array</label>
-      </node>
-      <node id="16">
-        <label>assert.h</label>
-      </node>
-      <node id="5">
-        <label>bitset</label>
-      </node>
-      <node id="17">
-        <label>climits</label>
+      <node id="3">
+        <label>Logger.hpp</label>
       </node>
       <node id="6">
-        <label>cstdarg</label>
-      </node>
-      <node id="22">
-        <label>cstddef</label>
-      </node>
-      <node id="13">
-        <label>cstdint</label>
+        <label>assert.h</label>
       </node>
       <node id="7">
-        <label>cstdio</label>
+        <label>climits</label>
       </node>
-      <node id="18">
-        <label>cstdlib</label>
+      <node id="14">
+        <label>cstddef</label>
       </node>
       <node id="8">
-        <label>cstring</label>
+        <label>cstdint</label>
       </node>
       <node id="9">
-        <label>functional</label>
-      </node>
-      <node id="19">
-        <label>memory</label>
+        <label>cstdlib</label>
       </node>
       <node id="10">
-        <label>stdarg.h</label>
-      </node>
-      <node id="23">
-        <label>stdexcept</label>
-      </node>
-      <node id="21">
-        <label>stdint.h</label>
+        <label>cstring</label>
       </node>
       <node id="11">
-        <label>string</label>
+        <label>memory</label>
       </node>
-      <node id="12">
-        <label>unordered_set</label>
+      <node id="15">
+        <label>stdexcept</label>
+      </node>
+      <node id="13">
+        <label>stdint.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classdsa_1_1_stack_allocator" prot="public">dsa::StackAllocator</innerclass>
@@ -185,24 +140,24 @@
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ptr);</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93" refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" kindref="member">deallocate</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref><sp/></highlight><highlight class="comment">/*n*/</highlight><highlight class="normal">)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.free(p);<sp/>}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100" refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" kindref="member">construct</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" kindref="member">const_reference</ref><sp/>val)<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(p)<sp/>T(val);<sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106" refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" kindref="member">destroy</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p)<sp/>{<sp/>p-&gt;~T();<sp/>}</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113" refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref><sp/>==<sp/>other.<ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>;<sp/>}</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120" refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other);<sp/>}</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129" refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" kindref="member">setLock</ref>(<ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.setLock(lock);<sp/>}</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="132" refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>[PoolSize];<sp/></highlight></codeline>
-<codeline lineno="133" refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref><sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="134"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>dsa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1aedb009075f20cb41cad885cc31877a31" kindref="member">deallocate</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref><sp/></highlight><highlight class="comment">/*n*/</highlight><highlight class="normal">)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.free(p);<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" kindref="member">construct</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p,<sp/><ref refid="classdsa_1_1_stack_allocator_1a1d0e1f9e82764ba5453847c18f4daae3" kindref="member">const_reference</ref><sp/>val)<sp/>{<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(p)<sp/>T(val);<sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" kindref="member">destroy</ref>(<ref refid="classdsa_1_1_stack_allocator_1a6f1fb269c9d78e9ff56f7d6ae86b6b5c" kindref="member">pointer</ref><sp/>p)<sp/>{<sp/>p-&gt;~T();<sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref><sp/>==<sp/>other.<ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a02f70218d7dfcf43f65c18040be438fa" kindref="member">StackAllocator</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other);<sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" kindref="member">setLock</ref>(<ref refid="classelock_1_1_i_lockable" kindref="compound">elock::ILockable</ref>*<sp/>lock)<sp/>{<sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>.setLock(lock);<sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="133" refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="classdsa_1_1_stack_allocator_1a14e7b35e7e03104602533f9390aec88a" kindref="member">memoryPool</ref>[PoolSize];<sp/></highlight></codeline>
+<codeline lineno="134" refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref><sp/><ref refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" kindref="member">allocator</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>dsa</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/StackAllocator.hpp"/>
   </compounddef>

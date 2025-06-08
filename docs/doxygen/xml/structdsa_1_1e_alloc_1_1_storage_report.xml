@@ -18,8 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/eAlloc.hpp" line="61" column="16" bodyfile="src/eAlloc.hpp" bodystart="61" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" compoundref="e_alloc_8cpp" startline="327" endline="335">dsa::eAlloc::logStorageReport</referencedby>
+        <location file="src/eAlloc.hpp" line="71" column="16" bodyfile="src/eAlloc.hpp" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1e_alloc_1_1_storage_report_1a6f5d727121d4711576e5b36ff38c337c" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -35,8 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/eAlloc.hpp" line="62" column="16" bodyfile="src/eAlloc.hpp" bodystart="62" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" compoundref="e_alloc_8cpp" startline="327" endline="335">dsa::eAlloc::logStorageReport</referencedby>
+        <location file="src/eAlloc.hpp" line="72" column="16" bodyfile="src/eAlloc.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1e_alloc_1_1_storage_report_1aad2065fb616b756e0cd63ece53b70085" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -52,8 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/eAlloc.hpp" line="63" column="16" bodyfile="src/eAlloc.hpp" bodystart="63" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" compoundref="e_alloc_8cpp" startline="327" endline="335">dsa::eAlloc::logStorageReport</referencedby>
+        <location file="src/eAlloc.hpp" line="73" column="16" bodyfile="src/eAlloc.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1e_alloc_1_1_storage_report_1aac10fcf726b114c1b865a8f5937408da" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -69,16 +66,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/eAlloc.hpp" line="64" column="16" bodyfile="src/eAlloc.hpp" bodystart="64" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1ab6eca8ea2b15b265e560e88d938adec3" compoundref="e_alloc_8cpp" startline="327" endline="335">dsa::eAlloc::logStorageReport</referencedby>
+        <location file="src/eAlloc.hpp" line="74" column="16" bodyfile="src/eAlloc.hpp" bodystart="74" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Structure to report storage usage statistics. </para>
+<para>Reports storage usage statistics for the allocator. </para>
     </briefdescription>
     <detaileddescription>
+<para>This structure provides a summary of memory usage data including:<itemizedlist>
+<listitem><para>The total free memory available in bytes.</para>
+</listitem><listitem><para>The size (in bytes) of the largest contiguous free memory block.</para>
+</listitem><listitem><para>The count of free blocks within the allocator.</para>
+</listitem><listitem><para>A fragmentation factor ranging from 0 (no fragmentation) to 1 (high fragmentation).</para>
+</listitem></itemizedlist>
+</para>
+<para>Use this report to monitor the efficiency and fragmentation of the allocator&apos;s memory usage. </para>
     </detaileddescription>
-    <location file="src/eAlloc.hpp" line="59" column="5" bodyfile="src/eAlloc.hpp" bodystart="60" bodyend="65"/>
+    <location file="src/eAlloc.hpp" line="69" column="5" bodyfile="src/eAlloc.hpp" bodystart="70" bodyend="75"/>
     <listofallmembers>
       <member refid="structdsa_1_1e_alloc_1_1_storage_report_1aac10fcf726b114c1b865a8f5937408da" prot="public" virt="non-virtual"><scope>dsa::eAlloc::StorageReport</scope><name>fragmentationFactor</name></member>
       <member refid="structdsa_1_1e_alloc_1_1_storage_report_1aad2065fb616b756e0cd63ece53b70085" prot="public" virt="non-virtual"><scope>dsa::eAlloc::StorageReport</scope><name>freeBlockCount</name></member>

@@ -148,7 +148,7 @@ dsa_decl int ffs(unsigned int word) {
 }
 
 dsa_decl int fls(unsigned int word) { return fls_generic(word) - 1; }
-
+/** @} */
 #endif
 
 #undef dsa_decl

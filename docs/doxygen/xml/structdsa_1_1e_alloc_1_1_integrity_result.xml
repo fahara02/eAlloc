@@ -17,7 +17,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/eAlloc.hpp" line="49" column="13" bodyfile="src/eAlloc.hpp" bodystart="49" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1a8dbde398ec79c50e4bec8cb34c237760" compoundref="e_alloc_8cpp" startline="123" endline="137">dsa::eAlloc::integrity_walker</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1e_alloc_1_1_integrity_result_1a189458b4e661e866fc5993a44c6b4936" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -32,12 +31,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/eAlloc.hpp" line="50" column="13" bodyfile="src/eAlloc.hpp" bodystart="50" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1e_alloc_1a90897aee2f774c0dd1d4267465394cb5" compoundref="e_alloc_8cpp" startline="114" endline="119">dsa::eAlloc::check_pool</referencedby>
-        <referencedby refid="classdsa_1_1e_alloc_1a8dbde398ec79c50e4bec8cb34c237760" compoundref="e_alloc_8cpp" startline="123" endline="137">dsa::eAlloc::integrity_walker</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Structure to hold integrity check results. </para>
+<para>Holds integrity check results. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

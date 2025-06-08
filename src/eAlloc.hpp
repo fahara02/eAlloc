@@ -43,7 +43,7 @@ class eAlloc
      */
     explicit eAlloc(void* mem, size_t bytes);
 
-    /// Structure to hold integrity check results.
+    /// @brief Holds integrity check results.
     struct IntegrityResult
     {
         int prev_status;
@@ -55,7 +55,17 @@ class eAlloc
     using BlockHeader = tlsf::BlockHeader; ///< TLSF block header type.
     using Walker = tlsf::tlsf_walker;      ///< Function type for walking memory blocks.
 
-    /// Structure to report storage usage statistics.
+    /**
+     * @brief Reports storage usage statistics for the allocator.
+     *
+     * This structure provides a summary of memory usage data including:
+     * - The total free memory available in bytes.
+     * - The size (in bytes) of the largest contiguous free memory block.
+     * - The count of free blocks within the allocator.
+     * - A fragmentation factor ranging from 0 (no fragmentation) to 1 (high fragmentation).
+     *
+     * Use this report to monitor the efficiency and fragmentation of the allocator's memory usage.
+     */
     struct StorageReport
     {
         size_t totalFreeSpace = 0;        ///< Total free space in bytes.

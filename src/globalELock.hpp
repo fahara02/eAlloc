@@ -59,7 +59,6 @@
 #  include "mbed.h"
 #endif
 namespace elock {
-// Do NOT use 'using namespace std;' anywhere in this file. All std types must be referenced as std::.
 
 /**
  * @brief Abstract lockable interface for platform-agnostic mutexes.
@@ -73,7 +72,23 @@ public:
     virtual ~ILockable() {}
 };
 
-// Universal RAII lock guard
+
+
+/**
+ * @brief A universal RAII lock guard class that manages a lock's lifetime.
+ *
+ * This class provides a RAII-style mechanism to automatically acquire a lock upon construction
+ * and release it upon destruction. It wraps a reference to an ILockable object and attempts to
+ * acquire the lock using an optional timeout parameter. The lock is released in the destructor
+ * if it was successfully acquired.
+ *
+ * @note Copy construction and copy-assignment are disabled to prevent multiple ownership of the same lock.
+ *
+ * @param lock A reference to an ILockable object managing the lock.
+ * @param timeout_ms The timeout in milliseconds for acquiring the lock (default is 0xFFFFFFFF for no timeout).
+ */
+
+
 class LockGuard {
 public:
     LockGuard(ILockable& lock, uint32_t timeout_ms = 0xFFFFFFFF)
@@ -90,9 +105,16 @@ private:
 // --- Platform Adapters ---
 
 #if defined(FREERTOS) || defined(ESP_PLATFORM) || defined(ARDUINO)
-// FreeRTOS/ESP-IDF/Arduino/PlatformIO
-#  include "freertos/FreeRTOS.h"
-#  include "freertos/semphr.h"
+
+
+/**
+ * @brief FreeRTOS mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a FreeRTOS semaphore.
+ * It is intended for use as a global lock to synchronize access across tasks on
+ * FreeRTOS/ESP-IDF/Arduino/PlatformIO platforms.
+ */
+
 class FreeRTOSMutex : public ILockable {
 public:
     FreeRTOSMutex(SemaphoreHandle_t sem) : sem_(sem) {}
@@ -106,8 +128,15 @@ private:
 
 #elif defined(POSIX)
 // POSIX pthreads (Linux, Mac, Unix)
-#  include <pthread.h>
-#  include <time.h>
+
+
+/**
+ * @brief POSIX mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a POSIX pthread mutex.
+ * It is designed for use as a global lock to synchronize access across threads
+ * on Unix-like systems.
+ */
 class PThreadMutex : public ILockable {
 public:
     PThreadMutex(pthread_mutex_t* mtx) : mtx_(mtx) {}
@@ -129,7 +158,13 @@ private:
 };
 
 #elif defined(STM32_CMSIS_RTOS)
-#  include "cmsis_os.h"
+/**
+ * @brief CMSIS mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a CMSIS RTOS mutex (osMutexId).
+ * It is designed for use on STM32 platforms with CMSIS RTOS to synchronize access among threads.
+ */
+
 class CMSISMutex : public ILockable {
 public:
     CMSISMutex(osMutexId id) : id_(id) {}
@@ -140,7 +175,14 @@ private:
 };
 
 #elif defined(STM32_CMSIS_RTOS2)
-#  include "cmsis_os2.h"
+
+/**
+ * @brief CMSIS RTOS2 mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a CMSIS RTOS2 mutex (osMutexId_t).
+ * It is intended for use on STM32 platforms with CMSIS RTOS2 to synchronize access among threads.
+ */
+
 class CMSIS2Mutex : public ILockable {
 public:
     CMSIS2Mutex(osMutexId_t id) : id_(id) {}
@@ -151,7 +193,14 @@ private:
 };
 
 #elif defined(ZEPHYR)
-#  include <zephyr/kernel.h>
+
+/**
+ * @brief Zephyr mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a Zephyr kernel mutex (k_mutex).
+ * It is designed for use on Zephyr RTOS to synchronize access among threads.
+ */
+
 class ZephyrMutex : public ILockable {
 public:
     ZephyrMutex(struct k_mutex* mtx) : mtx_(mtx) {}
@@ -162,7 +211,14 @@ private:
 };
 
 #elif defined(THREADX)
-#  include "tx_api.h"
+
+/**
+ * @brief ThreadX mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using a ThreadX mutex (TX_MUTEX).
+ * It is intended for use on ThreadX platforms to synchronize access among threads.
+ */
+
 class ThreadXMutex : public ILockable {
 public:
     ThreadXMutex(TX_MUTEX* mtx) : mtx_(mtx) {}
@@ -176,7 +232,12 @@ private:
 };
 
 #elif defined(MBED_OS)
-#  include "mbed.h"
+/**
+ * @brief mbed OS mutex adapter for global locking.
+ *
+ * This class implements the ILockable interface using an mbed OS mutex (rtos::Mutex).
+ * It is intended for use on mbed OS platforms to synchronize access among threads.
+ */
 class MbedMutex : public ILockable {
 public:
     MbedMutex(rtos::Mutex& mtx) : mtx_(mtx) {}
@@ -187,6 +248,14 @@ private:
 };
 
 #elif defined(BAREMETAL)
+
+/**
+ * @brief Dummy mutex adapter for global locking on bare-metal systems.
+ *
+ * This class implements the ILockable interface with no actual locking mechanism.
+ * It is intended for use in bare-metal environments where synchronization is not required.
+ */
+
 class DummyMutex : public ILockable {
 public:
     DummyMutex() {}
@@ -195,7 +264,12 @@ public:
 };
 
 #elif defined(EALLOC_PC_HOST)
-// Host/PC - C++11 minimal STL
+/**
+ * @brief Standard mutex adapter for global locking on host systems.
+ *
+ * This class implements the ILockable interface using a C++11 std::timed_mutex.
+ * It is intended for use on host/PC environments supporting minimal STL with C++11.
+ */
 class StdMutex : public ILockable {
 public:
     StdMutex(std::timed_mutex& mtx) : mtx_(mtx) {}

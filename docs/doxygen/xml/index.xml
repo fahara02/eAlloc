@@ -61,44 +61,6 @@
     <member refid="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8" kind="function"><name>LockGuard</name></member>
     <member refid="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca" kind="function"><name>operator=</name></member>
   </compound>
-  <compound refid="class_l_o_g_1_1_logger" kind="class"><name>LOG::Logger</name>
-    <member refid="class_l_o_g_1_1_logger_1a66fa94eef5664a1216f603a1793b09ca" kind="typedef"><name>LogCallback</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a652dc860b70afebbb844a14dbf65309e" kind="variable"><name>enabled_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a4c801aa3ac87255ef3d9755d7c3c1565" kind="variable"><name>infoColorToggle_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a00254b66976cfabb1d7e195c37751594" kind="variable"><name>infoAlternateColor_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a1ab2af65528eb275022c99aecc593719" kind="variable"><name>timestampEnabled_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a515a9eee268d5b519fa1d036660b2543" kind="variable"><name>minimumLevel_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a5ed1ec037f6959fc2bc40b09cd61b394" kind="variable"><name>enabledLevels_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a0dd6a6ddcd02ff618b31cce2397c7f7d" kind="variable"><name>levelColors_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1adba09332b5b562cf5d9a8e56eb0682e3" kind="variable"><name>blockedTags_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a8fdbb744c7798d6af4917ae263e235f2" kind="variable"><name>logCallback_</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ac6e610c5678fb1742dbd5f3870da5c17" kind="function"><name>getInstance</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a41a95b5e1e7b4c6de0cb0c8baeae7344" kind="function"><name>enable</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ae8aebeb02c165c851c6b3647a35890e0" kind="function"><name>disable</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ae73b748603687c43f3f256f3d4292ae7" kind="function"><name>vlog</name></member>
-    <member refid="class_l_o_g_1_1_logger_1acbc58f71966974f97fc00365420fd111" kind="function"><name>vlog</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a7f0f597abcedd4595028a380fba3e70c" kind="function"><name>enableLevel</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a4a179c03b181bad314d4dccbba6b2c13" kind="function"><name>disableLevel</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a454d6cbdf2283334678d60a561e9c8ec" kind="function"><name>isLevelEnabled</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ab3972d001cfda06b2d3f541fb0e5db45" kind="function"><name>blockTag</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a09e8017b40ede3d9bf8c0be52f5420b1" kind="function"><name>unblockTag</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a5bf52a4df659f28682c41870cc3dd85b" kind="function"><name>isTagBlocked</name></member>
-    <member refid="class_l_o_g_1_1_logger_1acdb1319a3d218b7ae2cdc30bba67e843" kind="function"><name>enableTimestamps</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a0a83875a11650c3fc2015248b6ae638a" kind="function"><name>disableTimestamps</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a012a550ef1bc6c77ae66eb4925a174bb" kind="function"><name>setLogCallback</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a31a5af0b96984cae986a5e26f1329c36" kind="function"><name>setLevelColor</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ab6e414285f56abf53bdbc78ad7ec52a1" kind="function"><name>setInfoAlternateColor</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ac1acadc85744f8b3e3d543d5ee076a16" kind="function"><name>setMinimumLevel</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a4abba1293f8af80ad709f36348f117cf" kind="function"><name>Logger</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a40e44f60acd6450806a71dc5c8759bf8" kind="function"><name>logInternal</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ac12cee96c21a9cdaab5251533de22734" kind="function"><name>processFormat</name></member>
-    <member refid="class_l_o_g_1_1_logger_1adcf40bff2af8056ebf43f019ad311dc1" kind="function"><name>formatBinary</name></member>
-    <member refid="class_l_o_g_1_1_logger_1ad2f867eb388b55a304952af25aaaae3c" kind="function"><name>buildModifiedFormat</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a04c97325afbcf928407010c4fb464f0b" kind="function"><name>handleBinaryFormat</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a16496ae8e563f143f87dd028640ae508" kind="function"><name>logLevelToString</name></member>
-    <member refid="class_l_o_g_1_1_logger_1a371ee2f5a0c4f72498744138af9f91bb" kind="function"><name>Logger</name></member>
-    <member refid="class_l_o_g_1_1_logger_1aab5bd0699673e20ac4a3a9d78f99e8bd" kind="function"><name>operator=</name></member>
-  </compound>
   <compound refid="structdsa_1_1_stack_allocator_1_1rebind" kind="struct"><name>dsa::StackAllocator::rebind</name>
     <member refid="structdsa_1_1_stack_allocator_1_1rebind_1a45ff37482273d5930d3c1b12e35e2625" kind="typedef"><name>other</name></member>
   </compound>
@@ -133,8 +95,6 @@
     <member refid="structdsa_1_1e_alloc_1_1_storage_report_1aac10fcf726b114c1b865a8f5937408da" kind="variable"><name>fragmentationFactor</name></member>
   </compound>
   <compound refid="classdsa_1_1_t_l_s_f" kind="class"><name>dsa::TLSF</name>
-    <member refid="classdsa_1_1_t_l_s_f_1a5c41d39610f61b576a64cb4e02dd565c" kind="typedef"><name>static_assert__LINE__</name></member>
-    <member refid="classdsa_1_1_t_l_s_f_1a4dd5874169334b079e6886a53c795589" kind="typedef"><name>static_assert__LINE__</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a87a00ee083c05e19c43adac02c5d2c26" kind="typedef"><name>tlsfptr_t</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1ac2e907fdaba5c8fc4c9185a632d8efe6" kind="typedef"><name>tlsf_walker</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a7f65c711cb6725696970774320d73895" kind="variable"><name>SL_INDEX_LOG2</name></member>
@@ -162,7 +122,6 @@
     <member refid="classdsa_1_1_t_l_s_f_1a72f2bfdf752ce60b3af7301ea029bffb" kind="function"><name>set_used</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a8fa3eb30d8636dfb48c02ca7860ec733" kind="function"><name>set_prev_free</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a4fd943d469f8d3be81ba66e109f8340f" kind="function"><name>set_prev_used</name></member>
-    <member refid="classdsa_1_1_t_l_s_f_1a44438455c9817fbdaed949d5f0b21b8b" kind="function"><name>set_size_and_flags</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1ad3c09c50acbdbcd39ce1ef322b589392" kind="function"><name>to_ptr</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a695ec978573cffb0ab2b9d9e28068e02" kind="function"><name>to_ptr_nc</name></member>
     <member refid="classdsa_1_1_t_l_s_f_1a0d8439adae15c9e8c26088702bcd3561" kind="function"><name>from_ptr</name></member>
@@ -214,49 +173,16 @@
   </compound>
   <compound refid="namespaceelock" kind="namespace"><name>elock</name>
   </compound>
-  <compound refid="namespace_l_o_g" kind="namespace"><name>LOG</name>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043" kind="enum"><name>Level</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043adc30ec20708ef7b0f641ef78b7880a15" kind="enumvalue"><name>DEBUG</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a033bd94b1168d7e4f0d644c3c95e35bf" kind="enumvalue"><name>TEST</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a551b723eafd6a31d444fcb2f5920fbd3" kind="enumvalue"><name>INFO</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043ad0749aaba8b833466dfcbb0428e4f89c" kind="enumvalue"><name>SUCCESS</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043a059e9861e0400dfbe05c98a841f3f96b" kind="enumvalue"><name>WARNING</name></member>
-    <member refid="namespace_l_o_g_1a9a5ec8f75979677739eddc5e1e61c043abb1ca97ec761fc37101737ba0aa2e7c5" kind="enumvalue"><name>ERROR</name></member>
-    <member refid="namespace_l_o_g_1a20f1e0ea2f5953b20c28b2b238f8c5d6" kind="variable"><name>LOG_BUFFER_SIZE</name></member>
-    <member refid="namespace_l_o_g_1acd0072a098872064e882d347d1e30d9a" kind="function"><name>DEBUG</name></member>
-    <member refid="namespace_l_o_g_1acca4968543615b1b2d77ebac8fe74993" kind="function"><name>DEBUG</name></member>
-    <member refid="namespace_l_o_g_1a26e0f6934ba0223295910736aec08de5" kind="function"><name>LOG_TEST</name></member>
-    <member refid="namespace_l_o_g_1a53938bb96516a83429c842284cefa6aa" kind="function"><name>LOG_TEST</name></member>
-    <member refid="namespace_l_o_g_1a6cfde2e40cb91d10e175b3f42d3b2214" kind="function"><name>INFO</name></member>
-    <member refid="namespace_l_o_g_1a7739e398da33ae660653dd66478095bd" kind="function"><name>INFO</name></member>
-    <member refid="namespace_l_o_g_1af765327ccca9fa0237950bf1b7deec48" kind="function"><name>SUCCESS</name></member>
-    <member refid="namespace_l_o_g_1a64d34a15b936414d5a979de4e0ab4c0c" kind="function"><name>SUCCESS</name></member>
-    <member refid="namespace_l_o_g_1a81ab26058729e014fefed7ca63a94ce0" kind="function"><name>WARNING</name></member>
-    <member refid="namespace_l_o_g_1afffb00cbecc05c1b0120b9151463a4e9" kind="function"><name>WARNING</name></member>
-    <member refid="namespace_l_o_g_1a7607c756b43837627f99d36ef7cae158" kind="function"><name>ERROR</name></member>
-    <member refid="namespace_l_o_g_1aa855cfb2252b131f3943e5d28159aaad" kind="function"><name>ERROR</name></member>
-    <member refid="namespace_l_o_g_1a967dd6d62dde58bb5cc0bcf4b155ce71" kind="function"><name>ENABLE</name></member>
-    <member refid="namespace_l_o_g_1a2367c9d0ae19ba363f09b8bde85b4eb2" kind="function"><name>ENABLE</name></member>
-    <member refid="namespace_l_o_g_1afd19d5f46e5cc24eba14f5698ba61979" kind="function"><name>DISABLE</name></member>
-    <member refid="namespace_l_o_g_1a9c8041ed47c5c6124e6ab9ba2a606136" kind="function"><name>DISABLE</name></member>
-    <member refid="namespace_l_o_g_1a45368f04d2851ced6a50cfe31d6b4ab6" kind="function"><name>BLOCK_TAG</name></member>
-    <member refid="namespace_l_o_g_1abe6d0eaaff4fbea93b02ed1e02d80297" kind="function"><name>UNBLOCK_TAG</name></member>
-    <member refid="namespace_l_o_g_1a0c9a7fe020ae17df56a5cd09509f58c3" kind="function"><name>ENABLE_TIMESTAMPS</name></member>
-    <member refid="namespace_l_o_g_1a9bb02e1972964f296fc4817a03352b6c" kind="function"><name>DISABLE_TIMESTAMPS</name></member>
-  </compound>
   <compound refid="builtins_8h" kind="file"><name>builtins.h</name>
-    <member refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" kind="define"><name>dsa_decl</name></member>
-    <member refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kind="function"><name>ffs</name></member>
-    <member refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kind="function"><name>fls</name></member>
-    <member refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kind="function"><name>fls_generic</name></member>
+    <member refid="group__bitmanip_1gab3cbb632199b0fb9c637f12a0f0a4e8b" kind="function"><name>ffs</name></member>
+    <member refid="group__bitmanip_1gaaaa034e551df652b5129fda1ff203175" kind="function"><name>fls</name></member>
+    <member refid="group__bitmanip_1ga5ef21e2bd5d29188b385a16c989f034b" kind="function"><name>fls_generic</name></member>
   </compound>
   <compound refid="e_alloc_8cpp" kind="file"><name>eAlloc.cpp</name>
   </compound>
   <compound refid="e_alloc_8hpp" kind="file"><name>eAlloc.hpp</name>
   </compound>
   <compound refid="global_e_lock_8hpp" kind="file"><name>globalELock.hpp</name>
-  </compound>
-  <compound refid="_logger_8hpp" kind="file"><name>Logger.hpp</name>
   </compound>
   <compound refid="_stack_allocator_8hpp" kind="file"><name>StackAllocator.hpp</name>
   </compound>
@@ -265,15 +191,11 @@
     <member refid="tlsf_8hpp_1aaa692ecf5394ea6be5a779d4b90352e9" kind="define"><name>dsa_max</name></member>
     <member refid="tlsf_8hpp_1a7f176a9edf6585122465fae7a0a49fef" kind="define"><name>dsa_insist</name></member>
     <member refid="tlsf_8hpp_1a8dc2e3a9039658cafb6f76ce960c5512" kind="define"><name>dsa_assert</name></member>
-    <member refid="tlsf_8hpp_1a48a672d1ef0cec0bd6a98a8e8018a226" kind="define"><name>_dsa_glue2</name></member>
-    <member refid="tlsf_8hpp_1ac1fdb98d8bd664369397fe79f8e3d4d6" kind="define"><name>_dsa_glue</name></member>
-    <member refid="tlsf_8hpp_1a4d9de9ccbe4732bf56dcfd187bf48674" kind="define"><name>dsa_static_assert</name></member>
-    <member refid="tlsf_8hpp_1ab900aa5f4cb2db4f546de998984d43ba" kind="typedef"><name>static_assert__LINE__</name></member>
   </compound>
   <compound refid="group__bitmanip" kind="group"><name>bitmanip</name>
-    <member refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" kind="function"><name>ffs</name></member>
-    <member refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" kind="function"><name>fls</name></member>
-    <member refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" kind="function"><name>fls_generic</name></member>
+    <member refid="group__bitmanip_1gab3cbb632199b0fb9c637f12a0f0a4e8b" kind="function"><name>ffs</name></member>
+    <member refid="group__bitmanip_1gaaaa034e551df652b5129fda1ff203175" kind="function"><name>fls</name></member>
+    <member refid="group__bitmanip_1ga5ef21e2bd5d29188b385a16c989f034b" kind="function"><name>fls_generic</name></member>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>

@@ -1,0 +1,30 @@
+warning: tag INPUT: input source 'C:\_DEV\eAlloc\src\hpp' does not exist
+warning: tag INPUT: input source 'C:\_DEV\eAlloc\src\h' does not exist
+warning: source 'C:\_DEV\eAlloc\src\hpp' is not a readable file or directory... skipping.
+warning: source 'C:\_DEV\eAlloc\src\h' is not a readable file or directory... skipping.
+warning: No files to be processed, please check your settings, in particular INPUT, FILE_PATTERNS, and RECURSIVE
+[31mC:\_DEV\eAlloc\docs\sphinx_src\api.rst:6: ERROR: Unexpected indentation. [docutils][39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:24: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:struct:: dsa::eAlloc::IntegrityResult'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:24: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: int prev_status'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:24: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: int status'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:29: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:struct:: dsa::eAlloc::StorageReport'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:29: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: size_t totalFreeSpace   = 0'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:29: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: size_t largestFreeRegion   = 0'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:29: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: size_t freeBlockCount   = 0'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst:29: WARNING: Duplicate C++ declaration, also defined at entities/classes:18.
+Declaration is '.. cpp:member:: double fragmentationFactor   = 0.0'.[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\classes.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\defines.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\enums.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\functions.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\groups.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\namespaces.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\structs.rst: WARNING: document isn't included in any toctree[39;49;00m
+[91mC:\_DEV\eAlloc\docs\sphinx_src\entities\typedefs.rst: WARNING: document isn't included in any toctree[39;49;00m

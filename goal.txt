@@ -1,0 +1,41 @@
+eAlloc Documentation Goal (Strict, Hierarchical, Professional)
+=============================================================
+
+1. eAlloc (Landing Page & Navigation)
+   - Welcome message
+   - Sidebar navigation to all sections
+
+2. Overview
+   - High-level summary and features
+
+3. Quickstart
+   - Minimal, direct usage instructions
+
+4. Entities (with subpages/sections)
+   4.1 Structs: All documented structs (auto-generated, not hardcoded)
+   4.2 Classes: All documented classes (auto-generated)
+   4.3 Functions: All documented functions (auto-generated)
+   4.4 Typedefs/Enums/Defines/Groups/Namespaces: Each as its own subsection if present in codebase
+   - All sub-entities are auto-generated from Doxygen/Breathe, not hardcoded
+   
+
+5. API
+   - Full, automatic, comprehensive API index for the entire codebase (via .. doxygenindex::)
+
+6. Examples
+   - Minimal, focused usage examples
+
+Requirements:
+-copy sphinx htmls to docs/ after generation
+- All entity listings are auto-generated from Doxygen XML—never hardcoded.
+- API page is a complete, single-point reference for everything.
+- Examples are included as a separate page.
+- Sidebar navigation and search will work as expected.
+- Use Sphinx + Breathe + modern theme (e.g. sphinx_rtd_theme or better).
+- Output HTML in docs/html.
+- No legacy, manual, or non-reproducible content.
+- 100% generated from source code and doc comments.
+- One script (python script/gdoc.py) must generate everything, fully automated, from scratch.
+- Rich text, CSS, and professional, modern doc appearance.
+
+ 

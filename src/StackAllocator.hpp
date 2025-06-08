@@ -86,9 +86,10 @@ class StackAllocator
     }
 
     /**
-     * @brief Deallocates storage for n objects of type T.
+     * @brief Deallocates storage previously allocated by this allocator.
      * @param p Pointer to the memory to deallocate.
-     * @param n Number of objects (unused, for interface compliance).
+     * @note The number of objects parameter is present for interface compliance
+     *       but is not used by this specific deallocation function.
      */
     void deallocate(pointer p, size_type /*n*/) { allocator.free(p); }
 

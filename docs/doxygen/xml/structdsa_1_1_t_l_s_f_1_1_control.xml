@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/tlsf.hpp" line="89" column="21" bodyfile="src/tlsf.hpp" bodystart="89" bodyend="-1"/>
+        <location file="src/tlsf.hpp" line="117" column="21" bodyfile="src/tlsf.hpp" bodystart="117" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_control_1a00be49ab778f0aeb24937cb3fba14db8" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/tlsf.hpp" line="90" column="18" bodyfile="src/tlsf.hpp" bodystart="90" bodyend="-1"/>
+        <location file="src/tlsf.hpp" line="118" column="18" bodyfile="src/tlsf.hpp" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structdsa_1_1_t_l_s_f_1_1_control_1a41e3ee6b5c297694b235d19f36bb2a77" prot="public" static="no" mutable="no">
         <type><ref refid="structdsa_1_1_t_l_s_f_1_1_second_level" kindref="compound">SecondLevel</ref></type>
@@ -45,12 +45,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/tlsf.hpp" line="91" column="21" bodyfile="src/tlsf.hpp" bodystart="91" bodyend="-1"/>
+        <location file="src/tlsf.hpp" line="119" column="21" bodyfile="src/tlsf.hpp" bodystart="119" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para><ref refid="structdsa_1_1_t_l_s_f_1_1_control" kindref="compound">Control</ref> structure for the <ref refid="classdsa_1_1_t_l_s_f" kindref="compound">TLSF</ref> allocator. </para>
     </briefdescription>
     <detaileddescription>
+<para>This structure maintains the overall state of the allocator, including:<itemizedlist>
+<listitem><para>A special block (block_null) used to indicate empty free lists.</para>
+</listitem><listitem><para>A bitmap (fl_bitmap) representing the first-level free block availability.</para>
+</listitem><listitem><para>An array (cabinets) of second-level indices that manage the free lists for specific size ranges. </para>
+</listitem></itemizedlist>
+</para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -80,7 +87,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/tlsf.hpp" line="86" column="5" bodyfile="src/tlsf.hpp" bodystart="87" bodyend="92"/>
+    <location file="src/tlsf.hpp" line="114" column="5" bodyfile="src/tlsf.hpp" bodystart="115" bodyend="120"/>
     <listofallmembers>
       <member refid="structdsa_1_1_t_l_s_f_1_1_control_1aef2cf9c1bfcf62494152a61d6054d4de" prot="public" virt="non-virtual"><scope>dsa::TLSF::Control</scope><name>block_null</name></member>
       <member refid="structdsa_1_1_t_l_s_f_1_1_control_1a41e3ee6b5c297694b235d19f36bb2a77" prot="public" virt="non-virtual"><scope>dsa::TLSF::Control</scope><name>cabinets</name></member>

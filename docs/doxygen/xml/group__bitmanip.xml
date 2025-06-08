@@ -4,9 +4,9 @@
     <compoundname>bitmanip</compoundname>
     <title>Bit Manipulation Intrinsics</title>
     <sectiondef kind="func">
-      <memberdef kind="function" id="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__bitmanip_1gab3cbb632199b0fb9c637f12a0f0a4e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int ffs</definition>
+        <definition>int ffs</definition>
         <argsstring>(unsigned int word)</argsstring>
         <name>ffs</name>
         <param>
@@ -33,14 +33,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/builtins.h" line="146" column="13" bodyfile="src/builtins.h" bodystart="146" bodyend="148" declfile="src/builtins.h" declline="31" declcolumn="13"/>
-        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
-        <references refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" compoundref="builtins_8h" startline="116" endline="143">fls_generic</references>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1ad2d8098eda4e9b2e07ea2d6e86a89262" compoundref="tlsf_8hpp" startline="276" endline="297">dsa::TLSF&lt; 5 &gt;::search_suitable_block</referencedby>
+        <location file="src/builtins.h" line="146" column="6" bodyfile="src/builtins.h" bodystart="146" bodyend="148" declfile="src/builtins.h" declline="31" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__bitmanip_1gaaaa034e551df652b5129fda1ff203175" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int fls</definition>
+        <definition>int fls</definition>
         <argsstring>(unsigned int word)</argsstring>
         <name>fls</name>
         <param>
@@ -67,15 +64,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/builtins.h" line="150" column="13" bodyfile="src/builtins.h" bodystart="150" bodyend="150" declfile="src/builtins.h" declline="42" declcolumn="13"/>
-        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
-        <references refid="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" compoundref="builtins_8h" startline="116" endline="143">fls_generic</references>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1a7aaa27582e40b9eabb7d4c03c5facb04" compoundref="tlsf_8hpp" startline="248" endline="265">dsa::TLSF&lt; 5 &gt;::mapping_insert</referencedby>
-        <referencedby refid="classdsa_1_1_t_l_s_f_1aa795026851710838eac2340ab77c9a3f" compoundref="tlsf_8hpp" startline="267" endline="275">dsa::TLSF&lt; 5 &gt;::mapping_search</referencedby>
+        <location file="src/builtins.h" line="150" column="6" bodyfile="src/builtins.h" bodystart="150" bodyend="150" declfile="src/builtins.h" declline="42" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="group__bitmanip_1ga7a7eb2334afb4358a957b226d302a0ab" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__bitmanip_1ga5ef21e2bd5d29188b385a16c989f034b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>static int fls_generic</definition>
+        <definition>int fls_generic</definition>
         <argsstring>(unsigned int word)</argsstring>
         <name>fls_generic</name>
         <param>
@@ -88,10 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/builtins.h" line="116" column="13" bodyfile="src/builtins.h" bodystart="116" bodyend="143"/>
-        <references refid="builtins_8h_1a4bce7c01780f94d4128eb4672e045f19" compoundref="builtins_8h" startline="14">dsa_decl</references>
-        <referencedby refid="group__bitmanip_1ga3e006b854f7c810a241a6ad9931a5a4c" compoundref="builtins_8h" startline="146" endline="148">ffs</referencedby>
-        <referencedby refid="group__bitmanip_1ga5b197bab96b83defaaacb5c7fa2abbc6" compoundref="builtins_8h" startline="150" endline="150">fls</referencedby>
+        <location file="src/builtins.h" line="116" column="6" bodyfile="src/builtins.h" bodystart="116" bodyend="143"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

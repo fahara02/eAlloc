@@ -1,0 +1,87 @@
+
+/* custom.css for eAlloc documentation */
+
+/* General body and font improvements */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', Helvetica, sans-serif; /* A more standard, professional font for headings */
+    color: #2c3e50; /* Dark blue, common for professional themes */
+}
+
+h1 {
+    border-bottom: 2px solid #3498db; /* Light blue accent */
+    padding-bottom: 0.3em;
+}
+
+/* Links */
+a {
+    color: #2980b9; /* Slightly darker blue for links */
+    text-decoration: none;
+}
+a:hover {
+    color: #1c587a;
+    text-decoration: underline;
+}
+
+/* Code blocks */
+pre, code, tt {
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    background-color: #f8f9fa; /* Very light grey for code blocks */
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 0.1em 0.4em; /* Small padding for inline code */
+}
+pre {
+    padding: 1em; /* Larger padding for block code */
+    overflow-x: auto; /* Scroll for long lines */
+}
+
+/* Tables */
+table.docutils {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+table.docutils th, table.docutils td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+table.docutils th {
+    background-color: #f2f2f2; /* Light grey for table headers */
+    font-weight: bold;
+}
+
+/* Admonitions (note, warning, etc.) */
+.admonition {
+    border-left-width: 4px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+.admonition-title {
+    font-weight: bold;
+}
+.admonition.note {
+    border-left-color: #3498db; /* Blue for notes */
+}
+.admonition.warning {
+    border-left-color: #f39c12; /* Orange for warnings */
+}
+.admonition.error, .admonition.danger {
+    border-left-color: #e74c3c; /* Red for errors */
+}
+
+/* Furo specific tweaks if needed */
+/* Example: Adjust sidebar width if using Furo */
+/* .sidebar-drawer { max-width: 300px; } */
+
+/* RTD theme specific tweaks if needed */
+/* Example: Adjust content width if using RTD */
+/* .wy-nav-content { max-width: 1000px; } */

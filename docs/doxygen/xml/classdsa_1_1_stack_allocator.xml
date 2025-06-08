@@ -136,8 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="132" column="10" bodyfile="src/StackAllocator.hpp" bodystart="132" bodyend="-1"/>
-        <referencedby refid="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" compoundref="_stack_allocator_8hpp" startline="113" endline="113">dsa::StackAllocator&lt; U, PoolSize &gt;::operator==</referencedby>
+        <location file="src/StackAllocator.hpp" line="133" column="10" bodyfile="src/StackAllocator.hpp" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" prot="private" static="no" mutable="no">
         <type><ref refid="classdsa_1_1e_alloc" kindref="compound">dsa::eAlloc</ref></type>
@@ -152,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="133" column="17" bodyfile="src/StackAllocator.hpp" bodystart="133" bodyend="-1"/>
+        <location file="src/StackAllocator.hpp" line="134" column="17" bodyfile="src/StackAllocator.hpp" bodystart="134" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -258,7 +257,7 @@
           <type><ref refid="classdsa_1_1_stack_allocator_1a33d07688c2e4c655fb599cfdd11a4f23" kindref="member">size_type</ref></type>
         </param>
         <briefdescription>
-<para>Deallocates storage for n objects of type T. </para>
+<para>Deallocates storage previously allocated by this allocator. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -269,20 +268,14 @@
 <para>Pointer to the memory to deallocate. </para>
 </parameterdescription>
 </parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>n</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Number of objects (unused, for interface compliance). </para>
-</parameterdescription>
-</parameteritem>
 </parameterlist>
+<simplesect kind="note"><para>The number of objects parameter is present for interface compliance but is not used by this specific deallocation function. </para>
+</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="93" column="10" bodyfile="src/StackAllocator.hpp" bodystart="93" bodyend="93"/>
+        <location file="src/StackAllocator.hpp" line="94" column="10" bodyfile="src/StackAllocator.hpp" bodystart="94" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1_stack_allocator_1ab64950648b56eaf85ce57cdbbf4ae268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -323,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="100" column="10" bodyfile="src/StackAllocator.hpp" bodystart="100" bodyend="100"/>
+        <location file="src/StackAllocator.hpp" line="101" column="10" bodyfile="src/StackAllocator.hpp" bodystart="101" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a5b845bb8d5c808b958f853e941c7da25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -352,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="106" column="10" bodyfile="src/StackAllocator.hpp" bodystart="106" bodyend="106"/>
+        <location file="src/StackAllocator.hpp" line="107" column="10" bodyfile="src/StackAllocator.hpp" bodystart="107" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a679488c3a2948feece4efcd8f75936ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -383,7 +376,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="113" column="10" bodyfile="src/StackAllocator.hpp" bodystart="113" bodyend="113"/>
+        <location file="src/StackAllocator.hpp" line="114" column="10" bodyfile="src/StackAllocator.hpp" bodystart="114" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a7f597c8101a4b5b016ab3cb91ce9d484" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -414,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="120" column="10" bodyfile="src/StackAllocator.hpp" bodystart="120" bodyend="120"/>
+        <location file="src/StackAllocator.hpp" line="121" column="10" bodyfile="src/StackAllocator.hpp" bodystart="121" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="classdsa_1_1_stack_allocator_1a14665adf09333a2bc2edbcdd98f42b3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -443,7 +436,7 @@ If not set, the allocator is not thread-safe. For host builds, use elock::StdMut
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/StackAllocator.hpp" line="129" column="10" bodyfile="src/StackAllocator.hpp" bodystart="129" bodyend="129"/>
+        <location file="src/StackAllocator.hpp" line="130" column="10" bodyfile="src/StackAllocator.hpp" bodystart="130" bodyend="130"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -501,7 +494,7 @@ Usage: <ref refid="classdsa_1_1_stack_allocator" kindref="compound">dsa::StackAl
         <link refid="classelock_1_1_i_lockable"/>
       </node>
     </collaborationgraph>
-    <location file="src/StackAllocator.hpp" line="33" column="1" bodyfile="src/StackAllocator.hpp" bodystart="34" bodyend="134"/>
+    <location file="src/StackAllocator.hpp" line="33" column="1" bodyfile="src/StackAllocator.hpp" bodystart="34" bodyend="135"/>
     <listofallmembers>
       <member refid="classdsa_1_1_stack_allocator_1ad6065ffca156daa8261fe82a0d3c6c2d" prot="public" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>allocate</name></member>
       <member refid="classdsa_1_1_stack_allocator_1a3534fdb042f8df550c4ae6727e600636" prot="private" virt="non-virtual"><scope>dsa::StackAllocator</scope><name>allocator</name></member>

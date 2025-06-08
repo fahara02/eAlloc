@@ -16,9 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="62" column="15" bodyfile="src/globalELock.hpp" bodystart="62" bodyend="-1"/>
-        <referencedby refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" compoundref="global_e_lock_8hpp" startline="55" endline="56">LockGuard</referencedby>
-        <referencedby refid="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" compoundref="global_e_lock_8hpp" startline="57" endline="57">~LockGuard</referencedby>
+        <location file="src/globalELock.hpp" line="101" column="15" bodyfile="src/globalELock.hpp" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -32,10 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="63" column="10" bodyfile="src/globalELock.hpp" bodystart="63" bodyend="-1"/>
-        <referencedby refid="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" compoundref="global_e_lock_8hpp" startline="58" endline="58">acquired</referencedby>
-        <referencedby refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" compoundref="global_e_lock_8hpp" startline="55" endline="56">LockGuard</referencedby>
-        <referencedby refid="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" compoundref="global_e_lock_8hpp" startline="57" endline="57">~LockGuard</referencedby>
+        <location file="src/globalELock.hpp" line="102" column="10" bodyfile="src/globalELock.hpp" bodystart="102" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -60,11 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="55" column="5" bodyfile="src/globalELock.hpp" bodystart="55" bodyend="56"/>
-        <references refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" compoundref="global_e_lock_8hpp" startline="63">acquired_</references>
-        <references refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" compoundref="global_e_lock_8hpp" startline="62">lock_</references>
-        <referencedby refid="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8">LockGuard</referencedby>
-        <referencedby refid="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca">operator=</referencedby>
+        <location file="src/globalELock.hpp" line="94" column="5" bodyfile="src/globalELock.hpp" bodystart="94" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classelock_1_1_lock_guard_1ae2e4bdc421adeb77e4c4a7f1399250bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -78,9 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="57" column="5" bodyfile="src/globalELock.hpp" bodystart="57" bodyend="57"/>
-        <references refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" compoundref="global_e_lock_8hpp" startline="63">acquired_</references>
-        <references refid="classelock_1_1_lock_guard_1a472ae8166cd1fb102519721195f14044" compoundref="global_e_lock_8hpp" startline="62">lock_</references>
+        <location file="src/globalELock.hpp" line="96" column="5" bodyfile="src/globalELock.hpp" bodystart="96" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -94,8 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="58" column="10" bodyfile="src/globalELock.hpp" bodystart="58" bodyend="58"/>
-        <references refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" compoundref="global_e_lock_8hpp" startline="63">acquired_</references>
+        <location file="src/globalELock.hpp" line="97" column="10" bodyfile="src/globalELock.hpp" bodystart="97" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classelock_1_1_lock_guard_1af9fcde875965bdc439396a074c0217b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -112,8 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="59" column="5"/>
-        <references refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" compoundref="global_e_lock_8hpp" startline="55" endline="56">LockGuard</references>
+        <location file="src/globalELock.hpp" line="98" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classelock_1_1_lock_guard_1ad963b05624fcc754ddae382faade9bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classelock_1_1_lock_guard" kindref="compound">LockGuard</ref> &amp;</type>
@@ -130,13 +117,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/globalELock.hpp" line="60" column="15"/>
-        <references refid="classelock_1_1_lock_guard_1a0b11368064442a10b7aaee01aef8b319" compoundref="global_e_lock_8hpp" startline="55" endline="56">LockGuard</references>
+        <location file="src/globalELock.hpp" line="99" column="15"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>A universal RAII lock guard class that manages a lock&apos;s lifetime. </para>
     </briefdescription>
     <detaileddescription>
+<para>This class provides a RAII-style mechanism to automatically acquire a lock upon construction and release it upon destruction. It wraps a reference to an <ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref> object and attempts to acquire the lock using an optional timeout parameter. The lock is released in the destructor if it was successfully acquired.</para>
+<para><simplesect kind="note"><para>Copy construction and copy-assignment are disabled to prevent multiple ownership of the same lock.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to an <ref refid="classelock_1_1_i_lockable" kindref="compound">ILockable</ref> object managing the lock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timeout in milliseconds for acquiring the lock (default is 0xFFFFFFFF for no timeout). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -151,7 +159,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/globalELock.hpp" line="53" column="1" bodyfile="src/globalELock.hpp" bodystart="53" bodyend="64"/>
+    <location file="src/globalELock.hpp" line="92" column="1" bodyfile="src/globalELock.hpp" bodystart="92" bodyend="103"/>
     <listofallmembers>
       <member refid="classelock_1_1_lock_guard_1ae263dabf7533cf813161ea42ea065c77" prot="public" virt="non-virtual"><scope>elock::LockGuard</scope><name>acquired</name></member>
       <member refid="classelock_1_1_lock_guard_1a156037843b070163ae81f254bce32b81" prot="private" virt="non-virtual"><scope>elock::LockGuard</scope><name>acquired_</name></member>

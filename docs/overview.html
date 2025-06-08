@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; eAlloc 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d779ea56" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quickstart" href="quickstart.html" />
+    <link rel="prev" title="eAlloc Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            eAlloc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-tlsf">What is TLSF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-tlsf">Why TLSF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ealloc-features">eAlloc Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basic-usage-host-pc-example">Basic Usage (Host/PC Example)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#esp32-example-mcu">ESP32 Example (MCU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#stackallocator-example">StackAllocator Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference for eAlloc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11BlockHeaderE"><code class="docutils literal notranslate"><span class="pre">dsa::TLSF::BlockHeader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11BlockHeader15prev_phys_blockE"><code class="docutils literal notranslate"><span class="pre">prev_phys_block</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11BlockHeader14size_and_flagsE"><code class="docutils literal notranslate"><span class="pre">size_and_flags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11BlockHeader9next_freeE"><code class="docutils literal notranslate"><span class="pre">next_free</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11BlockHeader9prev_freeE"><code class="docutils literal notranslate"><span class="pre">prev_free</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7ControlE"><code class="docutils literal notranslate"><span class="pre">dsa::TLSF::Control</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7Control10block_nullE"><code class="docutils literal notranslate"><span class="pre">block_null</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7Control9fl_bitmapE"><code class="docutils literal notranslate"><span class="pre">fl_bitmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7Control8cabinetsE"><code class="docutils literal notranslate"><span class="pre">cabinets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAllocE"><code class="docutils literal notranslate"><span class="pre">dsa::eAlloc</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc4tlsfE"><code class="docutils literal notranslate"><span class="pre">tlsf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc7ControlE"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc11BlockHeaderE"><code class="docutils literal notranslate"><span class="pre">BlockHeader</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc6WalkerE"><code class="docutils literal notranslate"><span class="pre">Walker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc7setLockEPN5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc6eAllocEPv6size_t"><code class="docutils literal notranslate"><span class="pre">eAlloc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc6mallocE6size_t"><code class="docutils literal notranslate"><span class="pre">malloc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc4freeEPv"><code class="docutils literal notranslate"><span class="pre">free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc8memalignE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">memalign()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc7reallocEPv6size_t"><code class="docutils literal notranslate"><span class="pre">realloc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc6callocE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">calloc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4I0EN3dsa6eAlloc8allocateEP1TRK1T"><code class="docutils literal notranslate"><span class="pre">allocate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4I0DpEN3dsa6eAlloc8allocateEP1TDpRR4Args"><code class="docutils literal notranslate"><span class="pre">allocate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4I0EN3dsa6eAlloc10deallocateEvP1T"><code class="docutils literal notranslate"><span class="pre">deallocate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc8add_poolEPv6size_t"><code class="docutils literal notranslate"><span class="pre">add_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc11remove_poolEPv"><code class="docutils literal notranslate"><span class="pre">remove_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc10check_poolEPv"><code class="docutils literal notranslate"><span class="pre">check_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc8get_poolEPv"><code class="docutils literal notranslate"><span class="pre">get_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc5checkEv"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4NK3dsa6eAlloc6reportEv"><code class="docutils literal notranslate"><span class="pre">report()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4NK3dsa6eAlloc16logStorageReportEv"><code class="docutils literal notranslate"><span class="pre">logStorageReport()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc16integrity_walkerEPv6size_tiPv"><code class="docutils literal notranslate"><span class="pre">integrity_walker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc8MAX_POOLE"><code class="docutils literal notranslate"><span class="pre">MAX_POOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc9walk_poolEPv6WalkerPv"><code class="docutils literal notranslate"><span class="pre">walk_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc7controlE"><code class="docutils literal notranslate"><span class="pre">control</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc12memory_poolsE"><code class="docutils literal notranslate"><span class="pre">memory_pools</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc10pool_sizesE"><code class="docutils literal notranslate"><span class="pre">pool_sizes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc10pool_countE"><code class="docutils literal notranslate"><span class="pre">pool_count</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc11initialisedE"><code class="docutils literal notranslate"><span class="pre">initialised</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">elock::ILockable</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9ILockable4lockE8uint32_t"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9ILockable6unlockEv"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9ILockableD0Ev"><code class="docutils literal notranslate"><span class="pre">~ILockable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc15IntegrityResultE"><code class="docutils literal notranslate"><span class="pre">dsa::eAlloc::IntegrityResult</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc15IntegrityResult11prev_statusE"><code class="docutils literal notranslate"><span class="pre">prev_status</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc15IntegrityResult6statusE"><code class="docutils literal notranslate"><span class="pre">status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuardE"><code class="docutils literal notranslate"><span class="pre">elock::LockGuard</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuard9LockGuardER9ILockable8uint32_t"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuardD0Ev"><code class="docutils literal notranslate"><span class="pre">~LockGuard()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4NK5elock9LockGuard8acquiredEv"><code class="docutils literal notranslate"><span class="pre">acquired()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuard9LockGuardERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">LockGuard()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuardaSERK9LockGuard"><code class="docutils literal notranslate"><span class="pre">operator=()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuard5lock_E"><code class="docutils literal notranslate"><span class="pre">lock_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N5elock9LockGuard9acquired_E"><code class="docutils literal notranslate"><span class="pre">acquired_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4I0EN3dsa14StackAllocator6rebindE"><code class="docutils literal notranslate"><span class="pre">dsa::StackAllocator::rebind</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator6rebind5otherE"><code class="docutils literal notranslate"><span class="pre">other</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11SecondLevelE"><code class="docutils literal notranslate"><span class="pre">dsa::TLSF::SecondLevel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11SecondLevel9sl_bitmapE"><code class="docutils literal notranslate"><span class="pre">sl_bitmap</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11SecondLevel7shelvesE"><code class="docutils literal notranslate"><span class="pre">shelves</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4I0_6size_tEN3dsa14StackAllocatorE"><code class="docutils literal notranslate"><span class="pre">dsa::StackAllocator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator10value_typeE"><code class="docutils literal notranslate"><span class="pre">value_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator7pointerE"><code class="docutils literal notranslate"><span class="pre">pointer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator13const_pointerE"><code class="docutils literal notranslate"><span class="pre">const_pointer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator9referenceE"><code class="docutils literal notranslate"><span class="pre">reference</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator15const_referenceE"><code class="docutils literal notranslate"><span class="pre">const_reference</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator9size_typeE"><code class="docutils literal notranslate"><span class="pre">size_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator15difference_typeE"><code class="docutils literal notranslate"><span class="pre">difference_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator14StackAllocatorEv"><code class="docutils literal notranslate"><span class="pre">StackAllocator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4I0EN3dsa14StackAllocator14StackAllocatorERK14StackAllocatorI1U8PoolSizeE"><code class="docutils literal notranslate"><span class="pre">StackAllocator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator8allocateE9size_type"><code class="docutils literal notranslate"><span class="pre">allocate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator10deallocateE7pointer9size_type"><code class="docutils literal notranslate"><span class="pre">deallocate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator9constructE7pointer15const_reference"><code class="docutils literal notranslate"><span class="pre">construct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator7destroyE7pointer"><code class="docutils literal notranslate"><span class="pre">destroy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4NK3dsa14StackAllocatoreqERK14StackAllocator"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4NK3dsa14StackAllocatorneERK14StackAllocator"><code class="docutils literal notranslate"><span class="pre">operator!=()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator7setLockEPN5elock9ILockableE"><code class="docutils literal notranslate"><span class="pre">setLock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator10memoryPoolE"><code class="docutils literal notranslate"><span class="pre">memoryPool</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa14StackAllocator9allocatorE"><code class="docutils literal notranslate"><span class="pre">allocator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc13StorageReportE"><code class="docutils literal notranslate"><span class="pre">dsa::eAlloc::StorageReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc13StorageReport14totalFreeSpaceE"><code class="docutils literal notranslate"><span class="pre">totalFreeSpace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc13StorageReport17largestFreeRegionE"><code class="docutils literal notranslate"><span class="pre">largestFreeRegion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc13StorageReport14freeBlockCountE"><code class="docutils literal notranslate"><span class="pre">freeBlockCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa6eAlloc13StorageReport19fragmentationFactorE"><code class="docutils literal notranslate"><span class="pre">fragmentationFactor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv4I_6size_tEN3dsa4TLSFE"><code class="docutils literal notranslate"><span class="pre">dsa::TLSF</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9tlsfptr_tE"><code class="docutils literal notranslate"><span class="pre">tlsfptr_t</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11tlsf_walkerE"><code class="docutils literal notranslate"><span class="pre">tlsf_walker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8get_sizeEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">get_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8set_sizeEP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">set_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7is_freeEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">is_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF12is_prev_freeEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">is_prev_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7is_lastEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">is_last()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8set_freeEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">set_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8set_usedEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">set_used()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13set_prev_freeEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">set_prev_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13set_prev_usedEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">set_prev_used()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF6to_ptrEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">to_ptr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9to_ptr_ncEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">to_ptr_nc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8from_ptrEPKv"><code class="docutils literal notranslate"><span class="pre">from_ptr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11from_ptr_ncEPv"><code class="docutils literal notranslate"><span class="pre">from_ptr_nc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF15offset_to_blockEPKv6size_t"><code class="docutils literal notranslate"><span class="pre">offset_to_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF18offset_to_block_ncEPv6size_t"><code class="docutils literal notranslate"><span class="pre">offset_to_block_nc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF4prevEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">prev()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF4nextEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10next_constEPK11BlockHeader"><code class="docutils literal notranslate"><span class="pre">next_const()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9link_nextEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">link_next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF12mark_as_freeEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">mark_as_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF12mark_as_usedEP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">mark_as_used()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8align_upE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">align_up()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10align_downE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">align_down()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9align_ptrEPKv6size_t"><code class="docutils literal notranslate"><span class="pre">align_ptr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF19adjust_request_sizeE6size_t6size_t"><code class="docutils literal notranslate"><span class="pre">adjust_request_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14mapping_insertE6size_tPiPi"><code class="docutils literal notranslate"><span class="pre">mapping_insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14mapping_searchE6size_tPiPi"><code class="docutils literal notranslate"><span class="pre">mapping_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF21search_suitable_blockEP7ControlPiPi"><code class="docutils literal notranslate"><span class="pre">search_suitable_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF17remove_free_blockEP7ControlP11BlockHeaderii"><code class="docutils literal notranslate"><span class="pre">remove_free_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF17insert_free_blockEP7ControlP11BlockHeaderii"><code class="docutils literal notranslate"><span class="pre">insert_free_block()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF6removeEP7ControlP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF6insertEP7ControlP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9can_splitEP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">can_split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF5splitEP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF6absorbEP11BlockHeaderP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">absorb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10merge_prevEP7ControlP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">merge_prev()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10merge_nextEP7ControlP11BlockHeader"><code class="docutils literal notranslate"><span class="pre">merge_next()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9trim_freeEP7ControlP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">trim_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9trim_usedEP7ControlP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">trim_used()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF17trim_free_leadingEP7ControlP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">trim_free_leading()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF11locate_freeEP7Control6size_t"><code class="docutils literal notranslate"><span class="pre">locate_free()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF12prepare_usedEP7ControlP11BlockHeader6size_t"><code class="docutils literal notranslate"><span class="pre">prepare_used()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF18initialise_controlEP7Control"><code class="docutils literal notranslate"><span class="pre">initialise_control()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14default_walkerEPv6size_tiPv"><code class="docutils literal notranslate"><span class="pre">default_walker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF5checkEP7Control"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8cabinetsEv"><code class="docutils literal notranslate"><span class="pre">cabinets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF7shelvesEv"><code class="docutils literal notranslate"><span class="pre">shelves()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13total_shelvesEv"><code class="docutils literal notranslate"><span class="pre">total_shelves()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF4sizeEv"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10align_sizeEv"><code class="docutils literal notranslate"><span class="pre">align_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14min_block_sizeEv"><code class="docutils literal notranslate"><span class="pre">min_block_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14max_block_sizeEv"><code class="docutils literal notranslate"><span class="pre">max_block_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13pool_overheadEv"><code class="docutils literal notranslate"><span class="pre">pool_overhead()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14alloc_overheadEv"><code class="docutils literal notranslate"><span class="pre">alloc_overhead()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10block_sizeEPv"><code class="docutils literal notranslate"><span class="pre">block_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13SL_INDEX_LOG2E"><code class="docutils literal notranslate"><span class="pre">SL_INDEX_LOG2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF15ALIGN_SIZE_LOG2E"><code class="docutils literal notranslate"><span class="pre">ALIGN_SIZE_LOG2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF15BLOCK_ALIGNMENTE"><code class="docutils literal notranslate"><span class="pre">BLOCK_ALIGNMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF12FL_INDEX_MAXE"><code class="docutils literal notranslate"><span class="pre">FL_INDEX_MAX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9SLI_COUNTE"><code class="docutils literal notranslate"><span class="pre">SLI_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14FL_INDEX_SHIFTE"><code class="docutils literal notranslate"><span class="pre">FL_INDEX_SHIFT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14FL_INDEX_COUNTE"><code class="docutils literal notranslate"><span class="pre">FL_INDEX_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF16SMALL_BLOCK_SIZEE"><code class="docutils literal notranslate"><span class="pre">SMALL_BLOCK_SIZE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF10ALIGN_SIZEE"><code class="docutils literal notranslate"><span class="pre">ALIGN_SIZE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF8free_bitE"><code class="docutils literal notranslate"><span class="pre">free_bit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF13prev_free_bitE"><code class="docutils literal notranslate"><span class="pre">prev_free_bit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF9flag_maskE"><code class="docutils literal notranslate"><span class="pre">flag_mask</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF21block_header_overheadE"><code class="docutils literal notranslate"><span class="pre">block_header_overhead</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF18block_start_offsetE"><code class="docutils literal notranslate"><span class="pre">block_start_offset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14block_size_minE"><code class="docutils literal notranslate"><span class="pre">block_size_min</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#_CPPv4N3dsa4TLSF14block_size_maxE"><code class="docutils literal notranslate"><span class="pre">block_size_max</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv43dsa"><code class="docutils literal notranslate"><span class="pre">dsa</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#_CPPv45elock"><code class="docutils literal notranslate"><span class="pre">elock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c.dsa_min"><code class="docutils literal notranslate"><span class="pre">dsa_min</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c.dsa_max"><code class="docutils literal notranslate"><span class="pre">dsa_max</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c.dsa_insist"><code class="docutils literal notranslate"><span class="pre">dsa_insist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c.dsa_assert"><code class="docutils literal notranslate"><span class="pre">dsa_assert</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#mcu-example-1-freertos">MCU Example 1: FreeRTOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#mcu-example-2-esp-idf-esp32">MCU Example 2: ESP-IDF (ESP32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#host-pc-example">Host/PC Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#stackallocator-example-stl-compatible">StackAllocator Example (STL-compatible)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">eAlloc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p><strong>eAlloc</strong> is a modern, MCU/host-agnostic C++17 memory allocator library designed for embedded and desktop systems. At its core, <strong>eAlloc</strong> uses the TLSF (Two-Level Segregate Fit) algorithm—a dynamic memory allocator specifically engineered to meet the demands of real-time and embedded applications.</p>
+<section id="what-is-tlsf">
+<h2>What is TLSF?<a class="headerlink" href="#what-is-tlsf" title="Link to this heading"></a></h2>
+<p>TLSF (Two-Level Segregate Fit) is a general-purpose dynamic memory allocator designed for hard and soft real-time systems. Its key innovation is guaranteeing constant-time (O(1)) allocation and deallocation, regardless of application data or memory pool state. This deterministic timing is essential for real-time operating systems (RTOS) and latency-sensitive applications.</p>
+</section>
+<section id="why-tlsf">
+<h2>Why TLSF?<a class="headerlink" href="#why-tlsf" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Bounded Response Time:</strong> TLSF ensures worst-case execution time (WCET) for allocation and deallocation is constant and predictable, making it ideal for real-time and safety-critical systems.</p></li>
+<li><p><strong>Low Fragmentation:</strong> TLSF achieves low memory fragmentation (typically &lt;15% average, &lt;25% maximum), which is crucial for long-running embedded devices and systems with constrained memory.</p></li>
+<li><p><strong>Efficiency:</strong> TLSF is fast and lightweight, executing a small, bounded number of instructions per operation. It supports multiple memory pools and adapts well to both MCU and host environments.</p></li>
+<li><p><strong>Proven in Practice:</strong> TLSF is widely used in embedded, RTOS, multimedia, networking, and gaming applications, and is included in several Linux distributions.</p></li>
+</ul>
+<p>For more details, see the official TLSF website: <a class="reference external" href="http://www.gii.upv.es/tlsf/">http://www.gii.upv.es/tlsf/</a></p>
+</section>
+<section id="ealloc-features">
+<h2>eAlloc Features<a class="headerlink" href="#ealloc-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>O(1) allocation and free (constant-time, no heap walk).</p></li>
+<li><p>Low fragmentation, suitable for real-time/embedded.</p></li>
+<li><p>Deterministic timing (no hidden loops or recursion).</p></li>
+<li><p>Supports multiple memory pools.</p></li>
+<li><p>Suitable for both MCU and host.</p></li>
+<li><p>StackAllocator for STL compatibility.</p></li>
+<li><p>Platform-adaptive RAII elock guards (elock::IELockable, elock::ELockGuard).</p></li>
+<li><p>Minimal STL bloat (only on host).</p></li>
+<li><p>GoogleTest support for unit tests.</p></li>
+</ul>
+</section>
+<section id="design-philosophy">
+<h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Performance First</strong>: Leverages TLSF for O(1) malloc/free, ensuring deterministic behavior crucial for real-time systems.</p></li>
+<li><p><strong>Memory Efficiency</strong>: Designed to minimize fragmentation and overhead, maximizing usable memory in constrained environments.</p></li>
+<li><p><strong>Portability</strong>: Core logic is C++17 standard-compliant, adaptable to various MCUs (Arduino, FreeRTOS, ESP-IDF) and host systems (Linux, Windows, macOS) with minimal platform-specific code.</p></li>
+<li><p><strong>Thread Safety</strong>: Provides a flexible locking mechanism (via <cite>elock</cite> adapters) to ensure safe operation in multi-threaded applications.</p></li>
+<li><p><strong>Ease of Use</strong>: Offers a familiar <cite>malloc</cite>-like API, complemented by features like <cite>StackAllocator</cite> for enhanced usability with STL containers.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="eAlloc Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quickstart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name/Company.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

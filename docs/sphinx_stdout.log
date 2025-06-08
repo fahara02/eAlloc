@@ -1,0 +1,56 @@
+[01mRunning Sphinx v8.1.3[39;49;00m
+[01mloading translations [en]... [39;49;00mdone
+[01mmaking output directory... [39;49;00mdone
+Converting `source_suffix = '.rst'` to `source_suffix = {'.rst': 'restructuredtext'}`.
+[01mbuilding [mo]: [39;49;00mtargets for 0 po files that are out of date
+[01mwriting output... [39;49;00m
+[01mbuilding [html]: [39;49;00mtargets for 13 source files that are out of date
+[01mupdating environment: [39;49;00m[new config] 13 added, 0 changed, 0 removed
+[2K[01mreading sources... [39;49;00m[  8%] [35mapi[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 15%] [35mentities/classes[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 23%] [35mentities/defines[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 31%] [35mentities/enums[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 38%] [35mentities/functions[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 46%] [35mentities/groups[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 54%] [35mentities/namespaces[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 62%] [35mentities/structs[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 69%] [35mentities/typedefs[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 77%] [35mexamples[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 85%] [35mindex[39;49;00m
+[2K[01mreading sources... [39;49;00m[ 92%] [35moverview[39;49;00m
+[2K[01mreading sources... [39;49;00m[100%] [35mquickstart[39;49;00m
+
+[01mlooking for now-outdated files... [39;49;00mnone found
+[01mpickling environment... [39;49;00mdone
+[01mchecking consistency... [39;49;00mdone
+[01mpreparing documents... [39;49;00mdone
+[01mcopying assets... [39;49;00m
+[01mcopying static files... [39;49;00m
+Writing evaluated template result to C:\_DEV\eAlloc\docs\sphinx_build\_static\basic.css
+Writing evaluated template result to C:\_DEV\eAlloc\docs\sphinx_build\_static\documentation_options.js
+Writing evaluated template result to C:\_DEV\eAlloc\docs\sphinx_build\_static\language_data.js
+Writing evaluated template result to C:\_DEV\eAlloc\docs\sphinx_build\_static\js\versions.js
+[01mcopying static files: [39;49;00mdone
+[01mcopying extra files... [39;49;00m
+[01mcopying extra files: [39;49;00mdone
+[01mcopying assets: [39;49;00mdone
+[2K[01mwriting output... [39;49;00m[  8%] [32mapi[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 15%] [32mentities/classes[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 23%] [32mentities/defines[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 31%] [32mentities/enums[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 38%] [32mentities/functions[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 46%] [32mentities/groups[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 54%] [32mentities/namespaces[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 62%] [32mentities/structs[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 69%] [32mentities/typedefs[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 77%] [32mexamples[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 85%] [32mindex[39;49;00m
+[2K[01mwriting output... [39;49;00m[ 92%] [32moverview[39;49;00m
+[2K[01mwriting output... [39;49;00m[100%] [32mquickstart[39;49;00m
+
+[01mgenerating indices... [39;49;00mgenindex done
+[01mhighlighting module code... [39;49;00m
+[01mwriting additional pages... [39;49;00msearch done
+[01mdumping search index in English (code: en)... [39;49;00mdone
+[01mdumping object inventory... [39;49;00mdone
+[01mbuild finished with problems, 17 warnings (with warnings treated as errors).[39;49;00m
