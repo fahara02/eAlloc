@@ -14,11 +14,9 @@ void setup() {
     Serial.begin(115200);
     while (!Serial); // Wait for serial
     sem = xSemaphoreCreateMutex();
-    // Use eAlloc to allocate memory for the lock object, avoiding uncontrolled dynamic allocation
-    lock_ = static_cast<elock::ILockable*>(alloc.allocate_raw<elock::FreeRTOSMutex>());
+    // Use elock::createLock to allocate and construct the lock object in one step
+    lock_ = elock::createLock<elock::FreeRTOSMutex>(alloc, sem);
     if (lock_) {
-        // Construct the object in the allocated memory
-        new(lock_) elock::FreeRTOSMutex(sem);
         alloc.setLock(lock_);
         void* p = alloc.malloc(128);
         if (p) {
@@ -29,7 +27,7 @@ void setup() {
             Serial.println("Allocation failed!");
         }
     } else {
-        Serial.println("Failed to allocate memory for lock!");
+        Serial.println("Failed to create lock object!");
     }
 }
 

@@ -290,4 +290,60 @@ class eAlloc
     void walk_pool(void* pool, Walker walker, void* user);
 };
 
+ /**
+     * @brief Creates a lock object of the specified type and sets it for the allocator.
+     * @tparam LockType The type of lock to create (must implement ILockable).
+     * @tparam Args Types of the constructor arguments for the lock.
+     * @param autoSet If true, automatically sets the created lock as the allocator's lock.
+     * @param args Arguments to pass to the lock's constructor.
+     * @return Pointer to the created ILockable object, or nullptr if allocation fails.
+     */
+     template <typename LockType, typename... Args>
+     elock::ILockable* createLock(bool autoSet = true, Args&&... args)
+     {
+         void* memory = allocate_raw(sizeof(LockType));
+         if (!memory)
+         {
+             LOG::ERROR("E_ALLOC", "Memory allocation failed for lock object.");
+             return nullptr;
+         }
+         try
+         {
+             LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
+             if (autoSet)
+             {
+                 setLock(lock);
+             }
+             return lock;
+         }
+         catch (...)
+         {
+             free(memory);
+             LOG::ERROR("E_ALLOC", "Lock object construction failed.");
+             return nullptr;
+         }
+     }
+     
+     /**
+      * @brief Destroys and deallocates the lock object previously created by createLock.
+      * @param lock Pointer to the ILockable object to destroy.
+      * @note This will unset the lock if it is the current lock of the allocator.
+      */
+     void destroyLock(elock::ILockable* lock)
+     {
+         if (!lock) return;
+         if (lock_ == lock)
+         {
+             setLock(nullptr);
+         }
+         // Call destructor explicitly
+         lock->~ILockable();
+         free(static_cast<void*>(lock));
+     }
+
+
+
+
+
+
 } // namespace dsa
