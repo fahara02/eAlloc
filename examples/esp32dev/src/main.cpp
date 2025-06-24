@@ -14,15 +14,22 @@ void setup() {
     Serial.begin(115200);
     while (!Serial); // Wait for serial
     sem = xSemaphoreCreateMutex();
-    lock_ = new elock::FreeRTOSMutex(sem);
-    alloc.setLock(lock_);
-    void* p = alloc.malloc(128);
-    if (p) {
-        Serial.println("ESP32 allocation successful!");
-        alloc.free(p);
-        Serial.println("Memory freed.");
+    // Use eAlloc to allocate memory for the lock object, avoiding uncontrolled dynamic allocation
+    lock_ = static_cast<elock::ILockable*>(alloc.allocate_raw<elock::FreeRTOSMutex>());
+    if (lock_) {
+        // Construct the object in the allocated memory
+        new(lock_) elock::FreeRTOSMutex(sem);
+        alloc.setLock(lock_);
+        void* p = alloc.malloc(128);
+        if (p) {
+            Serial.println("ESP32 allocation successful!");
+            alloc.free(p);
+            Serial.println("Memory freed.");
+        } else {
+            Serial.println("Allocation failed!");
+        }
     } else {
-        Serial.println("Allocation failed!");
+        Serial.println("Failed to allocate memory for lock!");
     }
 }
 

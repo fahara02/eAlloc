@@ -113,6 +113,39 @@ class eAlloc
     void* calloc(size_t num, size_t size);
 
     /**
+     * @brief Allocates raw memory for an object without constructing it.
+     * @tparam T The type of the object for sizing purposes.
+     * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
+     */
+    template <typename T>
+    void* allocate_raw()
+    {
+        void* memory = malloc(sizeof(T));
+        if(!memory)
+        {
+            LOG::ERROR("E_ALLOC", "Memory allocation failed for raw memory.");
+            return nullptr;
+        }
+        return memory;
+    }
+
+    /**
+     * @brief Allocates raw memory for a specified size without constructing objects.
+     * @param size Size of memory to allocate in bytes.
+     * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
+     */
+    void* allocate_raw(size_t size)
+    {
+        void* memory = malloc(size);
+        if(!memory)
+        {
+            LOG::ERROR("E_ALLOC", "Memory allocation failed for raw memory.");
+            return nullptr;
+        }
+        return memory;
+    }
+
+    /**
      * @brief Allocates memory for an object and constructs it by copying.
      * @tparam T The type of the object to allocate.
      * @param obj The object to copy-construct.
@@ -168,15 +201,19 @@ class eAlloc
     }
 
     /**
-     * @brief Deallocates an object and destroys it.
-     * @tparam T The type of the object to deallocate.
-     * @param obj Pointer to the object to deallocate.
+     * @brief Deallocates an object or raw memory and destroys it if applicable.
+     * @tparam T The type of the object to deallocate (ignored for raw memory).
+     * @param obj Pointer to the object or raw memory to deallocate.
+     * @param destroy If true, calls the destructor for the object; if false, treats as raw memory.
      */
     template <typename T>
-    void deallocate(T* obj)
+    void deallocate(T* obj, bool destroy = true)
     {
         if(!obj) return;
-        obj->~T();
+        if(destroy)
+        {
+            obj->~T();
+        }
         free(static_cast<void*>(obj));
     }
 
