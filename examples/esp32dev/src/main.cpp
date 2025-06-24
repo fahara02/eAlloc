@@ -14,10 +14,10 @@ void setup() {
     Serial.begin(115200);
     while (!Serial); // Wait for serial
     sem = xSemaphoreCreateMutex();
-    // Use elock::createLock to allocate and construct the lock object in one step
-    lock_ = elock::createLock<elock::FreeRTOSMutex>(alloc, sem);
+    // Use eAlloc::createLock to allocate and construct the lock object in one step
+    lock_ = alloc.createLock<elock::FreeRTOSMutex>(true, sem);
     if (lock_) {
-        alloc.setLock(lock_);
+        // Lock is already set via createLock with autoSet=true
         void* p = alloc.malloc(128);
         if (p) {
             Serial.println("ESP32 allocation successful!");

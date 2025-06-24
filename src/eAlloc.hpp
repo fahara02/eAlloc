@@ -34,7 +34,35 @@ class eAlloc
    public:
     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
 
-    void setLock(elock::ILockable* lock) { lock_ = lock; }
+    /**
+     * @brief Allocates raw memory of a specified size without constructing an object.
+     * @param size Size of memory to allocate in bytes.
+     * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
+     */
+    void* allocate_raw(size_t size)
+    {
+        return malloc(size);
+    }
+
+    /**
+     * @brief Template version of allocate_raw for type-safe size calculation.
+     * @tparam T The type whose size will be used for allocation.
+     * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
+     */
+    template <typename T>
+    void* allocate_raw()
+    {
+        return allocate_raw(sizeof(T));
+    }
+
+    /**
+     * @brief Sets the lock object for thread safety.
+     * @param lock Pointer to an ILockable object to use for locking.
+     */
+    void setLock(elock::ILockable* lock)
+    {
+        lock_ = lock;
+    }
 
     /**
      * @brief Constructs an eAlloc instance with an initial memory pool.
@@ -117,33 +145,6 @@ class eAlloc
      * @tparam T The type of the object for sizing purposes.
      * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
      */
-    template <typename T>
-    void* allocate_raw()
-    {
-        void* memory = malloc(sizeof(T));
-        if(!memory)
-        {
-            LOG::ERROR("E_ALLOC", "Memory allocation failed for raw memory.");
-            return nullptr;
-        }
-        return memory;
-    }
-
-    /**
-     * @brief Allocates raw memory for a specified size without constructing objects.
-     * @param size Size of memory to allocate in bytes.
-     * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
-     */
-    void* allocate_raw(size_t size)
-    {
-        void* memory = malloc(size);
-        if(!memory)
-        {
-            LOG::ERROR("E_ALLOC", "Memory allocation failed for raw memory.");
-            return nullptr;
-        }
-        return memory;
-    }
 
     /**
      * @brief Allocates memory for an object and constructs it by copying.
@@ -274,6 +275,57 @@ class eAlloc
      */
     void logStorageReport() const;
 
+    /**
+     * @brief Creates a lock object of the specified type and sets it for the allocator.
+     * @tparam LockType The type of lock to create (must implement ILockable).
+     * @tparam Args Types of the constructor arguments for the lock.
+     * @param autoSet If true, automatically sets the created lock as the allocator's lock.
+     * @param args Arguments to pass to the lock's constructor.
+     * @return Pointer to the created ILockable object, or nullptr if allocation fails.
+     */
+    template <typename LockType, typename... Args>
+    elock::ILockable* createLock(bool autoSet = true, Args&&... args)
+    {
+        void* memory = allocate_raw(sizeof(LockType));
+        if (!memory)
+        {
+            LOG::ERROR("E_ALLOC", "Memory allocation failed for lock object.");
+            return nullptr;
+        }
+        try
+        {
+            LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
+            if (autoSet)
+            {
+                setLock(lock);
+            }
+            return lock;
+        }
+        catch (...)
+        {
+            free(memory);
+            LOG::ERROR("E_ALLOC", "Lock object construction failed.");
+            return nullptr;
+        }
+    }
+    
+    /**
+     * @brief Destroys and deallocates the lock object previously created by createLock.
+     * @param lock Pointer to the ILockable object to destroy.
+     * @note This will unset the lock if it is the current lock of the allocator.
+     */
+    void destroyLock(elock::ILockable* lock)
+    {
+        if (!lock) return;
+        if (lock_ == lock)
+        {
+            setLock(nullptr);
+        }
+        // Call destructor explicitly
+        lock->~ILockable();
+        free(static_cast<void*>(lock));
+    }
+
    private:
     Control control;              ///< TLSF control structure.
     void* memory_pools[MAX_POOL]; ///< Array of memory pool pointers.
@@ -289,61 +341,5 @@ class eAlloc
      */
     void walk_pool(void* pool, Walker walker, void* user);
 };
-
- /**
-     * @brief Creates a lock object of the specified type and sets it for the allocator.
-     * @tparam LockType The type of lock to create (must implement ILockable).
-     * @tparam Args Types of the constructor arguments for the lock.
-     * @param autoSet If true, automatically sets the created lock as the allocator's lock.
-     * @param args Arguments to pass to the lock's constructor.
-     * @return Pointer to the created ILockable object, or nullptr if allocation fails.
-     */
-     template <typename LockType, typename... Args>
-     elock::ILockable* createLock(bool autoSet = true, Args&&... args)
-     {
-         void* memory = allocate_raw(sizeof(LockType));
-         if (!memory)
-         {
-             LOG::ERROR("E_ALLOC", "Memory allocation failed for lock object.");
-             return nullptr;
-         }
-         try
-         {
-             LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
-             if (autoSet)
-             {
-                 setLock(lock);
-             }
-             return lock;
-         }
-         catch (...)
-         {
-             free(memory);
-             LOG::ERROR("E_ALLOC", "Lock object construction failed.");
-             return nullptr;
-         }
-     }
-     
-     /**
-      * @brief Destroys and deallocates the lock object previously created by createLock.
-      * @param lock Pointer to the ILockable object to destroy.
-      * @note This will unset the lock if it is the current lock of the allocator.
-      */
-     void destroyLock(elock::ILockable* lock)
-     {
-         if (!lock) return;
-         if (lock_ == lock)
-         {
-             setLock(nullptr);
-         }
-         // Call destructor explicitly
-         lock->~ILockable();
-         free(static_cast<void*>(lock));
-     }
-
-
-
-
-
 
 } // namespace dsa
