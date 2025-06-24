@@ -14,8 +14,13 @@ void setup() {
     Serial.begin(115200);
     while (!Serial); // Wait for serial
     sem = xSemaphoreCreateMutex();
-    // Use eAlloc::createLock to allocate and construct the lock object in one step
-    lock_ = alloc.createLock<elock::FreeRTOSMutex>(true, sem);
+    if(sem){
+      lock_ = alloc.createLock<elock::FreeRTOSMutex>(true, sem);
+    }else{
+      Serial.println("Failed to create semaphore!");
+    }
+    
+  
     if (lock_) {
         // Lock is already set via createLock with autoSet=true
         void* p = alloc.malloc(128);

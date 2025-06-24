@@ -161,21 +161,12 @@ class eAlloc
             LOG::ERROR("E_ALLOC", "Memory allocation failed for object.");
             return nullptr;
         }
-        try
-        {
-            return new(memory) T(obj);
-        }
-        catch(...)
-        {
-            free(memory);
-            LOG::ERROR("E_ALLOC", "Object construction failed.");
-            return nullptr;
-        }
+        return new(memory) T(obj);
     }
 
     /**
-     * @brief Allocates memory for an object and constructs it with arguments.
-     * @tparam T The type of the object to allocate.
+     * @brief Allocates memory for an object and constructs it with the provided arguments.
+     * @tparam T The type of the object to allocate and construct.
      * @tparam Args Types of the constructor arguments.
      * @param args Arguments to pass to the object's constructor.
      * @return Pointer to the constructed object, or nullptr if allocation fails.
@@ -183,22 +174,14 @@ class eAlloc
     template <typename T, typename... Args>
     T* allocate(Args&&... args)
     {
-        void* memory = malloc(sizeof(T));
+        void* memory = allocate_raw(sizeof(T));
         if(!memory)
         {
             LOG::ERROR("E_ALLOC", "Memory allocation failed for object.");
             return nullptr;
         }
-        try
-        {
-            return new(memory) T(std::forward<Args>(args)...);
-        }
-        catch(...)
-        {
-            free(memory);
-            LOG::ERROR("E_ALLOC", "Object construction failed.");
-            return nullptr;
-        }
+        T* obj = new(memory) T(std::forward<Args>(args)...);
+        return obj;
     }
 
     /**
@@ -292,21 +275,12 @@ class eAlloc
             LOG::ERROR("E_ALLOC", "Memory allocation failed for lock object.");
             return nullptr;
         }
-        try
+        LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
+        if (autoSet)
         {
-            LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
-            if (autoSet)
-            {
-                setLock(lock);
-            }
-            return lock;
+            setLock(lock);
         }
-        catch (...)
-        {
-            free(memory);
-            LOG::ERROR("E_ALLOC", "Lock object construction failed.");
-            return nullptr;
-        }
+        return lock;
     }
     
     /**
