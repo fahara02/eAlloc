@@ -20,6 +20,10 @@
 // src/globalELock.hpp
 #pragma once
 
+namespace dsa {
+    class eAlloc;
+}
+
 // Platform Detection:
 // For ESP32/ESP-IDF builds, CMake should define ESP32 or ESP_PLATFORM.
 // For host/PC builds, do NOT define ESP_PLATFORM, FREERTOS, or ARDUINO.
@@ -101,6 +105,55 @@ private:
     ILockable& lock_;
     bool acquired_;
 };
+
+/**
+ * @brief Utility to create a lock object of a specified type using an eAlloc instance for memory management.
+ * @tparam LockType The type of lock to create (must implement ILockable).
+ * @tparam Args Types of the constructor arguments for the lock.
+ * @param allocator Reference to an eAlloc instance to manage memory allocation.
+ * @param args Arguments to pass to the lock's constructor.
+ * @return Pointer to the created ILockable object, or nullptr if allocation fails.
+ */
+ template <typename LockType, typename... Args>
+ ILockable* createLock(dsa::eAlloc& allocator, Args&&... args)
+ {
+     void* memory = allocator.allocate_raw(sizeof(LockType));
+     if (!memory)
+     {
+         LOG::ERROR("E_ALLOC", "Memory allocation failed for lock object.");
+         return nullptr;
+     }
+     try
+     {
+         LockType* lock = new (memory) LockType(std::forward<Args>(args)...);
+         return lock;
+     }
+     catch (...)
+     {
+         allocator.free(memory);
+         LOG::ERROR("E_ALLOC", "Lock object construction failed.");
+         return nullptr;
+     }
+ }
+ 
+ /**
+  * @brief Utility to destroy and deallocate a lock object using an eAlloc instance.
+  * @param allocator Reference to an eAlloc instance to manage memory deallocation.
+  * @param lock Pointer to the ILockable object to destroy.
+  */
+ void destroyLock(dsa::eAlloc& allocator, ILockable* lock)
+ {
+     if (!lock) return;
+     lock->~ILockable();
+     allocator.free(static_cast<void*>(lock));
+ }
+
+
+
+
+
+
+
 
 // --- Platform Adapters ---
 
