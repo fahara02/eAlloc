@@ -22,6 +22,7 @@ namespace dsa
             pool_configs[i] = PoolConfig();
             memory_pools[i] = nullptr;
             pool_sizes[i] = 0;
+            pool_locks_[i] = nullptr;
         }
         initialised = true;
         if(!add_pool(mem, bytes))
@@ -33,7 +34,11 @@ namespace dsa
 
 void* eAlloc::add_pool(void* mem, size_t bytes, const PoolConfig& config)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     if(pool_count >= MAX_POOL)
     {
         LOG::ERROR("E_ALLOC", "Maximum number of pools (%d) reached.\n", MAX_POOL);
@@ -90,7 +95,11 @@ void* eAlloc::add_pool(void* mem, size_t bytes, const PoolConfig& config)
 
 void eAlloc::remove_pool(void* pool)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     for(size_t i = 0; i < pool_count; ++i)
     {
         if(memory_pools[i] == pool)
@@ -150,7 +159,11 @@ void eAlloc::integrity_walker(void* ptr, size_t size, int used, void* user)
 
 void* eAlloc::malloc(size_t size)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     if(!initialised) return nullptr;
     
     // Check for auto-defragmentation if enabled and fragmentation is high
@@ -186,7 +199,11 @@ void* eAlloc::malloc(size_t size)
 
 void eAlloc::free(void* ptr)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     if(!ptr || !initialised) return;
 
     void* actual_ptr = ptr;
@@ -208,7 +225,13 @@ void eAlloc::free(void* ptr)
 
 void eAlloc::walk_pool(void* pool, Walker walker, void* user)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    size_t poolIndex = get_pool_index(pool);
+    elock::ILockable* poolLock = (poolIndex < MAX_POOL && pool_locks_[poolIndex]) ? pool_locks_[poolIndex] : lock_;
+    if (poolLock) {
+        elock::LockGuard guard(*poolLock);
+    }
+#endif
     Walker pool_walker = walker ? walker : tlsf::default_walker;
     BlockHeader* block = tlsf::offset_to_block_nc(pool, -static_cast<int>(tlsf::alloc_overhead()));
     while(block && !tlsf::is_last(block))
@@ -220,6 +243,11 @@ void eAlloc::walk_pool(void* pool, Walker walker, void* user)
 
 void* eAlloc::memalign(size_t align, size_t size)
 {
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     if((align & (align - 1)) != 0 || align == 0)
     {
         LOG::ERROR("E_ALLOC", "Alignment must be a non-zero power of two.");
@@ -274,7 +302,11 @@ void* eAlloc::memalign(size_t align, size_t size)
 
 void* eAlloc::realloc(void* ptr, size_t size)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     void* p = nullptr;
     if(ptr && size == 0)
     {
@@ -318,7 +350,11 @@ void* eAlloc::realloc(void* ptr, size_t size)
 
 void* eAlloc::calloc(size_t num, size_t size)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     size_t total_size;
     if(num > 0 && size > SIZE_MAX / num)
     {
@@ -336,7 +372,11 @@ void* eAlloc::calloc(size_t num, size_t size)
 
 eAlloc::StorageReport eAlloc::report() const
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     StorageReport report{};
     size_t totalFreeSizeForAvg = 0;
     for(size_t fl = 0; fl < tlsf::cabinets(); ++fl)
@@ -397,7 +437,11 @@ void eAlloc::logStorageReport() const
 
 size_t eAlloc::defragment()
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     size_t merge_count = 0;
     for(size_t i = 0; i < pool_count; ++i)
     {
@@ -427,7 +471,11 @@ size_t eAlloc::defragment()
 
 void eAlloc::setAutoDefragment(bool enable, double threshold)
 {
-    if(lock_) elock::LockGuard guard(*lock_);
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     auto_defragment_ = enable;
     if(threshold >= 0.0 && threshold <= 1.0)
     {
@@ -441,5 +489,33 @@ void eAlloc::setAutoDefragment(bool enable, double threshold)
     LOG::INFO("E_ALLOC", "Auto-defragmentation %s with threshold %.2f.", enable ? "enabled" : "disabled", defragment_threshold_);
 }
 
+void eAlloc::setLock(elock::ILockable* lock)
+{
+#if !EALLOC_NO_LOCKING
+    lock_ = lock;
+#endif
+}
+
+void eAlloc::setLockForPool(size_t poolIndex, elock::ILockable* lock)
+{
+#if !EALLOC_NO_LOCKING
+    if(poolIndex < MAX_POOL)
+    {
+        pool_locks_[poolIndex] = lock;
+    }
+#endif
+}
+
+size_t eAlloc::get_pool_index(void* pool) const
+{
+    for(size_t i = 0; i < pool_count; ++i)
+    {
+        if(memory_pools[i] == pool)
+        {
+            return i;
+        }
+    }
+    return MAX_POOL;
+}
 
 } // namespace dsa

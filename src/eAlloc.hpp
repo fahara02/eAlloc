@@ -19,6 +19,10 @@
 #include "tlsf.hpp"
 #include "globalELock.hpp"
 
+#ifndef EALLOC_NO_LOCKING
+#define EALLOC_NO_LOCKING 0
+#endif
+
 namespace dsa
 {
 
@@ -94,10 +98,10 @@ class eAlloc
      * @brief Sets the lock object for thread safety.
      * @param lock Pointer to an ILockable object to use for locking.
      */
-    void setLock(elock::ILockable* lock)
-    {
-        lock_ = lock;
-    }
+    void setLock(elock::ILockable* lock);
+    void setLockForPool(size_t poolIndex, elock::ILockable* lock);
+    size_t get_pool_index(void* pool) const;
+  
 
     /**
      * @brief Constructs an eAlloc instance with an initial memory pool.
@@ -391,7 +395,10 @@ class eAlloc
     PoolConfig pool_configs[MAX_POOL]; ///< Array of pool configurations.
     size_t pool_count = 0;        ///< Number of active pools.
     bool initialised = false;     ///< Flag indicating if the allocator is initialized.
+#if !EALLOC_NO_LOCKING
     elock::ILockable* lock_ = nullptr;
+    elock::ILockable* pool_locks_[MAX_POOL] = {nullptr};
+#endif
     AllocationFailureHandler failure_handler_ = nullptr;
     void* failure_handler_data_ = nullptr;
     bool auto_defragment_ = false; ///< Flag indicating if auto-defragmentation is enabled.

@@ -129,6 +129,7 @@ class FreeRTOSMutex : public ILockable {
 public:
     FreeRTOSMutex(SemaphoreHandle_t sem) : sem_(sem) {}
     bool lock(uint32_t timeout_ms) override {
+        LOG::INFO("E_ALLOC", "Locking FreeRTOS mutex %p.\n", sem_);
         return xSemaphoreTake(sem_, timeout_ms / portTICK_PERIOD_MS) == pdTRUE;
     }
     void unlock() override { xSemaphoreGive(sem_); }
