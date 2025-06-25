@@ -39,16 +39,16 @@ class eAllocTest : public ::testing::Test
    protected:
     static constexpr size_t MEMORY_SIZE = 4096;
     uint8_t memory_buffer[MEMORY_SIZE];
-    dsa::eAlloc allocator;
+    dsa::eAlloc ealloc;
 
-    eAllocTest() : allocator(memory_buffer, MEMORY_SIZE) {}
+    eAllocTest() : ealloc(memory_buffer, MEMORY_SIZE) {}
 
     void SetUp() override
     {
 #if defined(FREERTOS)
         if(!test_sem) test_sem = xSemaphoreCreateMutexStatic(&test_sem_buffer);
 #endif
-        allocator.setLock(&test_mutex);
+        ealloc.setLock(&test_mutex);
     }
 
     void TearDown() override
@@ -59,17 +59,17 @@ class eAllocTest : public ::testing::Test
 
 TEST_F(eAllocTest, AllocateDeallocateTestObject)
 {
-    TestObject* obj1 = allocator.allocate<TestObject>(1, 42.0f);
+    TestObject* obj1 = ealloc.allocate<TestObject>(1, 42.0f);
     ASSERT_NE(obj1, nullptr);
     EXPECT_EQ(obj1->id, 1);
     EXPECT_FLOAT_EQ(obj1->value, 42.0f);
-    allocator.deallocate(obj1);
+    ealloc.deallocate(obj1);
 }
 
 TEST_F(eAllocTest, AddSecondPool)
 {
     uint8_t second_pool[2048];
-    void* pool = allocator.add_pool(second_pool, sizeof(second_pool));
+    void* pool = ealloc.add_pool(second_pool, sizeof(second_pool));
     ASSERT_NE(pool, nullptr);
 }
 
@@ -78,33 +78,33 @@ TEST_F(eAllocTest, AllocateMultipleObjects)
     TestObject* objects[3];
     for(int i = 0; i < 3; ++i)
     {
-        objects[i] = allocator.allocate<TestObject>(i + 2, 100.0f + i);
+        objects[i] = ealloc.allocate<TestObject>(i + 2, 100.0f + i);
         ASSERT_NE(objects[i], nullptr);
         EXPECT_EQ(objects[i]->id, i + 2);
         EXPECT_FLOAT_EQ(objects[i]->value, 100.0f + i);
     }
-    allocator.logStorageReport();
+    ealloc.logStorageReport();
     for(int i = 0; i < 3; ++i)
     {
-        allocator.deallocate(objects[i]);
+        ealloc.deallocate(objects[i]);
     }
 }
 
 TEST_F(eAllocTest, CheckPoolIntegrity)
 {
-    int integrity_status = allocator.check_pool(memory_buffer);
+    int integrity_status = ealloc.check_pool(memory_buffer);
     EXPECT_EQ(integrity_status, 0);
     uint8_t second_pool[2048];
-    void* pool = allocator.add_pool(second_pool, sizeof(second_pool));
+    void* pool = ealloc.add_pool(second_pool, sizeof(second_pool));
     ASSERT_NE(pool, nullptr);
-    integrity_status = allocator.check_pool(pool);
+    integrity_status = ealloc.check_pool(pool);
     EXPECT_EQ(integrity_status, 0);
-    allocator.remove_pool(pool);
+    ealloc.remove_pool(pool);
 }
 
 TEST_F(eAllocTest, OverallAllocatorIntegrityCheck)
 {
-    int overall_status = allocator.check();
+    int overall_status = ealloc.check();
     EXPECT_EQ(overall_status, 0);
 }
 
@@ -112,19 +112,19 @@ TEST_F(eAllocTest, OverallAllocatorIntegrityCheck)
 
 TEST_F(eAllocTest, ZeroSizeAllocation)
 {
-    void* ptr = allocator.malloc(0);
+    void* ptr = ealloc.malloc(0);
     EXPECT_TRUE(ptr == nullptr
                 || ptr != nullptr); // Accept nullptr or valid pointer, but must not crash
-    allocator.free(ptr);            // Should be safe
+    ealloc.free(ptr);            // Should be safe
 }
 
 TEST_F(eAllocTest, DoubleFree)
 {
-    TestObject* obj = allocator.allocate<TestObject>(123, 456.0f);
+    TestObject* obj = ealloc.allocate<TestObject>(123, 456.0f);
     ASSERT_NE(obj, nullptr);
-    allocator.deallocate(obj);
+    ealloc.deallocate(obj);
     // Double free should not crash or corrupt
-    allocator.deallocate(obj);
+    ealloc.deallocate(obj);
 }
 
 TEST_F(eAllocTest, OutOfMemory)
@@ -134,57 +134,57 @@ TEST_F(eAllocTest, OutOfMemory)
     int count = 0;
     for(; count < max_allocs; ++count)
     {
-        ptrs[count] = allocator.malloc(128);
+        ptrs[count] = ealloc.malloc(128);
         if(!ptrs[count]) break;
     }
     EXPECT_GT(count, 0);
     // Should return nullptr when exhausted
     EXPECT_EQ(ptrs[count], nullptr);
     // Free all
-    for(int i = 0; i < count; ++i) allocator.free(ptrs[i]);
+    for(int i = 0; i < count; ++i) ealloc.free(ptrs[i]);
 }
 
 TEST_F(eAllocTest, RemovePoolWithAllocationsFails)
 {
     uint8_t second_pool[1024];
-    void* pool = allocator.add_pool(second_pool, sizeof(second_pool));
+    void* pool = ealloc.add_pool(second_pool, sizeof(second_pool));
     ASSERT_NE(pool, nullptr);
-    void* obj = allocator.malloc(16);
+    void* obj = ealloc.malloc(16);
     ASSERT_NE(obj, nullptr);
     // Should fail to remove pool with allocation
-    allocator.remove_pool(pool); // Should log error, but not remove
+    ealloc.remove_pool(pool); // Should log error, but not remove
     // Free and try again
-    allocator.free(obj);
-    allocator.remove_pool(pool); // Now should succeed
+    ealloc.free(obj);
+    ealloc.remove_pool(pool); // Now should succeed
 }
 
 TEST_F(eAllocTest, Alignment)
 {
-    void* ptr = allocator.memalign(64, 128);
+    void* ptr = ealloc.memalign(64, 128);
     ASSERT_NE(ptr, nullptr);
     EXPECT_EQ(reinterpret_cast<uintptr_t>(ptr) % 64, 0u);
-    allocator.free(ptr);
+    ealloc.free(ptr);
 }
 
 TEST_F(eAllocTest, ReallocBehavior)
 {
-    void* ptr = allocator.malloc(32);
+    void* ptr = ealloc.malloc(32);
     ASSERT_NE(ptr, nullptr);
     // Shrink
-    void* ptr2 = allocator.realloc(ptr, 16);
+    void* ptr2 = ealloc.realloc(ptr, 16);
     ASSERT_EQ(ptr, ptr2); // Should shrink in place
     // Expand
-    void* ptr3 = allocator.realloc(ptr2, 64);
+    void* ptr3 = ealloc.realloc(ptr2, 64);
     ASSERT_NE(ptr3, nullptr);
-    allocator.free(ptr3);
+    ealloc.free(ptr3);
     // realloc(nullptr, N) == malloc(N)
-    void* ptr4 = allocator.realloc(nullptr, 24);
+    void* ptr4 = ealloc.realloc(nullptr, 24);
     ASSERT_NE(ptr4, nullptr);
-    allocator.free(ptr4);
+    ealloc.free(ptr4);
     // realloc(ptr, 0) == free(ptr)
-    void* ptr5 = allocator.malloc(24);
+    void* ptr5 = ealloc.malloc(24);
     ASSERT_NE(ptr5, nullptr);
-    void* ptr6 = allocator.realloc(ptr5, 0);
+    void* ptr6 = ealloc.realloc(ptr5, 0);
     EXPECT_EQ(ptr6, nullptr);
 }
 
@@ -195,17 +195,17 @@ TEST_F(eAllocTest, PoolConfigManagement)
     config.min_block_size = 32;
     config.preferred_alignment = 8;
     config.priority = 1;
-    bool result = allocator.add_pool(second_pool, sizeof(second_pool), config);
+    bool result = ealloc.add_pool(second_pool, sizeof(second_pool), config);
     ASSERT_TRUE(result) << "Failed to add pool with custom configuration";
     // Allocate and check if configuration is respected (indirectly via successful allocation)
-    void* ptr = allocator.malloc(64);
+    void* ptr = ealloc.malloc(64);
     ASSERT_NE(ptr, nullptr) << "Allocation failed in pool with custom config";
     // Check alignment if configured
     if (config.preferred_alignment > 0) {
         EXPECT_EQ(reinterpret_cast<uintptr_t>(ptr) % config.preferred_alignment, 0u) << "Alignment not respected";
     }
-    allocator.free(ptr);
-    allocator.remove_pool(second_pool);
+    ealloc.free(ptr);
+    ealloc.remove_pool(second_pool);
 }
 
 TEST_F(eAllocTest, AllocationFailureHandler)
@@ -223,7 +223,7 @@ TEST_F(eAllocTest, AllocationFailureHandler)
         }
         return nullptr;
     };
-    allocator.setAllocationFailureHandler(failure_handler, nullptr);
+    ealloc.setAllocationFailureHandler(failure_handler, nullptr);
     
     // Force out-of-memory condition
     constexpr int max_allocs = 256;
@@ -231,7 +231,7 @@ TEST_F(eAllocTest, AllocationFailureHandler)
     int count = 0;
     bool recovery_used = false;
     for (; count < max_allocs; ++count) {
-        ptrs[count] = allocator.allocate_raw(128);
+        ptrs[count] = ealloc.allocate_raw(128);
         if (ptrs[count] == recovery_memory) {
             recovery_used = true;
             break;
@@ -248,43 +248,45 @@ TEST_F(eAllocTest, AllocationFailureHandler)
     // Clean up, avoid freeing recovery buffer to prevent segfault
     for (int i = 0; i < count; ++i) {
         if (ptrs[i] != recovery_memory) {
-            allocator.free(ptrs[i]);
+            ealloc.free(ptrs[i]);
         }
     }
     // Reset handler
-    allocator.setAllocationFailureHandler(nullptr);
+    ealloc.setAllocationFailureHandler(nullptr);
 }
 
 TEST_F(eAllocTest, PoolOverflow)
 {
     uint8_t pool1[512], pool2[512], pool3[512], pool4[512], pool5[512];
-    void* p1 = allocator.add_pool(pool1, sizeof(pool1));
-    void* p2 = allocator.add_pool(pool2, sizeof(pool2));
-    void* p3 = allocator.add_pool(pool3, sizeof(pool3));
-    void* p4 = allocator.add_pool(pool4, sizeof(pool4));
+    void* p1 = ealloc.add_pool(pool1, sizeof(pool1));
+    void* p2 = ealloc.add_pool(pool2, sizeof(pool2));
+    void* p3 = ealloc.add_pool(pool3, sizeof(pool3));
+    void* p4 = ealloc.add_pool(pool4, sizeof(pool4));
     // Only 4 more pools can be added after the initial pool
     ASSERT_NE(p1, nullptr);
     ASSERT_NE(p2, nullptr);
     ASSERT_NE(p3, nullptr);
     ASSERT_NE(p4, nullptr);
     // Exceed MAX_POOL (should fail)
-    void* p5 = allocator.add_pool(pool5, sizeof(pool5));
+    void* p5 = ealloc.add_pool(pool5, sizeof(pool5));
     EXPECT_EQ(p5, nullptr);
 }
 
 TEST_F(eAllocTest, FragmentationAndCoalescing)
 {
-    void* a = allocator.malloc(64);
-    void* b = allocator.malloc(64);
-    void* c = allocator.malloc(64);
+    void* a = ealloc.malloc(64);
+    void* b = ealloc.malloc(64);
+    void* c = ealloc.malloc(64);
     ASSERT_NE(a, nullptr);
     ASSERT_NE(b, nullptr);
     ASSERT_NE(c, nullptr);
-    allocator.free(b);
-    allocator.free(a);
+    ealloc.free(b);
+    ealloc.free(a);
     // a and b should be coalesced into one free block
-    allocator.free(c);
-    auto report = allocator.report();
+    ealloc.free(c);
+    auto report = ealloc.report();
+    
+    ealloc.logStorageReport();
     EXPECT_GE(report.largestFreeRegion, 192u);
 }
 
@@ -292,59 +294,61 @@ TEST_F(eAllocTest, Defragmentation)
 {
     // Create a fragmented memory state
     void* pool_mem = malloc(4096);
-    ASSERT_TRUE(allocator.add_pool(pool_mem, 4096));
+    ASSERT_TRUE(ealloc.add_pool(pool_mem, 4096));
     
     // Allocate and free blocks to create fragmentation
-    void* ptr1 = allocator.malloc(512);
-    void* ptr2 = allocator.malloc(512);
-    void* ptr3 = allocator.malloc(512);
-    allocator.free(ptr2); // Free middle block to create fragmentation
+    void* ptr1 = ealloc.malloc(512);
+    void* ptr2 = ealloc.malloc(512);
+    void* ptr3 = ealloc.malloc(512);
+    ealloc.free(ptr2); // Free middle block to create fragmentation
     
-    dsa::eAlloc::StorageReport initial_report = allocator.report();
+    dsa::eAlloc::StorageReport initial_report = ealloc.report();
     EXPECT_GT(initial_report.freeBlockCount, 1) << "Expected fragmented memory with multiple free blocks.";
     double initial_fragmentation = initial_report.fragmentationFactor;
-    
-    // Perform defragmentation
-    size_t merges = allocator.defragment();
+    LOG::TRACE("GTEST","before defragmentation...");
+    ealloc.logStorageReport();
+    // Run defragmentation
+    size_t merges = ealloc.defragment();
     EXPECT_GE(merges, 0) << "Defragmentation should report non-negative merge count.";
-    
-    dsa::eAlloc::StorageReport final_report = allocator.report();
+    LOG::TRACE("GTEST","after defragmentation...");
+    ealloc.logStorageReport();
+    dsa::eAlloc::StorageReport final_report = ealloc.report();
     EXPECT_LE(final_report.fragmentationFactor, initial_fragmentation) << "Fragmentation factor should not increase after defragmentation.";
     EXPECT_LE(final_report.freeBlockCount, initial_report.freeBlockCount) << "Number of free blocks should not increase after defragmentation.";
     
-    // Cleanup
-    allocator.free(ptr1);
-    allocator.free(ptr3);
+    // Clean up
+    ealloc.free(ptr1);
+    ealloc.free(ptr3);
 }
 
 TEST_F(eAllocTest, AutoDefragmentation)
 {
     // Create a fragmented memory state
     void* pool_mem = malloc(4096);
-    ASSERT_TRUE(allocator.add_pool(pool_mem, 4096));
+    ASSERT_TRUE(ealloc.add_pool(pool_mem, 4096));
     
     // Allocate and free blocks to create fragmentation
-    void* ptr1 = allocator.malloc(512);
-    void* ptr2 = allocator.malloc(512);
-    void* ptr3 = allocator.malloc(512);
-    allocator.free(ptr2); // Free middle block to create fragmentation
+    void* ptr1 = ealloc.malloc(512);
+    void* ptr2 = ealloc.malloc(512);
+    void* ptr3 = ealloc.malloc(512);
+    ealloc.free(ptr2); // Free middle block to create fragmentation
     
-    dsa::eAlloc::StorageReport initial_report = allocator.report();
+    dsa::eAlloc::StorageReport initial_report = ealloc.report();
     EXPECT_GT(initial_report.freeBlockCount, 1) << "Expected fragmented memory with multiple free blocks.";
     double initial_fragmentation = initial_report.fragmentationFactor;
     
-    // Enable auto-defragmentation with a low threshold to ensure it triggers
-    allocator.setAutoDefragment(true, 0.1);
+    // Enable auto-defragmentation with very low threshold to ensure it triggers
+    ealloc.setAutoDefragment(true, 0.1);
     
-    // Call logStorageReport to trigger auto-defragmentation
-    allocator.logStorageReport();
+
+    ealloc.logStorageReport();
     
-    dsa::eAlloc::StorageReport final_report = allocator.report();
+    dsa::eAlloc::StorageReport final_report = ealloc.report();
     EXPECT_LE(final_report.fragmentationFactor, initial_fragmentation) << "Fragmentation factor should not increase after auto-defragmentation.";
     EXPECT_LE(final_report.freeBlockCount, initial_report.freeBlockCount) << "Number of free blocks should not increase after auto-defragmentation.";
     
-    // Cleanup
-    allocator.free(ptr1);
-    allocator.free(ptr3);
+    // Clean up
+    ealloc.free(ptr1);
+    ealloc.free(ptr3);
 }
 

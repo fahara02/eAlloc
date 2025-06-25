@@ -17,6 +17,7 @@ namespace dsa
         auto_defragment_ = false;
         defragment_threshold_ = 0.7;
         alloc_count_ = 0;
+        usePerPoolLocking_ = false;
        
         for (size_t i = 0; i < MAX_POOL; ++i) {
             pool_configs[i] = PoolConfig();
@@ -35,7 +36,9 @@ namespace dsa
 void* eAlloc::add_pool(void* mem, size_t bytes, const PoolConfig& config)
 {
 #if !EALLOC_NO_LOCKING
-    if (lock_) {
+    if (usePerPoolLocking_ && pool_count < MAX_POOL && pool_locks_[pool_count]) {
+        elock::LockGuard guard(*pool_locks_[pool_count]);
+    } else if (lock_) {
         elock::LockGuard guard(*lock_);
     }
 #endif
@@ -96,7 +99,10 @@ void* eAlloc::add_pool(void* mem, size_t bytes, const PoolConfig& config)
 void eAlloc::remove_pool(void* pool)
 {
 #if !EALLOC_NO_LOCKING
-    if (lock_) {
+    size_t poolIndex = get_pool_index(pool);
+    if (usePerPoolLocking_ && poolIndex < MAX_POOL && pool_locks_[poolIndex]) {
+        elock::LockGuard guard(*pool_locks_[poolIndex]);
+    } else if (lock_) {
         elock::LockGuard guard(*lock_);
     }
 #endif
@@ -160,6 +166,8 @@ void eAlloc::integrity_walker(void* ptr, size_t size, int used, void* user)
 void* eAlloc::malloc(size_t size)
 {
 #if !EALLOC_NO_LOCKING
+    // For malloc, we may not know the specific pool until allocation,
+    // so use global lock unless per-pool locking is fully implemented with pool selection logic
     if (lock_) {
         elock::LockGuard guard(*lock_);
     }
@@ -183,7 +191,7 @@ void* eAlloc::malloc(size_t size)
     }
     
     size_t adjusted_size = size;
-   
+
     
     const size_t adjust = tlsf::adjust_request_size(adjusted_size, tlsf::align_size());
     BlockHeader* block = tlsf::locate_free(&control, adjust);
@@ -192,28 +200,46 @@ void* eAlloc::malloc(size_t size)
     {
         failure_handler_(size, failure_handler_data_);
     }
-    
-  
+
     return ptr;
 }
 
 void eAlloc::free(void* ptr)
 {
 #if !EALLOC_NO_LOCKING
+    // Similar to malloc, free may not directly map to a specific pool without additional lookup
     if (lock_) {
+        
         elock::LockGuard guard(*lock_);
     }
 #endif
     if(!ptr || !initialised) return;
 
     void* actual_ptr = ptr;
- 
-    if(ptr)
+#if EALLOC_BOUNDS_CHECKING
+    // Adjust pointer back to include start canary
+    actual_ptr = static_cast<char*>(ptr) - 4;
+    // Get the block size to calculate end canary position
+    BlockHeader* block_for_size = tlsf::from_ptr_nc(actual_ptr);
+    size_t total_size = tlsf::get_size(block_for_size);
+    size_t user_size = total_size - 8; // Subtract canary space
+    // Check start canary
+    if(*static_cast<uint32_t*>(actual_ptr) != CANARY_VALUE)
     {
-        BlockHeader* block = tlsf::from_ptr_nc(ptr);
+        LOG::ERROR("E_ALLOC", "Start canary corrupted for block %p! Potential buffer underflow.", ptr);
+    }
+    // Check end canary
+    if(total_size >= 8 && *static_cast<uint32_t*>(static_cast<char*>(actual_ptr) + total_size - 4) != CANARY_VALUE)
+    {
+        LOG::ERROR("E_ALLOC", "End canary corrupted for block %p! Potential buffer overflow.", ptr);
+    }
+#endif
+    if(actual_ptr)
+    {
+        BlockHeader* block = tlsf::from_ptr_nc(actual_ptr);
         if(tlsf::is_free(block))
         {
-            LOG::ERROR("E_ALLOC", "Double free detected for block %p! Ignoring.\n", ptr);
+            LOG::ERROR("E_ALLOC", "Double free detected for block %p! Ignoring.\n", actual_ptr);
             return;
         }
         tlsf::mark_as_free(block);
@@ -222,6 +248,8 @@ void eAlloc::free(void* ptr)
         tlsf::insert(&control, block);
     }
 }
+
+
 
 void eAlloc::walk_pool(void* pool, Walker walker, void* user)
 {
@@ -268,20 +296,6 @@ void* eAlloc::memalign(size_t align, size_t size)
     uintptr_t block_start = reinterpret_cast<uintptr_t>(ptr);
     size_t gap = aligned_addr - block_start;
 
-    // if (gap && gap < gap_minimum) {
-    //   const size_t gap_remain = gap_minimum - gap;
-    //   const size_t offset = dsa_max(gap_remain, align);
-    //   const void *next_aligned = reinterpret_cast<void *>(
-    //       reinterpret_cast<tlsf::tlsfptr_t>(aligned) + offset);
-    //   aligned = tlsf::align_ptr(next_aligned, align);
-    //   gap = static_cast<size_t>(reinterpret_cast<tlsf::tlsfptr_t>(aligned) -
-    //                             reinterpret_cast<tlsf::tlsfptr_t>(ptr));
-    // }
-    // if (gap) {
-    //   dsa_assert(gap >= gap_minimum && "gap size too small");
-    //   block = tlsf::trim_free_leading(&control, block, gap);
-    // }
-    // Adjust alignment to ensure sufficient gap
     if(gap < gap_minimum)
     {
         size_t needed = gap_minimum - gap;
@@ -377,50 +391,61 @@ eAlloc::StorageReport eAlloc::report() const
         elock::LockGuard guard(*lock_);
     }
 #endif
-    StorageReport report{};
-    size_t totalFreeSizeForAvg = 0;
-    for(size_t fl = 0; fl < tlsf::cabinets(); ++fl)
+    StorageReport result;
+    result.totalFreeSpace = 0;
+    result.largestFreeRegion = 0;
+    result.smallestFreeRegion = std::numeric_limits<size_t>::max();
+    result.freeBlockCount = 0;
+    result.averageFreeBlockSize = 0;
+    double sumFragmentation = 0.0;
+    size_t activePoolCount = 0;
+
+    for (size_t i = 0; i < pool_count; ++i)
     {
-        if(!(control.fl_bitmap & (1U << fl))) continue;
-        for(size_t sl = 0; sl < tlsf::shelves(); ++sl)
+        if (memory_pools[i])
         {
-            if(!(control.cabinets[fl].sl_bitmap & (1U << sl))) continue;
-            BlockHeader* block = control.cabinets[fl].shelves[sl];
-            BlockHeader* current = block;
-            while(current != &control.block_null)
+            size_t poolFreeSpace = 0;
+            size_t poolLargestFree = 0;
+            size_t poolSmallestFree = std::numeric_limits<size_t>::max();
+            size_t poolFreeBlocks = 0;
+
+            BlockHeader* block = tlsf::offset_to_block_nc(memory_pools[i], -tlsf::alloc_overhead());
+            while (block && !tlsf::is_last(block))
             {
-                size_t size = tlsf::get_size(current);
-                report.totalFreeSpace += size;
-                if(size > report.largestFreeRegion) report.largestFreeRegion = size;
-                if(report.smallestFreeRegion == 0 || size < report.smallestFreeRegion) report.smallestFreeRegion = size;
-                report.freeBlockCount++;
-                totalFreeSizeForAvg += size;
-                current = current->next_free;
+                if (tlsf::is_free(block))
+                {
+                    size_t block_size = tlsf::get_size(block);
+                    poolFreeSpace += block_size;
+                    poolFreeBlocks++;
+                    if (block_size > poolLargestFree) poolLargestFree = block_size;
+                    if (block_size < poolSmallestFree) poolSmallestFree = block_size;
+                }
+                block = tlsf::next(block);
             }
+
+            result.totalFreeSpace += poolFreeSpace;
+            result.freeBlockCount += poolFreeBlocks;
+            if (poolLargestFree > result.largestFreeRegion) result.largestFreeRegion = poolLargestFree;
+            if (poolSmallestFree < result.smallestFreeRegion) result.smallestFreeRegion = poolSmallestFree;
+
+            double poolFrag = (poolFreeSpace > 0) ? 1.0 - static_cast<double>(poolLargestFree) / poolFreeSpace : 0.0;
+            sumFragmentation += poolFrag;
+            activePoolCount++;
         }
     }
-    if(report.freeBlockCount > 0)
-    {
-        report.averageFreeBlockSize = totalFreeSizeForAvg / report.freeBlockCount;
-    }
-    else
-    {
-        report.averageFreeBlockSize = 0;
-    }
-    if(report.totalFreeSpace > 0)
-    {
-        report.fragmentationFactor =
-            1.0 - static_cast<double>(report.largestFreeRegion) / report.totalFreeSpace;
-    }
-    else
-    {
-        report.fragmentationFactor = 0.0;
-    }
-    return report;
+
+    result.averageFreeBlockSize = (result.freeBlockCount > 0) ? result.totalFreeSpace / result.freeBlockCount : 0;
+    result.fragmentationFactor = (activePoolCount > 0) ? sumFragmentation / activePoolCount : 0.0;
+    return result;
 }
 
 void eAlloc::logStorageReport() const
 {
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
     StorageReport sr = report();
     LOG::INFO("E_ALLOC", "=== Storage Report ===");
     LOG::INFO("E_ALLOC", "Total Free Space: %zu bytes", sr.totalFreeSpace);
@@ -428,7 +453,34 @@ void eAlloc::logStorageReport() const
     LOG::INFO("E_ALLOC", "Smallest Free Region: %zu bytes", sr.smallestFreeRegion);
     LOG::INFO("E_ALLOC", "Number of Free Blocks: %zu", sr.freeBlockCount);
     LOG::INFO("E_ALLOC", "Average Free Block Size: %zu bytes", sr.averageFreeBlockSize);
-    LOG::INFO("E_ALLOC", "Fragmentation Factor: %.4f", sr.fragmentationFactor);
+    LOG::INFO("E_ALLOC", "Average Fragmentation Factor: %.4f", sr.fragmentationFactor);
+    // Add per-pool breakdown to diagnose fragmentation
+    LOG::INFO("E_ALLOC", "Per-Pool Breakdown:");
+    for(size_t i = 0; i < pool_count; ++i)
+    {
+        if(memory_pools[i])
+        {
+            size_t pool_size = pool_sizes[i];
+            size_t free_space = 0;
+            size_t free_blocks = 0;
+            size_t largest_free = 0;
+            BlockHeader* block = tlsf::offset_to_block_nc(memory_pools[i], -tlsf::alloc_overhead());
+            while(block && !tlsf::is_last(block))
+            {
+                if(tlsf::is_free(block))
+                {
+                    size_t block_size = tlsf::get_size(block);
+                    free_space += block_size;
+                    free_blocks++;
+                    if(block_size > largest_free) largest_free = block_size;
+                }
+                block = tlsf::next(block);
+            }
+            double pool_frag = (free_space > 0) ? 1.0 - static_cast<double>(largest_free) / free_space : 0.0;
+            LOG::INFO("E_ALLOC", "  Pool %zu: Total Size=%zu, Free=%zu, Blocks=%zu, Largest Free=%zu, Frag=%.4f", 
+                      i, pool_size, free_space, free_blocks, largest_free, pool_frag);
+        }
+    }
     if(sr.fragmentationFactor > defragment_threshold_)
     {
         LOG::INFO("E_ALLOC", "High fragmentation detected. Consider calling defragment().");
@@ -473,6 +525,7 @@ void eAlloc::setAutoDefragment(bool enable, double threshold)
 {
 #if !EALLOC_NO_LOCKING
     if (lock_) {
+        
         elock::LockGuard guard(*lock_);
     }
 #endif
@@ -504,6 +557,17 @@ void eAlloc::setLockForPool(size_t poolIndex, elock::ILockable* lock)
         pool_locks_[poolIndex] = lock;
     }
 #endif
+}
+
+void eAlloc::setPerPoolLocking(bool enable)
+{
+#if !EALLOC_NO_LOCKING
+    if (lock_) {
+        elock::LockGuard guard(*lock_);
+    }
+#endif
+    usePerPoolLocking_ = enable;
+    LOG::INFO("E_ALLOC", "Per-pool locking %s.", enable ? "enabled" : "disabled");
 }
 
 size_t eAlloc::get_pool_index(void* pool) const

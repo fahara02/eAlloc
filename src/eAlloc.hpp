@@ -23,6 +23,8 @@
 #define EALLOC_NO_LOCKING 0
 #endif
 
+
+
 namespace dsa
 {
 
@@ -37,7 +39,7 @@ class eAlloc
 {
    public:
     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
-    
+   
       /**
      * @brief Pool configuration for advanced memory pool management.
      */
@@ -99,9 +101,6 @@ class eAlloc
      * @param lock Pointer to an ILockable object to use for locking.
      */
     void setLock(elock::ILockable* lock);
-    void setLockForPool(size_t poolIndex, elock::ILockable* lock);
-    size_t get_pool_index(void* pool) const;
-  
 
     /**
      * @brief Constructs an eAlloc instance with an initial memory pool.
@@ -387,6 +386,29 @@ class eAlloc
      */
     void setAutoDefragment(bool enable, double threshold = 0.7);
 
+    /**
+     * @brief Enable or disable per-pool locking to customize locking granularity.
+     *        When enabled, operations on specific pools will use the corresponding pool lock if set,
+     *        reducing contention compared to using a global lock for all operations.
+     * @param enable True to use per-pool locks when available, false to use global lock.
+     */
+    void setPerPoolLocking(bool enable);
+
+    /**
+     * @brief Set a lock for a specific memory pool.
+     * @param poolIndex Index of the pool (0 to MAX_POOL-1).
+     * @param lock Pointer to the lock object for this pool.
+     */
+    void setLockForPool(size_t poolIndex, elock::ILockable* lock);
+
+    /**
+     * @brief Get the index of a pool from its memory address.
+     * @param pool Pointer to the pool memory.
+     * @return Index of the pool, or MAX_POOL if not found.
+     */
+    size_t get_pool_index(void* pool) const;
+
+ 
 
    private:
     Control control;              ///< TLSF control structure.
@@ -404,6 +426,7 @@ class eAlloc
     bool auto_defragment_ = false; ///< Flag indicating if auto-defragmentation is enabled.
     double defragment_threshold_ = 0.7; ///< Fragmentation threshold for auto-defragmentation.
     size_t alloc_count_ = 0; ///< Counter for malloc calls to control auto-defragmentation frequency.
+    bool usePerPoolLocking_ = false; // Flag to toggle between global and per-pool locking
    
     /**
      * @brief Walks through the blocks in a pool with a specified walker function.
@@ -415,3 +438,16 @@ class eAlloc
 };
 
 } // namespace dsa
+
+/**
+ * @def EALLOC_NO_LOCKING
+ * @brief Compile-time option to disable all locking mechanisms for single-threaded applications.
+ *        Define this macro (e.g., via compiler flag -DEALLOC_NO_LOCKING=1) to exclude locking code,
+ *        improving performance in environments where thread safety is not required.
+ *        WARNING: Using this option in a multi-threaded environment will result in data races and undefined behavior.
+ *        Usage: Add -DEALLOC_NO_LOCKING=1 to your compiler flags or define in build system (e.g., PlatformIO).
+ */
+#ifndef EALLOC_NO_LOCKING
+#define EALLOC_NO_LOCKING 0
+#endif
+

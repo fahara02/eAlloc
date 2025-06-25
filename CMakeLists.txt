@@ -24,6 +24,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(Logger)
 
+
+
 # === Platform Adapter Selection ===
 option(EALLOC_USE_PC_HOST "Use PC/host STL mutex adapter" ON)
 option(EALLOC_USE_FREERTOS "Use FreeRTOS mutex adapter" OFF)
