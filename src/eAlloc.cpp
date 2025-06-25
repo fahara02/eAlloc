@@ -9,18 +9,29 @@
 namespace dsa
 {
 
-eAlloc::eAlloc(void* mem, size_t bytes)
-{
-    tlsf::initialise_control(&control);
-    if(!add_pool(mem, bytes))
+    eAlloc::eAlloc(void* mem, size_t bytes)
     {
-        LOG::ERROR("E_ALLOC", "Failed to initialize allocator with initial pool (%p, %zu bytes).\n",
-                   mem, bytes);
+        tlsf::initialise_control(&control);
+        pool_count = 0;
+        lock_ = nullptr;
+        auto_defragment_ = false;
+        defragment_threshold_ = 0.7;
+        alloc_count_ = 0;
+       
+        for (size_t i = 0; i < MAX_POOL; ++i) {
+            pool_configs[i] = PoolConfig();
+            memory_pools[i] = nullptr;
+            pool_sizes[i] = 0;
+        }
+        initialised = true;
+        if(!add_pool(mem, bytes))
+        {
+            LOG::ERROR("E_ALLOC", "Failed to initialize allocator with initial pool (%p, %zu bytes).\n",
+                       mem, bytes);
+        }
     }
-    initialised = true;
-}
 
-void* eAlloc::add_pool(void* mem, size_t bytes)
+void* eAlloc::add_pool(void* mem, size_t bytes, const PoolConfig& config)
 {
     if(lock_) elock::LockGuard guard(*lock_);
     if(pool_count >= MAX_POOL)
@@ -71,6 +82,7 @@ void* eAlloc::add_pool(void* mem, size_t bytes)
 
     memory_pools[pool_count] = mem;
     pool_sizes[pool_count] = pool_bytes;
+    pool_configs[pool_count] = config;
     pool_count++;
     LOG::SUCCESS("E_ALLOC", "Added pool %p (%zu bytes). Total pools: %d\n", mem, bytes, pool_count);
     return mem;
@@ -139,14 +151,46 @@ void eAlloc::integrity_walker(void* ptr, size_t size, int used, void* user)
 void* eAlloc::malloc(size_t size)
 {
     if(lock_) elock::LockGuard guard(*lock_);
-    const size_t adjust = tlsf::adjust_request_size(size, tlsf::align_size());
+    if(!initialised) return nullptr;
+    
+    // Check for auto-defragmentation if enabled and fragmentation is high
+    if(auto_defragment_)
+    {
+        alloc_count_++;
+        // Only check fragmentation every 10 allocations to avoid overhead
+        if(alloc_count_ % 10 == 0)
+        {
+            StorageReport sr = report();
+            if(sr.fragmentationFactor > defragment_threshold_)
+            {
+                LOG::INFO("E_ALLOC", "High fragmentation (%.2f) detected during malloc. Triggering auto-defragmentation.", sr.fragmentationFactor);
+                defragment();
+            }
+        }
+    }
+    
+    size_t adjusted_size = size;
+   
+    
+    const size_t adjust = tlsf::adjust_request_size(adjusted_size, tlsf::align_size());
     BlockHeader* block = tlsf::locate_free(&control, adjust);
-    return tlsf::prepare_used(&control, block, adjust);
+    void* ptr = tlsf::prepare_used(&control, block, adjust);
+    if(!ptr && failure_handler_)
+    {
+        failure_handler_(size, failure_handler_data_);
+    }
+    
+  
+    return ptr;
 }
 
 void eAlloc::free(void* ptr)
 {
     if(lock_) elock::LockGuard guard(*lock_);
+    if(!ptr || !initialised) return;
+
+    void* actual_ptr = ptr;
+ 
     if(ptr)
     {
         BlockHeader* block = tlsf::from_ptr_nc(ptr);
@@ -294,6 +338,7 @@ eAlloc::StorageReport eAlloc::report() const
 {
     if(lock_) elock::LockGuard guard(*lock_);
     StorageReport report{};
+    size_t totalFreeSizeForAvg = 0;
     for(size_t fl = 0; fl < tlsf::cabinets(); ++fl)
     {
         if(!(control.fl_bitmap & (1U << fl))) continue;
@@ -307,10 +352,20 @@ eAlloc::StorageReport eAlloc::report() const
                 size_t size = tlsf::get_size(current);
                 report.totalFreeSpace += size;
                 if(size > report.largestFreeRegion) report.largestFreeRegion = size;
+                if(report.smallestFreeRegion == 0 || size < report.smallestFreeRegion) report.smallestFreeRegion = size;
                 report.freeBlockCount++;
+                totalFreeSizeForAvg += size;
                 current = current->next_free;
             }
         }
+    }
+    if(report.freeBlockCount > 0)
+    {
+        report.averageFreeBlockSize = totalFreeSizeForAvg / report.freeBlockCount;
+    }
+    else
+    {
+        report.averageFreeBlockSize = 0;
     }
     if(report.totalFreeSpace > 0)
     {
@@ -330,8 +385,61 @@ void eAlloc::logStorageReport() const
     LOG::INFO("E_ALLOC", "=== Storage Report ===");
     LOG::INFO("E_ALLOC", "Total Free Space: %zu bytes", sr.totalFreeSpace);
     LOG::INFO("E_ALLOC", "Largest Free Region: %zu bytes", sr.largestFreeRegion);
+    LOG::INFO("E_ALLOC", "Smallest Free Region: %zu bytes", sr.smallestFreeRegion);
     LOG::INFO("E_ALLOC", "Number of Free Blocks: %zu", sr.freeBlockCount);
+    LOG::INFO("E_ALLOC", "Average Free Block Size: %zu bytes", sr.averageFreeBlockSize);
     LOG::INFO("E_ALLOC", "Fragmentation Factor: %.4f", sr.fragmentationFactor);
+    if(sr.fragmentationFactor > defragment_threshold_)
+    {
+        LOG::INFO("E_ALLOC", "High fragmentation detected. Consider calling defragment().");
+    }
 }
+
+size_t eAlloc::defragment()
+{
+    if(lock_) elock::LockGuard guard(*lock_);
+    size_t merge_count = 0;
+    for(size_t i = 0; i < pool_count; ++i)
+    {
+        BlockHeader* block = tlsf::offset_to_block_nc(memory_pools[i], -static_cast<int>(tlsf::alloc_overhead()));
+        while(block && !tlsf::is_last(block))
+        {
+            if(tlsf::is_free(block))
+            {
+                BlockHeader* original_block = block;
+                block = tlsf::merge_prev(&control, block);
+                if(block == original_block) // No previous merge occurred
+                {
+                    block = tlsf::merge_next(&control, block);
+                }
+                if(block != original_block) // A merge occurred
+                {
+                    tlsf::insert(&control, block);
+                    merge_count++;
+                }
+            }
+            block = tlsf::next(block);
+        }
+    }
+    LOG::INFO("E_ALLOC", "Defragmentation completed. Merged %zu free blocks.", merge_count);
+    return merge_count;
+}
+
+void eAlloc::setAutoDefragment(bool enable, double threshold)
+{
+    if(lock_) elock::LockGuard guard(*lock_);
+    auto_defragment_ = enable;
+    if(threshold >= 0.0 && threshold <= 1.0)
+    {
+        defragment_threshold_ = threshold;
+    }
+    else
+    {
+        LOG::ERROR("E_ALLOC", "Invalid defragmentation threshold %.2f. Must be between 0.0 and 1.0. Using default 0.7.", threshold);
+        defragment_threshold_ = 0.7;
+    }
+    LOG::INFO("E_ALLOC", "Auto-defragmentation %s with threshold %.2f.", enable ? "enabled" : "disabled", defragment_threshold_);
+}
+
 
 } // namespace dsa

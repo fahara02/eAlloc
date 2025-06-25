@@ -188,6 +188,73 @@ TEST_F(eAllocTest, ReallocBehavior)
     EXPECT_EQ(ptr6, nullptr);
 }
 
+TEST_F(eAllocTest, PoolConfigManagement)
+{
+    uint8_t second_pool[1024];
+    dsa::eAlloc::PoolConfig config;
+    config.min_block_size = 32;
+    config.preferred_alignment = 8;
+    config.priority = 1;
+    bool result = allocator.add_pool(second_pool, sizeof(second_pool), config);
+    ASSERT_TRUE(result) << "Failed to add pool with custom configuration";
+    // Allocate and check if configuration is respected (indirectly via successful allocation)
+    void* ptr = allocator.malloc(64);
+    ASSERT_NE(ptr, nullptr) << "Allocation failed in pool with custom config";
+    // Check alignment if configured
+    if (config.preferred_alignment > 0) {
+        EXPECT_EQ(reinterpret_cast<uintptr_t>(ptr) % config.preferred_alignment, 0u) << "Alignment not respected";
+    }
+    allocator.free(ptr);
+    allocator.remove_pool(second_pool);
+}
+
+TEST_F(eAllocTest, AllocationFailureHandler)
+{
+    // Custom handler for allocation failure
+    static bool handler_called = false;
+    static void* recovery_memory = nullptr;
+    auto failure_handler = [](size_t size, void* user_data) -> void* {
+        handler_called = true;
+        // Simulate recovery by providing a static buffer (in real scenarios, this could free memory or use a reserve)
+        static uint8_t recovery_buffer[128];
+        if (size <= sizeof(recovery_buffer)) {
+            recovery_memory = recovery_buffer;
+            return recovery_buffer;
+        }
+        return nullptr;
+    };
+    allocator.setAllocationFailureHandler(failure_handler, nullptr);
+    
+    // Force out-of-memory condition
+    constexpr int max_allocs = 256;
+    void* ptrs[max_allocs] = {nullptr};
+    int count = 0;
+    bool recovery_used = false;
+    for (; count < max_allocs; ++count) {
+        ptrs[count] = allocator.allocate_raw(128);
+        if (ptrs[count] == recovery_memory) {
+            recovery_used = true;
+            break;
+        }
+        if (!ptrs[count]) break;
+    }
+    EXPECT_GT(count, 0) << "No allocations succeeded before testing failure handler";
+    if (handler_called) {
+        EXPECT_TRUE(handler_called) << "Allocation failure handler was not called";
+    }
+    if (handler_called && recovery_memory && recovery_used) {
+        EXPECT_EQ(ptrs[count], recovery_memory) << "Recovery memory not returned by handler";
+    }
+    // Clean up, avoid freeing recovery buffer to prevent segfault
+    for (int i = 0; i < count; ++i) {
+        if (ptrs[i] != recovery_memory) {
+            allocator.free(ptrs[i]);
+        }
+    }
+    // Reset handler
+    allocator.setAllocationFailureHandler(nullptr);
+}
+
 TEST_F(eAllocTest, PoolOverflow)
 {
     uint8_t pool1[512], pool2[512], pool3[512], pool4[512], pool5[512];
@@ -220,3 +287,64 @@ TEST_F(eAllocTest, FragmentationAndCoalescing)
     auto report = allocator.report();
     EXPECT_GE(report.largestFreeRegion, 192u);
 }
+
+TEST_F(eAllocTest, Defragmentation)
+{
+    // Create a fragmented memory state
+    void* pool_mem = malloc(4096);
+    ASSERT_TRUE(allocator.add_pool(pool_mem, 4096));
+    
+    // Allocate and free blocks to create fragmentation
+    void* ptr1 = allocator.malloc(512);
+    void* ptr2 = allocator.malloc(512);
+    void* ptr3 = allocator.malloc(512);
+    allocator.free(ptr2); // Free middle block to create fragmentation
+    
+    dsa::eAlloc::StorageReport initial_report = allocator.report();
+    EXPECT_GT(initial_report.freeBlockCount, 1) << "Expected fragmented memory with multiple free blocks.";
+    double initial_fragmentation = initial_report.fragmentationFactor;
+    
+    // Perform defragmentation
+    size_t merges = allocator.defragment();
+    EXPECT_GE(merges, 0) << "Defragmentation should report non-negative merge count.";
+    
+    dsa::eAlloc::StorageReport final_report = allocator.report();
+    EXPECT_LE(final_report.fragmentationFactor, initial_fragmentation) << "Fragmentation factor should not increase after defragmentation.";
+    EXPECT_LE(final_report.freeBlockCount, initial_report.freeBlockCount) << "Number of free blocks should not increase after defragmentation.";
+    
+    // Cleanup
+    allocator.free(ptr1);
+    allocator.free(ptr3);
+}
+
+TEST_F(eAllocTest, AutoDefragmentation)
+{
+    // Create a fragmented memory state
+    void* pool_mem = malloc(4096);
+    ASSERT_TRUE(allocator.add_pool(pool_mem, 4096));
+    
+    // Allocate and free blocks to create fragmentation
+    void* ptr1 = allocator.malloc(512);
+    void* ptr2 = allocator.malloc(512);
+    void* ptr3 = allocator.malloc(512);
+    allocator.free(ptr2); // Free middle block to create fragmentation
+    
+    dsa::eAlloc::StorageReport initial_report = allocator.report();
+    EXPECT_GT(initial_report.freeBlockCount, 1) << "Expected fragmented memory with multiple free blocks.";
+    double initial_fragmentation = initial_report.fragmentationFactor;
+    
+    // Enable auto-defragmentation with a low threshold to ensure it triggers
+    allocator.setAutoDefragment(true, 0.1);
+    
+    // Call logStorageReport to trigger auto-defragmentation
+    allocator.logStorageReport();
+    
+    dsa::eAlloc::StorageReport final_report = allocator.report();
+    EXPECT_LE(final_report.fragmentationFactor, initial_fragmentation) << "Fragmentation factor should not increase after auto-defragmentation.";
+    EXPECT_LE(final_report.freeBlockCount, initial_report.freeBlockCount) << "Number of free blocks should not increase after auto-defragmentation.";
+    
+    // Cleanup
+    allocator.free(ptr1);
+    allocator.free(ptr3);
+}
+

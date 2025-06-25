@@ -33,16 +33,51 @@ class eAlloc
 {
    public:
     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
+    
+      /**
+     * @brief Pool configuration for advanced memory pool management.
+     */
+     struct PoolConfig
+     {
+         size_t min_block_size ;    ///< Minimum block size for allocations in this pool (reduces fragmentation).
+         size_t preferred_alignment; ///< Preferred alignment for allocations in this pool.
+         int priority ;///< Priority for pool selection (higher value = higher priority).
+         PoolConfig(){
+            this->priority = 0;
+            this->min_block_size = tlsf::min_block_size();
+            this->preferred_alignment = tlsf::align_size();
+         }
+         PoolConfig(int priority){
+            this->priority = priority;
+            this->min_block_size = tlsf::min_block_size();
+            this->preferred_alignment = tlsf::align_size();
+         }
+         PoolConfig(int priority, size_t min_block_size, size_t preferred_alignment){
+            this->priority = priority;
+            this->min_block_size = min_block_size;
+            this->preferred_alignment = preferred_alignment;
+         }
+
+            
+     };
+
+
+
 
     /**
      * @brief Allocates raw memory of a specified size without constructing an object.
      * @param size Size of memory to allocate in bytes.
      * @return Pointer to the allocated raw memory, or nullptr if allocation fails.
      */
-    void* allocate_raw(size_t size)
-    {
-        return malloc(size);
-    }
+     void* allocate_raw(size_t size)
+     {
+         void* memory = malloc(size);
+         if (!memory && failure_handler_)
+         {
+             memory = failure_handler_(size, failure_handler_data_);
+         }
+         return memory;
+     }
 
     /**
      * @brief Template version of allocate_raw for type-safe size calculation.
@@ -82,6 +117,18 @@ class eAlloc
     using Control = tlsf::Control;         ///< TLSF control structure type.
     using BlockHeader = tlsf::BlockHeader; ///< TLSF block header type.
     using Walker = tlsf::tlsf_walker;      ///< Function type for walking memory blocks.
+     /**
+     * @brief Callback type for handling allocation failures.
+     * @param requested_size Size of the failed allocation request.
+     * @param user_data User-provided data for the callback.
+     * @return Pointer to memory if recovery is successful, nullptr otherwise.
+     */
+     using AllocationFailureHandler = void* (*)(size_t requested_size, void* user_data);
+
+
+
+
+
 
     /**
      * @brief Reports storage usage statistics for the allocator.
@@ -100,6 +147,8 @@ class eAlloc
         size_t largestFreeRegion = 0;     ///< Size of the largest free region in bytes.
         size_t freeBlockCount = 0;        ///< Number of free blocks.
         double fragmentationFactor = 0.0; ///< Fragmentation factor (0 to 1).
+        size_t smallestFreeRegion = 0; ///< Size of the smallest contiguous free region in bytes.
+        size_t averageFreeBlockSize = 0; ///< Average size of free blocks in bytes.
     };
 
     /**
@@ -156,6 +205,10 @@ class eAlloc
     T* allocate(const T& obj)
     {
         void* memory = malloc(sizeof(T));
+        if(!memory && failure_handler_)
+        {
+            memory = failure_handler_(sizeof(T), failure_handler_data_);
+        }
         if(!memory)
         {
             LOG::ERROR("E_ALLOC", "Memory allocation failed for object.");
@@ -175,6 +228,10 @@ class eAlloc
     T* allocate(Args&&... args)
     {
         void* memory = allocate_raw(sizeof(T));
+        if(!memory && failure_handler_)
+        {
+            memory = failure_handler_(sizeof(T), failure_handler_data_);
+        }
         if(!memory)
         {
             LOG::ERROR("E_ALLOC", "Memory allocation failed for object.");
@@ -205,9 +262,10 @@ class eAlloc
      * @brief Adds a new memory pool to the allocator.
      * @param mem Pointer to the memory block to add as a pool.
      * @param bytes Size of the memory block in bytes.
+     * @param config Configuration for the pool.
      * @return Pointer to the added pool, or nullptr if addition fails.
      */
-    void* add_pool(void* mem, size_t bytes);
+    void* add_pool(void* mem, size_t bytes, const PoolConfig& config=PoolConfig());
 
     /**
      * @brief Removes a memory pool from the allocator.
@@ -257,6 +315,18 @@ class eAlloc
      * @brief Logs the storage usage report.
      */
     void logStorageReport() const;
+    
+    /**
+     * @brief Sets a handler for allocation failures to enable error recovery.
+     * @param handler Callback function to invoke on allocation failure.
+     * @param user_data User data to pass to the callback.
+     */
+     void setAllocationFailureHandler(AllocationFailureHandler handler, void* user_data = nullptr)
+     {
+         failure_handler_ = handler;
+         failure_handler_data_ = user_data;
+     }
+
 
     /**
      * @brief Creates a lock object of the specified type and sets it for the allocator.
@@ -300,13 +370,34 @@ class eAlloc
         free(static_cast<void*>(lock));
     }
 
+    /**
+     * @brief Attempts to reduce memory fragmentation by merging adjacent free blocks.
+     * @return The number of free blocks merged during the defragmentation process.
+     */
+    size_t defragment();
+
+    /**
+     * @brief Enables or disables automatic defragmentation when fragmentation exceeds a threshold.
+     * @param enable Whether to enable auto-defragmentation.
+     * @param threshold Fragmentation factor threshold (0.0 to 1.0) above which defragmentation is triggered. Default is 0.7.
+     */
+    void setAutoDefragment(bool enable, double threshold = 0.7);
+
+
    private:
     Control control;              ///< TLSF control structure.
     void* memory_pools[MAX_POOL]; ///< Array of memory pool pointers.
     size_t pool_sizes[MAX_POOL];  ///< store all pool sizes
+    PoolConfig pool_configs[MAX_POOL]; ///< Array of pool configurations.
     size_t pool_count = 0;        ///< Number of active pools.
     bool initialised = false;     ///< Flag indicating if the allocator is initialized.
     elock::ILockable* lock_ = nullptr;
+    AllocationFailureHandler failure_handler_ = nullptr;
+    void* failure_handler_data_ = nullptr;
+    bool auto_defragment_ = false; ///< Flag indicating if auto-defragmentation is enabled.
+    double defragment_threshold_ = 0.7; ///< Fragmentation threshold for auto-defragmentation.
+    size_t alloc_count_ = 0; ///< Counter for malloc calls to control auto-defragmentation frequency.
+   
     /**
      * @brief Walks through the blocks in a pool with a specified walker function.
      * @param pool Pointer to the pool to walk.
