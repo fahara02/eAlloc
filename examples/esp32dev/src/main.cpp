@@ -39,7 +39,7 @@ void setup() {
     
   
     if (lock_) {
-        alloc.setAutoDefragment(false, 0.0); // Disable auto-defragmentation to avoid nested locks
+        
         // Lock is already set via createLock with autoSet=true
         void* p = alloc.malloc(128);
         if (p) {
