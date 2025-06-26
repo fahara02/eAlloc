@@ -1,3 +1,12 @@
+#pragma once
+#include "eAlloc.hpp"
+#include <cstddef>
+#include <stdexcept>
+#include <utility> // Added for std::pair
+
+namespace dsa
+{
+
 /**
  * @file StackAllocator.hpp
  * @brief MCU/host-agnostic C++ allocator using a stack-allocated memory pool and TLSF.
@@ -6,13 +15,6 @@
  * and supports optional thread safety via elock::ILockable. It is intended for use with
  * STL containers or custom allocation needs where a fixed-size stack buffer is desired.
  */
-#pragma once
-#include "eAlloc.hpp"
-#include <cstddef>
-#include <stdexcept>
-
-namespace dsa
-{
 
 /**
  * @brief Standard C++ allocator interface using a stack-allocated buffer and TLSF.
@@ -21,13 +23,13 @@ namespace dsa
  * @tparam PoolSize Size of the internal stack buffer in bytes.
  *
  * Usage:
- *   dsa::StackAllocator<int, 1024> alloc;
+ *   dsa::StackAllocator<int, 1024> alloc; // No lock
  *   std::vector<int, dsa::StackAllocator<int, 1024>> v(alloc);
  *
  * Thread Safety:
  *   - Not thread-safe by default.
- *   - To enable, call setLock() with a elock::ILockable* mutex adapter.
- *   - No STL bloat for MCU: lock is optional and not used unless set.
+ *   - Users can provide a lock instance via the constructor or setLock() method for thread safety.
+ *   - No STL bloat for MCU: lock is optional and only used if specified.
  */
 template <typename T, size_t PoolSize>
 class StackAllocator
@@ -57,7 +59,19 @@ class StackAllocator
     /**
      * @brief Constructor initializes the stack allocator with a fixed-size buffer.
      */
-    StackAllocator() : allocator(memoryPool, PoolSize) {}
+    StackAllocator() : allocator(memoryPool, PoolSize)
+    {
+        // Use setLock or the lock constructor if thread safety is needed
+    }
+
+    /**
+     * @brief Constructor initializes the stack allocator with a specific lock instance.
+     * @param lock Pointer to a lock instance to be used for thread safety.
+     */
+    StackAllocator(elock::ILockable* lock) : allocator(memoryPool, PoolSize)
+    {
+        allocator.setLock(lock);
+    }
 
     /**
      * @brief Copy constructor for allocator propagation (required by STL).
@@ -66,6 +80,7 @@ class StackAllocator
     template <typename U>
     StackAllocator(const StackAllocator<U, PoolSize>&) : allocator(memoryPool, PoolSize)
     {
+        // Use setLock or the lock constructor if thread safety is needed
     }
 
     /**
@@ -123,10 +138,58 @@ class StackAllocator
      * @brief Sets a lock for thread safety (optional, MCU/host agnostic).
      * @param lock Pointer to a elock::ILockable mutex adapter.
      *
-     * If not set, the allocator is not thread-safe. For host builds, use elock::StdMutex.
+     * If not set, the allocator is not thread-safe. 
+     * For host builds, use elock::StdMutex.
      * For embedded, use the appropriate platform adapter. Locking is delegated to eAlloc.
      */
     void setLock(elock::ILockable* lock) { allocator.setLock(lock); }
+
+    /**
+     * @brief Sets a failure handler for allocation errors.
+     * @param handler Function to call when allocation fails.
+     * @param user_data User data to pass to the handler.
+     */
+    void setFailureHandler(void* (*handler)(size_t, void*), void* user_data)
+    {
+        allocator.setAllocationFailureHandler(handler, user_data);
+    }
+
+    /**
+     * @brief Retrieves storage usage statistics.
+     * @return StorageReport structure containing memory usage details.
+     */
+    dsa::eAlloc::StorageReport getStorageReport() const
+    {
+        return allocator.report();
+    }
+
+    
+    /**
+     * @brief Logs storage usage statistics .
+     
+     */
+     void logStorageReport()const
+     {
+         return allocator.logStorageReport();
+     }
+
+    /**
+     * @brief Configures auto-defragmentation.
+     * @param enable Whether to enable auto-defragmentation.
+     * @param threshold Fragmentation threshold for triggering defragmentation.
+     */
+    void configureDefragmentation(bool enable, double threshold)
+    {
+        allocator.setAutoDefragment(enable, threshold);
+    }
+
+    /**
+     * @brief Manually triggers defragmentation of the memory pool.
+     */
+    void defragment()
+    {
+        allocator.defragment();
+    }
 
    private:
     char memoryPool[PoolSize]; ///< Stack-allocated memory pool

@@ -15,7 +15,7 @@
      lock_ = nullptr;
      initialised = false;
      auto_defragment_ = false;
-     defragment_threshold_ = 0.75f;
+     defragment_threshold_ = DEFRAGMENTATION_THRESH ;
     
      failure_handler_ = nullptr;
      failure_handler_data_ = nullptr;

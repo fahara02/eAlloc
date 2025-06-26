@@ -2,8 +2,7 @@
 #include "eAlloc.hpp"
 #include "logSetup.hpp"
 
-// Define the macro to enable ownership tag for testing
-#define EALLOC_ENABLE_OWNERSHIP_TAG 1
+
 
 struct LoggerEnvironment : ::testing::Environment
 {
@@ -579,6 +578,8 @@ TEST_F(eAllocTest, DynamicPoolResizing)
     allocator.free(ptr);
 }
 
+#if (EALLOC_ENABLE_OWNERSHIP_TAG)
+
 TEST_F(eAllocTest, OwnershipTagAllocationAndFree)
 {
     const size_t POOL_SIZE = 1024;
@@ -638,3 +639,4 @@ TEST_F(eAllocTest, OwnershipTagWithMultipleThreadsSimulation)
     allocator.setOwnershipTag(2003);
     allocator.free(ptr_t2_1); // Should log mismatch if checking enabled
 }
+#endif

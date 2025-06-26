@@ -43,7 +43,7 @@
   */
  class eAlloc
  {
-     using tlsf = dsa::TLSF<5>;             ///< TLSF allocator with 32 second-level lists.
+     using tlsf = dsa::TLSF<MAX_SLI>;             ///< TLSF allocator with 32 second-level lists.
      using Control = tlsf::Control;         ///< TLSF control structure type.
      using BlockHeader = tlsf::BlockHeader; ///< TLSF block header type.
      using Walker = tlsf::tlsf_walker;      ///< Function type for walking memory blocks.
@@ -69,10 +69,10 @@
  
  
     public:
-     static constexpr size_t MAX_POOL = 5; ///< Maximum number of memory pools allowed.
-                                           /**
-                                            * @brief Policy for pool allocation.
-                                            */
+    
+    /**
+    * @brief Policy for pool allocation.
+    */
      enum class Policy {
          DEFAULT_POLICY,          ///< Default policy.
          CRITICAL_ONLY,    ///< For critical tasks only.
@@ -136,7 +136,7 @@
      ResizeAllocationHandler resize_handler_ = nullptr;
      void* resize_handler_data_ = nullptr;
      bool auto_defragment_ = false;      ///< Flag indicating if auto-defragmentation is enabled.
-     double defragment_threshold_ = 0.7; ///< Fragmentation threshold for auto-defragmentation.
+     double defragment_threshold_ = DEFRAGMENTATION_THRESH; ///< Fragmentation threshold for auto-defragmentation.
      size_t alloc_count_ =
          0; ///< Counter for malloc calls to control auto-defragmentation frequency.
      bool usePerPoolLocking_ = false; // Flag to toggle between global and per-pool locking

@@ -77,7 +77,7 @@ target_include_directories(eAlloc PUBLIC
 # Only link Logger if building for ESP-IDF; for host/PC, it's header-only.
 
 # Enable ownership tag feature
-add_definitions(-DEALLOC_ENABLE_OWNERSHIP_TAG=1)
+add_definitions(-DEALLOC_ENABLE_OWNERSHIP_TAG=0)
 
 # Only build tests if this is the main project
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)

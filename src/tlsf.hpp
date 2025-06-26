@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <memory>
+#include "eConfig.hpp"
 
 #define dsa_min(a, b) ((a) < (b) ? (a) : (b))
 #define dsa_max(a, b) ((a) > (b) ? (a) : (b))
@@ -33,7 +34,7 @@ dsa_static_assert(sizeof(size_t) * CHAR_BIT <= 64);
 namespace dsa
 {
 
-template <size_t SLI = 5> // NO LINT
+template <size_t SLI = MAX_SLI,size_t ALIGN_EXP=DEFAULT_ALIGN_EXP> // NO LINT
 class TLSF
 {
    public:
@@ -62,7 +63,7 @@ class TLSF
 
    private:
     static constexpr size_t SL_INDEX_LOG2 = SLI;
-    static constexpr size_t ALIGN_SIZE_LOG2 = 2;
+    static constexpr size_t ALIGN_SIZE_LOG2 = ALIGN_EXP;
     static constexpr size_t BLOCK_ALIGNMENT = (1 << ALIGN_SIZE_LOG2);
     static constexpr size_t FL_INDEX_MAX = 31;
     static constexpr size_t SLI_COUNT = (1 << SL_INDEX_LOG2);
@@ -108,7 +109,7 @@ class TLSF
      * @brief Control structure for the TLSF allocator.
      *
      * This structure maintains the overall state of the allocator, including:
-     * - A special block (block_null) used to indicate empty free lists.
+     * - A Sentinel block (block_null) used to indicate empty free lists.
      * - A bitmap (fl_bitmap) representing the first-level free block availability.
      * - An array (cabinets) of second-level indices that manage the free lists for specific size
      * ranges.
