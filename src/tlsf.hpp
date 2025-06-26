@@ -37,21 +37,24 @@ template <size_t SLI = 5> // NO LINT
 class TLSF
 {
    public:
-
-    
     /**
-    * @brief Header for memory blocks in the TLSF allocator.
-    *
-    * This structure stores meta-information about a memory block used by the TLSF (Two-Level Segregated Fit) allocator.
-    * It includes a pointer to the previous physical block, the block's size and allocation flags, and pointers to
-    * the next and previous free blocks in the free list.
-    */
+     * @brief Header for memory blocks in the TLSF allocator.
+     *
+     * This structure stores meta-information about a memory block used by the TLSF (Two-Level
+     * Segregated Fit) allocator. It includes a pointer to the previous physical block, the block's
+     * size and allocation flags, a 32-bit tag for ownership (task/thread ID), and pointers to the
+     * next and previous free blocks in the free list.
+     */
     struct BlockHeader
     {
         /* Points to the previous physical block. */
         struct BlockHeader* prev_phys_block;
         /* The size of this block, including the block header. */
         size_t size_and_flags;
+#if defined(EALLOC_ENABLE_OWNERSHIP_TAG) && EALLOC_ENABLE_OWNERSHIP_TAG
+        /* 32-bit tag for ownership (task/thread ID). */
+        uint32_t owner_tag;
+#endif
         /* Next and previous free blocks. */
         struct BlockHeader* next_free;
         struct BlockHeader* prev_free;
@@ -87,30 +90,29 @@ class TLSF
     dsa_static_assert(BLOCK_ALIGNMENT == SMALL_BLOCK_SIZE / SLI_COUNT);
 
    public:
-
-   /**
-    * @brief Second-level structure for the TLSF allocator.
-    *
-    * This structure represents the second-level index in the Two-Level Segregated Fit allocator.
-    * It maintains a bitmap (sl_bitmap) that indicates which shelves (free lists) have available blocks,
-    * and an array of pointers (shelves) to the free block lists for blocks of specific size ranges.
-    */
+    /**
+     * @brief Second-level structure for the TLSF allocator.
+     *
+     * This structure represents the second-level index in the Two-Level Segregated Fit allocator.
+     * It maintains a bitmap (sl_bitmap) that indicates which shelves (free lists) have available
+     * blocks, and an array of pointers (shelves) to the free block lists for blocks of specific
+     * size ranges.
+     */
     struct SecondLevel
     {
         uint32_t sl_bitmap = 0;
         BlockHeader* shelves[SLI_COUNT] = {nullptr};
     };
 
-
-
     /**
-    * @brief Control structure for the TLSF allocator.
-    *
-    * This structure maintains the overall state of the allocator, including:
-    * - A special block (block_null) used to indicate empty free lists.
-    * - A bitmap (fl_bitmap) representing the first-level free block availability.
-    * - An array (cabinets) of second-level indices that manage the free lists for specific size ranges.
-    */
+     * @brief Control structure for the TLSF allocator.
+     *
+     * This structure maintains the overall state of the allocator, including:
+     * - A special block (block_null) used to indicate empty free lists.
+     * - A bitmap (fl_bitmap) representing the first-level free block availability.
+     * - An array (cabinets) of second-level indices that manage the free lists for specific size
+     * ranges.
+     */
     struct Control
     {
         /* Empty lists point at this block to indicate they are free. */
@@ -121,17 +123,15 @@ class TLSF
 
     /* A type used for casting when doing pointer arithmetic. */
     typedef ptrdiff_t tlsfptr_t; ///< Type for pointer arithmetic.
-    typedef void (*tlsf_walker)(void* ptr, size_t size, int used, void* user); ///< Function pointer type for walking memory blocks.
-   
-   
-   
-   
+    typedef void (*tlsf_walker)(void* ptr, size_t size, int used,
+                                void* user); ///< Function pointer type for walking memory blocks.
+
     // Block Header Functions
     /**
      * @brief Gets the usable size of a block.
-     * 
+     *
      * This function returns the block size after masking out the flag bits.
-     * 
+     *
      * @param block Pointer to the block header.
      * @return The size of the block.
      */
@@ -142,9 +142,9 @@ class TLSF
 
     /**
      * @brief Sets the size of a block while preserving flag bits.
-     * 
+     *
      * This function assigns the given size to the block header, preserving the current flag bits.
-     * 
+     *
      * @param block Pointer to the block header.
      * @param size New size to set.
      */
@@ -177,9 +177,9 @@ class TLSF
 
     /**
      * @brief Checks if the block is the last block in the heap.
-     * 
+     *
      * This is determined by checking if the block size is zero.
-     * 
+     *
      * @param block Pointer to the block header.
      * @return True if the block is the last block, false otherwise.
      */
@@ -263,8 +263,6 @@ class TLSF
         return n;
     }
 
-
-
     static inline const BlockHeader* next_const(const BlockHeader* block)
     {
         const BlockHeader* n =
@@ -281,8 +279,6 @@ class TLSF
         return n;
     }
 
-
-
     static inline void mark_as_free(BlockHeader* block)
     {
         /* Link the block to the next block, first. */
@@ -291,8 +287,6 @@ class TLSF
         set_free(block);
     }
 
-
-
     static inline void mark_as_used(BlockHeader* block)
     {
         BlockHeader* n = next(block);
@@ -300,23 +294,17 @@ class TLSF
         set_used(block);
     }
 
-
-
     static inline size_t align_up(size_t x, size_t align)
     {
         dsa_assert(0 == (align & (align - 1)) && "must align to a power of two");
         return (x + (align - 1)) & ~(align - 1);
     }
 
-
-
     static inline size_t align_down(size_t x, size_t align)
     {
         dsa_assert(0 == (align & (align - 1)) && "must align to a power of two");
         return x - (x & (align - 1));
     }
-
-
 
     static inline void* align_ptr(const void* ptr, size_t align)
     {
@@ -325,12 +313,10 @@ class TLSF
         return reinterpret_cast<void*>(aligned);
     }
 
-
-    
     /**
      * @brief Adjusts the requested allocation size to be aligned to the specified alignment and
      *        ensures it is not smaller than the minimum block size.
-     * 
+     *
      * @param size The requested allocation size.
      * @param align The required alignment.
      * @return The adjusted allocation size.
@@ -345,13 +331,13 @@ class TLSF
         }
         return adjust;
     }
-  
+
     /**
      * @brief Maps the given size to TLSF first-level (fli) and second-level (sli) indices.
      *
-     * For sizes smaller than SMALL_BLOCK_SIZE, the first-level index is set to 0, and the second-level
-     * index is computed based on the size. For larger sizes, the indices are computed using the most
-     * significant bit (via fls) with additional bit manipulations.
+     * For sizes smaller than SMALL_BLOCK_SIZE, the first-level index is set to 0, and the
+     * second-level index is computed based on the size. For larger sizes, the indices are computed
+     * using the most significant bit (via fls) with additional bit manipulations.
      *
      * @param size The size to be mapped.
      * @param fli Pointer to store the computed first-level index.
@@ -395,10 +381,6 @@ class TLSF
         }
         mapping_insert(size, fli, sli);
     }
-
-
-
-
 
     /**
      * @brief Searches for a suitable free block in the TLSF allocator.
@@ -469,8 +451,8 @@ class TLSF
     /**
      * @brief Inserts a block into the free list.
      *
-     * Adds the specified block into the free list at the given first-level and second-level indices, updating
-     * the free list pointers and associated bitmaps accordingly.
+     * Adds the specified block into the free list at the given first-level and second-level
+     * indices, updating the free list pointers and associated bitmaps accordingly.
      *
      * @param control Pointer to the TLSF control structure.
      * @param block Pointer to the block to be inserted.
@@ -508,7 +490,6 @@ class TLSF
         mapping_insert(get_size(block), &fl, &sl);
         insert_free_block(control, block, fl, sl);
     }
-
 
     /**
      * @brief Checks whether a block can be split into two blocks.
@@ -552,8 +533,8 @@ class TLSF
     /**
      * @brief Absorbs the second block into the first.
      *
-     * Merges a block with its successor by adding the size of the second block (plus header overhead)
-     * to the first block and relinking the next block.
+     * Merges a block with its successor by adding the size of the second block (plus header
+     * overhead) to the first block and relinking the next block.
      *
      * @param prev Pointer to the preceding block which will absorb the next block.
      * @param block Pointer to the block to be absorbed.
@@ -570,7 +551,8 @@ class TLSF
     /**
      * @brief Merges the current block with its previous free neighbor.
      *
-     * If the previous physical block is free, it is removed from the free list and merged with the current block.
+     * If the previous physical block is free, it is removed from the free list and merged with the
+     * current block.
      *
      * @param control Pointer to the TLSF control structure.
      * @param block Pointer to the current block header.
@@ -592,7 +574,8 @@ class TLSF
     /**
      * @brief Merges the current block with its next free neighbor.
      *
-     * If the next physical block is free, it is removed from the free list and merged with the current block.
+     * If the next physical block is free, it is removed from the free list and merged with the
+     * current block.
      *
      * @param control Pointer to the TLSF control structure.
      * @param block Pointer to the current block header.
@@ -615,7 +598,8 @@ class TLSF
      * @brief Trims a free block to a specified size.
      *
      * If the free block is large enough to be split, this function splits the block,
-     * adjusts the next block pointer, marks the remaining block as free, and inserts it into the free list.
+     * adjusts the next block pointer, marks the remaining block as free, and inserts it into the
+     * free list.
      *
      * @param control Pointer to the TLSF control structure.
      * @param block Pointer to the free block to trim.
@@ -682,7 +666,8 @@ class TLSF
     /**
      * @brief Locates a free block of sufficient size from the free list.
      *
-     * Searches for a free block that meets or exceeds the requested size and removes it from the free list.
+     * Searches for a free block that meets or exceeds the requested size and removes it from the
+     * free list.
      *
      * @param control Pointer to the TLSF control structure.
      * @param size The minimum required block size.
@@ -708,8 +693,8 @@ class TLSF
     /**
      * @brief Prepares a free block for allocation by marking it as used.
      *
-     * Trims the block to the requested size, marks it as used, and returns a pointer to the usable memory
-     * region. If the block is null, this function returns null.
+     * Trims the block to the requested size, marks it as used, and returns a pointer to the usable
+     * memory region. If the block is null, this function returns null.
      *
      * @param control Pointer to the TLSF control structure.
      * @param block Pointer to the free block to prepare.
@@ -835,31 +820,31 @@ class TLSF
     // Interface Functions
     /// Returns the number of first-level indices (cabinets) in the allocator.
     static constexpr inline size_t cabinets() { return FL_INDEX_COUNT; }
-    
+
     /// Returns the number of shelves per cabinet.
     static constexpr inline size_t shelves() { return SLI_COUNT; }
-    
+
     /// Returns the total number of shelves in the allocator.
     static constexpr inline size_t total_shelves() { return SLI_COUNT * FL_INDEX_COUNT; }
-    
+
     /// Returns the size of the allocator's control structure.
     static constexpr inline size_t size() { return sizeof(Control); }
-    
+
     /// Returns the alignment size used by the allocator.
     static constexpr inline size_t align_size() { return BLOCK_ALIGNMENT; }
-    
+
     /// Returns the minimum allowable block size.
     static constexpr inline size_t min_block_size() { return block_size_min; }
-    
+
     /// Returns the maximum allowable block size.
     static constexpr inline size_t max_block_size() { return block_size_max; }
-    
+
     /// Returns the overhead (in bytes) of the memory pool due to allocator internal bookkeeping.
     static constexpr inline size_t pool_overhead() { return 2 * block_header_overhead; }
-    
+
     /// Returns the overhead (in bytes) incurred during each allocation.
     static constexpr inline size_t alloc_overhead() { return block_header_overhead; }
-    
+
     /// Returns the block size in bytes.
     static inline size_t block_size(void* ptr)
     {
@@ -871,5 +856,28 @@ class TLSF
         }
         return size;
     }
+
+#if defined(EALLOC_ENABLE_OWNERSHIP_TAG) && EALLOC_ENABLE_OWNERSHIP_TAG
+    /**
+     * @brief Sets the ownership tag for a block.
+     * @param block Pointer to the block header.
+     * @param tag 32-bit ownership tag (e.g., task/thread ID).
+     */
+    static inline void set_owner_tag(BlockHeader* block, uint32_t tag)
+    {
+        if (block)
+            block->owner_tag = tag;
+    }
+
+    /**
+     * @brief Gets the ownership tag of a block.
+     * @param block Pointer to the block header.
+     * @return 32-bit ownership tag (e.g., task/thread ID), or 0 if block is null.
+     */
+    static inline uint32_t get_owner_tag(const BlockHeader* block)
+    {
+        return block ? block->owner_tag : 0;
+    }
+#endif
 };
 } // namespace dsa

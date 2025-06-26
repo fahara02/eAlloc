@@ -5,8 +5,8 @@ This document outlines the critical missing features and areas of improvement fo
 ## Critical Missing Features
 
 - [ ] **Advanced Memory Pool Management**
-  - Implement dynamic resizing or adjustment of memory pools at runtime. (❌ Pending)
-  - Add priority or policy-based allocation across pools for critical tasks. (❌ Pending)
+  - Implement dynamic resizing or adjustment of memory pools at runtime. (✅ Pending)
+  - Add priority or policy-based allocation across pools for critical tasks. (✅ Pending)
 
 - [ ] **Defragmentation Handling**
   - Develop a mechanism to handle long-term fragmentation, possibly through periodic compaction. (✅ Completed with defragment() and auto-defragmentation in malloc)
@@ -16,7 +16,8 @@ This document outlines the critical missing features and areas of improvement fo
   - Create a callback system to notify applications of critical memory issues. (❌ Pending)
   - Implement handling for out-of-memory conditions, such as fallback to a reserve pool or user-defined handlers. (✅ Completed with AllocationFailureHandler in malloc)
 
-
+- [x] **Ownership Tagging for Memory Blocks**
+  - Implement a 32-bit ownership tag to track memory ownership by task or thread. (✅ Completed with optional tagging via EALLOC_ENABLE_OWNERSHIP_TAG macro)
 
 - [ ] **Performance Optimizations for MCUs**
   - Optimize for cache alignment and memory access patterns specific to embedded hardware like ESP32. (❌ Pending)

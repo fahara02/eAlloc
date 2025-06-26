@@ -10,15 +10,13 @@ This document outlines the critical missing features and areas of improvement fo
 
 - [ ] **Defragmentation Handling**
   - Develop a mechanism to handle long-term fragmentation, possibly through periodic compaction. (✅ Completed with defragment() and auto-defragmentation in malloc)
-  - Provide statistics on fragmentation levels for debugging and optimization. (✅ Completed with enhanced StorageReport metrics)
+  - Provide statistics on fragmentation levels for debugging and optimization. (✅ Completed with enhanced StorageReport metrics including per-pool breakdown and average fragmentation factor)
 
 - [ ] **Error Recovery Mechanisms**
   - Create a callback system to notify applications of critical memory issues. (❌ Pending)
   - Implement handling for out-of-memory conditions, such as fallback to a reserve pool or user-defined handlers. (✅ Completed with AllocationFailureHandler in malloc)
 
-- [ ] **Memory Safety Features**
-  - Add optional bounds checking or buffer overflow protection using canary values or guard bands. (❌ Pending)
-  - Implement memory tagging or ownership tracking to prevent misuse across modules or tasks. (❌ Pending)
+
 
 - [ ] **Performance Optimizations for MCUs**
   - Optimize for cache alignment and memory access patterns specific to embedded hardware like ESP32. (❌ Pending)
@@ -28,11 +26,12 @@ This document outlines the critical missing features and areas of improvement fo
   - Allow customization of locking granularity (e.g., per-pool locks vs. global lock) to reduce contention. (✅) Added setPerPoolLocking method to toggle between global and per-pool locking, implemented in key methods.
   - Provide a compile-time option to disable locking entirely for single-threaded applications. (✅) Documented EALLOC_NO_LOCKING macro in eAlloc.hpp with usage instructions.
 
+
+
+## Additional Tasks
 - [ ] **Comprehensive Debugging Tools**
   - Develop profiling tools to track allocation patterns, peak usage, and detect memory leaks. (❌ Pending)
   - Add mechanisms to dump memory state or log allocation history for post-mortem analysis. (❌ Pending)
-
-## Additional Tasks
 
 - [ ] **Documentation Improvements**
   - Resolve Sphinx warnings and errors to ensure complete documentation. (❌ Pending)

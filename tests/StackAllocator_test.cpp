@@ -3,10 +3,12 @@
 #include <vector>
 #include "logSetup.hpp"
 
-struct LoggerEnvironment : ::testing::Environment {
+struct LoggerEnvironment : ::testing::Environment
+{
     void SetUp() override { setup_logger(); }
 };
-::testing::Environment* const logger_env = ::testing::AddGlobalTestEnvironment(new LoggerEnvironment());
+::testing::Environment* const logger_env =
+    ::testing::AddGlobalTestEnvironment(new LoggerEnvironment());
 
 struct StackTestObj
 {
@@ -38,10 +40,10 @@ TEST(StackAllocatorTest, AllocateVectorWithStackAllocator)
 
 TEST(StackAllocatorTest, OutOfMemoryThrows)
 {
-    dsa::StackAllocator<int, 16> alloc; // Small pool
+    dsa::StackAllocator<int, 1024> alloc; // Small pool
     EXPECT_THROW(
         {
-            int* arr = alloc.allocate(100); // Should throw
+            int* arr = alloc.allocate(2048); // Should throw
             (void)arr;
         },
         std::bad_alloc);

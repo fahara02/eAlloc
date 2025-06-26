@@ -35,13 +35,13 @@ class StackAllocator
    public:
     /** @name Standard C++ allocator typedefs */
     ///@{
-    using value_type = T;             ///< Value type
-    using pointer = T*;               ///< Pointer type
-    using const_pointer = const T*;   ///< Const pointer type
-    using reference = T&;             ///< Reference type
-    using const_reference = const T&; ///< Const reference type
-    using size_type = size_t;         ///< Size type
-    using difference_type = ptrdiff_t;///< Difference type
+    using value_type = T;              ///< Value type
+    using pointer = T*;                ///< Pointer type
+    using const_pointer = const T*;    ///< Const pointer type
+    using reference = T&;              ///< Reference type
+    using const_reference = const T&;  ///< Const reference type
+    using size_type = size_t;          ///< Size type
+    using difference_type = ptrdiff_t; ///< Difference type
     ///@}
 
     /**
@@ -53,7 +53,6 @@ class StackAllocator
     {
         using other = StackAllocator<U, PoolSize>;
     };
-
 
     /**
      * @brief Constructor initializes the stack allocator with a fixed-size buffer.
